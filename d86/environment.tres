@@ -1,0 +1,13 @@
+[gd_resource type="Environment" load_steps=2 format=2]
+
+[ext_resource path="res://procsky.tres" type="ProceduralSky" id=1]
+
+[resource]
+background_mode = 2
+background_sky = ExtResource( 1 )
+fog_sun_amount = 1.0
+fog_depth_begin = 0.0
+tonemap_mode = 2
+auto_exposure_enabled = true
+auto_exposure_speed = 4.0
+glow_intensity = 1.07

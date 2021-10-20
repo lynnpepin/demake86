@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="RichTextEffect" id=1]
+
+[sub_resource type="RichTextEffect" id=2]
+
+[node name="RichTextLabel" type="RichTextLabel"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 560.0
+margin_bottom = 496.0
+bbcode_enabled = true
+bbcode_text = "Hey [u]dude[/u] how are [b]you[/b] doing [i]man[/i]?"
+text = "Hey dude how are you doing man?"
+custom_effects = [ SubResource( 1 ), SubResource( 2 ), null, null, null, null ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
