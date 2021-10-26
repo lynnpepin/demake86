@@ -32,6 +32,7 @@ enabled=PoolStringArray(  )
 
 frame=false
 fps=true
+pixel=false
 
 [input]
 
