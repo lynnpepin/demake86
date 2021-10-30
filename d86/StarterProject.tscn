@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://StarterProject.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -7,14 +7,53 @@
 [ext_resource path="res://2D_graphics/256_bg.png" type="Texture" id=5]
 [ext_resource path="res://2D_graphics/512_bg.png" type="Texture" id=6]
 [ext_resource path="res://2D_graphics/1024_bg.png" type="Texture" id=7]
+[ext_resource path="res://2D_graphics/8px_ground.png" type="Texture" id=8]
+[ext_resource path="res://HardFloor.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Stats_UI.tscn" type="PackedScene" id=12]
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 8, 8, 0, 8, 0, 0, 8, 0 )
+
+[sub_resource type="TileSet" id=1]
+0/name = "8px_ground.png 0"
+0/texture = ExtResource( 8 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 8, 8 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 2 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
 
 [node name="StarterProject" type="Node2D"]
 position = Vector2( 0.157486, 0 )
 script = ExtResource( 1 )
 
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 8
+cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 65536, 0, 0, 65558, 0, 0, 65559, 0, 0, 131072, 0, 0, 131094, 0, 0, 131095, 0, 0, 196608, 0, 0, 196620, 0, 0, 196621, 0, 0, 196630, 0, 0, 196631, 0, 0, 262144, 0, 0, 262156, 0, 0, 262157, 0, 0, 262166, 0, 0, 262167, 0, 0, 327680, 0, 0, 327681, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327702, 0, 0, 327703, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393238, 0, 0, 393239, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458774, 0, 0, 458775, 0, 0 )
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 9 )]
+visible = false
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 32, 64 )
+position = Vector2( 32, 48 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 0, -16 )
