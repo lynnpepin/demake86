@@ -6,8 +6,8 @@ extends KinematicBody2D
 # var b = "text"
 # tiles per second: we want 4, so, speed set to 32
 var SPEED = 4*8
-var JUMP_SPEED = 128
-var GRAVITY = 400
+var JUMP_SPEED = 80 + 32
+var GRAVITY = 320
 var vv = Vector2()
 var y_velo = 0.0
 var x_velo = 0.0
@@ -15,7 +15,7 @@ var x_velo = 0.0
 # 'grounded' moves from 1.0 to 0.0 on jump
 # and from 1.0 to 0.0 gradually over time in the air
 var grounded = 1.0
-var GROUND_DECAY_RATE = 12  # i.e. decay in 1/12th of a second
+var GROUND_DECAY_RATE = 10  # i.e. set to 12, decay in 1/12th of a second
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,6 +42,7 @@ func _physics_process(delta):
 	# Set grounded or not for jumping
 	if check_floor():
 		grounded = 1.0
+		vv.y = 0
 	else:
 		grounded -= delta * GROUND_DECAY_RATE
 	
@@ -57,7 +58,11 @@ func _physics_process(delta):
 		print($Area2D.get_overlapping_bodies())
 		#print($RayCast_left.get_collider())
 		#print(vv)
-		
+	
+	if Input.is_action_just_released("pad_a"):
+		if vv.y < 0:
+			vv.y /= 2
+	
 	if grounded > 0 and Input.is_action_just_pressed("pad_a"):
 		vv.y = -JUMP_SPEED
 		grounded = 0.0
