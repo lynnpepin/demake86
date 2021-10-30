@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://StarterProject.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -37,6 +37,9 @@ points = PoolVector2Array( 8, 8, 0, 8, 0, 0, 8, 0 )
 } ]
 0/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 3, 0.5 )
+
 [node name="StarterProject" type="Node2D"]
 position = Vector2( 0.157486, 0 )
 script = ExtResource( 1 )
@@ -53,7 +56,7 @@ tile_data = PoolIntArray( 0, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 
 visible = false
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 32, 48 )
+position = Vector2( 32, 32 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 0, -16 )
@@ -64,6 +67,26 @@ drag_margin_left = 0.0
 drag_margin_top = 0.0
 drag_margin_right = 0.0
 drag_margin_bottom = 0.0
+
+[node name="RayCast_left" type="RayCast2D" parent="Player"]
+visible = false
+position = Vector2( -3, -1 )
+enabled = true
+cast_to = Vector2( 0, 1 )
+collide_with_areas = true
+
+[node name="RayCast_right" type="RayCast2D" parent="Player"]
+visible = false
+position = Vector2( 3, -1 )
+enabled = true
+cast_to = Vector2( 0, 1 )
+collide_with_areas = true
+
+[node name="Area2D" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+position = Vector2( 0, 0.5 )
+shape = SubResource( 3 )
 
 [node name="Stats" parent="." instance=ExtResource( 12 )]
 visible = false
