@@ -5,12 +5,15 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 # tiles per second: we want 4, so, speed set to 32
-var SPEED = 4*8
-var JUMP_SPEED = 80 + 32
+var SPEED = 20
+var JUMP_SPEED      = 80 + 32
+var HIGH_JUMP_SPEED = 80 + 32 + 16
 var GRAVITY = 320
 var vv = Vector2()
 var y_velo = 0.0
 var x_velo = 0.0
+
+var has_high_jump = true
 
 # 'grounded' moves from 1.0 to 0.0 on jump
 # and from 1.0 to 0.0 gradually over time in the air
@@ -64,7 +67,11 @@ func _physics_process(delta):
 			vv.y /= 2
 	
 	if grounded > 0 and Input.is_action_just_pressed("pad_a"):
-		vv.y = -JUMP_SPEED
+		if has_high_jump:
+			vv.y = -HIGH_JUMP_SPEED
+		else:
+			vv.y = -JUMP_SPEED
+	
 		grounded = 0.0
 	
 	move_and_slide(vv)
