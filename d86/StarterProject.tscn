@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://StarterProject.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://2D_graphics/1024_bg.png" type="Texture" id=7]
 [ext_resource path="res://2D_graphics/8px_ground.png" type="Texture" id=8]
 [ext_resource path="res://HardFloor.tscn" type="PackedScene" id=9]
+[ext_resource path="res://CrumbleFloor.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Stats_UI.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -56,7 +57,7 @@ tile_data = PoolIntArray( -2097128, 0, 0, -2097127, 0, 0, -2097126, 0, 0, -20971
 visible = false
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 31.8425, 41 )
+position = Vector2( 19.8425, 25 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 0, -16 )
@@ -89,6 +90,10 @@ position = Vector2( 0, 0.5 )
 shape = SubResource( 3 )
 
 [node name="Stats" parent="." instance=ExtResource( 12 )]
+visible = false
+
+[node name="StaticBody2D3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 15.8425, 32 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 offset = Vector2( 256, 256 )
