@@ -95,6 +95,30 @@ visible = false
 [node name="StaticBody2D3" parent="." instance=ExtResource( 10 )]
 position = Vector2( 15.8425, 32 )
 
+[node name="StaticBody2D4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 143.843, 80 )
+
+[node name="StaticBody2D5" parent="." instance=ExtResource( 10 )]
+position = Vector2( 151.843, 80 )
+
+[node name="StaticBody2D6" parent="." instance=ExtResource( 10 )]
+position = Vector2( 159.843, 80 )
+
+[node name="StaticBody2D7" parent="." instance=ExtResource( 10 )]
+position = Vector2( 167.843, 80 )
+
+[node name="StaticBody2D8" parent="." instance=ExtResource( 10 )]
+position = Vector2( 143.843, 104 )
+
+[node name="StaticBody2D9" parent="." instance=ExtResource( 10 )]
+position = Vector2( 151.843, 104 )
+
+[node name="StaticBody2D10" parent="." instance=ExtResource( 10 )]
+position = Vector2( 159.843, 104 )
+
+[node name="StaticBody2D11" parent="." instance=ExtResource( 10 )]
+position = Vector2( 167.843, 104 )
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 offset = Vector2( 256, 256 )
 transform = Transform2D( 1, 0, 0, 1, 256, 256 )
