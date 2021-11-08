@@ -9,7 +9,7 @@ var crumble_timer = 0
 var respawn_timer = 0
 
 var crumbled = false
-var TIME_UNTIL_CRUMBLE = 0.25
+var TIME_UNTIL_CRUMBLE = 1.0 / 30.0
 var TIME_UNTIL_RESPAWN = 1.00
 
 
@@ -35,6 +35,7 @@ func _process(delta):
 			crumble_timer = TIME_UNTIL_CRUMBLE
 			respawn_timer = TIME_UNTIL_RESPAWN
 		
+		# $Area2D is the area that detects the player on top
 		if len($Area2D.get_overlapping_bodies()) > 1:
 			crumble_timer -= delta
 		else:
@@ -42,7 +43,8 @@ func _process(delta):
 	
 	else: # crumbled
 		if respawn_timer < 0:
-			if len($body_area.get_overlapping_bodies()) == 1:
+			# $body_area is the area that detects the player inside
+			if len($body_area.get_overlapping_bodies()) < 1:
 				crumbled = false
 				crumble_timer = TIME_UNTIL_CRUMBLE
 				respawn_timer = TIME_UNTIL_RESPAWN

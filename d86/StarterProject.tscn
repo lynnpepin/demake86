@@ -89,7 +89,13 @@ shape = SubResource( 3 )
 visible = false
 
 [node name="StaticBody2D3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 31.8425, 25 )
+
+[node name="StaticBody2D13" parent="." instance=ExtResource( 10 )]
 position = Vector2( 15.8425, 32 )
+
+[node name="StaticBody2D12" parent="." instance=ExtResource( 10 )]
+position = Vector2( 62.8425, 24 )
 
 [node name="StaticBody2D4" parent="." instance=ExtResource( 10 )]
 position = Vector2( 143.843, 80 )

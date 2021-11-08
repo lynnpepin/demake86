@@ -19,7 +19,7 @@ var has_high_jump = false
 # 'grounded' moves from 1.0 to 0.0 on jump
 # and from 1.0 to 0.0 gradually over time in the air
 var grounded = 1.0
-var GROUND_DECAY_RATE = 10  # i.e. set to 12, decay in 1/12th of a second
+var GROUND_DECAY_RATE = 8  # i.e. set to 12, decay in 1/12th of a second
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
