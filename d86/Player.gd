@@ -5,7 +5,7 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 # tiles per second: we want 4, so, speed set to 32
-var SPEED = 20
+var SPEED = 24
 var JUMP_SPEED      = 80 + 32
 var HIGH_JUMP_SPEED = 80 + 32 + 16
 var GRAVITY = 320
@@ -87,11 +87,11 @@ func _physics_process(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("mb1"):
-		OS.set_window_size(Vector2(1024,1024))
+		OS.set_window_size(Vector2(4096,4096))
 	if Input.is_action_just_pressed("mb2"):
 		print("yay")
 		
-
+		var viewport = $Camera2D.get_viewport()
 		var img = $Camera2D.get_viewport().get_texture().get_data() #.queue_screen_capture()
 		#yield(get_tree(), "idle_frame")
 		#yield(get_tree(), "idle_frame")
@@ -99,5 +99,6 @@ func _process(delta):
 		# get screen capture 
 		#var capture = get_viewport().get_screen_capture()
 		# save to a file
+		img.flip_y()
 		img.save_png("user://screenshot.png")
 	pass

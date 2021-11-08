@@ -56,7 +56,7 @@ tile_data = PoolIntArray( -2097128, 0, 0, -2097127, 0, 0, -2097126, 0, 0, -20971
 position = Vector2( 19.8425, 25 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2( 0, -16 )
+position = Vector2( 1.33514e-05, -16 )
 current = true
 limit_left = -100000000
 limit_top = -100000000
@@ -132,10 +132,10 @@ motion_scale = Vector2( 0, 0 )
 motion_offset = Vector2( -256, -256 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer_bg64"]
-visible = false
 texture = ExtResource( 3 )
 
 [node name="ParallaxLayer2_bg128" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 z_index = -30
 motion_scale = Vector2( 0.25, 0.25 )
 motion_offset = Vector2( -192, -192 )
@@ -144,6 +144,7 @@ motion_offset = Vector2( -192, -192 )
 texture = ExtResource( 4 )
 
 [node name="ParallaxLayer3_bg256" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 z_index = -20
 motion_scale = Vector2( 0.5, 0.5 )
 motion_offset = Vector2( -128, -128 )
@@ -164,6 +165,7 @@ offset = Vector2( 256, 256 )
 transform = Transform2D( 1, 0, 0, 1, 256, 256 )
 
 [node name="ParallaxLayer3_fg1024" type="ParallaxLayer" parent="ParallaxForeground"]
+visible = false
 z_index = 100
 motion_scale = Vector2( 2, 2 )
 

@@ -18,11 +18,9 @@ config/icon="res://icon.png"
 
 window/size/width=96
 window/size/height=64
-window/size/test_width=960
-window/size/test_height=640
+window/size/test_width=192
+window/size/test_height=128
 window/vsync/use_vsync=false
-window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 
 [editor_plugins]
 
