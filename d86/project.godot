@@ -22,7 +22,7 @@ window/size/test_width=960
 window/size/test_height=640
 window/vsync/use_vsync=false
 window/stretch/mode="viewport"
-window/stretch/aspect="keep"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 

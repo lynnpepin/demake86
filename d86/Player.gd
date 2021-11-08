@@ -86,9 +86,12 @@ func _physics_process(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Input.is_action_just_pressed("mb1"):
+		OS.set_window_size(Vector2(1024,1024))
 	if Input.is_action_just_pressed("mb2"):
 		print("yay")
 		
+
 		var img = $Camera2D.get_viewport().get_texture().get_data() #.queue_screen_capture()
 		#yield(get_tree(), "idle_frame")
 		#yield(get_tree(), "idle_frame")
