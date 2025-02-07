@@ -21,7 +21,7 @@ var has_high_jump = false
 # 'grounded' moves from 1.0 to 0.0 on jump
 # and from 1.0 to 0.0 gradually over time in the air
 var grounded = 1.0
-var GROUND_DECAY_RATE = 6  # i.e. set to 12, decay in 1/12th of a second
+var GROUND_DECAY_RATE = 8  # i.e. set to 12, decay in 1/12th of a second
 
 # input
 var left: bool
@@ -101,12 +101,17 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("pad_left"):
-		$AnimatedSprite2D.flip_h = 1
+		pass
+		$AnimatedSprite2D_body.flip_h = 1
+		#$Node2D_cannon.flip_h = 1
 	if Input.is_action_just_pressed("pad_right"):
-		$AnimatedSprite2D.flip_h = 0
+		pass
+		$AnimatedSprite2D_body.flip_h = 0
+		#$Node2D_cannon.flip_h = 0
 	for input_key in ["pad_left", "pad_right", "pad_up", "pad_down", "pad_a", "pad_b", "pad_x", "pad_y", "pad_lb", "pad_rb"]:
 		if Input.is_action_just_pressed(input_key):
 			print(input_key, " pressed")
+			print("   Angle: ", $Node2D_cannon.angle)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
