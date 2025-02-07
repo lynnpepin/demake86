@@ -129,7 +129,7 @@ func shoot(delta: float) -> void:
 			shoot_timer = SHOOT_PERIOD
 			var b = BeamShot.instantiate()
 			var rawangle = -angle * PI / 4
-			b.velocity = Vector2(96.0, 0).rotated(rawangle)
+			b.velocity = Vector2(128.0, 0).rotated(rawangle)
 			b.position = global_position + get_shoot_xy(angle)
 			b.rotation = rawangle
 			if long:

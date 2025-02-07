@@ -1,6 +1,6 @@
 extends Area2D
 
-var LIFESPAN: float = 1.0 / 6.0;
+var LIFESPAN: float = 1.0 / 12.0;
 var lifetime: float = 0.0;
 var velocity: Vector2
 
@@ -33,6 +33,7 @@ func die():
 
 # TODO:
 # - sprite
+# - collision shape for enemies, and for walls
 # - dies when hit walls
 # - explodes when it hits walls
 # - shoot at angle

@@ -10,9 +10,9 @@ var SPEED = 32
 var JUMP_SPEED      = 80 + 48 #+ 32
 var HIGH_JUMP_SPEED = 80 + 80 #+ 16
 var GRAVITY = 480 #320
-var MAX_FALL_SPEED = 192
+var MAX_FALL_SPEED = 128
 var vv = Vector2()
-var ax = 3
+var ax = SPEED * 6
 var y_velo = 0.0
 var x_velo = 0.0
 
@@ -44,16 +44,16 @@ func _physics_process(delta: float) -> void:
 	if left or right:
 		vv.x = clamp(
 			#           (1 - (1 - grounded)*.75) reduces air movement to 1/4; momentum is preserved! 
-			vv.x + ax * (1 - (1 - grounded)*.50) * (int(right) - int(left)),
+			vv.x + ax*delta * (1 - (1 - grounded)*.5) * (int(right) - int(left)),
 			-SPEED,
 			SPEED
 		)
 	else:
 		# Friction toward zero
 		if vv.x < 0:
-			vv.x = min(vv.x + ax, 0)
+			vv.x = min(vv.x + ax*delta, 0)
 		else:
-			vv.x = max(vv.x - ax, 0)
+			vv.x = max(vv.x - ax*delta, 0)
 	
 	if grounded < .5 or abs(vv.x) > 1:
 		$AnimatedSprite2D_body.play("run")
