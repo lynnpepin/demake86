@@ -17,7 +17,7 @@ var y_velo = 0.0
 var x_velo = 0.0
 
 # power ups
-var has_high_jump = true
+var has_high_jump = false
 
 # 'grounded' moves from 1.0 to 0.0 on jump
 # and from 1.0 to 0.0 gradually over time in the air

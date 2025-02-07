@@ -1,6 +1,7 @@
-[gd_scene load_steps=43 format=4 uid="uid://dk8unr07bj50f"]
+[gd_scene load_steps=44 format=4 uid="uid://dk8unr07bj50f"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_2vt6r"]
+[ext_resource type="PackedScene" uid="uid://cm4sgoeo882q7" path="res://beam_shot.tscn" id="1_oue62"]
 [ext_resource type="Script" path="res://cannon.gd" id="2_84yop"]
 [ext_resource type="Texture2D" uid="uid://x1ncr4x48wv1" path="res://art/relan/cannon_right_u.png" id="2_gcua6"]
 [ext_resource type="Texture2D" uid="uid://b6ckyjdjddifx" path="res://art/relan/relan_right.png" id="2_mujdb"]
@@ -128,6 +129,8 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_norok")
 sources/0 = SubResource("TileSetAtlasSource_57j4n")
 
 [node name="Node2D" type="Node2D"]
+
+[node name="BeamShot" parent="." instance=ExtResource("1_oue62")]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(16, 16)

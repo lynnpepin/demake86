@@ -9,6 +9,16 @@ var right: bool
 var diag: bool
 
 # State
+## Shooting state
+var long: bool = false
+var wave: bool = false
+var ice:  bool = false
+var charge: bool = false
+
+var shoot_timer: float = 0
+var SHOOT_PERIOD: float = .5
+
+## Aiming state
 var aimvec: Vector2
 var angle: int = 0
 var prevangle: int = 0
@@ -23,6 +33,7 @@ var sprites = [
 ]
 
 var random = RandomNumberGenerator.new()
+var BeamShot = preload("res://beam_shot.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,7 +45,7 @@ func _process(delta: float) -> void:
 	########
 	# Handle aiming
 	########
-	if angle != prevangle:
+	if (angle != prevangle) or Input.is_action_just_pressed("pad_rb"):
 		[$Sounds/Click, $Sounds/Click2, $Sounds/Click3, $Sounds/Click4][random.randi() % 4].play()
 		
 	prevangle = angle
@@ -107,19 +118,39 @@ func _process(delta: float) -> void:
 	########
 	# Handle firing
 	########
-	if Input.is_action_pressed("pad_x"):
-		draw_circle(Vector2(0,0), 4, Color.GREEN)
+	shoot(delta)
 	
 	queue_redraw()
+
+func shoot(delta: float) -> void:
+	shoot_timer = max(0, shoot_timer - delta)
+	if Input.is_action_pressed("pad_x"):
+		if shoot_timer == 0:
+			shoot_timer = SHOOT_PERIOD
+			var b = BeamShot.instantiate()
+			var rawangle = -angle * PI / 4
+			b.velocity = Vector2(96.0, 0).rotated(rawangle)
+			b.position = global_position + get_shoot_xy(angle)
+			b.rotation = rawangle
+			if long:
+				b.LIFESPAN = 2
+			owner.add_child(b)
+			
+			
+			print("Pew")
+		draw_circle(Vector2(0,0), 4, Color.GREEN)
+
+func get_shoot_xy(angle):
+	return Vector2(
+		# Aiming coordinates based on angle
+		[4,  4, flip, -4, -4, -3, 0, 3][angle],
+		[4, 0, -4, 0,  4, 6, 8, 6][angle]
+	)
 	
 func _draw():
 	if Input.is_action_pressed("pad_x"):
 		draw_circle(
-			Vector2(
-				# Aiming coordinates based on angle
-				[4,  4, flip, -4, -4, -3, 0, 3][angle],
-				[4, 0, -4, 0,  4, 6, 8, 6][angle]
-			),
+			get_shoot_xy(angle),
 			1.5,
 			Color.GREEN,
 			false
