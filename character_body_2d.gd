@@ -30,8 +30,8 @@ var right: bool
 func _physics_process(delta: float) -> void:
 	# Get left/right direction
 	#vv.x = 0
-	left  = Input.is_action_pressed("ui_left")
-	right = Input.is_action_pressed("ui_right")
+	left  = Input.is_action_pressed("pad_left")
+	right = Input.is_action_pressed("pad_right")
 	
 	if left or right:
 		vv.x = clamp(
@@ -64,17 +64,17 @@ func _physics_process(delta: float) -> void:
 	
 	# If grounded and jump, set jump speed
 	
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("pad_a"):
 		print(grounded)
 		#print($Area2D.get_overlapping_bodies())
 		#print($RayCast_left.get_collider())
 		#print(vv)
 	
-	if Input.is_action_just_released("ui_accept"):
+	if Input.is_action_just_released("pad_a"):
 		if vv.y < 0:
 			vv.y /= 2
 	
-	if grounded > 0 and Input.is_action_just_pressed("ui_accept"):
+	if grounded > 0 and Input.is_action_just_pressed("pad_a"):
 		if has_high_jump:
 			vv.y = -HIGH_JUMP_SPEED
 		else:
@@ -100,10 +100,13 @@ func _ready():
 
 
 func _process(delta):
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_just_pressed("pad_left"):
 		$AnimatedSprite2D.flip_h = 1
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_just_pressed("pad_right"):
 		$AnimatedSprite2D.flip_h = 0
+	for input_key in ["pad_left", "pad_right", "pad_up", "pad_down", "pad_a", "pad_b", "pad_x", "pad_y", "pad_lb", "pad_rb"]:
+		if Input.is_action_just_pressed(input_key):
+			print(input_key, " pressed")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
