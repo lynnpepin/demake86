@@ -23,6 +23,10 @@ window/stretch/mode="viewport"
 window/stretch/scale=8.0
 window/stretch/scale_mode="integer"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_sfxr/plugin.cfg")
+
 [input]
 
 pad_a={

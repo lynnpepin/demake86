@@ -22,6 +22,8 @@ var sprites = [
 	$Sprite2D_cannon_d, $Sprite2D_cannon_df
 ]
 
+var random = RandomNumberGenerator.new()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -32,6 +34,9 @@ func _process(delta: float) -> void:
 	########
 	# Handle aiming
 	########
+	if angle != prevangle:
+		[$Sounds/Click, $Sounds/Click2, $Sounds/Click3, $Sounds/Click4][random.randi() % 4].play()
+		
 	prevangle = angle
 	up = Input.is_action_pressed("pad_up")
 	left = Input.is_action_pressed("pad_left")
@@ -43,9 +48,9 @@ func _process(delta: float) -> void:
 	#	(Vector2(int(right) - int(left), int(up) - int(down)).angle() / PI) 
 	#))
 	if right:
-		flip = 0
-	if left:
 		flip = 1
+	if left:
+		flip = -1
 	
 	aimvec = Vector2(
 		#1 - 2*flip,
@@ -54,7 +59,7 @@ func _process(delta: float) -> void:
 	)
 	
 	if aimvec.length() == 0:
-		aimvec.x = 1 - 2*flip
+		aimvec.x = flip
 	
 	angle = posmod(
 		int(
@@ -89,6 +94,7 @@ func _process(delta: float) -> void:
 	
 	for ii in 8:
 		sprites[ii].visible = false
+		sprites[ii].flip_h = [1, 0, 0][flip + 1] # flip = -1 -> 1;  flip = 1 -> 0
 		if left:
 			sprites[ii].flip_h = 1
 		if right:
@@ -110,7 +116,8 @@ func _draw():
 	if Input.is_action_pressed("pad_x"):
 		draw_circle(
 			Vector2(
-				[4,  4, 0, -4, -4, -3, 0, 3][angle],
+				# Aiming coordinates based on angle
+				[4,  4, flip, -4, -4, -3, 0, 3][angle],
 				[4, 0, -4, 0,  4, 6, 8, 6][angle]
 			),
 			1.5,

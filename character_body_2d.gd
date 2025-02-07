@@ -17,7 +17,7 @@ var y_velo = 0.0
 var x_velo = 0.0
 
 # power ups
-var has_high_jump = false
+var has_high_jump = true
 
 # 'grounded' moves from 1.0 to 0.0 on jump
 # and from 1.0 to 0.0 gradually over time in the air
@@ -27,6 +27,13 @@ var GROUND_DECAY_RATE = 8  # i.e. set to 12, decay in 1/12th of a second
 # input
 var left: bool
 var right: bool
+
+# children
+#var Sounds: Node2D = $Sounds
+var random = RandomNumberGenerator.new()
+
+# Steps counter
+var steps: int = 0
 
 func _physics_process(delta: float) -> void:
 	# Get left/right direction
@@ -63,8 +70,17 @@ func _physics_process(delta: float) -> void:
 	# Set grounded or not for jumping
 	# replaced old check_floor with built-in is_on_floor
 	if is_on_floor():
+		if vv.y > 32:
+			#$Sounds/Land.volume_db = vv.y / 64
+			play_landing_sound()
 		grounded = 1.0
 		vv.y = 0
+		
+		steps += int(round(abs(vv.x) * delta))
+		if (steps > 24) and (left or right):
+			steps = 0
+			play_landing_sound()
+		
 	else:
 		grounded = max(0, grounded - delta * GROUND_DECAY_RATE)
 		
@@ -76,28 +92,35 @@ func _physics_process(delta: float) -> void:
 	vv.y = min(vv.y, MAX_FALL_SPEED)
 	
 	# If grounded and jump, set jump speed
-	
-	if Input.is_action_just_pressed("pad_a"):
-		print(grounded)
-		#print($Area2D.get_overlapping_bodies())
-		#print($RayCast_left.get_collider())
-		#print(vv)
-	
 	if Input.is_action_just_released("pad_a"):
 		if vv.y < 0:
+			$Sounds/Jump.seek(.2)
+#			$Sounds/Jump.play(0.25)
 			vv.y /= 2
 	
 	if grounded > 0 and Input.is_action_just_pressed("pad_a"):
+		print(grounded)
 		if has_high_jump:
 			vv.y = -HIGH_JUMP_SPEED
 		else:
 			vv.y = -JUMP_SPEED
-	
+		
 		grounded = 0.0
+		$Sounds/Jump.play(0.0);
 	
 	set_velocity(vv)
 	move_and_slide()
-
+	
+	# Play sound if changing direction
+	if grounded and (left or right):
+		if left and (vv.x > SPEED/3):
+			$Sounds/ChangeDirection.play() 
+		elif right and (vv.x < -SPEED/3):
+			$Sounds/ChangeDirection.play() 
+		else:
+			$Sounds/ChangeDirection.stop()
+	else:
+		$Sounds/ChangeDirection.stop()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -139,3 +162,6 @@ func _process(delta):
 #		#yield(get_tree(), "idle_frame")
 #		#yield(get_tree(), "idle_frame")
 #	pass
+
+func play_landing_sound():
+	[$Sounds/Land, $Sounds/Land2, $Sounds/Land3, $Sounds/Land4][random.randi() % 4].play()
