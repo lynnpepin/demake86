@@ -10,6 +10,7 @@ var SPEED = 32
 var JUMP_SPEED      = 80 + 48 #+ 32
 var HIGH_JUMP_SPEED = 80 + 80 #+ 16
 var GRAVITY = 480 #320
+var MAX_FALL_SPEED = 192
 var vv = Vector2()
 var ax = 3
 var y_velo = 0.0
@@ -35,15 +36,24 @@ func _physics_process(delta: float) -> void:
 	
 	if left or right:
 		vv.x = clamp(
-			vv.x + ax * (int(right) - int(left)),
+			#           (1 - (1 - grounded)*.75) reduces air movement to 1/4; momentum is preserved! 
+			vv.x + ax * (1 - (1 - grounded)*.50) * (int(right) - int(left)),
 			-SPEED,
 			SPEED
 		)
 	else:
+		# Friction toward zero
 		if vv.x < 0:
 			vv.x = min(vv.x + ax, 0)
 		else:
 			vv.x = max(vv.x - ax, 0)
+	
+	if grounded < .5 or abs(vv.x) > 1:
+		$AnimatedSprite2D_body.play("run")
+		$AnimatedSprite2D_body.speed_scale = abs(vv.x) / SPEED
+	else:
+		$AnimatedSprite2D_body.play("default")
+		
 	
 	#if int(Input.is_action_pressed("ui_right")):
 	#	vv.x += 1 * SPEED
@@ -56,11 +66,14 @@ func _physics_process(delta: float) -> void:
 		grounded = 1.0
 		vv.y = 0
 	else:
-		grounded -= delta * GROUND_DECAY_RATE
-	
+		grounded = max(0, grounded - delta * GROUND_DECAY_RATE)
+		
 	# Check again
 	if not is_on_floor():
 		vv.y = vv.y + GRAVITY * delta
+	
+	# Enforce max fall speed
+	vv.y = min(vv.y, MAX_FALL_SPEED)
 	
 	# If grounded and jump, set jump speed
 	
@@ -109,9 +122,10 @@ func _process(delta):
 		$AnimatedSprite2D_body.flip_h = 0
 		#$Node2D_cannon.flip_h = 0
 	for input_key in ["pad_left", "pad_right", "pad_up", "pad_down", "pad_a", "pad_b", "pad_x", "pad_y", "pad_lb", "pad_rb"]:
-		if Input.is_action_just_pressed(input_key):
-			print(input_key, " pressed")
-			print("   Angle: ", $Node2D_cannon.angle)
+		#if Input.is_action_just_pressed(input_key):
+		#	print(input_key, " pressed")
+			#print("   Angle: ", $Node2D_cannon.angle)
+		pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

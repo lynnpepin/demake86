@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dk8unr07bj50f"]
+[gd_scene load_steps=32 format=4 uid="uid://dk8unr07bj50f"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_2vt6r"]
 [ext_resource type="Script" path="res://cannon.gd" id="2_84yop"]
@@ -14,6 +14,18 @@
 [ext_resource type="Texture2D" uid="uid://c28g3cl6svxb0" path="res://art/relan/cannon_right_d.png" id="6_bmcof"]
 [ext_resource type="Texture2D" uid="uid://b3y2iji6hrwtn" path="res://art/128_bg.png" id="6_lsn6u"]
 [ext_resource type="Texture2D" uid="uid://xgn8x5qcmkic" path="res://art/64_bg.png" id="7_s1bfu"]
+[ext_resource type="Texture2D" uid="uid://cyx8qxku5lo30" path="res://art/relan/relan_run_0.png" id="9_xop1l"]
+[ext_resource type="Texture2D" uid="uid://ct0hfh3g8ff7c" path="res://art/relan/relan_run_1.png" id="10_mrgqd"]
+[ext_resource type="Texture2D" uid="uid://cw5xj5g875xbr" path="res://art/relan/relan_run_2.png" id="11_mosrl"]
+[ext_resource type="Texture2D" uid="uid://bqjbrci3cvg3g" path="res://art/relan/relan_run_3.png" id="12_0gkdj"]
+[ext_resource type="Texture2D" uid="uid://b4j3y2tq4rsct" path="res://art/relan/relan_run_4.png" id="13_oryis"]
+[ext_resource type="Texture2D" uid="uid://bx5ie2k53wt3u" path="res://art/relan/relan_run_5.png" id="14_cbdoj"]
+[ext_resource type="Texture2D" uid="uid://cixchds0pm6lo" path="res://art/relan/relan_run_6.png" id="15_3xeit"]
+[ext_resource type="Texture2D" uid="uid://dch46gqlxwx11" path="res://art/relan/relan_run_7.png" id="16_11guv"]
+[ext_resource type="Texture2D" uid="uid://dvhp4h1tyypv6" path="res://art/relan/relan_run_8.png" id="17_hvg2w"]
+[ext_resource type="Texture2D" uid="uid://6q43cqpufapj" path="res://art/relan/relan_run_9.png" id="18_l1615"]
+[ext_resource type="Texture2D" uid="uid://cegbgmm66xde0" path="res://art/relan/relan_run_10.png" id="19_mamvd"]
+[ext_resource type="Texture2D" uid="uid://xwwvurx872by" path="res://art/relan/relan_run_11.png" id="20_kpvui"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wkjru"]
 size = Vector2(4, 10)
@@ -27,6 +39,47 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_0gkdj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_oryis")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_cbdoj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_3xeit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_11guv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_hvg2w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_l1615")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_mamvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_kpvui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xop1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mrgqd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mosrl")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
 }]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_norok"]
@@ -79,6 +132,7 @@ texture = ExtResource("6_bmcof")
 [node name="AnimatedSprite2D_body" type="AnimatedSprite2D" parent="CharacterBody2D"]
 z_index = 10
 sprite_frames = SubResource("SpriteFrames_1gacd")
+animation = &"run"
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
