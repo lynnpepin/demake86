@@ -122,8 +122,8 @@ func _process(delta):
 		$AnimatedSprite2D_body.flip_h = 0
 		#$Node2D_cannon.flip_h = 0
 	for input_key in ["pad_left", "pad_right", "pad_up", "pad_down", "pad_a", "pad_b", "pad_x", "pad_y", "pad_lb", "pad_rb"]:
-		#if Input.is_action_just_pressed(input_key):
-		#	print(input_key, " pressed")
+		if Input.is_action_just_pressed(input_key):
+			print(input_key, " pressed")
 			#print("   Angle: ", $Node2D_cannon.angle)
 		pass
 

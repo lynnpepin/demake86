@@ -9,8 +9,10 @@ var right: bool
 var diag: bool
 
 # State
+var aimvec: Vector2
 var angle: int = 0
 var prevangle: int = 0
+var flip: int = 0
 
 # Sprites
 var sprite
@@ -27,6 +29,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	########
+	# Handle aiming
+	########
 	prevangle = angle
 	up = Input.is_action_pressed("pad_up")
 	left = Input.is_action_pressed("pad_left")
@@ -37,11 +42,27 @@ func _process(delta: float) -> void:
 	#angle = int(round(
 	#	(Vector2(int(right) - int(left), int(up) - int(down)).angle() / PI) 
 	#))
+	if right:
+		flip = 0
+	if left:
+		flip = 1
+	
+	aimvec = Vector2(
+		#1 - 2*flip,
+		int(right) - int(left),
+		int(up) - int(down)
+	)
+	
+	if aimvec.length() == 0:
+		aimvec.x = 1 - 2*flip
+	
 	angle = posmod(
 		int(
-			(Vector2(int(right) - int(left), int(up) - int(down)).angle() / PI) * 4
+			(
+				aimvec.angle() / PI) * 4
 		),
 	8)
+	#print(flip, angle)
 	
 	if diag:
 		angle = [
@@ -77,7 +98,25 @@ func _process(delta: float) -> void:
 	sprites[angle].visible = true
 	
 		
+	########
+	# Handle firing
+	########
+	if Input.is_action_pressed("pad_x"):
+		draw_circle(Vector2(0,0), 4, Color.GREEN)
 	
+	queue_redraw()
+	
+func _draw():
+	if Input.is_action_pressed("pad_x"):
+		draw_circle(
+			Vector2(
+				[4,  4, 0, -4, -4, -3, 0, 3][angle],
+				[4, 0, -4, 0,  4, 6, 8, 6][angle]
+			),
+			1.5,
+			Color.GREEN,
+			false
+		)
 	
 	#if (up or down or left or right or diag):
 	#	print(angle)
