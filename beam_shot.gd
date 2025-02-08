@@ -28,6 +28,7 @@ func _physics_process(delta: float) -> void:
 	if collision != null:
 		if collision.get_collider().is_in_group("hatch"):
 			collision.get_collider().get_parent().open() # todo: differentiate between beam, missile, etc.
+			die()
 	# https://stackoverflow.com/questions/69728827/how-do-i-detect-collisions-in-godot#69731270
 	
 	#position += velocity * delta

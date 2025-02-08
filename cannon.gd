@@ -118,26 +118,38 @@ func _process(delta: float) -> void:
 	########
 	# Handle firing
 	########
+	shoot_timer = max(0, shoot_timer - delta)
 	shoot(delta)
+	
 	queue_redraw()
 
-func shoot(delta: float) -> void:
-	shoot_timer = max(0, shoot_timer - delta)
+func shoot(delta):
 	if Input.is_action_pressed("pad_x"):
-		if shoot_timer == 0:
+		if shoot_timer <= 0:
 			shoot_timer = SHOOT_PERIOD
-			var b = BeamShot.instantiate()
-			var rawangle = -angle * PI / 4
-			b.velocity = Vector2(128.0, 0).rotated(rawangle)
-			b.position = global_position + get_shoot_xy(angle)
-			b.rotation = rawangle
-			if long:
-				b.LIFESPAN = 2
-			owner.add_child(b)
+			if Input.is_action_pressed("pad_rb"):
+				shoot_missile(delta)
+			else:
+				shoot_beam(delta)
+	
+func shoot_missile(delta):
+	var _count_missiles = get_parent().missiles
+	print("Shooting missle ", _count_missiles)
+	if _count_missiles > 0:
+		# TODO - This logic should be in the parent
+		get_parent().add_missiles(-1)
+		shoot_beam(delta) # TODO - create missile, shoot missile
+		
+func shoot_beam(delta: float) -> void:
+	var b = BeamShot.instantiate()
+	var rawangle = -angle * PI / 4
+	b.velocity = Vector2(128.0, 0).rotated(rawangle)
+	b.position = get_shoot_xy(angle)#global_position + get_shoot_xy(angle)
+	b.rotation = rawangle
+	if long:
+		b.LIFESPAN = 2
+	owner.add_child(b)
 			
-			
-			print("Pew")
-		draw_circle(Vector2(0,0), 4, Color.GREEN)
 
 func get_shoot_xy(angle):
 	return Vector2(
@@ -145,145 +157,15 @@ func get_shoot_xy(angle):
 		[4,  4, flip, -4, -4, -3, 0, 3][angle],
 		[4, 0, -4, 0,  4, 6, 8, 6][angle]
 	)
-	
+
+func _highlight_cannon(color):
+	draw_circle(
+		get_shoot_xy(angle),
+		1.5,
+		color,
+		false
+	)
+
 func _draw():
-	if Input.is_action_pressed("pad_x"):
-		draw_circle(
-			get_shoot_xy(angle),
-			1.5,
-			Color.GREEN,
-			false
-		)
-	
-	#if (up or down or left or right or diag):
-	#	print(angle)
-	
-	#  "Per-case" system, for posterity
-	#                     lb ↓←↑→
-	#if not diag:
-		#if not down:
-			#if not left:
-				#if not up:
-					#if not right:
-						## _ ____
-						#angle = [0, 0, 0, 4, 4, 4, 4, 0][angle] # todo; handle stateful 2 / 6
-					#else: #right
-						## _ ___→
-						#angle = 4
-				#else: #up
-					#if not right:
-						## _ __↑_
-						#pass
-					#else: 
-						## _ __↑→
-						#pass
-			#else: #left
-				#if not up:
-					#if not right:
-						## _ _←__
-						#pass
-					#else: #right
-						## _ _←_→
-						#pass
-				#else: #up
-					#if not right:
-						## _ _←↑_
-						#pass
-					#else: #right 
-						## _ _←↑→
-						#pass
-		#else: #down
-			#if not left:
-				#if not up:
-					#if not right:
-						## _ ↓___
-						#pass
-					#else: #right
-						## _ ↓__→
-						#pass
-				#else: #up
-					#if not right:
-						## _ ↓_↑_
-						#pass
-					#else: 
-						## _ ↓_↑→
-						#pass
-			#else: #left
-				#if not up:
-					#if not right:
-						## _ ↓←__
-						#pass
-					#else: #right
-						## _ ↓←_→
-						#pass
-				#else: #up
-					#if not right:
-						## _ ↓←↑_
-						#pass
-					#else: #right 
-						## _ ↓←↑→
-						#pass
-	#if diag: #diag
-		#if not down:
-			#if not left:
-				#if not up:
-					#if not right:
-						## _ ____
-						#pass
-					#else: #right
-						## _ ___→
-						#pass
-				#else: #up
-					#if not right:
-						## _ __↑_
-						#pass
-					#else: 
-						## _ __↑→
-						#pass
-			#else: #left
-				#if not up:
-					#if not right:
-						## _ _←__
-						#pass
-					#else: #right
-						## _ _←_→
-						#pass
-				#else: #up
-					#if not right:
-						## _ _←↑_
-						#pass
-					#else: #right 
-						## _ _←↑→
-						#pass
-		#else: #down
-			#if not left:
-				#if not up:
-					#if not right:
-						## _ ↓___
-						#pass
-					#else: #right
-						## _ ↓__→
-						#pass
-				#else: #up
-					#if not right:
-						## _ ↓_↑_
-						#pass
-					#else: 
-						## _ ↓_↑→
-						#pass
-			#else: #left
-				#if not up:
-					#if not right:
-						## _ ↓←__
-						#pass
-					#else: #right
-						## _ ↓←_→
-						#pass
-				#else: #up
-					#if not right:
-						## _ ↓←↑_
-						#pass
-					#else: #right 
-						## _ ↓←↑→
-						#pass
-	#
+	if Input.is_action_pressed("pad_rb"):
+		_highlight_cannon(Color.from_string('#25e3ce', Color.WHITE))

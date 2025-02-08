@@ -16,6 +16,20 @@ var ax = SPEED * 4
 var y_velo = 0.0
 var x_velo = 0.0
 
+# There are no energy or missile pickups, aside from etanks and missile tanks
+# But the base energy and missiles recharge
+var energy = 0
+var missiles = 0
+var MAX_MISSILES = 24
+var MAX_ENERGY   = 24
+#var ecount_sprite = ImageTexture.create_from_image(Image.load_from_file("res://art/counters/energy.png"))
+#var mcount_sprite = ImageTexture.create_from_image(Image.load_from_file("res://art/counters/missile.png"))
+var ecount_sprite = load("res://art/counters/energy.png")
+var mcount_sprite = load("res://art/counters/missile.png")
+var ecounter_sprites = []
+var mcounter_sprites = []
+
+
 # power ups
 var has_high_jump = false
 
@@ -38,9 +52,52 @@ var steps: int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("player")
+	set_up_energy_sprites()
+	set_up_missile_sprites()
 	pass # Replace with function body.
 
+func set_up_energy_sprites():
+	# TODO
+	for i in 24:
+		var eicon = Sprite2D.new()
+		eicon.texture = ecount_sprite
+		eicon.z_index = 1000 - i
+		var dx = (i % 6) * 2
+		var dy = floor(i / 6) * 2
+		eicon.position = Vector2(
+			-32 + 2 + dx * 1.5,
+			-32 + 2.5 + dy
+		)
+		add_child(eicon)
+		ecounter_sprites.append(eicon)
 
+func set_up_missile_sprites():
+	for i in 24:
+		var micon = Sprite2D.new()
+		micon.texture = mcount_sprite
+		micon.z_index = 1000 - i
+		var dx = (i % 4) * 2
+		var dy = floor(i / 4) * 2
+		micon.position = Vector2(
+			18 + dx,
+			-32 + 2.5 + dy*1.5
+		)
+		micon.visible = false
+		add_child(micon)
+		mcounter_sprites.append(micon)
+	
+	# Now, set missiles visible by adding 4
+	add_missiles(4)
+
+func add_missiles(count: int) -> void:
+	if count != 0:
+		var _set_missiles_to = clamp(missiles + count, 0, MAX_MISSILES)
+		var _from = min(_set_missiles_to, missiles)
+		var _to = max(_set_missiles_to, missiles)
+		for mi in range(_from, _to):
+			mcounter_sprites[mi].visible = (count > 0)
+		missiles = _set_missiles_to
+	
 func _physics_process(delta: float) -> void:
 	# Get left/right direction
 	#vv.x = 0
@@ -130,6 +187,8 @@ func _process(delta):
 			print(input_key, " pressed")
 			#print("   Angle: ", $Node2D_cannon.angle)
 		pass
+	
+	queue_redraw()
 
 func play_landing_sound():
 	[$Sounds/Land, $Sounds/Land2, $Sounds/Land3, $Sounds/Land4][random.randi() % 4].play()
@@ -150,3 +209,6 @@ func hurt():
 	# todo
 	# take arguments: hurt cooldown, damage to take, whether to take last bit of health off
 	print("Ouch! That hurt Relan!") # TODO
+	
+func _draw():
+	pass
