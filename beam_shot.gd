@@ -1,4 +1,4 @@
-extends Area2D
+extends AnimatableBody2D
 
 var LIFESPAN: float = 1.0 / 12.0;
 var lifetime: float = 0.0;
@@ -20,7 +20,9 @@ func _physics_process(delta: float) -> void:
 	if lifetime > LIFESPAN:
 		die()
 	lifetime += delta
-	position += velocity * delta
+	move_and_collide(velocity * delta)
+	#position += velocity * delta
+	
 
 func create():
 	[$Sounds/Create, $Sounds/Create2, $Sounds/Create3, $Sounds/Create4][random.randi() % 4].play()

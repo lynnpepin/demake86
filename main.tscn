@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://dk8unr07bj50f"]
+[gd_scene load_steps=48 format=4 uid="uid://dk8unr07bj50f"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_2vt6r"]
 [ext_resource type="PackedScene" uid="uid://cm4sgoeo882q7" path="res://beam_shot.tscn" id="1_oue62"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://xwwvurx872by" path="res://art/relan/relan_run_11.png" id="20_kpvui"]
 [ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="21_fnhvt"]
 [ext_resource type="Texture2D" uid="uid://duk5s41q73y87" path="res://art/8px_ramp.png" id="24_66els"]
+[ext_resource type="Texture2D" uid="uid://bn5kl3uuxwle6" path="res://art/zoomer/ripper.png" id="30_3kh1c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wkjru"]
 size = Vector2(4, 10)
@@ -131,10 +132,14 @@ texture_region_size = Vector2i(8, 8)
 
 [sub_resource type="TileSet" id="TileSet_cnug1"]
 tile_size = Vector2i(8, 8)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 7
+physics_layer_0/collision_mask = 7
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_norok")
 sources/0 = SubResource("TileSetAtlasSource_57j4n")
 sources/1 = SubResource("TileSetAtlasSource_0q8dm")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qx8bm"]
+size = Vector2(6, 3)
 
 [node name="Node2D" type="Node2D"]
 
@@ -512,6 +517,7 @@ tile_set = SubResource("TileSet_cnug1")
 
 [node name="ParallaxBackground_fg" type="ParallaxBackground" parent="."]
 layer = 0
+visible = false
 offset = Vector2(256, 256)
 transform = Transform2D(1, 0, 0, 1, 256, 256)
 
@@ -553,7 +559,19 @@ motion_offset = Vector2(-112, -112)
 texture = ExtResource("5_xcij7")
 
 [node name="ParallaxLayer_512" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 z_index = -30
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_512"]
 texture = ExtResource("4_kp1pf")
+
+[node name="Ripper" type="AnimatableBody2D" parent="."]
+position = Vector2(128, 168)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ripper"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qx8bm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ripper"]
+texture = ExtResource("30_3kh1c")
+offset = Vector2(0, -3)
