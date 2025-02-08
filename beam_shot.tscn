@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=4 uid="uid://cm4sgoeo882q7"]
+[gd_scene load_steps=12 format=4 uid="uid://cm4sgoeo882q7"]
 
 [ext_resource type="Script" path="res://beam_shot.gd" id="1_vi1p0"]
 [ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="2_5csdl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rl5qe"]
 size = Vector2(4, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xflsg"]
+size = Vector2(8, 4)
 
 [sub_resource type="Gradient" id="Gradient_n5ped"]
 offsets = PackedFloat32Array(0, 0.413876, 0.77512, 1)
@@ -31,12 +34,19 @@ data = PackedByteArray("AQEBAQECAgIBAf/+/v39/f39/v8BAgMEBQUFBAMC//38+vn5+fr7/f8D
 data = PackedByteArray("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")
 
 [node name="BeamShot" type="AnimatableBody2D"]
-collision_layer = 6
+collision_layer = 8
 collision_mask = 6
 script = ExtResource("1_vi1p0")
 
 [node name="ColliderWall" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rl5qe")
+
+[node name="BodyToCheckForEnemy" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyToCheckForEnemy"]
+shape = SubResource("RectangleShape2D_xflsg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_ytdk8")

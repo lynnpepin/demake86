@@ -39,7 +39,6 @@ var BeamShot = preload("res://beam_shot.tscn")
 func _ready() -> void:
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	########
@@ -92,6 +91,7 @@ func _process(delta: float) -> void:
 			7
 		][angle]
 	
+	# For some reason, we need to define this here, not above
 	sprites = [
 		$Sprite2D_cannon_f, 
 		$Sprite2D_cannon_uf,
@@ -103,6 +103,7 @@ func _process(delta: float) -> void:
 		$Sprite2D_cannon_df
 	]
 	
+	# Set only the ones we use to visible
 	for ii in 8:
 		sprites[ii].visible = false
 		sprites[ii].flip_h = [1, 0, 0][flip + 1] # flip = -1 -> 1;  flip = 1 -> 0
@@ -111,15 +112,13 @@ func _process(delta: float) -> void:
 		if right:
 			sprites[ii].flip_h = 0
 	
-	
+	# Set only our preferred sprite visible
 	sprites[angle].visible = true
 	
-		
 	########
 	# Handle firing
 	########
 	shoot(delta)
-	
 	queue_redraw()
 
 func shoot(delta: float) -> void:

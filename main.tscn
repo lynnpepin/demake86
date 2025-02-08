@@ -1,7 +1,6 @@
-[gd_scene load_steps=48 format=4 uid="uid://dk8unr07bj50f"]
+[gd_scene load_steps=49 format=4 uid="uid://dk8unr07bj50f"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_2vt6r"]
-[ext_resource type="PackedScene" uid="uid://cm4sgoeo882q7" path="res://beam_shot.tscn" id="1_oue62"]
 [ext_resource type="Script" path="res://cannon.gd" id="2_84yop"]
 [ext_resource type="Texture2D" uid="uid://x1ncr4x48wv1" path="res://art/relan/cannon_right_u.png" id="2_gcua6"]
 [ext_resource type="Texture2D" uid="uid://b6ckyjdjddifx" path="res://art/relan/relan_right.png" id="2_mujdb"]
@@ -30,9 +29,36 @@
 [ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="21_fnhvt"]
 [ext_resource type="Texture2D" uid="uid://duk5s41q73y87" path="res://art/8px_ramp.png" id="24_66els"]
 [ext_resource type="Texture2D" uid="uid://bn5kl3uuxwle6" path="res://art/zoomer/ripper.png" id="30_3kh1c"]
+[ext_resource type="Script" path="res://ripper.gd" id="30_kqy3y"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkjru"]
-size = Vector2(4, 10)
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_norok"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_57j4n"]
+texture = ExtResource("2_yoeee")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0q8dm"]
+texture = ExtResource("24_66els")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, 4, -4, 4)
+
+[sub_resource type="TileSet" id="TileSet_cnug1"]
+tile_size = Vector2i(8, 8)
+physics_layer_0/collision_layer = 7
+physics_layer_0/collision_mask = 7
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_norok")
+sources/0 = SubResource("TileSetAtlasSource_57j4n")
+sources/1 = SubResource("TileSetAtlasSource_0q8dm")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8s541"]
+radius = 3.0
+height = 10.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4cb7"]
+size = Vector2(3, 8)
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_8ncxv"]
 data = PackedByteArray("AwIBAwIBAQEBAQEBAQEBAQEBAQEBAQH+/v/+/v///////////////////////wEDAgEEAgEBAQEBAQEBAQEBAQEBAQEBAfv8/vz7/f//////////////////////AQUDAQYDAgEBAQEBAQEBAQEBAQEBAQEB+Pn9+Pj8/v////////////////////8DDwcGEAgEAgEBAQEBAQEBAQEBAQEBAQH8/f78/f7////////////////////////////+//////////////////////////v7/vn7/v//////////////////////AggEBQgEAgEBAQEBAQEBAQEBAQEBAQEB/////v///////////////////////////f/+/f/////////////////////////8/f76/f7//////////////////////wEFAgQEAgEBAQEBAQEBAQEBAQEBAQEBAfz9/vv9/v///////////////////////////////////////////////////////f7//P7///////////////////////8CCgUKCAQCAQEBAQEBAQEBAQEBAQEBAQECAgEDAgEBAQEBAQEBAQEBAQEBAQEBAQECAQIBAQEBAQEBAQEBAQEBAQEBAQEBAf////7/////////////////////////AQMBAwIBAQEBAQEBAQEBAQEBAQEBAQEB+Pn69vv+//////////////////////8BAwIDAgEBAQEBAQEBAQEBAQEBAQEBAQH8/Pz7/f///////////////////////wEFAwYDAgEBAQEBAQEBAQEBAQEBAQEBAfv7+vr9/v//////////////////////Aw4HEggEAgEBAQEBAQEBAQEBAQEBAQEB+vv5+v3+/////////////////////////P37/f////////////////////////8CAgICAQEBAQEBAQEBAQEBAQEBAQEBAQIEBAUDAQEBAQEBAQEBAQEBAQEBAQEBAf7+/f7/////////////////////////AgMDAwIBAQEBAQEBAQEBAQEBAQEBAQEB+vz4/P7///////////////////////8CBQUFAgEBAQEBAQEBAQEBAQEBAQEBAQH3+vP6/f7//////////////////////wUMDgwGAwIBAQEBAQEBAQEBAQEBAQEBAf7+/f7////////////////////////////+////////////////////////////+vv4/P7///////////////////////8DBwoGAwIBAQEBAQEBAQEBAQEBAQEBAQH///7////////////////////////////+/f7///////////////////////////z8/P7/////////////////////////AgMFAwEBAQEBAQEBAQEBAQEBAQEBAQEB/f39/v///////////////////////////////////////////////////////////v7//////////////////////////wIDBQIBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB////////AQ==")
@@ -116,400 +142,10 @@ data = PackedByteArray("uLq8v8HDxcfJy83Q0tTW2Nrc3uDi5Obo6uzu8PL09vj6/P4BAgQGCAoM
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_eep0n"]
 data = PackedByteArray("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GBcXFxcWFhYWFRUVFRQUFBMTExMSEhISEhEREREQEBAQDw8PDw4ODg4ODQ0NDQwMDAwMCwsLCwsKCgoKCgkJCQkJCAgICAgHBwcHBwYGBgYGBgUFBQUFBQQEBAQEAwMDAwMDAwICAgICAgEBAQEBAf/////////+/v7+/v7+/f39/f39/f38/Pz8/Pz8/Pv7+/v7+/v7+vr6+vr6+vr6+fn5+fn5+fn5+Pj4+Pj4+Pj4+Pf39/f39/f39/f39vb29vb29vb29vb19fX19fX19fX19fX19PT09PT09PT09PT09PTz8/Pz8/Pz8/Pz8/Pz8/Pz8/Ly8vLy8vLy8vLy8vLy8vLy8vLy8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw7+/v7+/v7+/v7+/v7+/v7+/v8PDx8fHy8vLz8/P09PX19fb29vf39/j4+Pn5+fn6+vr7+/v8/Pz8/f39/v7+/v///wEBAQECAgICAwMDAwQEBAQEBQUFBQYGBgYGBwcHBwcICAgICAkJCQkJCgoKCgoKCwsLCwsLDAwMDAwMDQ0NDQ0NDQ4ODg4ODg4ODw8PDw8PDw8PDg4ODg4ODQ0NDQ0NDQwMDAwMDAwMCwsLCwsLCwoKCgoKCgoKCQkJCQkJCQkJCAgICAgICAgIBwcHBwcHBwcHBwYGBgYGBgYGBgYGBQUFBQUFBQUFBQUFBAQEBAQEBAQEBAQEBAQDAwMDAwMDAwMDAwMDAwMDAgICAgICAgICAgICAgICAgICAgIBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wE=")
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_norok"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_57j4n"]
-texture = ExtResource("2_yoeee")
-texture_region_size = Vector2i(8, 8)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0q8dm"]
-texture = ExtResource("24_66els")
-texture_region_size = Vector2i(8, 8)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, 4, -4, 4)
-
-[sub_resource type="TileSet" id="TileSet_cnug1"]
-tile_size = Vector2i(8, 8)
-physics_layer_0/collision_layer = 7
-physics_layer_0/collision_mask = 7
-physics_layer_0/physics_material = SubResource("PhysicsMaterial_norok")
-sources/0 = SubResource("TileSetAtlasSource_57j4n")
-sources/1 = SubResource("TileSetAtlasSource_0q8dm")
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qx8bm"]
 size = Vector2(6, 3)
 
 [node name="Node2D" type="Node2D"]
-
-[node name="BeamShot" parent="." instance=ExtResource("1_oue62")]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(96, 144)
-script = ExtResource("1_2vt6r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0, 5)
-shape = SubResource("RectangleShape2D_wkjru")
-
-[node name="Node2D_cannon" type="Node2D" parent="CharacterBody2D"]
-z_index = 20
-script = ExtResource("2_84yop")
-
-[node name="Sprite2D_cannon_u" type="Sprite2D" parent="CharacterBody2D/Node2D_cannon"]
-visible = false
-texture = ExtResource("2_gcua6")
-
-[node name="Sprite2D_cannon_uf" type="Sprite2D" parent="CharacterBody2D/Node2D_cannon"]
-visible = false
-texture = ExtResource("3_mu1vs")
-
-[node name="Sprite2D_cannon_f" type="Sprite2D" parent="CharacterBody2D/Node2D_cannon"]
-texture = ExtResource("4_2kd0m")
-
-[node name="Sprite2D_cannon_df" type="Sprite2D" parent="CharacterBody2D/Node2D_cannon"]
-visible = false
-texture = ExtResource("5_pges2")
-
-[node name="Sprite2D_cannon_d" type="Sprite2D" parent="CharacterBody2D/Node2D_cannon"]
-visible = false
-texture = ExtResource("6_bmcof")
-
-[node name="Sounds" type="Node" parent="CharacterBody2D/Node2D_cannon"]
-
-[node name="Click" type="AudioStreamPlayer2D" parent="CharacterBody2D/Node2D_cannon/Sounds"]
-stream = SubResource("AudioStreamWAV_8ncxv")
-script = ExtResource("21_fnhvt")
-wave/type = 3
-sample_params/sound_vol = 0.1
-sample_params/sample_rate = 44100.0
-envelope/attack_time = 0.0
-envelope/sustain_time = 0.1
-envelope/punch_time = 0.0
-envelope/decay_time = 0.05
-frequency/start_frequency = 0.125
-frequency/min_freq_cutoff = 0.0
-frequency/slide = 0.0
-frequency/delta_slide = 0.0
-vibrato/depth = 0.0
-vibrato/speed = 0.0
-arpeggiation/frequency_mult = 0.672762
-arpeggiation/change_speed = 0.671546
-duty_cycle/duty_cycle = 0.0
-duty_cycle/sweep = 0.0
-retrigger/rate = 0.0
-flanger/offset = 0.162895
-flanger/sweep = -0.119786
-low_pass_filter/cutoff_frequency = 1.0
-low_pass_filter/cutoff_sweep = 0.0
-low_pass_filter/resonance = 0.0
-high_pass_filter/cutoff_frequency = 0.969822
-high_pass_filter/cutoff_sweep = 0.0
-
-[node name="Click2" type="AudioStreamPlayer2D" parent="CharacterBody2D/Node2D_cannon/Sounds"]
-stream = SubResource("AudioStreamWAV_b7vyj")
-script = ExtResource("21_fnhvt")
-wave/type = 3
-sample_params/sound_vol = 0.1
-sample_params/sample_rate = 44100.0
-envelope/attack_time = 0.0381355
-envelope/sustain_time = 0.0786408
-envelope/punch_time = 0.0469437
-envelope/decay_time = 0.0178099
-frequency/start_frequency = 0.167847
-frequency/min_freq_cutoff = 0.0
-frequency/slide = -0.0319328
-frequency/delta_slide = 0.0
-vibrato/depth = 0.0
-vibrato/speed = 0.0
-arpeggiation/frequency_mult = 0.694002
-arpeggiation/change_speed = 0.671546
-duty_cycle/duty_cycle = 0.0
-duty_cycle/sweep = 0.0
-retrigger/rate = 0.0
-flanger/offset = 0.175611
-flanger/sweep = -0.119786
-low_pass_filter/cutoff_frequency = 1.0
-low_pass_filter/cutoff_sweep = -0.0185289
-low_pass_filter/resonance = 0.0
-high_pass_filter/cutoff_frequency = 0.969822
-high_pass_filter/cutoff_sweep = 0.0463694
-
-[node name="Click3" type="AudioStreamPlayer2D" parent="CharacterBody2D/Node2D_cannon/Sounds"]
-stream = SubResource("AudioStreamWAV_cpp0g")
-script = ExtResource("21_fnhvt")
-wave/type = 3
-sample_params/sound_vol = 0.1
-sample_params/sample_rate = 44100.0
-envelope/attack_time = 0.0
-envelope/sustain_time = 0.135061
-envelope/punch_time = 0.0072631
-envelope/decay_time = 0.05
-frequency/start_frequency = 0.100104
-frequency/min_freq_cutoff = 0.0
-frequency/slide = 0.0
-frequency/delta_slide = 0.00488157
-vibrato/depth = 0.0
-vibrato/speed = 0.0
-arpeggiation/frequency_mult = 0.672762
-arpeggiation/change_speed = 0.719237
-duty_cycle/duty_cycle = 0.0
-duty_cycle/sweep = 0.0214441
-retrigger/rate = 0.0
-flanger/offset = 0.142034
-flanger/sweep = -0.152144
-low_pass_filter/cutoff_frequency = 1.0
-low_pass_filter/cutoff_sweep = 0.0
-low_pass_filter/resonance = 0.0
-high_pass_filter/cutoff_frequency = 0.969822
-high_pass_filter/cutoff_sweep = -0.0183598
-
-[node name="Click4" type="AudioStreamPlayer2D" parent="CharacterBody2D/Node2D_cannon/Sounds"]
-stream = SubResource("AudioStreamWAV_7ol50")
-script = ExtResource("21_fnhvt")
-wave/type = 3
-sample_params/sound_vol = 0.1
-sample_params/sample_rate = 44100.0
-envelope/attack_time = 0.0255661
-envelope/sustain_time = 0.1
-envelope/punch_time = -0.0276294
-envelope/decay_time = 0.0716762
-frequency/start_frequency = 0.147729
-frequency/min_freq_cutoff = 0.0
-frequency/slide = 0.0440858
-frequency/delta_slide = 0.0352426
-vibrato/depth = 0.036419
-vibrato/speed = 0.0
-arpeggiation/frequency_mult = 0.627924
-arpeggiation/change_speed = 0.671546
-duty_cycle/duty_cycle = -0.00736419
-duty_cycle/sweep = 0.0
-retrigger/rate = 0.0161276
-flanger/offset = 0.157016
-flanger/sweep = -0.119786
-low_pass_filter/cutoff_frequency = 1.01648
-low_pass_filter/cutoff_sweep = 0.019647
-low_pass_filter/resonance = -0.0175363
-high_pass_filter/cutoff_frequency = 0.969822
-high_pass_filter/cutoff_sweep = 0.0
-
-[node name="AnimatedSprite2D_body" type="AnimatedSprite2D" parent="CharacterBody2D"]
-z_index = 10
-sprite_frames = SubResource("SpriteFrames_1gacd")
-animation = &"run"
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-
-[node name="Sounds" type="Node" parent="CharacterBody2D"]
-
-[node name="Jump2" type="AudioStreamPlayer2D" parent="CharacterBody2D/Sounds"]
-visible = false
-position = Vector2(32, 32)
-stream = SubResource("AudioStreamWAV_y8377")
-autoplay = true
-script = ExtResource("21_fnhvt")
-wave/type = 2
-sample_params/sound_vol = 0.2
-sample_params/sample_rate = 44100.0
-envelope/attack_time = 0.0
-envelope/sustain_time = 0.0
-envelope/punch_time = 0.0
-envelope/decay_time = 0.375
-frequency/start_frequency = 0.3
-frequency/min_freq_cutoff = 0.0
-frequency/slide = 0.125
-frequency/delta_slide = -0.125
-vibrato/depth = 0.125
-vibrato/speed = 0.0
-arpeggiation/frequency_mult = 0.0
-arpeggiation/change_speed = 0.0
-duty_cycle/duty_cycle = 0.5
-duty_cycle/sweep = 0.0
-retrigger/rate = 0.0
-flanger/offset = 0.0
-flanger/sweep = 0.0
-low_pass_filter/cutoff_frequency = 1.0
-low_pass_filter/cutoff_sweep = 0.0
-low_pass_filter/resonance = 0.0
-high_pass_filter/cutoff_frequency = 0.125
-high_pass_filter/cutoff_sweep = 0.0
-
-[node name="Jump" type="AudioStreamPlayer2D" parent="CharacterBody2D/Sounds"]
-position = Vector2(16, 16)
-stream = SubResource("AudioStreamWAV_y8377")
-autoplay = true
-script = ExtResource("21_fnhvt")
-wave/type = 2
-sample_params/sound_vol = 0.125
-sample_params/sample_rate = 44100.0
-envelope/attack_time = 0.0
-envelope/sustain_time = 0.0
-envelope/punch_time = 0.0
-envelope/decay_time = 0.375
-frequency/start_frequency = 0.375
-frequency/min_freq_cutoff = 0.0
-frequency/slide = 0.25
-frequency/delta_slide = -0.2
-vibrato/depth = 0.125
-vibrato/speed = 0.0
-arpeggiation/frequency_mult = 0.0
-arpeggiation/change_speed = 0.0
-duty_cycle/duty_cycle = 0.5
-duty_cycle/sweep = 0.0
-retrigger/rate = 0.0
-flanger/offset = 0.0
-flanger/sweep = 0.0
-low_pass_filter/cutoff_frequency = 1.0
-low_pass_filter/cutoff_sweep = 0.0
-low_pass_filter/resonance = 0.0
-high_pass_filter/cutoff_frequency = 0.125
-high_pass_filter/cutoff_sweep = 0.0
-
-[node name="ChangeDirection" type="AudioStreamPlayer2D" parent="CharacterBody2D/Sounds"]
-stream = SubResource("AudioStreamWAV_dh75d")
-script = ExtResource("21_fnhvt")
-wave/type = 3
-sample_params/sound_vol = 0.125
-sample_params/sample_rate = 44100.0
-envelope/attack_time = 0.125
-envelope/sustain_time = 0.25
-envelope/punch_time = 0.125
-envelope/decay_time = 0.125
-frequency/start_frequency = 0.125
-frequency/min_freq_cutoff = 0.0
-frequency/slide = 0.125
-frequency/delta_slide = -0.25
-vibrato/depth = 0.25
-vibrato/speed = 0.25
-arpeggiation/frequency_mult = 0.125
-arpeggiation/change_speed = 0.666
-duty_cycle/duty_cycle = 0.0
-duty_cycle/sweep = 0.0
-retrigger/rate = 0.125
-flanger/offset = 0.0
-flanger/sweep = 0.0
-low_pass_filter/cutoff_frequency = 0.25
-low_pass_filter/cutoff_sweep = 0.0
-low_pass_filter/resonance = 0.0
-high_pass_filter/cutoff_frequency = 0.35
-high_pass_filter/cutoff_sweep = 0.0
-
-[node name="Land" type="AudioStreamPlayer2D" parent="CharacterBody2D/Sounds"]
-stream = SubResource("AudioStreamWAV_l3rj8")
-script = ExtResource("21_fnhvt")
-wave/type = 1
-sample_params/sound_vol = 0.25
-sample_params/sample_rate = 44100.0
-envelope/attack_time = 0.0
-envelope/sustain_time = 0.05
-envelope/punch_time = 0.0
-envelope/decay_time = 0.125
-frequency/start_frequency = 0.25
-frequency/min_freq_cutoff = 0.0
-frequency/slide = -0.375
-frequency/delta_slide = 0.125
-vibrato/depth = 0.0
-vibrato/speed = 0.0
-arpeggiation/frequency_mult = 0.0
-arpeggiation/change_speed = 0.0
-duty_cycle/duty_cycle = 0.517281
-duty_cycle/sweep = 0.0
-retrigger/rate = 0.0
-flanger/offset = 0.0
-flanger/sweep = 0.0
-low_pass_filter/cutoff_frequency = 1.0
-low_pass_filter/cutoff_sweep = 0.0
-low_pass_filter/resonance = 0.0
-high_pass_filter/cutoff_frequency = 0.0609142
-high_pass_filter/cutoff_sweep = 0.0
-
-[node name="Land2" type="AudioStreamPlayer2D" parent="CharacterBody2D/Sounds"]
-stream = SubResource("AudioStreamWAV_ct8qu")
-script = ExtResource("21_fnhvt")
-wave/type = 1
-sample_params/sound_vol = 0.25
-sample_params/sample_rate = 44100.0
-envelope/attack_time = 0.0
-envelope/sustain_time = 0.05
-envelope/punch_time = 0.0
-envelope/decay_time = 0.125
-frequency/start_frequency = 0.3
-frequency/min_freq_cutoff = 0.0
-frequency/slide = -0.375
-frequency/delta_slide = 0.125
-vibrato/depth = 0.0
-vibrato/speed = 0.0
-arpeggiation/frequency_mult = 0.0
-arpeggiation/change_speed = 0.0
-duty_cycle/duty_cycle = 0.517281
-duty_cycle/sweep = 0.0
-retrigger/rate = 0.0
-flanger/offset = 0.0
-flanger/sweep = 0.0
-low_pass_filter/cutoff_frequency = 1.0
-low_pass_filter/cutoff_sweep = 0.0
-low_pass_filter/resonance = 0.0
-high_pass_filter/cutoff_frequency = 0.0609142
-high_pass_filter/cutoff_sweep = 0.0
-
-[node name="Land3" type="AudioStreamPlayer2D" parent="CharacterBody2D/Sounds"]
-stream = SubResource("AudioStreamWAV_tx27n")
-script = ExtResource("21_fnhvt")
-wave/type = 1
-sample_params/sound_vol = 0.25
-sample_params/sample_rate = 44100.0
-envelope/attack_time = 0.0
-envelope/sustain_time = 0.05
-envelope/punch_time = 0.0
-envelope/decay_time = 0.125
-frequency/start_frequency = 0.2
-frequency/min_freq_cutoff = 0.0
-frequency/slide = -0.375
-frequency/delta_slide = 0.125
-vibrato/depth = 0.0
-vibrato/speed = 0.0
-arpeggiation/frequency_mult = 0.0
-arpeggiation/change_speed = 0.0
-duty_cycle/duty_cycle = 0.517281
-duty_cycle/sweep = 0.0
-retrigger/rate = 0.0
-flanger/offset = 0.0
-flanger/sweep = 0.0
-low_pass_filter/cutoff_frequency = 1.0
-low_pass_filter/cutoff_sweep = 0.0
-low_pass_filter/resonance = 0.0
-high_pass_filter/cutoff_frequency = 0.0609142
-high_pass_filter/cutoff_sweep = 0.0
-
-[node name="Land4" type="AudioStreamPlayer2D" parent="CharacterBody2D/Sounds"]
-stream = SubResource("AudioStreamWAV_eep0n")
-script = ExtResource("21_fnhvt")
-wave/type = 1
-sample_params/sound_vol = 0.25
-sample_params/sample_rate = 44100.0
-envelope/attack_time = 0.0
-envelope/sustain_time = 0.1
-envelope/punch_time = 0.0
-envelope/decay_time = 0.125
-frequency/start_frequency = 0.15
-frequency/min_freq_cutoff = 0.0
-frequency/slide = -0.125
-frequency/delta_slide = 0.25
-vibrato/depth = 0.0
-vibrato/speed = 0.0
-arpeggiation/frequency_mult = 0.0
-arpeggiation/change_speed = 0.0
-duty_cycle/duty_cycle = 0.517281
-duty_cycle/sweep = 0.0
-retrigger/rate = 0.0
-flanger/offset = 0.0
-flanger/sweep = 0.0
-low_pass_filter/cutoff_frequency = 1.0
-low_pass_filter/cutoff_sweep = 0.0
-low_pass_filter/resonance = 0.0
-high_pass_filter/cutoff_frequency = 0.0609142
-high_pass_filter/cutoff_sweep = 0.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAHABAAAAAAAAAAAAAGABAAAAAAAAAAAAAFABAAAQAAAAAAACAAABAAAAAAAAAAAAAAABEAAAAAAAAAAAAAABIAAAAAAAAAAAAAABMAAAAAAAAAAAAAABQAAAAAAAAAAAAAABUAAAAAAAAAAAAAABYAAAAAAAAAAAAAABcAAAAAAAAAAAABABcAAAAAAAAAAAADABcAAAAAAAAAAAAFABcAAAAAAAAAAAAGABcAAAAAAAAAAAAHABcAAAAAAAAAAAAIABcAAAAAAAAAAAAJABcAAAAAAAAAAAAKABcAAAAAAAAAAAALABcAAAAAAAAAAAAMABcAAAAAAAAAAAANABcAAAAAAAAAAAAOABcAAAAAAAAAAAAPABcAAAAAAAAAAAAIABAAAAAAAAAAAAAJABAAAAAAAAAAAAAKABAAAAAAAAAAAAALABAAAAAAAAAAAAANABAAAAAAAAAAAAAOABAAAAAAAAAAAAAPABAAAAAAAAAAAAAMABAAAAAAAAAAAAAKABIAAAAAAAAAAAAKABMAAAAAAAAAAAANABIAAAAAAAAAAAANABMAAAAAAAAAAAALABYAAAAAAAAAAAAMABYAAAAAAAAAAAAKABYAAAAAAAAAAAANABYAAAAAAAAAAAAHABUAAQAAAAAAAAAGABQAAQAAAAAAAAAFABMAAQAAAAAAAAAGABUAAAAAAAAAAAAFABQAAAAAAAAAAAAEABAAAAAAAAAAAAADABAAAAAAAAAAAAACABAAAAAAAAAAAAABABAAAAAAAAAAAAAFABUAAQAAAAAAADAQABAAAAAAAAAAAAARABAAAAAAAAAAAAASABAAAAAAAAAAAAATABAAAAAAAAAAAAAUABAAAAAAAAAAAAAVABAAAAAAAAAAAAAWABAAAAAAAAAAAAAXABAAAAAAAAAAAAAPABEAAAAAAAAAAAAPABIAAAAAAAAAAAAPABMAAAAAAAAAAAAQABMAAAAAAAAAAAAQABIAAAAAAAAAAAAQABEAAAAAAAAAAAAPABYAAAAAAAAAAAAQABYAAAAAAAAAAAAYABcAAAAAAAAAAAAXABEAAAAAAAAAAAAXABIAAAAAAAAAAAAXABMAAAAAAAAAAAAYABMAAAAAAAAAAAAYABIAAAAAAAAAAAAYABEAAAAAAAAAAAASABQAAAAAAAAAAAATABQAAAAAAAAAAAAUABQAAAAAAAAAAAAVABQAAAAAAAAAAAAXABQAAQAAAAAAADAYABQAAAAAAAAAAAARABYAAQAAAAAAADAWABYAAQAAAAAAACATABYAAQAAAAAAADAUABYAAQAAAAAAACAVABYAAQAAAAAAADASABYAAQAAAAAAACAZABcAAAAAAAAAAAAaABcAAAAAAAAAAAAbABcAAAAAAAAAAAAcABcAAAAAAAAAAAAdABcAAAAAAAAAAAAeABcAAAAAAAAAAAAfABcAAAAAAAAAAAAYABAAAAAAAAAAAAAYAA8AAAAAAAAAAAAXAA8AAAAAAAAAAAAWAA8AAAAAAAAAAAAVAA8AAAAAAAAAAAAUAA8AAAAAAAAAAAATAA8AAAAAAAAAAAASAA8AAAAAAAAAAAARAA8AAAAAAAAAAAAQAA8AAAAAAAAAAAAQAA4AAAAAAAAAAAAQAA0AAAAAAAAAAAAQAAgAAAAAAAAAAAARAAgAAAAAAAAAAAASAAgAAAAAAAAAAAATAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAVAAgAAAAAAAAAAAAWAAgAAAAAAAAAAAAXAAgAAAAAAAAAAAAYAAgAAAAAAAAAAAAfABYAAAAAAAAAAAAfABUAAAAAAAAAAAAfABQAAAAAAAAAAAAfABMAAAAAAAAAAAAfABIAAAAAAAAAAAAfABEAAAAAAAAAAAAfABAAAAAAAAAAAAAfAA8AAAAAAAAAAAAfAA4AAAAAAAAAAAAfAA0AAAAAAAAAAAAfAAoAAAAAAAAAAAAfAAkAAAAAAAAAAAAfAAgAAAAAAAAAAAAfAAcAAAAAAAAAAAAfAAYAAAAAAAAAAAAfAAUAAAAAAAAAAAAfAAQAAAAAAAAAAAAfAAMAAAAAAAAAAAAfAAIAAAAAAAAAAAAfAAEAAAAAAAAAAAAfAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAdAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAbAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAXAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAATAAAAAAAAAAAAAAASAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAEAAAAAAAAAAAAgAAoAAAAAAAAAAAAgAA0AAAAAAAAAAAAaABQAAAAAAAAAAAAeABYAAAAAAAAAAAAZABQAAAAAAAAAAAAQABkAAAAAAAAAAAAQABoAAAAAAAAAAAAQABsAAAAAAAAAAAAQABwAAAAAAAAAAAAQAB0AAAAAAAAAAAAQAB4AAAAAAAAAAAAQAB8AAAAAAAAAAAAXABkAAAAAAAAAAAAXABoAAAAAAAAAAAAXABsAAAAAAAAAAAAXABwAAAAAAAAAAAAXAB4AAAAAAAAAAAAXAB0AAAAAAAAAAAAXAB8AAAAAAAAAAAAQABgAAQAAAAAAAAAXABgAAQAAAAAAABAXABcAAAAAAAAAAAAcABYAAQAAAAAAABAdABYAAAAAAAAAAAAbABQAAQAAAAAAACAeABUAAQAAAAAAABAZABMAAQAAAAAAAAAcABIAAQAAAAAAADAeABEAAQAAAAAAABAdABIAAAAAAAAAAAAeABIAAAAAAAAAAAAhAA0AAAAAAAAAAAAhAAoAAAAAAAAAAAAeAA0AAAAAAAAAAAAYAA4AAAAAAAAAAAAXAA4AAAAAAAAAAAAXAA0AAAAAAAAAAAAYAA0AAAAAAAAAAAAYAAoAAAAAAAAAAAAXAAoAAAAAAAAAAAAWAAoAAAAAAAAAAAAXAAkAAAAAAAAAAAAYAAkAAAAAAAAAAAAWAA0AAAAAAAAAAAAZABAAAAAAAAAAAAAZAA8AAQAAAAAAAAAcAA4AAQAAAAAAABAdAA4AAAAAAAAAAAAeAA4AAAAAAAAAAAAaABAAAQAAAAAAACAZAA0AAQAAAAAAACATAA0AAAAAAAAAAAASAA0AAAAAAAAAAAARAA0AAAAAAAAAAAARAA4AAAAAAAAAAAASAA4AAAAAAAAAAAAQAAkAAAAAAAAAAAAQAAoAAAAAAAAAAAAQAAsAAAAAAAAAAAAQAAwAAAAAAAAAAAAQAAcAAAAAAAAAAAAQAAYAAAAAAAAAAAAXAAcAAAAAAAAAAAAXAAYAAAAAAAAAAAAYAAYAAAAAAAAAAAAYAAcAAAAAAAAAAAAZAAYAAAAAAAAAAAAQAAIAAAAAAAAAAAAbAAoAAQAAAAAAABAcAAoAAAAAAAAAAAAdAAoAAAAAAAAAAAAeAAoAAAAAAAAAAAAeAAkAAAAAAAAAAAAeAAgAAAAAAAAAAAAeAAcAAAAAAAAAAAAcAAkAAQAAAAAAABAdAAgAAQAAAAAAABAdAAkAAAAAAAAAAAAeAAYAAAAAAAAAAAAaAAYAAAAAAAAAAAAaAAcAAAAAAAAAAAAZAAcAAAAAAAAAAAAZAAgAAAAAAAAAAAAaAAgAAQAAAAAAACAZAAoAAQAAAAAAACAZAAkAAAAAAAAAAAAZAAMAAAAAAAAAAAAYAAMAAAAAAAAAAAAXAAMAAAAAAAAAAAAXAAIAAAAAAAAAAAAXAAEAAAAAAAAAAAAYAAEAAAAAAAAAAAAZAAEAAAAAAAAAAAAaAAEAAAAAAAAAAAAbAAEAAAAAAAAAAAAcAAEAAAAAAAAAAAAdAAEAAAAAAAAAAAAeAAEAAAAAAAAAAAAeAAIAAAAAAAAAAAAdAAIAAAAAAAAAAAAcAAIAAAAAAAAAAAAbAAIAAAAAAAAAAAAaAAIAAAAAAAAAAAAZAAIAAAAAAAAAAAAYAAIAAAAAAAAAAAAeAAMAAQAAAAAAADAaAAMAAQAAAAAAACACABcAAAAAAAAAAAAEABcAAAAAAAAAAAACABUAAAAAAAAAAAACABYAAAAAAAAAAAABABYAAQAAAAAAAAADABYAAQAAAAAAAAADABIAAAAAAAAAAAADABEAAAAAAAAAAAADABMAAQAAAAAAADABABEAAQAAAAAAACACABEAAQAAAAAAADA=")
@@ -565,8 +201,386 @@ z_index = -30
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_512"]
 texture = ExtResource("4_kp1pf")
 
-[node name="Ripper" type="AnimatableBody2D" parent="."]
+[node name="Relan" type="CharacterBody2D" parent="."]
+position = Vector2(96, 144)
+collision_mask = 2
+script = ExtResource("1_2vt6r")
+
+[node name="collision_platforming" type="CollisionShape2D" parent="Relan"]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_8s541")
+
+[node name="Camera2D" type="Camera2D" parent="Relan"]
+
+[node name="HurtArea" type="Area2D" parent="Relan"]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Relan/HurtArea"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_l4cb7")
+
+[node name="Cannon" type="Node2D" parent="Relan"]
+z_index = 20
+script = ExtResource("2_84yop")
+
+[node name="Sprite2D_cannon_u" type="Sprite2D" parent="Relan/Cannon"]
+visible = false
+texture = ExtResource("2_gcua6")
+
+[node name="Sprite2D_cannon_uf" type="Sprite2D" parent="Relan/Cannon"]
+visible = false
+texture = ExtResource("3_mu1vs")
+
+[node name="Sprite2D_cannon_f" type="Sprite2D" parent="Relan/Cannon"]
+texture = ExtResource("4_2kd0m")
+
+[node name="Sprite2D_cannon_df" type="Sprite2D" parent="Relan/Cannon"]
+visible = false
+texture = ExtResource("5_pges2")
+
+[node name="Sprite2D_cannon_d" type="Sprite2D" parent="Relan/Cannon"]
+visible = false
+texture = ExtResource("6_bmcof")
+
+[node name="Sounds" type="Node" parent="Relan/Cannon"]
+
+[node name="Click" type="AudioStreamPlayer2D" parent="Relan/Cannon/Sounds"]
+stream = SubResource("AudioStreamWAV_8ncxv")
+script = ExtResource("21_fnhvt")
+wave/type = 3
+sample_params/sound_vol = 0.1
+sample_params/sample_rate = 44100.0
+envelope/attack_time = 0.0
+envelope/sustain_time = 0.1
+envelope/punch_time = 0.0
+envelope/decay_time = 0.05
+frequency/start_frequency = 0.125
+frequency/min_freq_cutoff = 0.0
+frequency/slide = 0.0
+frequency/delta_slide = 0.0
+vibrato/depth = 0.0
+vibrato/speed = 0.0
+arpeggiation/frequency_mult = 0.672762
+arpeggiation/change_speed = 0.671546
+duty_cycle/duty_cycle = 0.0
+duty_cycle/sweep = 0.0
+retrigger/rate = 0.0
+flanger/offset = 0.162895
+flanger/sweep = -0.119786
+low_pass_filter/cutoff_frequency = 1.0
+low_pass_filter/cutoff_sweep = 0.0
+low_pass_filter/resonance = 0.0
+high_pass_filter/cutoff_frequency = 0.969822
+high_pass_filter/cutoff_sweep = 0.0
+
+[node name="Click2" type="AudioStreamPlayer2D" parent="Relan/Cannon/Sounds"]
+stream = SubResource("AudioStreamWAV_b7vyj")
+script = ExtResource("21_fnhvt")
+wave/type = 3
+sample_params/sound_vol = 0.1
+sample_params/sample_rate = 44100.0
+envelope/attack_time = 0.0381355
+envelope/sustain_time = 0.0786408
+envelope/punch_time = 0.0469437
+envelope/decay_time = 0.0178099
+frequency/start_frequency = 0.167847
+frequency/min_freq_cutoff = 0.0
+frequency/slide = -0.0319328
+frequency/delta_slide = 0.0
+vibrato/depth = 0.0
+vibrato/speed = 0.0
+arpeggiation/frequency_mult = 0.694002
+arpeggiation/change_speed = 0.671546
+duty_cycle/duty_cycle = 0.0
+duty_cycle/sweep = 0.0
+retrigger/rate = 0.0
+flanger/offset = 0.175611
+flanger/sweep = -0.119786
+low_pass_filter/cutoff_frequency = 1.0
+low_pass_filter/cutoff_sweep = -0.0185289
+low_pass_filter/resonance = 0.0
+high_pass_filter/cutoff_frequency = 0.969822
+high_pass_filter/cutoff_sweep = 0.0463694
+
+[node name="Click3" type="AudioStreamPlayer2D" parent="Relan/Cannon/Sounds"]
+stream = SubResource("AudioStreamWAV_cpp0g")
+script = ExtResource("21_fnhvt")
+wave/type = 3
+sample_params/sound_vol = 0.1
+sample_params/sample_rate = 44100.0
+envelope/attack_time = 0.0
+envelope/sustain_time = 0.135061
+envelope/punch_time = 0.0072631
+envelope/decay_time = 0.05
+frequency/start_frequency = 0.100104
+frequency/min_freq_cutoff = 0.0
+frequency/slide = 0.0
+frequency/delta_slide = 0.00488157
+vibrato/depth = 0.0
+vibrato/speed = 0.0
+arpeggiation/frequency_mult = 0.672762
+arpeggiation/change_speed = 0.719237
+duty_cycle/duty_cycle = 0.0
+duty_cycle/sweep = 0.0214441
+retrigger/rate = 0.0
+flanger/offset = 0.142034
+flanger/sweep = -0.152144
+low_pass_filter/cutoff_frequency = 1.0
+low_pass_filter/cutoff_sweep = 0.0
+low_pass_filter/resonance = 0.0
+high_pass_filter/cutoff_frequency = 0.969822
+high_pass_filter/cutoff_sweep = -0.0183598
+
+[node name="Click4" type="AudioStreamPlayer2D" parent="Relan/Cannon/Sounds"]
+stream = SubResource("AudioStreamWAV_7ol50")
+script = ExtResource("21_fnhvt")
+wave/type = 3
+sample_params/sound_vol = 0.1
+sample_params/sample_rate = 44100.0
+envelope/attack_time = 0.0255661
+envelope/sustain_time = 0.1
+envelope/punch_time = -0.0276294
+envelope/decay_time = 0.0716762
+frequency/start_frequency = 0.147729
+frequency/min_freq_cutoff = 0.0
+frequency/slide = 0.0440858
+frequency/delta_slide = 0.0352426
+vibrato/depth = 0.036419
+vibrato/speed = 0.0
+arpeggiation/frequency_mult = 0.627924
+arpeggiation/change_speed = 0.671546
+duty_cycle/duty_cycle = -0.00736419
+duty_cycle/sweep = 0.0
+retrigger/rate = 0.0161276
+flanger/offset = 0.157016
+flanger/sweep = -0.119786
+low_pass_filter/cutoff_frequency = 1.01648
+low_pass_filter/cutoff_sweep = 0.019647
+low_pass_filter/resonance = -0.0175363
+high_pass_filter/cutoff_frequency = 0.969822
+high_pass_filter/cutoff_sweep = 0.0
+
+[node name="body_sprite" type="AnimatedSprite2D" parent="Relan"]
+z_index = 10
+sprite_frames = SubResource("SpriteFrames_1gacd")
+animation = &"run"
+
+[node name="Sounds" type="Node" parent="Relan"]
+
+[node name="Jump2" type="AudioStreamPlayer2D" parent="Relan/Sounds"]
+visible = false
+position = Vector2(32, 32)
+stream = SubResource("AudioStreamWAV_y8377")
+autoplay = true
+script = ExtResource("21_fnhvt")
+wave/type = 2
+sample_params/sound_vol = 0.2
+sample_params/sample_rate = 44100.0
+envelope/attack_time = 0.0
+envelope/sustain_time = 0.0
+envelope/punch_time = 0.0
+envelope/decay_time = 0.375
+frequency/start_frequency = 0.3
+frequency/min_freq_cutoff = 0.0
+frequency/slide = 0.125
+frequency/delta_slide = -0.125
+vibrato/depth = 0.125
+vibrato/speed = 0.0
+arpeggiation/frequency_mult = 0.0
+arpeggiation/change_speed = 0.0
+duty_cycle/duty_cycle = 0.5
+duty_cycle/sweep = 0.0
+retrigger/rate = 0.0
+flanger/offset = 0.0
+flanger/sweep = 0.0
+low_pass_filter/cutoff_frequency = 1.0
+low_pass_filter/cutoff_sweep = 0.0
+low_pass_filter/resonance = 0.0
+high_pass_filter/cutoff_frequency = 0.125
+high_pass_filter/cutoff_sweep = 0.0
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="Relan/Sounds"]
+position = Vector2(16, 16)
+stream = SubResource("AudioStreamWAV_y8377")
+autoplay = true
+script = ExtResource("21_fnhvt")
+wave/type = 2
+sample_params/sound_vol = 0.125
+sample_params/sample_rate = 44100.0
+envelope/attack_time = 0.0
+envelope/sustain_time = 0.0
+envelope/punch_time = 0.0
+envelope/decay_time = 0.375
+frequency/start_frequency = 0.375
+frequency/min_freq_cutoff = 0.0
+frequency/slide = 0.25
+frequency/delta_slide = -0.2
+vibrato/depth = 0.125
+vibrato/speed = 0.0
+arpeggiation/frequency_mult = 0.0
+arpeggiation/change_speed = 0.0
+duty_cycle/duty_cycle = 0.5
+duty_cycle/sweep = 0.0
+retrigger/rate = 0.0
+flanger/offset = 0.0
+flanger/sweep = 0.0
+low_pass_filter/cutoff_frequency = 1.0
+low_pass_filter/cutoff_sweep = 0.0
+low_pass_filter/resonance = 0.0
+high_pass_filter/cutoff_frequency = 0.125
+high_pass_filter/cutoff_sweep = 0.0
+
+[node name="ChangeDirection" type="AudioStreamPlayer2D" parent="Relan/Sounds"]
+stream = SubResource("AudioStreamWAV_dh75d")
+script = ExtResource("21_fnhvt")
+wave/type = 3
+sample_params/sound_vol = 0.125
+sample_params/sample_rate = 44100.0
+envelope/attack_time = 0.125
+envelope/sustain_time = 0.25
+envelope/punch_time = 0.125
+envelope/decay_time = 0.125
+frequency/start_frequency = 0.125
+frequency/min_freq_cutoff = 0.0
+frequency/slide = 0.125
+frequency/delta_slide = -0.25
+vibrato/depth = 0.25
+vibrato/speed = 0.25
+arpeggiation/frequency_mult = 0.125
+arpeggiation/change_speed = 0.666
+duty_cycle/duty_cycle = 0.0
+duty_cycle/sweep = 0.0
+retrigger/rate = 0.125
+flanger/offset = 0.0
+flanger/sweep = 0.0
+low_pass_filter/cutoff_frequency = 0.25
+low_pass_filter/cutoff_sweep = 0.0
+low_pass_filter/resonance = 0.0
+high_pass_filter/cutoff_frequency = 0.35
+high_pass_filter/cutoff_sweep = 0.0
+
+[node name="Land" type="AudioStreamPlayer2D" parent="Relan/Sounds"]
+stream = SubResource("AudioStreamWAV_l3rj8")
+script = ExtResource("21_fnhvt")
+wave/type = 1
+sample_params/sound_vol = 0.25
+sample_params/sample_rate = 44100.0
+envelope/attack_time = 0.0
+envelope/sustain_time = 0.05
+envelope/punch_time = 0.0
+envelope/decay_time = 0.125
+frequency/start_frequency = 0.25
+frequency/min_freq_cutoff = 0.0
+frequency/slide = -0.375
+frequency/delta_slide = 0.125
+vibrato/depth = 0.0
+vibrato/speed = 0.0
+arpeggiation/frequency_mult = 0.0
+arpeggiation/change_speed = 0.0
+duty_cycle/duty_cycle = 0.517281
+duty_cycle/sweep = 0.0
+retrigger/rate = 0.0
+flanger/offset = 0.0
+flanger/sweep = 0.0
+low_pass_filter/cutoff_frequency = 1.0
+low_pass_filter/cutoff_sweep = 0.0
+low_pass_filter/resonance = 0.0
+high_pass_filter/cutoff_frequency = 0.0609142
+high_pass_filter/cutoff_sweep = 0.0
+
+[node name="Land2" type="AudioStreamPlayer2D" parent="Relan/Sounds"]
+stream = SubResource("AudioStreamWAV_ct8qu")
+script = ExtResource("21_fnhvt")
+wave/type = 1
+sample_params/sound_vol = 0.25
+sample_params/sample_rate = 44100.0
+envelope/attack_time = 0.0
+envelope/sustain_time = 0.05
+envelope/punch_time = 0.0
+envelope/decay_time = 0.125
+frequency/start_frequency = 0.3
+frequency/min_freq_cutoff = 0.0
+frequency/slide = -0.375
+frequency/delta_slide = 0.125
+vibrato/depth = 0.0
+vibrato/speed = 0.0
+arpeggiation/frequency_mult = 0.0
+arpeggiation/change_speed = 0.0
+duty_cycle/duty_cycle = 0.517281
+duty_cycle/sweep = 0.0
+retrigger/rate = 0.0
+flanger/offset = 0.0
+flanger/sweep = 0.0
+low_pass_filter/cutoff_frequency = 1.0
+low_pass_filter/cutoff_sweep = 0.0
+low_pass_filter/resonance = 0.0
+high_pass_filter/cutoff_frequency = 0.0609142
+high_pass_filter/cutoff_sweep = 0.0
+
+[node name="Land3" type="AudioStreamPlayer2D" parent="Relan/Sounds"]
+stream = SubResource("AudioStreamWAV_tx27n")
+script = ExtResource("21_fnhvt")
+wave/type = 1
+sample_params/sound_vol = 0.25
+sample_params/sample_rate = 44100.0
+envelope/attack_time = 0.0
+envelope/sustain_time = 0.05
+envelope/punch_time = 0.0
+envelope/decay_time = 0.125
+frequency/start_frequency = 0.2
+frequency/min_freq_cutoff = 0.0
+frequency/slide = -0.375
+frequency/delta_slide = 0.125
+vibrato/depth = 0.0
+vibrato/speed = 0.0
+arpeggiation/frequency_mult = 0.0
+arpeggiation/change_speed = 0.0
+duty_cycle/duty_cycle = 0.517281
+duty_cycle/sweep = 0.0
+retrigger/rate = 0.0
+flanger/offset = 0.0
+flanger/sweep = 0.0
+low_pass_filter/cutoff_frequency = 1.0
+low_pass_filter/cutoff_sweep = 0.0
+low_pass_filter/resonance = 0.0
+high_pass_filter/cutoff_frequency = 0.0609142
+high_pass_filter/cutoff_sweep = 0.0
+
+[node name="Land4" type="AudioStreamPlayer2D" parent="Relan/Sounds"]
+stream = SubResource("AudioStreamWAV_eep0n")
+script = ExtResource("21_fnhvt")
+wave/type = 1
+sample_params/sound_vol = 0.25
+sample_params/sample_rate = 44100.0
+envelope/attack_time = 0.0
+envelope/sustain_time = 0.1
+envelope/punch_time = 0.0
+envelope/decay_time = 0.125
+frequency/start_frequency = 0.15
+frequency/min_freq_cutoff = 0.0
+frequency/slide = -0.125
+frequency/delta_slide = 0.25
+vibrato/depth = 0.0
+vibrato/speed = 0.0
+arpeggiation/frequency_mult = 0.0
+arpeggiation/change_speed = 0.0
+duty_cycle/duty_cycle = 0.517281
+duty_cycle/sweep = 0.0
+retrigger/rate = 0.0
+flanger/offset = 0.0
+flanger/sweep = 0.0
+low_pass_filter/cutoff_frequency = 1.0
+low_pass_filter/cutoff_sweep = 0.0
+low_pass_filter/resonance = 0.0
+high_pass_filter/cutoff_frequency = 0.0609142
+high_pass_filter/cutoff_sweep = 0.0
+
+[node name="Ripper" type="CharacterBody2D" parent="."]
 position = Vector2(128, 168)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("30_kqy3y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ripper"]
 position = Vector2(0, 0.5)

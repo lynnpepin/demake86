@@ -49,33 +49,30 @@ func _physics_process(delta: float) -> void:
 			SPEED
 		)
 	else:
-		# Friction toward zero
+		# Friction moves toward zero
+		# Only 3/4 as fast as if the player actively presses that way
 		if vv.x < 0:
-			vv.x = min(vv.x + ax*delta, 0)
+			vv.x = min(vv.x + ax*delta*.75, 0)
 		else:
-			vv.x = max(vv.x - ax*delta, 0)
+			vv.x = max(vv.x - ax*delta*.75, 0)
 	
+	# Play running sprite
 	if grounded < .5 or abs(vv.x) > 1:
-		$AnimatedSprite2D_body.play("run")
-		$AnimatedSprite2D_body.speed_scale = abs(vv.x) / SPEED
+		$body_sprite.play("run")
+		$body_sprite.speed_scale = abs(vv.x) / SPEED
 	else:
-		$AnimatedSprite2D_body.play("default")
-		
+		$body_sprite.play("default")
+
 	
-	#if int(Input.is_action_pressed("ui_right")):
-	#	vv.x += 1 * SPEED
-	#if Input.is_action_pressed("ui_left"):
-	#	vv.x += -1 * SPEED
-	
-	# Set grounded or not for jumping
-	# replaced old check_floor with built-in is_on_floor
 	if is_on_floor():
+		# If landing, play sound
 		if vv.y > 32:
-			#$Sounds/Land.volume_db = vv.y / 64
 			play_landing_sound()
+		# Get grounded
 		grounded = 1.0
 		vv.y = 0
 		
+		# Steps sound
 		steps += int(round(abs(vv.x) * delta))
 		if (steps > 24) and (left or right):
 			steps = 0
@@ -110,39 +107,22 @@ func _physics_process(delta: float) -> void:
 	
 	set_velocity(vv)
 	move_and_slide()
+	play_screech_sound()
 	
-	# Play sound if changing direction
-	if grounded and (left or right):
-		if left and (vv.x > SPEED/3):
-			$Sounds/ChangeDirection.play() 
-		elif right and (vv.x < -SPEED/3):
-			$Sounds/ChangeDirection.play() 
-		else:
-			$Sounds/ChangeDirection.stop()
-	else:
-		$Sounds/ChangeDirection.stop()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-#func check_floor():
-#	return len($Area2D.get_overlapping_bodies()) > 1
-	#return $RayCast_left.is_colliding() or $RayCast_right.is_colliding()
-
-#	DIRECTION.x = (int(Input.is_action_pressed("pad_right")) - int(Input.is_action_pressed("pad_left")))
-#	DIRECTION.y = (int(Input.is_action_pressed("pad_down")) - int(Input.is_action_pressed("pad_up")))
-#	move_and_slide(DIRECTION.normalized()*SPEED)
-
 
 func _process(delta):
 	if Input.is_action_just_pressed("pad_left"):
 		pass
-		$AnimatedSprite2D_body.flip_h = 1
+		$body_sprite.flip_h = 1
 		#$Node2D_cannon.flip_h = 1
 	if Input.is_action_just_pressed("pad_right"):
 		pass
-		$AnimatedSprite2D_body.flip_h = 0
+		$body_sprite.flip_h = 0
 		#$Node2D_cannon.flip_h = 0
 	for input_key in ["pad_left", "pad_right", "pad_up", "pad_down", "pad_a", "pad_b", "pad_x", "pad_y", "pad_lb", "pad_rb"]:
 		if Input.is_action_just_pressed(input_key):
@@ -150,18 +130,17 @@ func _process(delta):
 			#print("   Angle: ", $Node2D_cannon.angle)
 		pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	if Input.is_action_just_pressed("mb1"):
-#		get_window().set_size(Vector2(4096,4096))
-#	if Input.is_action_just_pressed("mb2"):
-#		print("yay")
-#		
-#		var viewport = $Camera2D.get_viewport()
-#		var img = $Camera2D.get_viewport().get_texture().get_data() #.queue_screen_capture()
-#		#yield(get_tree(), "idle_frame")
-#		#yield(get_tree(), "idle_frame")
-#	pass
-
 func play_landing_sound():
 	[$Sounds/Land, $Sounds/Land2, $Sounds/Land3, $Sounds/Land4][random.randi() % 4].play()
+
+func play_screech_sound():
+	# Play sound if changing direction
+	if grounded and (left or right):
+		if left and (vv.x > SPEED/4):
+			$Sounds/ChangeDirection.play() 
+		elif right and (vv.x < -SPEED/3):
+			$Sounds/ChangeDirection.play() 
+		else:
+			$Sounds/ChangeDirection.stop()
+	else:
+		$Sounds/ChangeDirection.stop()
