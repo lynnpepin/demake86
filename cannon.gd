@@ -16,7 +16,7 @@ var ice:  bool = false
 var charge: bool = false
 
 var shoot_timer: float = 0
-var SHOOT_PERIOD: float = .5
+var SHOOT_PERIOD: float = .375
 
 ## Aiming state
 var aimvec: Vector2
