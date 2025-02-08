@@ -52,52 +52,66 @@ var steps: int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("player")
-	set_up_energy_sprites()
-	set_up_missile_sprites()
+	set_up_energy_sprites(6)
+	set_up_missile_sprites(24)
 	pass # Replace with function body.
 
-func set_up_energy_sprites():
-	# TODO
-	for i in 24:
+func set_up_energy_sprites(set_to: int) -> void:
+	for i in MAX_ENERGY:
 		var eicon = Sprite2D.new()
 		eicon.texture = ecount_sprite
 		eicon.z_index = 1000 - i
-		var dx = (i % 6) * 2
-		var dy = floor(i / 6) * 2
+		var dx = (i % 6)
+		var dy = floor(i / 6)
 		eicon.position = Vector2(
-			-32 + 2 + dx * 1.5,
-			-32 + 2.5 + dy
+			-32 + 2.5 + dx * 3,
+			-32 + 2.5 + dy * 2
 		)
+		eicon.visible = false
 		add_child(eicon)
 		ecounter_sprites.append(eicon)
+	
+	add_energy(set_to)
 
-func set_up_missile_sprites():
-	for i in 24:
+func set_up_missile_sprites(set_to: int) -> void:
+	for i in MAX_MISSILES:
 		var micon = Sprite2D.new()
 		micon.texture = mcount_sprite
 		micon.z_index = 1000 - i
-		var dx = (i % 4) * 2
-		var dy = floor(i / 4) * 2
+		var dx = (i % 4)
+		var dy = floor(i / 4)
 		micon.position = Vector2(
-			18 + dx,
-			-32 + 2.5 + dy*1.5
+			29.5 - dx * 2 - int((dy % 2) == 1),
+			-32  + 3 + dy*2
 		)
 		micon.visible = false
 		add_child(micon)
 		mcounter_sprites.append(micon)
 	
 	# Now, set missiles visible by adding 4
-	add_missiles(4)
+	add_missiles(set_to)
 
 func add_missiles(count: int) -> void:
+	# todo - play sound on add missile, lose?
 	if count != 0:
-		var _set_missiles_to = clamp(missiles + count, 0, MAX_MISSILES)
-		var _from = min(_set_missiles_to, missiles)
-		var _to = max(_set_missiles_to, missiles)
+		var _set_to = clamp(missiles + count, 0, MAX_MISSILES)
+		var _from = min(_set_to, missiles)
+		var _to = max(_set_to, missiles)
 		for mi in range(_from, _to):
 			mcounter_sprites[mi].visible = (count > 0)
-		missiles = _set_missiles_to
-	
+		missiles = _set_to
+
+
+func add_energy(count: int) -> void:
+	# todo - play sound on add, lose energy?
+	if count != 0:
+		var _set_to = clamp(energy + count, 0, MAX_ENERGY)
+		var _from = min(_set_to, energy)
+		var _to = max(_set_to, energy)
+		for ei in range(_from, _to):
+			ecounter_sprites[ei].visible = (count > 0)
+		energy = _set_to
+
 func _physics_process(delta: float) -> void:
 	# Get left/right direction
 	#vv.x = 0
