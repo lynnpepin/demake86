@@ -6,6 +6,8 @@ var velocity: Vector2
 
 var random = RandomNumberGenerator.new() # todo - put these in a parent somewhere
 
+var opened = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	create()
@@ -22,7 +24,10 @@ func _physics_process(delta: float) -> void:
 	if lifetime > LIFESPAN:
 		die()
 	lifetime += delta
-	move_and_collide(velocity * delta)
+	var collision = move_and_collide(velocity * delta)
+	if collision != null:
+		if collision.get_collider().is_in_group("hatch"):
+			collision.get_collider().get_parent().open() # todo: differentiate between beam, missile, etc.
 	# https://stackoverflow.com/questions/69728827/how-do-i-detect-collisions-in-godot#69731270
 	
 	#position += velocity * delta

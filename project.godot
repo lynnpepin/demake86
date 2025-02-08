@@ -32,6 +32,7 @@ enabled=PackedStringArray("res://addons/godot_sfxr/plugin.cfg")
 player=""
 enemies=""
 beam=""
+hatch=""
 
 [input]
 

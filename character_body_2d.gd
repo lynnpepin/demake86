@@ -12,7 +12,7 @@ var HIGH_JUMP_SPEED = 80 + 80 #+ 16
 var GRAVITY = 480 #320
 var MAX_FALL_SPEED = 128
 var vv = Vector2()
-var ax = SPEED * 6
+var ax = SPEED * 4
 var y_velo = 0.0
 var x_velo = 0.0
 
@@ -137,9 +137,9 @@ func play_landing_sound():
 func play_screech_sound():
 	# Play sound if changing direction
 	if grounded and (left or right):
-		if left and (vv.x > SPEED/4):
+		if left and (vv.x > SPEED/8):
 			$Sounds/ChangeDirection.play() 
-		elif right and (vv.x < -SPEED/3):
+		elif right and (vv.x < -SPEED/8):
 			$Sounds/ChangeDirection.play() 
 		else:
 			$Sounds/ChangeDirection.stop()
