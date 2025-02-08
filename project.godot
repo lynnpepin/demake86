@@ -27,6 +27,12 @@ window/stretch/scale_mode="integer"
 
 enabled=PackedStringArray("res://addons/godot_sfxr/plugin.cfg")
 
+[global_group]
+
+player=""
+enemies=""
+beam=""
+
 [input]
 
 pad_a={

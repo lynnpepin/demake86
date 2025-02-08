@@ -35,6 +35,12 @@ var random = RandomNumberGenerator.new()
 # Steps counter
 var steps: int = 0
 
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	add_to_group("player")
+	pass # Replace with function body.
+
+
 func _physics_process(delta: float) -> void:
 	# Get left/right direction
 	#vv.x = 0
@@ -110,11 +116,6 @@ func _physics_process(delta: float) -> void:
 	play_screech_sound()
 	
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
 func _process(delta):
 	if Input.is_action_just_pressed("pad_left"):
 		pass
@@ -144,3 +145,8 @@ func play_screech_sound():
 			$Sounds/ChangeDirection.stop()
 	else:
 		$Sounds/ChangeDirection.stop()
+
+func hurt():
+	# todo
+	# take arguments: hurt cooldown, damage to take, whether to take last bit of health off
+	print("Ouch! That hurt Relan!") # TODO

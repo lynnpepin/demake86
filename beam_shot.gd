@@ -9,6 +9,8 @@ var random = RandomNumberGenerator.new() # todo - put these in a parent somewher
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	create()
+	add_to_group("beam")
+	
 	pass # Replace with function body.
 
 
@@ -21,8 +23,12 @@ func _physics_process(delta: float) -> void:
 		die()
 	lifetime += delta
 	move_and_collide(velocity * delta)
-	#position += velocity * delta
+	# https://stackoverflow.com/questions/69728827/how-do-i-detect-collisions-in-godot#69731270
 	
+	#position += velocity * delta
+
+func beam_hits_enemy():
+	pass
 
 func create():
 	[$Sounds/Create, $Sounds/Create2, $Sounds/Create3, $Sounds/Create4][random.randi() % 4].play()
@@ -30,16 +36,25 @@ func create():
 func die():
 	# todo - this is the wrong way to do it; sound player stops on destruction
 	# maybe different things have a sound to play when a beam hits it
-	$Sounds/Hit.play()
+	#$Sounds/Hit.play()
 	queue_free()
 
+
+func _on_area_to_check_for_enemy_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemies"):
+		# todo: This should take damage, cooldown, etc.
+		area.get_parent().hurt(3)
+		die()
+
+
 # TODO:
-# - sprite
-# - collision shape for enemies, and for walls
-# - dies when hit walls
+# [x] sprite
+# [x] collision shape for enemies, and for walls
+# [x] dies when hit walls
 # - explodes when it hits walls
-# - shoot at angle
-# - sounds when made
+# [x] shoot at angle
+# [x] sounds when made
+# [ ] Connect Signals so it can hit/kill ripper
 # - sounds while moving
 # - sound for when it times out
 # - sounds when it hits wall
