@@ -1,3 +1,4 @@
+# TODO - This is a clone of beam_shot.gd. I don't know how to do inheritance properly yet lol
 extends AnimatableBody2D
 
 var LIFESPAN: float = 1.0 / 12.0;
@@ -6,7 +7,6 @@ var velocity: Vector2
 
 var random = RandomNumberGenerator.new() # todo - put these in a parent somewhere
 
-var opened = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	if collision != null:
 		if collision.get_collider().is_in_group("hatch"):
 			collision.get_collider().get_parent().open() # todo: differentiate between beam, missile, etc.
-			die()
+		die()
 	# https://stackoverflow.com/questions/69728827/how-do-i-detect-collisions-in-godot#69731270
 	
 	#position += velocity * delta
@@ -49,7 +49,7 @@ func die():
 func _on_area_to_check_for_enemy_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemies"):
 		# todo: This should take damage, cooldown, etc.
-		area.get_parent().hurt(3)
+		area.get_parent().hurt(30)
 		die()
 
 

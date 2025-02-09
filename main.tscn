@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dk8unr07bj50f"]
+[gd_scene load_steps=21 format=4 uid="uid://dk8unr07bj50f"]
 
 [ext_resource type="Texture2D" uid="uid://ce2tibknbbtee" path="res://art/8px_ground.png" id="2_yoeee"]
 [ext_resource type="Texture2D" uid="uid://ksg2mh188uub" path="res://art/1024_bg.png" id="4_ix4gv"]
@@ -33,6 +33,52 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_norok")
 sources/0 = SubResource("TileSetAtlasSource_57j4n")
 sources/1 = SubResource("TileSetAtlasSource_0q8dm")
 
+[sub_resource type="Gradient" id="Gradient_0s2tp"]
+offsets = PackedFloat32Array(0, 0.0461538, 0.134066, 0.446154, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.298039, 0.2, 0, 1, 0.215686, 0.215686, 0.145098, 1, 0.130772, 0.130772, 0.130772, 1, 0, 0, 0, 0)
+
+[sub_resource type="Curve" id="Curve_4icq8"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 200), 0.0, -4849.46, 0, 0, Vector2(0.0309051, 200), 0.0, 0.0, 0, 0, Vector2(0.0551876, 11.4641), 0.0, 0.0, 0, 0, Vector2(1, -28.0387), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_54n2a"]
+curve = SubResource("Curve_4icq8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uwya3"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 0.0
+emission_ring_inner_radius = 0.0
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+direction = Vector3(1, 1, 0)
+spread = 180.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = -1.60933e-05
+orbit_velocity_min = 2.0
+orbit_velocity_max = 2.0
+radial_velocity_min = 16.0
+radial_velocity_max = 16.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+radial_accel_curve = SubResource("CurveTexture_54n2a")
+
+[sub_resource type="Gradient" id="Gradient_62a25"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fmhrd"]
+gradient = SubResource("Gradient_62a25")
+width = 1
+use_hdr = true
+
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -41,7 +87,6 @@ tile_set = SubResource("TileSet_cnug1")
 
 [node name="ParallaxBackground_fg" type="ParallaxBackground" parent="."]
 layer = 0
-visible = false
 offset = Vector2(256, 256)
 transform = Transform2D(1, 0, 0, 1, 256, 256)
 
@@ -83,7 +128,6 @@ motion_offset = Vector2(-112, -112)
 texture = ExtResource("5_xcij7")
 
 [node name="ParallaxLayer_512" type="ParallaxLayer" parent="ParallaxBackground"]
-visible = false
 z_index = -30
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_512"]
@@ -104,3 +148,53 @@ position = Vector2(192, 96)
 
 [node name="Hatch3" parent="." instance=ExtResource("30_1unny")]
 position = Vector2(256, 96)
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+visible = false
+position = Vector2(160, 336)
+amount = 64
+explosiveness = 1.0
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 2.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 8.0
+initial_velocity_max = 8.0
+angle_min = 45.0
+angle_max = 45.0
+color_ramp = SubResource("Gradient_0s2tp")
+
+[node name="CPUParticles2D_Smoke" type="CPUParticles2D" parent="."]
+position = Vector2(80, 168)
+amount = 32
+lifetime = 2.0
+explosiveness = 0.25
+randomness = 0.25
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 2.0
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 8.0
+initial_velocity_max = 8.0
+tangential_accel_min = -2.0
+tangential_accel_max = 2.0
+angle_min = 45.0
+angle_max = 45.0
+color_ramp = SubResource("Gradient_0s2tp")
+hue_variation_max = 1.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+position = Vector2(80, 168)
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_uwya3")
+texture = SubResource("GradientTexture1D_fmhrd")
+lifetime = 0.5
+explosiveness = 1.0
+fixed_fps = 60
+visibility_rect = Rect2(-8, -8, 16, 16)
+local_coords = true
+trail_lifetime = 2.31

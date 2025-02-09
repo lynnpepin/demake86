@@ -22,6 +22,7 @@ window/size/viewport_height=512
 window/stretch/mode="viewport"
 window/stretch/scale=8.0
 window/stretch/scale_mode="integer"
+window/snap/snap_2d_transforms_to_pixel=false
 
 [editor_plugins]
 

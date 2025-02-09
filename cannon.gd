@@ -34,6 +34,7 @@ var sprites = [
 
 var random = RandomNumberGenerator.new()
 var BeamShot = preload("res://beam_shot.tscn")
+var MissileShot = preload("res://missile_shot.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -136,11 +137,17 @@ func shoot_missile(delta):
 	var _count_missiles = get_parent().missiles
 	print("Shooting missle ", _count_missiles)
 	if _count_missiles > 0:
-		# TODO - This logic should be in the parent
 		get_parent().add_missiles(-1)
-		shoot_beam(delta) # TODO - create missile, shoot missile
+		
+		var b = MissileShot.instantiate()
+		var rawangle = -angle * PI / 4
+		b.velocity = Vector2(128.0, 0).rotated(rawangle)
+		b.position = global_position + get_shoot_xy(angle)#global_position + get_shoot_xy(angle)
+		b.rotation = rawangle
+		owner.owner.add_child(b)
 		
 func shoot_beam(delta: float) -> void:
+	# Notice: Beam stays attached to play
 	var b = BeamShot.instantiate()
 	var rawangle = -angle * PI / 4
 	b.velocity = Vector2(128.0, 0).rotated(rawangle)
@@ -168,4 +175,4 @@ func _highlight_cannon(color):
 
 func _draw():
 	if Input.is_action_pressed("pad_rb"):
-		_highlight_cannon(Color.from_string('#25e3ce', Color.WHITE))
+		_highlight_cannon(Color.from_string('#52af67', Color.WHITE))
