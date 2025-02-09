@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://dcebhm5y2hdmd"]
 
-[ext_resource type="Script" path="res://missile_shot.gd" id="1_1obnq"]
-[ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="2_33bmh"]
+[ext_resource type="Script" path="res://missile_shot.gd" id="1_rf8p4"]
+[ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="2_0conl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rl5qe"]
 size = Vector2(2, 1)
@@ -31,7 +31,7 @@ colors = PackedColorArray(0.882353, 0.227451, 0.137255, 1, 0.360784, 0.223529, 0
 [node name="MissileShot" type="AnimatableBody2D" groups=["beam"]]
 collision_layer = 8
 collision_mask = 2
-script = ExtResource("1_1obnq")
+script = ExtResource("1_rf8p4")
 
 [node name="ColliderWall" type="CollisionShape2D" parent="." groups=["beam"]]
 shape = SubResource("RectangleShape2D_rl5qe")
@@ -50,7 +50,7 @@ texture = SubResource("GradientTexture2D_c7sga")
 
 [node name="Create" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = SubResource("AudioStreamWAV_yfknn")
-script = ExtResource("2_33bmh")
+script = ExtResource("2_0conl")
 wave/type = 3
 sample_params/sound_vol = 0.15
 sample_params/sample_rate = 44100.0
@@ -79,7 +79,7 @@ high_pass_filter/cutoff_sweep = 0.0
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = SubResource("AudioStreamWAV_r6lou")
-script = ExtResource("2_33bmh")
+script = ExtResource("2_0conl")
 wave/type = 3
 sample_params/sound_vol = 0.125
 sample_params/sample_rate = 44100.0

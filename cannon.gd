@@ -33,8 +33,8 @@ var sprites = [
 ]
 
 var random = RandomNumberGenerator.new()
-var BeamShot = preload("res://beam_shot.tscn")
-var MissileShot = preload("res://missile_shot.tscn")
+var BeamShot = preload("res://Scenes/beam_shot.tscn")
+var MissileShot = preload("res://Scenes/missile_shot.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

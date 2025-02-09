@@ -7,6 +7,8 @@ var lifetime: float = 0.0;
 var velocity: Vector2
 var active = true
 
+var BigExplosion = preload("res://Scenes/BigExplosion.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	create()
@@ -45,9 +47,22 @@ func die():
 	# todo - this is the wrong way to do it; sound player stops on destruction
 	# maybe different things have a sound to play when a beam hits it
 	#$Sounds/Hit.play()
+	var blam = BigExplosion.instantiate()
+	blam.position = Vector2(0,0)#global_position
+	add_child(blam)
 	if lifetime > LIFESPAN:
 		queue_free()
 
+
+
+	#var b = BeamShot.instantiate()
+	#var rawangle = -angle * PI / 4
+	#b.velocity = Vector2(128.0, 0).rotated(rawangle)
+	#b.position = get_shoot_xy(angle)#global_position + get_shoot_xy(angle)
+	#b.rotation = rawangle
+	#if long:
+		#b.LIFESPAN = 2
+	#owner.add_child(b)
 
 func _on_area_to_check_for_enemy_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemies") and active:

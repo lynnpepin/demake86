@@ -54,7 +54,7 @@ var steps: float = 0
 func _ready():
 	add_to_group("player")
 	set_up_energy_sprites(6)
-	set_up_missile_sprites(4)
+	set_up_missile_sprites(24)
 	pass # Replace with function body.
 
 func set_up_energy_sprites(set_to: int) -> void:

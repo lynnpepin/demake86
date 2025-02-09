@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://nmb80xmwnw1u" path="res://art/256_bg.png" id="5_xcij7"]
 [ext_resource type="Texture2D" uid="uid://b3y2iji6hrwtn" path="res://art/128_bg.png" id="6_lsn6u"]
 [ext_resource type="Texture2D" uid="uid://xgn8x5qcmkic" path="res://art/64_bg.png" id="7_s1bfu"]
-[ext_resource type="PackedScene" uid="uid://bv0aynt6jkni2" path="res://relan.tscn" id="8_trcrg"]
+[ext_resource type="PackedScene" uid="uid://bv0aynt6jkni2" path="res://Scenes/relan.tscn" id="8_trcrg"]
 [ext_resource type="Texture2D" uid="uid://duk5s41q73y87" path="res://art/8px_ramp.png" id="24_66els"]
-[ext_resource type="PackedScene" uid="uid://ddd2blsbfg3ws" path="res://ripper.tscn" id="29_45pp3"]
-[ext_resource type="PackedScene" uid="uid://bmg82tnsi1a6h" path="res://hatch.tscn" id="30_1unny"]
+[ext_resource type="PackedScene" uid="uid://ddd2blsbfg3ws" path="res://Scenes/ripper.tscn" id="29_45pp3"]
+[ext_resource type="PackedScene" uid="uid://bmg82tnsi1a6h" path="res://Scenes/hatch.tscn" id="30_1unny"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_norok"]
 
@@ -139,7 +139,7 @@ z_index = -30
 texture = ExtResource("4_kp1pf")
 
 [node name="Relan" parent="." instance=ExtResource("8_trcrg")]
-position = Vector2(96, 152)
+position = Vector2(16, 8)
 
 [node name="Ripper" parent="." instance=ExtResource("29_45pp3")]
 
@@ -171,6 +171,7 @@ angle_max = 45.0
 color_ramp = SubResource("Gradient_0s2tp")
 
 [node name="CPUParticles2D_BigExplosion" type="CPUParticles2D" parent="."]
+visible = false
 position = Vector2(80, 168)
 amount = 128
 lifetime = 0.5
