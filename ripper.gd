@@ -26,6 +26,6 @@ func hurt(damage: int) -> void:
 
 func _on_area_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
-		area.get_parent().hurt(1, 0.05)
+		area.get_parent().hurt(1, 1)
 	elif area.is_in_group("beam"):
 		hurt(3)

@@ -186,8 +186,8 @@ func _process(delta):
 	var _hurt_timer_color_intensity =  clamp(hurt_timer, 0.0, 1.0)
 	var _hurt_timer_color = Color(
 		1.0,
-		1 - _hurt_timer_color_intensity / 2.0,
-		1 - _hurt_timer_color_intensity / 3.0
+		1 - _hurt_timer_color_intensity,# / 2.0,
+		1 - _hurt_timer_color_intensity# / 3.0
 	)
 	$body_sprite.modulate = _hurt_timer_color
 	

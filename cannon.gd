@@ -22,7 +22,7 @@ var SHOOT_PERIOD: float = .375
 var aimvec: Vector2
 var angle: int = 0
 var prevangle: int = 0
-var flip: int = 0
+var flip: int = 1
 
 # Sprites
 var sprite
@@ -82,13 +82,13 @@ func _process(delta: float) -> void:
 	
 	if diag:
 		angle = [
-			[1, 1, 1, 1, 1, 7, 7, 7][prevangle],
-			1,
-			[1, 1, 1, 3, 3, 3, 3, 1][prevangle],
+			[1, 1, 1, 1, 1, 7, 7, 7][prevangle],  # right
+			1, # up right
+			[1, 1, 2 -flip, 3, 3, 3, 3, 1][prevangle], #up
 			3,
-			[5, 3, 3, 3, 3, 5, 5, 5][prevangle],
+			[5, 3, 3, 3, 3, 5, 5 , 5][prevangle], # left
 			5,
-			[7, 7, 5, 5, 5, 5, 7, 7 ][prevangle],
+			[7, 7, 5, 5, 5, 5, 6 + flip, 7 ][prevangle], # down
 			7
 		][angle]
 	

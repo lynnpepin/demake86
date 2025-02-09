@@ -133,6 +133,7 @@ motion_offset = Vector2(-112, -112)
 texture = ExtResource("5_xcij7")
 
 [node name="ParallaxLayer_512" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 z_index = -30
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_512"]
@@ -142,9 +143,6 @@ texture = ExtResource("4_kp1pf")
 position = Vector2(96, 152)
 
 [node name="Ripper" parent="." instance=ExtResource("29_45pp3")]
-
-[node name="Ripper2" parent="." instance=ExtResource("29_45pp3")]
-position = Vector2(64, 168)
 
 [node name="Hatch" parent="." instance=ExtResource("30_1unny")]
 
