@@ -47,12 +47,12 @@ var right: bool
 var random = RandomNumberGenerator.new()
 
 # Steps counter
-var steps: int = 0
+var steps: float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("player")
-	set_up_energy_sprites(6)
+	set_up_energy_sprites(24)
 	set_up_missile_sprites(24)
 	pass # Replace with function body.
 
@@ -114,20 +114,15 @@ func add_energy(count: int) -> void:
 
 func _physics_process(delta: float) -> void:
 	# Get left/right direction
-	#vv.x = 0
 	left  = Input.is_action_pressed("pad_left")
 	right = Input.is_action_pressed("pad_right")
 	
 	if left or right:
-		vv.x = clamp(
-			#           (1 - (1 - grounded)*.75) reduces air movement to 1/4; momentum is preserved! 
+		vv.x = clamp(#        (1 - (1 - grounded)*.5) reduces air movement to 1/2; careful for momentum!
 			vv.x + ax*delta * (1 - (1 - grounded)*.5) * (int(right) - int(left)),
-			-SPEED,
-			SPEED
-		)
+			-SPEED, SPEED)
 	else:
-		# Friction moves toward zero
-		# Only 3/4 as fast as if the player actively presses that way
+		# Friction moves toward zero; .75 as fast if player gives no input
 		if vv.x < 0:
 			vv.x = min(vv.x + ax*delta*.75, 0)
 		else:
@@ -139,22 +134,19 @@ func _physics_process(delta: float) -> void:
 		$body_sprite.speed_scale = abs(vv.x) / SPEED
 	else:
 		$body_sprite.play("default")
-
 	
 	if is_on_floor():
-		# If landing, play sound
 		if vv.y > 32:
-			play_landing_sound()
+			play_landing_sound() # If landing, play sound
 		# Get grounded
 		grounded = 1.0
 		vv.y = 0
 		
-		# Steps sound
-		steps += int(round(abs(vv.x) * delta))
-		if (steps > 24) and (left or right):
+		# Walking sounds
+		steps += abs(vv.x) * delta #int(round(abs(vv.x) * delta))
+		if (steps > SPEED/2) and (left or right):
 			steps = 0
 			play_landing_sound()
-		
 	else:
 		grounded = max(0, grounded - delta * GROUND_DECAY_RATE)
 		

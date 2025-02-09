@@ -113,6 +113,8 @@ data = PackedByteArray("uLm6vL2+wMHCxMXGx8nKy83Oz9DS09TV19jZ2tzd3t/h4uPk5efo6err
 
 [node name="Relan" type="CharacterBody2D" groups=["player"]]
 collision_mask = 2
+floor_max_angle = 0.872665
+safe_margin = 0.5
 script = ExtResource("1_hqtwd")
 
 [node name="collision_platforming" type="CollisionShape2D" parent="."]
