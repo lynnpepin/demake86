@@ -145,6 +145,8 @@ func shoot_missile(delta):
 		b.position = global_position + get_shoot_xy(angle)#global_position + get_shoot_xy(angle)
 		b.rotation = rawangle
 		owner.owner.add_child(b)
+	else:
+		$Sounds/Click4.play()
 		
 func shoot_beam(delta: float) -> void:
 	# Notice: Beam stays attached to play

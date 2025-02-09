@@ -22,6 +22,7 @@ var energy = 0
 var missiles = 0
 var MAX_MISSILES = 24
 var MAX_ENERGY   = 24
+var hurt_timer = 0
 #var ecount_sprite = ImageTexture.create_from_image(Image.load_from_file("res://art/counters/energy.png"))
 #var mcount_sprite = ImageTexture.create_from_image(Image.load_from_file("res://art/counters/missile.png"))
 var ecount_sprite = load("res://art/counters/energy.png")
@@ -52,8 +53,8 @@ var steps: float = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("player")
-	set_up_energy_sprites(24)
-	set_up_missile_sprites(24)
+	set_up_energy_sprites(6)
+	set_up_missile_sprites(4)
 	pass # Replace with function body.
 
 func set_up_energy_sprites(set_to: int) -> void:
@@ -180,6 +181,17 @@ func _physics_process(delta: float) -> void:
 	
 
 func _process(delta):
+	hurt_timer = max(0, hurt_timer - delta)
+	# Make body red when hurt
+	var _hurt_timer_color_intensity =  clamp(hurt_timer, 0.0, 1.0)
+	var _hurt_timer_color = Color(
+		1.0,
+		1 - _hurt_timer_color_intensity / 2.0,
+		1 - _hurt_timer_color_intensity / 3.0
+	)
+	$body_sprite.modulate = _hurt_timer_color
+	
+	
 	if Input.is_action_just_pressed("pad_left"):
 		pass
 		$body_sprite.flip_h = 1
@@ -200,6 +212,7 @@ func play_landing_sound():
 	[$Sounds/Land, $Sounds/Land2, $Sounds/Land3, $Sounds/Land4][random.randi() % 4].play()
 
 func play_screech_sound():
+	# todo - add random noises
 	# Play sound if changing direction
 	if grounded and (left or right):
 		if left and (vv.x > SPEED/8):
@@ -211,10 +224,18 @@ func play_screech_sound():
 	else:
 		$Sounds/ChangeDirection.stop()
 
-func hurt():
+func hurt(damage: int, cooldown: float) -> void:
 	# todo
-	# take arguments: hurt cooldown, damage to take, whether to take last bit of health off
-	print("Ouch! That hurt Relan!") # TODO
+	# - take damage
+	# - make noise
+	# - whether damage should take off last bit of health
+	$body_sprite.modulate = Color.RED
+	if hurt_timer <= 0:
+		$Sounds/Hurt1.play()
+		hurt_timer = cooldown
+		add_energy(-damage)
+	if energy < 0:
+		print("OH NOOOO")
 	
 func _draw():
 	pass

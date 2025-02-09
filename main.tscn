@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://dk8unr07bj50f"]
+[gd_scene load_steps=22 format=4 uid="uid://dk8unr07bj50f"]
 
 [ext_resource type="Texture2D" uid="uid://ce2tibknbbtee" path="res://art/8px_ground.png" id="2_yoeee"]
 [ext_resource type="Texture2D" uid="uid://ksg2mh188uub" path="res://art/1024_bg.png" id="4_ix4gv"]
@@ -34,8 +34,13 @@ sources/0 = SubResource("TileSetAtlasSource_57j4n")
 sources/1 = SubResource("TileSetAtlasSource_0q8dm")
 
 [sub_resource type="Gradient" id="Gradient_0s2tp"]
-offsets = PackedFloat32Array(0, 0.0461538, 0.134066, 0.446154, 1)
-colors = PackedColorArray(1, 0, 0, 1, 0.298039, 0.2, 0, 1, 0.215686, 0.215686, 0.145098, 1, 0.130772, 0.130772, 0.130772, 1, 0, 0, 0, 0)
+offsets = PackedFloat32Array(0.0021978, 0.0043956, 0.0483516, 0.0769231, 0.29011, 0.397802, 0.507692, 0.663736, 0.742857, 0.826374, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 0.163462, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0.566667, 0, 1, 1, 0, 0, 1, 0.665, 0.09075, 0.0969375, 1, 0.33, 0.1815, 0.193875, 1, 0.306832, 0.182658, 0.186412, 0.965754, 0.2, 0.188, 0.152, 0.807843, 0.05, 0.047125, 0.0385, 0.25098)
+
+[sub_resource type="Curve" id="Curve_fu1ap"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.858586, 9.25173), 38.4592, 38.4592, 0, 0, Vector2(0.959596, 100), 4038.2, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="Curve" id="Curve_4icq8"]
 min_value = -200.0
@@ -165,7 +170,49 @@ angle_min = 45.0
 angle_max = 45.0
 color_ramp = SubResource("Gradient_0s2tp")
 
+[node name="CPUParticles2D_BigExplosion" type="CPUParticles2D" parent="."]
+position = Vector2(80, 168)
+amount = 128
+lifetime = 0.5
+explosiveness = 1.0
+lifetime_randomness = 0.75
+fract_delta = false
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, -24)
+initial_velocity_max = 36.0
+angular_velocity_max = 64.0
+orbit_velocity_min = -0.5
+orbit_velocity_max = 0.5
+radial_accel_min = -2.0
+radial_accel_max = 2.0
+damping_min = 8.0
+damping_max = 64.0
+damping_curve = SubResource("Curve_fu1ap")
+angle_min = 45.0
+angle_max = 45.0
+scale_amount_min = 0.0
+scale_amount_max = 4.0
+color_ramp = SubResource("Gradient_0s2tp")
+
+[node name="CPUParticles2D_SmallExplosion" type="CPUParticles2D" parent="."]
+visible = false
+position = Vector2(80, 168)
+amount = 128
+lifetime = 0.5
+explosiveness = 1.0
+fract_delta = false
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 16.0
+initial_velocity_max = 16.0
+color_ramp = SubResource("Gradient_0s2tp")
+
 [node name="CPUParticles2D_Smoke" type="CPUParticles2D" parent="."]
+visible = false
 position = Vector2(80, 168)
 amount = 32
 lifetime = 2.0
