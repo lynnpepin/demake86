@@ -139,7 +139,7 @@ z_index = -30
 texture = ExtResource("4_kp1pf")
 
 [node name="Relan" parent="." instance=ExtResource("8_trcrg")]
-position = Vector2(16, 8)
+position = Vector2(96, 152)
 
 [node name="Ripper" parent="." instance=ExtResource("29_45pp3")]
 
