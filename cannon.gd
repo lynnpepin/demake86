@@ -26,11 +26,11 @@ var flip: int = 1
 
 # Sprites
 var sprite
-var sprites = [
-	$Sprite2D_cannon_f, $Sprite2D_cannon_uf, $Sprite2D_cannon_u,
-	$Sprite2D_cannon_uf, $Sprite2D_cannon_f, $Sprite2D_cannon_df,
-	$Sprite2D_cannon_d, $Sprite2D_cannon_df
-]
+var sprites# = [
+	#$Sprite2D_cannon_f, $Sprite2D_cannon_uf, $Sprite2D_cannon_u,
+	#$Sprite2D_cannon_uf, $Sprite2D_cannon_f, $Sprite2D_cannon_df,
+	#$Sprite2D_cannon_d, $Sprite2D_cannon_df
+#]
 
 var random = RandomNumberGenerator.new()
 var BeamShot = preload("res://Scenes/beam_shot.tscn")
@@ -45,52 +45,13 @@ func _process(delta: float) -> void:
 	########
 	# Handle aiming
 	########
-	if (angle != prevangle) or Input.is_action_just_pressed("pad_rb"):
-		[$Sounds/Click, $Sounds/Click2, $Sounds/Click3, $Sounds/Click4][random.randi() % 4].play()
-		
-	prevangle = angle
 	up = Input.is_action_pressed("pad_up")
 	left = Input.is_action_pressed("pad_left")
 	down = Input.is_action_pressed("pad_down")
 	right = Input.is_action_pressed("pad_right")
 	diag = Input.is_action_pressed("pad_lb")
-	
-	#angle = int(round(
-	#	(Vector2(int(right) - int(left), int(up) - int(down)).angle() / PI) 
-	#))
-	if right:
-		flip = 1
-	if left:
-		flip = -1
-	
-	aimvec = Vector2(
-		#1 - 2*flip,
-		int(right) - int(left),
-		int(up) - int(down)
-	)
-	
-	if aimvec.length() == 0:
-		aimvec.x = flip
-	
-	angle = posmod(
-		int(
-			(
-				aimvec.angle() / PI) * 4
-		),
-	8)
-	#print(flip, angle)
-	
-	if diag:
-		angle = [
-			[1, 1, 1, 1, 1, 7, 7, 7][prevangle],  # right
-			1, # up right
-			[1, 1, 2 -flip, 3, 3, 3, 3, 1][prevangle], #up
-			3,
-			[5, 3, 3, 3, 3, 5, 5 , 5][prevangle], # left
-			5,
-			[7, 7, 5, 5, 5, 5, 6 + flip, 7 ][prevangle], # down
-			7
-		][angle]
+		
+	handle_angles()
 	
 	# For some reason, we need to define this here, not above
 	sprites = [
@@ -123,6 +84,51 @@ func _process(delta: float) -> void:
 	shoot(delta)
 	
 	queue_redraw()
+
+func handle_angles():
+	# Eight directions encoded as an int
+	# 321
+	# 4 0
+	# 567
+	
+	# Make a click noise
+	if (angle != prevangle) or Input.is_action_just_pressed("pad_rb"):
+		[$Sounds/Click, $Sounds/Click2, $Sounds/Click3, $Sounds/Click4][random.randi() % 4].play()
+	
+	prevangle = angle
+	
+	#angle = int(round((Vector2(int(right) - int(left), int(up) - int(down)).angle() / PI)))
+	
+	if right:
+		flip = 1
+	if left:
+		flip = -1
+	
+	# Get the vector representing where we're aiming
+	aimvec = Vector2(
+		int(right) - int(left), #1 - 2*flip,
+		int(up) - int(down)
+	)
+	
+	if aimvec.length() == 0:
+		aimvec.x = flip
+	
+	# Set the angle according to our X-Y components
+	angle = posmod(int((aimvec.angle() / PI) * 4),8)
+	#print(flip, angle)
+	
+	# If lb is pressed, use this to map (angle, previous_angle) to an angle
+	if diag:
+		angle = [
+			[1, 1, 1, 1, 1, 7, 7, 7][prevangle],  # right
+			1, # up right
+			[1, 1, 2 -flip, 3, 3, 3, 3, 1][prevangle], #up
+			3,
+			[5, 3, 3, 3, 3, 5, 5 , 5][prevangle], # left
+			5,
+			[7, 7, 5, 5, 5, 5, 6 + flip, 7 ][prevangle], # down
+			7
+		][angle]
 
 func shoot(delta):
 	if Input.is_action_pressed("pad_x"):
