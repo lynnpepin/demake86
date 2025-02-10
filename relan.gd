@@ -15,13 +15,15 @@ var GRAVITY = 480 #320
 var MAX_FALL_SPEED = 128
 var MAX_MISSILES = 24
 var MAX_ENERGY   = 24
-var BOMB_RECHARGE_TIME: float = 1.0
+var BOMB_PERIOD: float = 0.25
+var MAX_BOMBS = 5
 enum States { Normal, Ball }
 #endregion
 
 #region variables
 var state = States.Normal
 var vv = Vector2()
+var impulse_applied = false # when true, apply impulse for a frame
 var ax = MAX_WALK_SPEED * 4
 var y_velo = 0.0
 var x_velo = 0.0
@@ -35,8 +37,8 @@ var mcount_sprite = load("res://art/counters/missile.png")
 var ecounter_sprites = []
 var mcounter_sprites = []
 var hurt_timer = 0
-var bombs    = 3
-var bomb_timer = 0
+# bombs is a meter which recharges with time
+var bombs: float = BOMB_PERIOD * MAX_BOMBS
 
 # power ups
 var has_high_jump = false
@@ -47,9 +49,10 @@ var has_morph_bomb = true
 var left: bool
 var right: bool
 
+var Bomb = preload("res://Scenes/bomb.tscn")
+
 # children
 #var Sounds: Node2D = $Sounds
-var random = RandomNumberGenerator.new()
 
 # Steps counter for step sounds
 var steps: float = 0
@@ -101,7 +104,8 @@ func _physics_process(delta: float) -> void:
 			play_landing_sound() # If landing, play sound
 		# Get grounded
 		grounded = 1.0
-		vv.y = 0
+		if not impulse_applied:
+			vv.y = 0
 		
 		# Walking sounds
 		steps += abs(vv.x) * delta #int(round(abs(vv.x) * delta))
@@ -139,38 +143,11 @@ func _physics_process(delta: float) -> void:
 	set_velocity(vv)
 	move_and_slide()
 	play_screech_sound()
+	impulse_applied = false
 
-func _transition_normal_to_ball():
-	$Sounds/ToBall.play()
-	assert(state == States.Normal)
-	state = States.Ball
-	$collision_platforming.disabled = true
-	$collision_platforming_ball.disabled = false
-	$body_sprite.visible = false
-	$ball_sprite.visible = true
-	$Cannon.process_mode = Node.PROCESS_MODE_DISABLED
-	$Cannon.visible = false
-	# Disable normal collisions, hurtbox, sprite
-	# Enable ball collisions, hurtbox, sprite
-	# sounds, no step sounds
-	pass
-
-func _transition_ball_to_normal():
-	# First, check that there's no clipping
-	var coll = $RayCast2D_TuckChecker.get_collider()
-	if coll != null:
-		$Sounds/CantUntuck.play()
-	else:	
-		# Then, do the transition
-		$Sounds/FromBall.play()
-		assert(state == States.Ball)
-		state = States.Normal
-		$collision_platforming.disabled = false
-		$collision_platforming_ball.disabled = true
-		$body_sprite.visible = true
-		$ball_sprite.visible = false
-		$Cannon.process_mode = Node.PROCESS_MODE_ALWAYS
-		$Cannon.visible = true
+func apply_impulse(impulse: Vector2):
+	impulse_applied = true
+	vv += impulse
 
 func _process(delta):
 	hurt_timer = max(0, hurt_timer - delta)
@@ -204,10 +181,49 @@ func _process(delta):
 		if Input.is_action_just_pressed(input_key):
 			print(input_key, " pressed")
 	
+	bombs = clamp(bombs + delta, 0, BOMB_PERIOD * MAX_BOMBS)
+	if state == States.Ball and Input.is_action_just_pressed("pad_x") and floor(bombs) > 0:
+		var b = Bomb.instantiate()
+		b.position = global_position + Vector2(0, 6)
+		owner.add_child(b)
+		bombs -= BOMB_PERIOD
+		
 	queue_redraw()
 
+func _transition_normal_to_ball():
+	$Sounds/ToBall.play()
+	assert(state == States.Normal)
+	state = States.Ball
+	$collision_platforming.disabled = true
+	$collision_platforming_ball.disabled = false
+	$body_sprite.visible = false
+	$ball_sprite.visible = true
+	$Cannon.process_mode = Node.PROCESS_MODE_DISABLED
+	$Cannon.visible = false
+	# Disable normal collisions, hurtbox, sprite
+	# Enable ball collisions, hurtbox, sprite
+	# sounds, no step sounds
+	pass
+
+func _transition_ball_to_normal():
+	# First, check that there's no clipping
+	var coll = $RayCast2D_TuckChecker.get_collider()
+	if coll != null:
+		$Sounds/CantUntuck.play()
+	else:	
+		# Then, do the transition
+		$Sounds/FromBall.play()
+		assert(state == States.Ball)
+		state = States.Normal
+		$collision_platforming.disabled = false
+		$collision_platforming_ball.disabled = true
+		$body_sprite.visible = true
+		$ball_sprite.visible = false
+		$Cannon.process_mode = Node.PROCESS_MODE_ALWAYS
+		$Cannon.visible = true
+
 func play_landing_sound():
-	[$Sounds/Land, $Sounds/Land2, $Sounds/Land3, $Sounds/Land4][random.randi() % 4].play()
+	[$Sounds/Land, $Sounds/Land2, $Sounds/Land3, $Sounds/Land4][randi() % 4].play()
 
 func play_screech_sound():
 	# todo - add random noises

@@ -1,6 +1,5 @@
 extends CPUParticles2D
 
-var random = RandomNumberGenerator.new()
 
 var time = 0
 var collision_lifespan = .25
@@ -8,7 +7,7 @@ var collision_lifespan = .25
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	emitting = true
-	[$Explode1, $Explode2, $Explode3, $Explode4][random.randi_range(0,3)].play()
+	[$Explode1, $Explode2, $Explode3, $Explode4][randi() % 4].play()
 	pass # Replace with function body.
 
 

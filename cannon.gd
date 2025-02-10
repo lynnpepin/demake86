@@ -1,6 +1,5 @@
 extends Node2D
 
-
 # Inputs
 var up: bool
 var left: bool
@@ -32,7 +31,6 @@ var sprites# = [
 	#$Sprite2D_cannon_d, $Sprite2D_cannon_df
 #]
 
-var random = RandomNumberGenerator.new()
 var BeamShot = preload("res://Scenes/beam_shot.tscn")
 var MissileShot = preload("res://Scenes/missile_shot.tscn")
 
@@ -93,7 +91,7 @@ func handle_angles():
 	
 	# Make a click noise
 	if (angle != prevangle) or Input.is_action_just_pressed("pad_rb"):
-		[$Sounds/Click, $Sounds/Click2, $Sounds/Click3, $Sounds/Click4][random.randi() % 4].play()
+		[$Sounds/Click, $Sounds/Click2, $Sounds/Click3, $Sounds/Click4][randi() % 4].play()
 	
 	prevangle = angle
 	

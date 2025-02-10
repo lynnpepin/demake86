@@ -5,16 +5,11 @@ var LIFESPAN: float = 1.0 / 12.0;
 var lifetime: float = 0.0;
 var velocity: Vector2
 
-var random = RandomNumberGenerator.new() # todo - put these in a parent somewhere
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	create()
 	add_to_group("beam")
-	
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -27,7 +22,7 @@ func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(velocity * delta)
 	if collision != null:
 		if collision.get_collider().is_in_group("hatch"):
-			collision.get_collider().get_parent().open() # todo: differentiate between beam, missile, etc.
+			collision.get_collider().get_parent().open()
 		die()
 	# https://stackoverflow.com/questions/69728827/how-do-i-detect-collisions-in-godot#69731270
 	
@@ -37,7 +32,7 @@ func beam_hits_enemy():
 	pass
 
 func create():
-	[$Sounds/Create, $Sounds/Create2, $Sounds/Create3, $Sounds/Create4][random.randi() % 4].play()
+	[$Sounds/Create, $Sounds/Create2, $Sounds/Create3, $Sounds/Create4][randi() % 4].play()
 	
 func die():
 	# todo - this is the wrong way to do it; sound player stops on destruction

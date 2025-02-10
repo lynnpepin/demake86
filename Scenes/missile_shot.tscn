@@ -33,8 +33,6 @@ collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_rf8p4")
 
-[node name="RayCast2D_TuckChecker" type="RayCast2D" parent="."]
-
 [node name="ColliderWall" type="CollisionShape2D" parent="." groups=["beam"]]
 shape = SubResource("RectangleShape2D_rl5qe")
 
@@ -110,11 +108,12 @@ high_pass_filter/cutoff_sweep = 0.0
 
 [node name="CPUParticles2D_Smoke" type="CPUParticles2D" parent="."]
 z_index = 50
-amount = 512
+amount = 128
 lifetime = 2.0
 explosiveness = 0.25
-randomness = 0.25
+randomness = 0.5
 lifetime_randomness = 0.5
+fract_delta = false
 emission_shape = 1
 emission_sphere_radius = 2.0
 direction = Vector2(-1, 0)
