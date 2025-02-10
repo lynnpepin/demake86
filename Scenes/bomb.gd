@@ -7,6 +7,8 @@ var BombExplosion = preload("res://Scenes/BombExplosion.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	position.x = round(position.x)
+	position.y = round(position.y)
 	$SoundPlace.play()
 	play()
 

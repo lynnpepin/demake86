@@ -44,12 +44,12 @@ func _process(delta: float) -> void:
 		if body.is_in_group("player") and blasted_player < 2:
 			print("player entered leftbox")
 			blasted_player = 1
-			body.apply_impulse(Vector2(-96, 0))
+			body.apply_impulse(Vector2(-64, 0))
 			# todo
 	for body in $rightbox.get_overlapping_bodies():
 		if body.is_in_group("player") and blasted_player < 2:
 			print("player entered rightbox")
-			body.apply_impulse(Vector2(96, 0))
+			body.apply_impulse(Vector2(64, 0))
 			blasted_player = 1
 			# todo
 	if blasted_player == 1:

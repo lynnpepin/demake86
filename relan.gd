@@ -15,7 +15,7 @@ var GRAVITY = 480 #320
 var MAX_FALL_SPEED = 128
 var MAX_MISSILES = 24
 var MAX_ENERGY   = 24
-var BOMB_PERIOD: float = 0.25
+var BOMB_PERIOD: float = 0.5
 var MAX_BOMBS = 5
 enum States { Normal, Ball }
 #endregion
@@ -105,6 +105,7 @@ func _physics_process(delta: float) -> void:
 		# Get grounded
 		grounded = 1.0
 		if not impulse_applied:
+			# If on floor, and we're not applying an impulse, zero our velocity
 			vv.y = 0
 		
 		# Walking sounds
@@ -146,13 +147,21 @@ func _physics_process(delta: float) -> void:
 	impulse_applied = false
 
 func apply_impulse(impulse: Vector2):
+	# Bad name-- this function is used for bomb.gd explosion physics
 	impulse_applied = true
-	vv += impulse
+	grounded = 0
+	vv.x += impulse.x
+	if impulse.y < 0:
+		vv.y = min(impulse.y, vv.y)
+	elif impulse.y > 0:
+		vv.y = max(impulse.y, vv.y)
 
 func _process(delta):
 	hurt_timer = max(0, hurt_timer - delta)
 	# Make body red when hurt; 0.25 is minimum, so there's no ambiguous area
 	var _hurt_timer_color_intensity =  clamp(hurt_timer, 0.25 * int(hurt_timer > 0), 1.0)
+	# Round it to steps
+	_hurt_timer_color_intensity = floor(_hurt_timer_color_intensity * 4) / 4.0
 	var _hurt_timer_color = Color(
 		1.0,
 		1 - _hurt_timer_color_intensity,# / 2.0,
@@ -194,8 +203,8 @@ func _transition_normal_to_ball():
 	$Sounds/ToBall.play()
 	assert(state == States.Normal)
 	state = States.Ball
-	$collision_platforming.disabled = true
-	$collision_platforming_ball.disabled = false
+	$collision_platforming.set_deferred("disabled", true)
+	$collision_platforming_ball.set_deferred("disabled", false)
 	$body_sprite.visible = false
 	$ball_sprite.visible = true
 	$Cannon.process_mode = Node.PROCESS_MODE_DISABLED
