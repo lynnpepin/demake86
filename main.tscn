@@ -131,9 +131,8 @@ tile_set = SubResource("TileSet_cnug1")
 
 [node name="ParallaxBackground_fg" type="ParallaxBackground" parent="."]
 layer = 0
-visible = false
-offset = Vector2(256, 256)
-transform = Transform2D(1, 0, 0, 1, 256, 256)
+offset = Vector2(384, 384)
+transform = Transform2D(1, 0, 0, 1, 384, 384)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground_fg"]
 z_index = 40
@@ -144,7 +143,6 @@ motion_offset = Vector2(96, 96)
 texture = ExtResource("4_ix4gv")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-visible = false
 offset = Vector2(256, 256)
 transform = Transform2D(1, 0, 0, 1, 256, 256)
 
