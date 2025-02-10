@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmwerh8vqa1ph"]
+
+[ext_resource type="Script" path="res://MorphBallPickup_Node3D.gd" id="1_bfcu2"]
+[ext_resource type="Script" path="res://Scenes/morth_ball_pickup.gd" id="1_gytsj"]
+
+[sub_resource type="Environment" id="Environment_141lc"]
+background_mode = 1
+background_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0kcft"]
+albedo_color = Color(0.807843, 0.564706, 0.0392157, 1)
+metallic_specular = 0.0
+roughness = 0.9
+subsurf_scatter_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_mlr22"]
+material = SubResource("StandardMaterial3D_0kcft")
+radial_segments = 4
+rings = 3
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_e0bp1"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1xig2"]
+radius = 4.0
+
+[node name="MorphBallPickup" type="Node2D"]
+script = ExtResource("1_gytsj")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(6, 6)
+
+[node name="Node3D" type="Node3D" parent="SubViewport"]
+script = ExtResource("1_bfcu2")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.72937)
+environment = SubResource("Environment_141lc")
+projection = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D"]
+mesh = SubResource("SphereMesh_mlr22")
+skeleton = NodePath("../../..")
+
+[node name="PivotLight1" type="Node3D" parent="SubViewport/Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1"]
+transform = Transform3D(0.870313, -0.475718, 0.127468, 0, -0.258819, -0.965926, 0.492499, 0.840658, -0.225254, 0, 0, 0.806871)
+light_color = Color(0.996078, 0.792157, 0.933333, 1)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1"]
+transform = Transform3D(0.0606811, -0.981559, 0.181275, 0.609193, 0.180283, 0.772258, -0.790697, 0.0635702, 0.608899, 0.842064, 0, 0.806871)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("ViewportTexture_e0bp1")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_1xig2")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

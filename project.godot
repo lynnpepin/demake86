@@ -24,6 +24,10 @@ window/stretch/scale=8.0
 window/stretch/scale_mode="integer"
 window/snap/snap_2d_transforms_to_pixel=false
 
+[editor]
+
+movie_writer/movie_file="/home/lynn/proj/demake86/Movies/movie.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_sfxr/plugin.cfg")

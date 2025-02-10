@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://bv0aynt6jkni2"]
+[gd_scene load_steps=48 format=4 uid="uid://bv0aynt6jkni2"]
 
 [ext_resource type="Script" path="res://relan.gd" id="1_hqtwd"]
 [ext_resource type="Script" path="res://cannon.gd" id="2_slkt1"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://cyx8qxku5lo30" path="res://art/relan/relan_run_0.png" id="19_bw8u6"]
 [ext_resource type="Texture2D" uid="uid://ct0hfh3g8ff7c" path="res://art/relan/relan_run_1.png" id="20_6w8dc"]
 [ext_resource type="Texture2D" uid="uid://cw5xj5g875xbr" path="res://art/relan/relan_run_2.png" id="21_1m4bp"]
+[ext_resource type="PackedScene" uid="uid://b3oco4nqm7xc3" path="res://Scenes/Typer.tscn" id="26_dahf0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8s541"]
 radius = 3.0
@@ -722,5 +723,7 @@ high_pass_filter/cutoff_sweep = 0.0
 position = Vector2(0, 6)
 target_position = Vector2(0, -6)
 collision_mask = 2
+
+[node name="Typer" parent="." instance=ExtResource("26_dahf0")]
 
 [connection signal="area_entered" from="hurt_box" to="." method="_on_hurt_area_area_entered"]

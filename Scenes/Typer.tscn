@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3oco4nqm7xc3"]
+
+[ext_resource type="Script" path="res://Scenes/status_typer.gd" id="1_0elc7"]
+[ext_resource type="FontFile" uid="uid://50omi7qgmx2w" path="res://fonts/GravityRegular5.ttf" id="2_3nurj"]
+
+[sub_resource type="Theme" id="Theme_0ojeo"]
+default_font = ExtResource("2_3nurj")
+default_font_size = 5
+
+[node name="Typer" type="Node2D"]
+script = ExtResource("1_0elc7")
+
+[node name="StatusTyper" type="RichTextLabel" parent="."]
+z_index = 1500
+offset_left = -32.0
+offset_top = 7.0
+offset_right = 40.0
+offset_bottom = 47.0
+theme = SubResource("Theme_0ojeo")
+text = "Hello"
+
+[node name="Shadow" type="RichTextLabel" parent="."]
+z_index = 1000
+offset_left = -32.0
+offset_top = 8.0
+offset_right = 40.0
+offset_bottom = 48.0
+theme = SubResource("Theme_0ojeo")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Hello"

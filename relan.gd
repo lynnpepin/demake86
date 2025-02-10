@@ -42,8 +42,8 @@ var bombs: float = BOMB_PERIOD * MAX_BOMBS
 
 # power ups
 var has_high_jump = false
-var has_morph_ball = true
-var has_morph_bomb = true
+var has_morph_ball = false
+var has_morph_bomb = false
 
 # input
 var left: bool
@@ -60,6 +60,7 @@ var steps: float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	show_message(" ")
 	add_to_group("player")
 	set_up_energy_sprites(6)
 	set_up_missile_sprites(24)
@@ -190,29 +191,30 @@ func _process(delta):
 		if Input.is_action_just_pressed(input_key):
 			print(input_key, " pressed")
 	
-	bombs = clamp(bombs + delta, 0, BOMB_PERIOD * MAX_BOMBS)
-	if state == States.Ball and Input.is_action_just_pressed("pad_x") and floor(bombs) > 0:
-		var b = Bomb.instantiate()
-		b.position = global_position + Vector2(0, 6)
-		owner.add_child(b)
-		bombs -= BOMB_PERIOD
+	if has_morph_bomb:
+		bombs = clamp(bombs + delta, 0, BOMB_PERIOD * MAX_BOMBS)
+		if state == States.Ball and Input.is_action_just_pressed("pad_x") and floor(bombs) > 0:
+			var b = Bomb.instantiate()
+			b.position = global_position + Vector2(0, 6)
+			owner.add_child(b)
+			bombs -= BOMB_PERIOD
 		
 	queue_redraw()
 
 func _transition_normal_to_ball():
-	$Sounds/ToBall.play()
-	assert(state == States.Normal)
-	state = States.Ball
-	$collision_platforming.set_deferred("disabled", true)
-	$collision_platforming_ball.set_deferred("disabled", false)
-	$body_sprite.visible = false
-	$ball_sprite.visible = true
-	$Cannon.process_mode = Node.PROCESS_MODE_DISABLED
-	$Cannon.visible = false
-	# Disable normal collisions, hurtbox, sprite
-	# Enable ball collisions, hurtbox, sprite
-	# sounds, no step sounds
-	pass
+	if has_morph_ball:
+		$Sounds/ToBall.play()
+		assert(state == States.Normal)
+		state = States.Ball
+		$collision_platforming.set_deferred("disabled", true)
+		$collision_platforming_ball.set_deferred("disabled", false)
+		$body_sprite.visible = false
+		$ball_sprite.visible = true
+		$Cannon.process_mode = Node.PROCESS_MODE_DISABLED
+		$Cannon.visible = false
+		# Disable normal collisions, hurtbox, sprite
+		# Enable ball collisions, hurtbox, sprite
+		# sounds, no step sounds
 
 func _transition_ball_to_normal():
 	# First, check that there's no clipping
@@ -263,7 +265,8 @@ func hurt(damage: int, cooldown: float) -> void:
 func _draw():
 	pass
 
-
+func show_message(message):
+	$Typer.start(message)
 #######
 # Handle missiles and energy
 ######
