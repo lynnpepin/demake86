@@ -108,7 +108,7 @@ high_pass_filter/cutoff_sweep = 0.0
 
 [node name="CPUParticles2D_Smoke" type="CPUParticles2D" parent="."]
 z_index = 50
-amount = 128
+amount = 256
 lifetime = 2.0
 explosiveness = 0.25
 randomness = 0.5
