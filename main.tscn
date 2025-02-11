@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://dk8unr07bj50f"]
+[gd_scene load_steps=24 format=4 uid="uid://dk8unr07bj50f"]
 
 [ext_resource type="PackedScene" uid="uid://bmwerh8vqa1ph" path="res://Scenes/MorthBallPickup.tscn" id="1_0diga"]
 [ext_resource type="PackedScene" uid="uid://drk8exn5eh8fd" path="res://Scenes/BombableBlock.tscn" id="1_3oaw5"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b3y2iji6hrwtn" path="res://art/128_bg.png" id="6_lsn6u"]
 [ext_resource type="Texture2D" uid="uid://xgn8x5qcmkic" path="res://art/64_bg.png" id="7_s1bfu"]
 [ext_resource type="PackedScene" uid="uid://bv0aynt6jkni2" path="res://Scenes/relan.tscn" id="8_trcrg"]
+[ext_resource type="PackedScene" uid="uid://boy7q8caap0ni" path="res://Scenes/lava.tscn" id="13_jfd1l"]
 [ext_resource type="Texture2D" uid="uid://duk5s41q73y87" path="res://art/8px_ramp.png" id="24_66els"]
 [ext_resource type="PackedScene" uid="uid://ddd2blsbfg3ws" path="res://Scenes/ripper.tscn" id="29_45pp3"]
 [ext_resource type="PackedScene" uid="uid://bmg82tnsi1a6h" path="res://Scenes/hatch.tscn" id="30_1unny"]
@@ -160,6 +161,7 @@ tile_set = SubResource("TileSet_cnug1")
 
 [node name="ParallaxBackground_fg" type="ParallaxBackground" parent="."]
 layer = 0
+visible = false
 offset = Vector2(384, 384)
 transform = Transform2D(1, 0, 0, 1, 384, 384)
 
@@ -324,3 +326,7 @@ fixed_fps = 60
 visibility_rect = Rect2(-8, -8, 16, 16)
 local_coords = true
 trail_lifetime = 2.31
+
+[node name="lava" parent="." instance=ExtResource("13_jfd1l")]
+position = Vector2(68, 172)
+scale = Vector2(2.8, 3.12)

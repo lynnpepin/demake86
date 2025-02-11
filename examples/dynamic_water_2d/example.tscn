@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dua6al8j0x7wx"]
+
+[ext_resource type="Script" path="res://examples/dynamic_water_2d/example.gd" id="1_tfv2h"]
+[ext_resource type="Texture2D" uid="uid://c2vwnj65wuypc" path="res://examples/dynamic_water_2d/icon.png" id="1_yawdq"]
+[ext_resource type="PackedScene" uid="uid://cor8igwxetpgn" path="res://addons/dynamic_water_2d/water.tscn" id="2_wkqr4"]
+
+[node name="Example" type="Node2D"]
+script = ExtResource("1_tfv2h")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(241, 167)
+texture = ExtResource("1_yawdq")
+
+[node name="Water" parent="." instance=ExtResource("2_wkqr4")]
+surface_thickness = 4.0
+waves_enabled = false

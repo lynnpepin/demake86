@@ -11,6 +11,7 @@ var MAX_WALK_SPEED = 32
 var MAX_BALL_SPEED = 64
 var JUMP_SPEED      = 80 + 48 #+ 32	
 var HIGH_JUMP_SPEED = 80 + 80 + 16 #+ 16
+var CURRENT_JUMP_SPEED = JUMP_SPEED
 var GRAVITY = 480 #320
 var MAX_FALL_SPEED = 128
 var MAX_MISSILES = 24
@@ -22,6 +23,7 @@ enum States { Normal, Ball }
 
 #region variables
 var state = States.Normal
+var is_in_water: bool = false
 var vv = Vector2()
 var impulse_applied = false # when true, apply impulse for a frame
 var ax = MAX_WALK_SPEED * 4
@@ -68,7 +70,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
-	# Set max speed
+	# Set max speed, jump sioeed
 	var SPEED
 	if state == States.Normal:
 		SPEED = MAX_WALK_SPEED
@@ -76,6 +78,17 @@ func _physics_process(delta: float) -> void:
 		SPEED = MAX_BALL_SPEED
 	else:
 		SPEED = MAX_WALK_SPEED
+	
+	
+	if has_high_jump:
+		CURRENT_JUMP_SPEED = HIGH_JUMP_SPEED
+	else:
+		CURRENT_JUMP_SPEED = JUMP_SPEED
+		
+	check_water()
+	if is_in_water:
+		SPEED = SPEED / 2
+		CURRENT_JUMP_SPEED = CURRENT_JUMP_SPEED * .75
 	
 	# Get left/right direction
 	left  = Input.is_action_pressed("pad_left")
@@ -134,10 +147,7 @@ func _physics_process(delta: float) -> void:
 	
 	if grounded > 0 and Input.is_action_just_pressed("pad_a") and state == States.Normal:
 		print(grounded)
-		if has_high_jump:
-			vv.y = -HIGH_JUMP_SPEED
-		else:
-			vv.y = -JUMP_SPEED
+		vv.y = -CURRENT_JUMP_SPEED
 		
 		grounded = 0.0
 		$Sounds/Jump.play(0.0);
@@ -156,6 +166,16 @@ func apply_impulse(impulse: Vector2):
 		vv.y = min(impulse.y, vv.y)
 	elif impulse.y > 0:
 		vv.y = max(impulse.y, vv.y)
+
+func check_water():
+	is_in_water = false
+	for area in $hurt_box.get_overlapping_areas():
+		if area.is_in_group("water"):
+			is_in_water = true
+			# todo - cheap hack
+			hurt(area.hurt_value, 1)
+		
+
 
 func _process(delta):
 	hurt_timer = max(0, hurt_timer - delta)

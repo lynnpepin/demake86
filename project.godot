@@ -41,6 +41,7 @@ enemies=""
 beam=""
 hatch=""
 bomb="Morph ball bomb"
+water=""
 
 [input]
 

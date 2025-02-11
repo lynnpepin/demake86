@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpdms14uwy1vp"]
+
+[ext_resource type="PackedScene" uid="uid://cor8igwxetpgn" path="res://addons/dynamic_water_2d/water.tscn" id="1_y4srb"]
+
+[sub_resource type="GDScript" id="GDScript_djchv"]
+script/source = "#@tool
+extends Node2D
+
+var hurt_value = 0
+
+### Width of the lava
+#@export var width: float = 8:
+	## foodbar
+	#set(width):
+		## test
+		#$TopLeft.position.x = - width / 2.0
+		#$BottomRight.position.x = width / 2.0 
+#
+### Height of the lava
+#@export var height: float = 8:
+	## foodbar
+	#set(height):
+		## test
+		#$TopLeft.position.y = - height / 2.0
+		#$BottomRight.position.y = height / 2.0 
+	#
+## Called when the node enters the scene tree for the first time.
+#func _ready() -> void:
+	#pass # Replace with function body.
+#
+#
+## Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta: float) -> void:
+	#pass
+"
+
+[node name="Lava" type="Node2D"]
+script = SubResource("GDScript_djchv")
+
+[node name="TopLeft" type="Node2D" parent="."]
+
+[node name="BottomRight" type="Node2D" parent="."]
+position = Vector2(16, 16)
+
+[node name="Water" parent="." node_paths=PackedStringArray("top_left_marker", "bottom_right_marker") instance=ExtResource("1_y4srb")]
+top_left_marker = NodePath("../TopLeft")
+bottom_right_marker = NodePath("../BottomRight")
+surface_thickness = 2.0
+surface_color = Color(1, 0.905882, 0.215686, 1)
+water_color = Color(0.964706, 0.560784, 0.215686, 1)
+point_per_distance = 16
+point_damping = 0.99

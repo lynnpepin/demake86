@@ -760,7 +760,5 @@ target_position = Vector2(0, -6)
 collision_mask = 2
 
 [node name="Typer" parent="." instance=ExtResource("26_dahf0")]
-z_index = 4000
-z_as_relative = false
 
 [connection signal="area_entered" from="hurt_box" to="." method="_on_hurt_area_area_entered"]

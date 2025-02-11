@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://boy7q8caap0ni"]
+
+[ext_resource type="Script" path="res://Scenes/lava.gd" id="1_bdmhk"]
+
+[sub_resource type="Gradient" id="Gradient_xvwb8"]
+offsets = PackedFloat32Array(0, 0.532338, 1)
+colors = PackedColorArray(0.878431, 0.235294, 0.156863, 1, 0.964706, 0.560784, 0.215686, 1, 1, 0.733333, 0.192157, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_da2lo"]
+gradient = SubResource("Gradient_xvwb8")
+width = 8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ja4tt"]
+size = Vector2(6, 6)
+
+[node name="lava" type="Area2D" groups=["water"]]
+collision_layer = 4
+collision_mask = 16
+script = ExtResource("1_bdmhk")
+
+[node name="Placeholdersprite" type="Sprite2D" parent="." groups=["water"]]
+rotation = -1.5708
+scale = Vector2(1, 8)
+texture = SubResource("GradientTexture1D_da2lo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["water"]]
+shape = SubResource("RectangleShape2D_ja4tt")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
