@@ -38,6 +38,7 @@ func _process(delta: float) -> void:
 		if body.is_in_group("player") and blasted_player < 2:
 			print("player entered upbox")
 			blasted_player = 1
+			# todo - should handle lava appropriately
 			body.apply_impulse(Vector2(0, -128))
 			# todo
 	for body in $leftbox.get_overlapping_bodies():

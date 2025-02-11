@@ -12,7 +12,8 @@ var MAX_BALL_SPEED = 64
 var JUMP_SPEED      = 80 + 48 #+ 32	
 var HIGH_JUMP_SPEED = 80 + 80 + 16 #+ 16
 var CURRENT_JUMP_SPEED = JUMP_SPEED
-var GRAVITY = 480 #320
+var NOMINAL_GRAVITY = 480 #320
+var GRAVITY = NOMINAL_GRAVITY #320
 var MAX_FALL_SPEED = 128
 var MAX_MISSILES = 24
 var MAX_ENERGY   = 24
@@ -43,7 +44,7 @@ var hurt_timer = 0
 var bombs: float = BOMB_PERIOD * MAX_BOMBS
 
 # power ups
-var has_high_jump  = true#false
+var has_high_jump  = false#false`
 var has_morph_ball = true#false
 var has_morph_bomb = true#false
 
@@ -88,7 +89,10 @@ func _physics_process(delta: float) -> void:
 	check_water()
 	if is_in_water:
 		SPEED = SPEED / 2
-		CURRENT_JUMP_SPEED = CURRENT_JUMP_SPEED * .75
+		GRAVITY = NOMINAL_GRAVITY * 2
+	else:
+		GRAVITY = NOMINAL_GRAVITY
+		#CURRENT_JUMP_SPEED = JUMP_SPEED * .75
 	
 	# Get left/right direction
 	left  = Input.is_action_pressed("pad_left")
@@ -173,7 +177,7 @@ func check_water():
 		if area.is_in_group("water"):
 			is_in_water = true
 			# todo - cheap hack
-			hurt(area.hurt_value, 1)
+			hurt(area.hurt_value, 3)
 		
 
 

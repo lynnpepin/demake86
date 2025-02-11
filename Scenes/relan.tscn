@@ -336,6 +336,7 @@ sprite_frames = SubResource("SpriteFrames_1gacd")
 
 [node name="ball_sprite" type="AnimatedSprite2D" parent="."]
 visible = false
+z_index = 10
 position = Vector2(0, 6)
 sprite_frames = SubResource("SpriteFrames_3dp7j")
 animation = &"s"

@@ -1,6 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpdms14uwy1vp"]
-
-[ext_resource type="PackedScene" uid="uid://cor8igwxetpgn" path="res://addons/dynamic_water_2d/water.tscn" id="1_y4srb"]
+[gd_scene load_steps=2 format=3 uid="uid://dnpndet7qxej"]
 
 [sub_resource type="GDScript" id="GDScript_djchv"]
 script/source = "#@tool
@@ -42,11 +40,19 @@ script = SubResource("GDScript_djchv")
 [node name="BottomRight" type="Node2D" parent="."]
 position = Vector2(16, 16)
 
-[node name="Water" parent="." node_paths=PackedStringArray("top_left_marker", "bottom_right_marker") instance=ExtResource("1_y4srb")]
-top_left_marker = NodePath("../TopLeft")
-bottom_right_marker = NodePath("../BottomRight")
+[node name="Water" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 surface_thickness = 2.0
 surface_color = Color(1, 0.905882, 0.215686, 1)
 water_color = Color(0.964706, 0.560784, 0.215686, 1)
 point_per_distance = 16
 point_damping = 0.99
+script = null
