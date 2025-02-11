@@ -1,5 +1,5 @@
-extends Node2D
-
+#extends Node2D
+extends CanvasLayer
 
 var target_text;
 var time_per_char: float = 0.25

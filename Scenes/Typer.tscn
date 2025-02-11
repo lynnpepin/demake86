@@ -7,11 +7,15 @@
 default_font = ExtResource("2_3nurj")
 default_font_size = 5
 
-[node name="Typer" type="Node2D"]
+[node name="Typer" type="CanvasLayer"]
+layer = 2
+offset = Vector2(32, 32)
+transform = Transform2D(1, 0, 0, 1, 32, 32)
 script = ExtResource("1_0elc7")
 
 [node name="StatusTyper" type="RichTextLabel" parent="."]
-z_index = 1500
+z_index = 4030
+z_as_relative = false
 offset_left = -32.0
 offset_top = 7.0
 offset_right = 40.0
@@ -20,7 +24,8 @@ theme = SubResource("Theme_0ojeo")
 text = "Hello"
 
 [node name="Shadow" type="RichTextLabel" parent="."]
-z_index = 1000
+z_index = 4020
+z_as_relative = false
 offset_left = -32.0
 offset_top = 8.0
 offset_right = 40.0

@@ -164,7 +164,8 @@ offset = Vector2(384, 384)
 transform = Transform2D(1, 0, 0, 1, 384, 384)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground_fg"]
-z_index = 40
+z_index = 1000
+z_as_relative = false
 motion_scale = Vector2(2, 2)
 motion_offset = Vector2(96, 96)
 
