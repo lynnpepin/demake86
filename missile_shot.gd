@@ -41,6 +41,10 @@ func create():
 	$Sounds/Create.play()
 	
 func die():
+	$AreaToCheckForEnemy.set_deferred("disabled", true)
+	$AreaToCheckForEnemy.set_deferred("monitoring", false)
+	$AreaToCheckForEnemy.set_deferred("monitorable", false)
+	$AreaToCheckForEnemy/CollisionShape2D.set_deferred("disabled", true)
 	active = false
 	$Sprite2D.visible = false
 	$CPUParticles2D_Smoke.emitting = false

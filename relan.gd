@@ -10,7 +10,7 @@ extends CharacterBody2D
 var MAX_WALK_SPEED = 32
 var MAX_BALL_SPEED = 64
 var JUMP_SPEED      = 80 + 48 #+ 32	
-var HIGH_JUMP_SPEED = 80 + 80 #+ 16
+var HIGH_JUMP_SPEED = 80 + 80 + 16 #+ 16
 var GRAVITY = 480 #320
 var MAX_FALL_SPEED = 128
 var MAX_MISSILES = 24
@@ -41,9 +41,9 @@ var hurt_timer = 0
 var bombs: float = BOMB_PERIOD * MAX_BOMBS
 
 # power ups
-var has_high_jump = false
-var has_morph_ball = false
-var has_morph_bomb = false
+var has_high_jump  = false
+var has_morph_ball = false#false
+var has_morph_bomb = true#false
 
 # input
 var left: bool
@@ -126,7 +126,7 @@ func _physics_process(delta: float) -> void:
 	vv.y = min(vv.y, MAX_FALL_SPEED)
 	
 	# If grounded and jump, set jump speed
-	if Input.is_action_just_released("pad_a") or Input.is_action_just_pressed("pad_y"):
+	if Input.is_action_just_released("pad_a") or Input.is_action_just_pressed("pad_y") or Input.is_action_just_pressed("pad_b"):
 		if vv.y < 0:
 			$Sounds/Jump.seek(.2)
 #			$Sounds/Jump.play(0.25)
@@ -171,7 +171,7 @@ func _process(delta):
 	$body_sprite.modulate = _hurt_timer_color
 	$ball_sprite.modulate = _hurt_timer_color
 	
-	if Input.is_action_just_pressed("pad_y"):
+	if Input.is_action_just_pressed("pad_y") or Input.is_action_just_pressed("pad_b"):
 		if (state == States.Normal):
 			_transition_normal_to_ball()
 		elif (state== States.Ball):

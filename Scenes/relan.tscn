@@ -163,11 +163,10 @@ data = PackedByteArray("AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB
 [node name="Relan" type="CharacterBody2D" groups=["player"]]
 collision_mask = 2
 floor_max_angle = 0.872665
-safe_margin = 0.5
+safe_margin = 0.25
 script = ExtResource("1_hqtwd")
 
 [node name="collision_platforming" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_8s541")
 

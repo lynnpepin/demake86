@@ -46,11 +46,16 @@ skeleton = NodePath("../../..")
 [node name="PivotLight1" type="Node3D" parent="SubViewport/Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1"]
-transform = Transform3D(0.870313, -0.475718, 0.127468, 0, -0.258819, -0.965926, 0.492499, 0.840658, -0.225254, 0, 0, 0.806871)
-light_color = Color(0.996078, 0.792157, 0.933333, 1)
+transform = Transform3D(-0.840657, 0.392522, -0.373125, -0.225254, 0.373124, 0.900022, 0.492499, 0.840658, -0.225253, 0, 0, 0.806871)
+light_color = Color(0.869911, 0.864236, 0.839635, 1)
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1"]
 transform = Transform3D(0.0606811, -0.981559, 0.181275, 0.609193, 0.180283, 0.772258, -0.790697, 0.0635702, 0.608899, 0.842064, 0, 0.806871)
+visible = false
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1"]
+transform = Transform3D(0.870313, -0.475718, 0.127468, 0, -0.258819, -0.965926, 0.492499, 0.840658, -0.225254, 0, 0, 0.806871)
+light_color = Color(0.996078, 0.792157, 0.933333, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("ViewportTexture_e0bp1")
