@@ -35,10 +35,6 @@ var GROUND_DECAY_RATE = 8  # i.e. set to 12, decay in 1/12th of a second
 
 var energy = 0
 var missiles = 0
-var ecount_sprite = load("res://art/counters/energy.png")
-var mcount_sprite = load("res://art/counters/missile.png")
-var ecounter_sprites = []
-var mcounter_sprites = []
 var hurt_timer = 0
 # bombs is a meter which recharges with time
 var bombs: float = BOMB_PERIOD * MAX_BOMBS
@@ -299,35 +295,13 @@ func show_message(message):
 ######
 #region Missile and energy counting
 func set_up_energy_sprites(set_to: int) -> void:
-	for i in MAX_ENERGY:
-		var eicon = Sprite2D.new()
-		eicon.texture = ecount_sprite
-		eicon.z_index = 1000 - i
-		var dx = (i % 6)
-		var dy = floor(i / 6)
-		eicon.position = Vector2(
-			-32 + 2.5 + dx * 3,
-			-32 + 2.5 + dy * 2
-		)
-		eicon.visible = false
-		add_child(eicon)
-		ecounter_sprites.append(eicon)
+	pass
+	# deprecated -- see $HUD._ready()
 	
 
 func set_up_missile_sprites(set_to: int) -> void:
-	for i in MAX_MISSILES:
-		var micon = Sprite2D.new()
-		micon.texture = mcount_sprite
-		micon.z_index = 1000 - i
-		var dx = (i % 4)
-		var dy = floor(i / 4)
-		micon.position = Vector2(
-			29.5 - dx * 2 - int((dy % 2) == 1),
-			-32  + 3 + dy*2
-		)
-		micon.visible = false
-		add_child(micon)
-		mcounter_sprites.append(micon)
+	pass
+	# deprecated -- see $HUD._ready()
 	
 
 func add_missiles(count: int) -> void:
@@ -337,7 +311,7 @@ func add_missiles(count: int) -> void:
 		var _from = min(_set_to, missiles)
 		var _to = max(_set_to, missiles)
 		for mi in range(_from, _to):
-			mcounter_sprites[mi].visible = (count > 0)
+			$HUD.mcounter_sprites[mi].visible = (count > 0)
 		missiles = _set_to
 
 func add_energy(count: int) -> void:
@@ -347,6 +321,6 @@ func add_energy(count: int) -> void:
 		var _from = min(_set_to, energy)
 		var _to = max(_set_to, energy)
 		for ei in range(_from, _to):
-			ecounter_sprites[ei].visible = (count > 0)
+			$HUD.ecounter_sprites[ei].visible = (count > 0)
 		energy = _set_to
 #endregion
