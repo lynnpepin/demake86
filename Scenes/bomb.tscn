@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://csf0tr36nri0p" path="res://art/bomb2.png" id="1_h2rmg"]
 [ext_resource type="Texture2D" uid="uid://dffpytclliy7x" path="res://art/bomb.png" id="2_af1xi"]
-[ext_resource type="Script" path="res://Scenes/bomb.gd" id="3_pllik"]
+[ext_resource type="Script" path="res://Scripts/bomb.gd" id="3_pllik"]
 [ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="4_emi43"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d7baf"]

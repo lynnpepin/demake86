@@ -27,7 +27,7 @@ var state = States.Normal
 var is_in_water: bool = false
 var vv = Vector2()
 var impulse_applied = false # when true, apply impulse for a frame
-var ax = MAX_WALK_SPEED * 6
+var ax = MAX_WALK_SPEED * 8
 var y_velo = 0.0
 var x_velo = 0.0
 var grounded = 1.0 # 'grounded' moves from 1.0 to 0.0 on jump and from 1.0 to 0.0 gradually over time in the air
@@ -65,8 +65,11 @@ var steps: float = 0
 func _ready():
 	show_message(" ")
 	add_to_group("player")
-	set_up_energy_sprites(6)
+	set_up_energy_sprites(24)
 	set_up_missile_sprites(24)
+	# Now, set missiles visible by adding 4
+	add_missiles(2)
+	add_energy(3)
 	$ball_sprite.play()
 	pass # Replace with function body.
 
@@ -310,7 +313,6 @@ func set_up_energy_sprites(set_to: int) -> void:
 		add_child(eicon)
 		ecounter_sprites.append(eicon)
 	
-	add_energy(set_to)
 
 func set_up_missile_sprites(set_to: int) -> void:
 	for i in MAX_MISSILES:
@@ -327,8 +329,6 @@ func set_up_missile_sprites(set_to: int) -> void:
 		add_child(micon)
 		mcounter_sprites.append(micon)
 	
-	# Now, set missiles visible by adding 4
-	add_missiles(set_to)
 
 func add_missiles(count: int) -> void:
 	# todo - play sound on add missile, lose?

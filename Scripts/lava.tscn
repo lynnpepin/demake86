@@ -39,20 +39,3 @@ script = SubResource("GDScript_djchv")
 
 [node name="BottomRight" type="Node2D" parent="."]
 position = Vector2(16, 16)
-
-[node name="Water" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-surface_thickness = 2.0
-surface_color = Color(1, 0.905882, 0.215686, 1)
-water_color = Color(0.964706, 0.560784, 0.215686, 1)
-point_per_distance = 16
-point_damping = 0.99
-script = null

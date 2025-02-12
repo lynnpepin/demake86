@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://drk8exn5eh8fd"]
 
-[ext_resource type="Script" path="res://Scenes/bombable_block.gd" id="1_37j1l"]
+[ext_resource type="Script" path="res://Scripts/bombable_block.gd" id="1_37j1l"]
 [ext_resource type="Texture2D" uid="uid://dlw3sstgydel5" path="res://art/terrain/bombable_block.png" id="1_713h8"]
 [ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="3_rhm5f"]
 

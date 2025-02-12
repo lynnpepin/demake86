@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://j0fgyd78r5j8"]
 
-[ext_resource type="Script" path="res://Scenes/bomb_explosion.gd" id="1_5jogq"]
+[ext_resource type="Script" path="res://Scripts/bomb_explosion.gd" id="1_5jogq"]
 [ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="2_y41sv"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_41q26"]

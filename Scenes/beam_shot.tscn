@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=4 uid="uid://cm4sgoeo882q7"]
 
-[ext_resource type="Script" path="res://beam_shot.gd" id="1_vi1p0"]
+[ext_resource type="Script" path="res://Scripts/beam_shot.gd" id="1_vi1p0"]
 [ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="2_5csdl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rl5qe"]

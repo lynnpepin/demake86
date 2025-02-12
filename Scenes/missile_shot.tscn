@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://dcebhm5y2hdmd"]
 
-[ext_resource type="Script" path="res://missile_shot.gd" id="1_rf8p4"]
+[ext_resource type="Script" path="res://Scripts/missile_shot.gd" id="1_rf8p4"]
 [ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="2_0conl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rl5qe"]

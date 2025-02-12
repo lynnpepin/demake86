@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://bqf183qi5gq3r"]
 
-[ext_resource type="Script" path="res://Scenes/BigExplosion.gd" id="1_su0y6"]
+[ext_resource type="Script" path="res://Scripts/BigExplosion.gd" id="1_su0y6"]
 [ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="2_alwa7"]
 
 [sub_resource type="Curve" id="Curve_fu1ap"]

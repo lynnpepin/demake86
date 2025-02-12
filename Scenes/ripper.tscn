@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://ddd2blsbfg3ws"]
 
-[ext_resource type="Script" path="res://ripper.gd" id="1_gbvxa"]
+[ext_resource type="Script" path="res://Scripts/ripper.gd" id="1_gbvxa"]
 [ext_resource type="Texture2D" uid="uid://bn5kl3uuxwle6" path="res://art/zoomer/ripper.png" id="2_ribiu"]
 [ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="3_vpmtk"]
 

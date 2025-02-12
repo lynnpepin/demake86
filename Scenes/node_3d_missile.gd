@@ -8,6 +8,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$PivotLight1.rotate_y(delta)
-	#$OmniLight3D.rotate_object_local(Vector3a(0,0,1), delta)
-	#$OmniLight3D.rotate(Vector3(0,0,1),delta*60)
+	rotate_y(delta)

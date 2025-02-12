@@ -1,7 +1,7 @@
 [gd_scene load_steps=49 format=4 uid="uid://bv0aynt6jkni2"]
 
-[ext_resource type="Script" path="res://relan.gd" id="1_hqtwd"]
-[ext_resource type="Script" path="res://cannon.gd" id="2_slkt1"]
+[ext_resource type="Script" path="res://Scripts/relan.gd" id="1_hqtwd"]
+[ext_resource type="Script" path="res://Scripts/cannon.gd" id="2_slkt1"]
 [ext_resource type="Texture2D" uid="uid://x1ncr4x48wv1" path="res://art/relan/cannon_right_u.png" id="3_lgw80"]
 [ext_resource type="Texture2D" uid="uid://cpfbmxeij0x8a" path="res://art/relan/cannon_right_uf.png" id="4_o6qhq"]
 [ext_resource type="Texture2D" uid="uid://dr7jr7h3ic6e2" path="res://art/relan/cannon_right_f.png" id="5_d634i"]
