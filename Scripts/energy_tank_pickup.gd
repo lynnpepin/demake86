@@ -13,6 +13,6 @@ func _process(delta: float) -> void:
 			print("Tada, got ENERGY tank")
 			#body.MAX_MISSILES += 1
 			body.add_energy(1)
-			body.show_message("E-PILL ACQUIRED")
+			body.show_message("E-CAPSULE\nACQUIRED")
 			queue_free()
 			# TODO - Make noise

@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://bv0aynt6jkni2"]
+[gd_scene load_steps=51 format=4 uid="uid://bv0aynt6jkni2"]
 
 [ext_resource type="Script" path="res://Scripts/relan.gd" id="1_hqtwd"]
 [ext_resource type="Script" path="res://Scripts/cannon.gd" id="2_slkt1"]
@@ -37,6 +37,9 @@ radius = 3.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l4cb7"]
 size = Vector2(3, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_db8h2"]
+size = Vector2(3, 5)
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_8ncxv"]
 data = PackedByteArray("AwIBAwIBAQEBAQEBAQEBAQEBAQEBAQH+/v/+/v///////////////////////wEDAgEEAgEBAQEBAQEBAQEBAQEBAQEBAfv8/vz7/f//////////////////////AQUDAQYDAgEBAQEBAQEBAQEBAQEBAQEB+Pn9+Pj8/v////////////////////8DDwcGEAgEAgEBAQEBAQEBAQEBAQEBAQH8/f78/f7////////////////////////////+//////////////////////////v7/vn7/v//////////////////////AggEBQgEAgEBAQEBAQEBAQEBAQEBAQEB/////v///////////////////////////f/+/f/////////////////////////8/f76/f7//////////////////////wEFAgQEAgEBAQEBAQEBAQEBAQEBAQEBAfz9/vv9/v///////////////////////////////////////////////////////f7//P7///////////////////////8CCgUKCAQCAQEBAQEBAQEBAQEBAQEBAQECAgEDAgEBAQEBAQEBAQEBAQEBAQEBAQECAQIBAQEBAQEBAQEBAQEBAQEBAQEBAf////7/////////////////////////AQMBAwIBAQEBAQEBAQEBAQEBAQEBAQEB+Pn69vv+//////////////////////8BAwIDAgEBAQEBAQEBAQEBAQEBAQEBAQH8/Pz7/f///////////////////////wEFAwYDAgEBAQEBAQEBAQEBAQEBAQEBAfv7+vr9/v//////////////////////Aw4HEggEAgEBAQEBAQEBAQEBAQEBAQEB+vv5+v3+/////////////////////////P37/f////////////////////////8CAgICAQEBAQEBAQEBAQEBAQEBAQEBAQIEBAUDAQEBAQEBAQEBAQEBAQEBAQEBAf7+/f7/////////////////////////AgMDAwIBAQEBAQEBAQEBAQEBAQEBAQEB+vz4/P7///////////////////////8CBQUFAgEBAQEBAQEBAQEBAQEBAQEBAQH3+vP6/f7//////////////////////wUMDgwGAwIBAQEBAQEBAQEBAQEBAQEBAf7+/f7////////////////////////////+////////////////////////////+vv4/P7///////////////////////8DBwoGAwIBAQEBAQEBAQEBAQEBAQEBAQH///7////////////////////////////+/f7///////////////////////////z8/P7/////////////////////////AgMFAwEBAQEBAQEBAQEBAQEBAQEBAQEB/f39/v///////////////////////////////////////////////////////////v7//////////////////////////wIDBQIBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB////////AQ==")
@@ -184,8 +187,12 @@ collision_mask = 4
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_l4cb7")
 
+[node name="CollisionShape2D_ball" type="CollisionShape2D" parent="hurt_box" groups=["player"]]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_db8h2")
+
 [node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_speed = 16.0
+position_smoothing_speed = 96.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Camera2D"]
 current = true

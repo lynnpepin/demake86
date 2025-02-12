@@ -2,10 +2,10 @@
 extends CanvasLayer
 
 var target_text;
-var time_per_char: float = 0.125
+var time_per_char: float = 0.0625
 var prevtimer: float = 0.0
 var timer: float = 0.0
-var disappear_after_time = 10.0
+var disappear_after_time = 8.0
 var texts
 
 # Called when the node enters the scene tree for the first time.

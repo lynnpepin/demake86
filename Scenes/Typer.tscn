@@ -25,6 +25,7 @@ offset_top = 7.0
 offset_right = 40.0
 offset_bottom = 47.0
 theme = SubResource("Theme_0ojeo")
+theme_override_constants/line_separation = 2
 text = "Hello"
 
 [node name="Shadow" type="RichTextLabel" parent="."]
@@ -36,6 +37,7 @@ offset_right = 40.0
 offset_bottom = 48.0
 theme = SubResource("Theme_0ojeo")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 2
 text = "Hello"
 
 [node name="SfxrStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

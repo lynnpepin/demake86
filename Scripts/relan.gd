@@ -231,6 +231,8 @@ func _transition_normal_to_ball():
 		state = States.Ball
 		$collision_platforming.set_deferred("disabled", true)
 		$collision_platforming_ball.set_deferred("disabled", false)
+		$hurt_box/CollisionShape2D.set_deferred("disabled", true)
+		$hurt_box/CollisionShape2D_ball.set_deferred("disabled", false)
 		$body_sprite.visible = false
 		$ball_sprite.visible = true
 		$Cannon.process_mode = Node.PROCESS_MODE_DISABLED
@@ -251,6 +253,8 @@ func _transition_ball_to_normal():
 		state = States.Normal
 		$collision_platforming.disabled = false
 		$collision_platforming_ball.disabled = true
+		$hurt_box/CollisionShape2D.set_deferred("disabled", false)
+		$hurt_box/CollisionShape2D_ball.set_deferred("disabled", true)
 		$body_sprite.visible = true
 		$ball_sprite.visible = false
 		$Cannon.process_mode = Node.PROCESS_MODE_ALWAYS
