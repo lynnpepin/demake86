@@ -1,15 +1,35 @@
 extends CharacterBody2D
+# TODO: Get into the "shape" we want for enemy
+
+#region variables
+## The speed the Ripper moves with.
+@export var speed = 24
+
+## The amount of damage this can take
+@export var health: int = 1_000_000
+
+## The amount of damage the Ripper deals to players on collision
+@export var damage_to_deal: int = 1
+
+## The amount of time (in seconds) players are invincible after being hit by the Ripper
+@export var invincibility_to_deal: float = 1
+
+## The name of the guy :3
+@export var nickname: String = "Ripper"
 
 
-var speed = 24
+# Internal vars
 var direction = 1
-var random = RandomNumberGenerator.new()
+var hit_sounds: Array
+var death_sounds: Array
 # Called when the node enters the scene tree for the first time.
+#endregion
 
 func _ready() -> void:
 	add_to_group("enemies")
+	hit_sounds = $HitSounds.get_children()
+	death_sounds = $DeathSounds.get_children()
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
@@ -18,14 +38,25 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		direction *= -1
 
+
 func hurt(damage: int) -> void:
-	#[$Sounds/Hit1, $Sounds/Hit2, $Sounds/Hit3][random.randi() % 3].play()
-	$Sounds/Hit4.play()
-	print("Ripper was hit with ", damage, "pts!")
+	print(nickname, " was hit with, ", damage, " points of damage.")
+	hit_sounds.pick_random().play()
+	health -= damage
+	if health <= 0:
+		die()
+
+func die() -> void:
+	# todo
+	# disable, make particle explosionm, play death sound, queue_free() once all are done
+	#if len(death_sounds) > 0:
+	#	hit_sounds.pick_random().play()
+	pass
 
 
 func _on_area_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
-		area.get_parent().hurt(1, 1)
-	#elif area.is_in_group("beam"):
-	#	hurt(3)
+		area.get_parent().hurt(
+			damage_to_deal,
+			invincibility_to_deal
+		)

@@ -44,9 +44,9 @@ shape = SubResource("RectangleShape2D_ggu4r")
 texture = ExtResource("2_ribiu")
 offset = Vector2(0, -3)
 
-[node name="Sounds" type="Node" parent="."]
+[node name="HitSounds" type="Node" parent="."]
 
-[node name="Hit1" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Hit1" type="AudioStreamPlayer2D" parent="HitSounds"]
 stream = SubResource("AudioStreamWAV_qp3l5")
 script = ExtResource("3_vpmtk")
 wave/type = 2
@@ -75,7 +75,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.0
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="Hit2" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Hit2" type="AudioStreamPlayer2D" parent="HitSounds"]
 stream = SubResource("AudioStreamWAV_13ri7")
 script = ExtResource("3_vpmtk")
 wave/type = 2
@@ -104,7 +104,7 @@ low_pass_filter/resonance = -0.0712409
 high_pass_filter/cutoff_frequency = 0.0277684
 high_pass_filter/cutoff_sweep = 0.00674058
 
-[node name="Hit3" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Hit3" type="AudioStreamPlayer2D" parent="HitSounds"]
 stream = SubResource("AudioStreamWAV_8r2fx")
 script = ExtResource("3_vpmtk")
 wave/type = 2
@@ -133,7 +133,7 @@ low_pass_filter/resonance = -0.0350474
 high_pass_filter/cutoff_frequency = 0.0316207
 high_pass_filter/cutoff_sweep = 0.0204578
 
-[node name="Hit4" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Hit4" type="AudioStreamPlayer2D" parent="HitSounds"]
 stream = SubResource("AudioStreamWAV_b4ncq")
 script = ExtResource("3_vpmtk")
 wave/type = 1
@@ -161,5 +161,7 @@ low_pass_filter/cutoff_sweep = 0.0
 low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.888428
 high_pass_filter/cutoff_sweep = -0.504132
+
+[node name="DeathSounds" type="Node" parent="."]
 
 [connection signal="area_entered" from="area_hitbox" to="." method="_on_area_hitbox_area_entered"]

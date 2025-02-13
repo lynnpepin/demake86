@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://dk8unr07bj50f"]
+[gd_scene load_steps=27 format=4 uid="uid://dk8unr07bj50f"]
 
 [ext_resource type="PackedScene" uid="uid://bmwerh8vqa1ph" path="res://Scenes/MorthBallPickup.tscn" id="1_0diga"]
 [ext_resource type="PackedScene" uid="uid://drk8exn5eh8fd" path="res://Scenes/BombableBlock.tscn" id="1_3oaw5"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://boy7q8caap0ni" path="res://Scenes/lava.tscn" id="13_jfd1l"]
 [ext_resource type="PackedScene" uid="uid://q18yqoqk757c" path="res://Scenes/MissileTankPickup.tscn" id="14_p0x2w"]
 [ext_resource type="PackedScene" uid="uid://dm3p2bp5g1emx" path="res://Scenes/EnergyTankPickup.tscn" id="15_0x247"]
+[ext_resource type="PackedScene" uid="uid://be6esv11x3s5t" path="res://Classes/EnemyClass.tscn" id="16_axp5l"]
 [ext_resource type="Texture2D" uid="uid://duk5s41q73y87" path="res://art/8px_ramp.png" id="24_66els"]
 [ext_resource type="PackedScene" uid="uid://ddd2blsbfg3ws" path="res://Scenes/ripper.tscn" id="29_45pp3"]
 [ext_resource type="PackedScene" uid="uid://bmg82tnsi1a6h" path="res://Scenes/hatch.tscn" id="30_1unny"]
@@ -445,6 +446,10 @@ position = Vector2(96, 140)
 
 [node name="Ripper" parent="." instance=ExtResource("29_45pp3")]
 position = Vector2(224, 124)
+health = 1
 
 [node name="Ripper2" parent="." instance=ExtResource("29_45pp3")]
 position = Vector2(400, 52)
+
+[node name="EnemyClass" parent="." instance=ExtResource("16_axp5l")]
+position = Vector2(68, 176)

@@ -4,6 +4,7 @@ extends AnimatableBody2D
 var LIFESPAN: float = 1.0 / 12.0;
 var lifetime: float = 0.0;
 var velocity: Vector2
+var ice: bool = true;
 
 
 # Called when the node enters the scene tree for the first time.
@@ -43,8 +44,8 @@ func die():
 
 func _on_area_to_check_for_enemy_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemies"):
-		# todo: This should take damage, cooldown, etc.
-		area.get_parent().hurt(1)
+		var enemy = area.get_parent()
+		enemy.hurt(1)
 		die()
 
 
