@@ -44,6 +44,7 @@ z_index = 10
 texture = SubResource("GradientTexture2D_aklbp")
 
 [node name="StaticBody2D_Frozen" type="StaticBody2D" parent="."]
+visible = false
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D_Frozen"]

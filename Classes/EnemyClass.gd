@@ -1,4 +1,4 @@
-class_name Enemy2D
+class_name EnemyClass
 extends CharacterBody2D
 
 # TODO:
@@ -30,8 +30,8 @@ var freeze_timer: float = 0.0
 
 func _ready() -> void:
 	add_to_group("enemies")
-	unfreeze()
-	#freeze(10)
+	#unfreeze()
+	freeze(10)
 	hit_sounds = $HitSounds.get_children()
 	death_sounds = $DeathSounds.get_children()
 	
