@@ -9,12 +9,12 @@ size = Vector2(4, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wp4uf"]
 size = Vector2(8, 4)
 
-[sub_resource type="Gradient" id="Gradient_n5ped"]
+[sub_resource type="Gradient" id="Gradient_08k8t"]
 offsets = PackedFloat32Array(0, 0.413876, 0.77512, 1)
 colors = PackedColorArray(0.231373, 0, 0.498039, 1, 1, 0.635294, 0.235294, 1, 1, 0.87451, 0.584314, 1, 1, 0.92549, 0.843137, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_m4cwr"]
-gradient = SubResource("Gradient_n5ped")
+gradient = SubResource("Gradient_08k8t")
 width = 8
 height = 2
 
@@ -205,7 +205,8 @@ high_pass_filter/cutoff_sweep = 0.0
 [node name="CPUParticles2D_Trail" type="CPUParticles2D" parent="."]
 z_index = 50
 position = Vector2(3, 0)
-amount = 256
+emitting = false
+amount = 1
 lifetime = 0.25
 fract_delta = false
 spread = 180.0
@@ -213,3 +214,5 @@ gravity = Vector2(1, 0)
 initial_velocity_max = 32.0
 scale_amount_min = 0.0
 color_ramp = SubResource("Gradient_ijmsq")
+
+[connection signal="area_entered" from="AreaToCheckForEnemy" to="." method="_on_area_to_check_for_enemy_area_entered"]

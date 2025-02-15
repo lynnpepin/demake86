@@ -465,3 +465,6 @@ position = Vector2(96, 164)
 
 [node name="Ripper2" parent="Enemies" instance=ExtResource("17_3k0f5")]
 position = Vector2(224, 144)
+
+[node name="Ripper3" parent="Enemies" instance=ExtResource("17_3k0f5")]
+position = Vector2(92, 156)

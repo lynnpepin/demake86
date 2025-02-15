@@ -78,6 +78,7 @@ func freeze(timer: float) -> void:
 	freeze_timer = timer
 	$Sprite2D.modulate = Color(152.0/255.0, 220.0/255.0, 255.0/255.0)
 	$Sprite2D_freeze_box.visible = true
+	$Sprite2D_freeze_box.modulate = Color(1.0, 1.0, 1.0, 1.0)
 	$CollisionPlatforming.set_deferred("disabled", true) 
 	$AreaHitbox/CollisionShape2D.set_deferred("disabled", true)
 	$StaticBody2D_Frozen/CollisionShape2D.set_deferred("disabled", false)

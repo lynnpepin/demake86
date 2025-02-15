@@ -5,24 +5,39 @@ extends AnimatableBody2D
 # Make missile a subclass of this
 # Make ice beam, wave beam
 
-var LIFESPAN: float = 1.0 / 12.0;
+
+## Time in seconds for this beam to exist
+@export var LIFESPAN: float = 1.0 / 12.0;
+
 var lifetime: float = 0.0;
 
-var dietime: float = 2.0; # timer after death to allow sounds, trails, etc. to finish
+## Time in seconds to let sounds and particles finish up
+@export var dietime: float = 2.0; # timer after death to allow sounds, trails, etc. to finish
 
 var velocity: Vector2
-var ice: bool = true;
-var damage: int = 1;
+
+
+## If true, calls freeze() on enemies
+@export var ice: bool = true;
+
+## Amount of damage for this beam to deal
+@export var damage: int = 1;
 var create_sounds: Array;
 var active: bool = true;
-var CreateOnDie = null; #preload("res://Scenes/BigExplosion.tscn")
+
+## Explosion (or other) node to create once this one explodes and dies
+@export var CreateOnDie: PackedScene = null; #preload("res://Scenes/BigExplosion.tscn")
+var preloaded_CreateOnDie: Node2D = null;
 
 
 func _ready() -> void:
 	create_sounds = $CreateSounds.get_children()
+	
 	if len(create_sounds) > 0:
 		create_sounds.pick_random().play()
 	add_to_group("beam")
+	if ice:
+		$Sprite2D.modulate = Color(152.0/255.0, 220.0/255.0, 255.0/255.0)
 
 
 func _process(delta: float) -> void:
@@ -54,13 +69,18 @@ func die():
 	# maybe different things have a sound to play when a beam hits it
 	#$Sounds/Hit.play()
 	if CreateOnDie != null:
+		print("Creating scene!")
 		var blam = CreateOnDie.instantiate()
 		blam.position = Vector2(0,0)#global_position
 		add_child(blam)
 
 
 func _on_area_to_check_for_enemy_area_entered(area: Area2D) -> void:
+	$HitSound.play()
 	if area.is_in_group("enemies"):
 		var enemy = area.get_parent()
+		var is_frozen = enemy.freeze_timer > 0
 		enemy.hurt(damage)
+		if ice and not is_frozen:
+			enemy.freeze(12)
 		die()

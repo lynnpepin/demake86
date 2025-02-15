@@ -33,7 +33,7 @@ var sprites# = [
 
 #var BeamShot = preload("res://Scenes/beam_shot.tscn")
 var BeamShot = preload("res://Classes/BeamClass.tscn")
-var MissileShot = preload("res://Scenes/missile_shot.tscn")
+var MissileShot = preload("res://Scenes/Beams/Missile2.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
