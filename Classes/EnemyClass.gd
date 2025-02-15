@@ -31,7 +31,6 @@ var freeze_timer: float = 0.0
 func _ready() -> void:
 	add_to_group("enemies")
 	#unfreeze()
-	freeze(10)
 	hit_sounds = $HitSounds.get_children()
 	death_sounds = $DeathSounds.get_children()
 	
@@ -59,7 +58,8 @@ func _physics_process(delta: float) -> void:
 
 func hurt(damage: int) -> void:
 	print(nickname, " was hit with, ", damage, " points of damage.")
-	hit_sounds.pick_random().play()
+	if len(hit_sounds) > 0:
+		hit_sounds.pick_random().play()
 	health -= damage
 	if health <= 0:
 		die()

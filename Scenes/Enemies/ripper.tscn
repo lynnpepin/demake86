@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=4 uid="uid://ddd2blsbfg3ws"]
 
-[ext_resource type="Script" path="res://Scripts/ripper.gd" id="1_gbvxa"]
-[ext_resource type="Texture2D" uid="uid://bn5kl3uuxwle6" path="res://art/zoomer/ripper.png" id="2_ribiu"]
-[ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="3_vpmtk"]
+[ext_resource type="Script" path="res://Scripts/ripper.gd" id="1_ijmpo"]
+[ext_resource type="Texture2D" uid="uid://bn5kl3uuxwle6" path="res://art/zoomer/ripper.png" id="2_86ph5"]
+[ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="3_jmkf4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qx8bm"]
 size = Vector2(6, 3)
@@ -26,7 +26,7 @@ data = PackedByteArray("CBkeFgsB+/r6+/v8+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7
 position = Vector2(232, 160)
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("1_gbvxa")
+script = ExtResource("1_ijmpo")
 
 [node name="collision_platforming" type="CollisionShape2D" parent="." groups=["enemies"]]
 position = Vector2(0, 0.5)
@@ -41,14 +41,14 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ggu4r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ribiu")
+texture = ExtResource("2_86ph5")
 offset = Vector2(0, -3)
 
 [node name="HitSounds" type="Node" parent="."]
 
 [node name="Hit1" type="AudioStreamPlayer2D" parent="HitSounds"]
 stream = SubResource("AudioStreamWAV_qp3l5")
-script = ExtResource("3_vpmtk")
+script = ExtResource("3_jmkf4")
 wave/type = 2
 sample_params/sound_vol = 0.25
 sample_params/sample_rate = 44100.0
@@ -77,7 +77,7 @@ high_pass_filter/cutoff_sweep = 0.0
 
 [node name="Hit2" type="AudioStreamPlayer2D" parent="HitSounds"]
 stream = SubResource("AudioStreamWAV_13ri7")
-script = ExtResource("3_vpmtk")
+script = ExtResource("3_jmkf4")
 wave/type = 2
 sample_params/sound_vol = 0.125
 sample_params/sample_rate = 44100.0
@@ -106,7 +106,7 @@ high_pass_filter/cutoff_sweep = 0.00674058
 
 [node name="Hit3" type="AudioStreamPlayer2D" parent="HitSounds"]
 stream = SubResource("AudioStreamWAV_8r2fx")
-script = ExtResource("3_vpmtk")
+script = ExtResource("3_jmkf4")
 wave/type = 2
 sample_params/sound_vol = 0.125
 sample_params/sample_rate = 44100.0
@@ -135,7 +135,7 @@ high_pass_filter/cutoff_sweep = 0.0204578
 
 [node name="Hit4" type="AudioStreamPlayer2D" parent="HitSounds"]
 stream = SubResource("AudioStreamWAV_b4ncq")
-script = ExtResource("3_vpmtk")
+script = ExtResource("3_jmkf4")
 wave/type = 1
 sample_params/sound_vol = 0.25
 sample_params/sample_rate = 44100.0
