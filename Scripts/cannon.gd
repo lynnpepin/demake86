@@ -31,7 +31,8 @@ var sprites# = [
 	#$Sprite2D_cannon_d, $Sprite2D_cannon_df
 #]
 
-var BeamShot = preload("res://Scenes/beam_shot.tscn")
+#var BeamShot = preload("res://Scenes/beam_shot.tscn")
+var BeamShot = preload("res://Classes/BeamClass.tscn")
 var MissileShot = preload("res://Scenes/missile_shot.tscn")
 
 # Called when the node enters the scene tree for the first time.

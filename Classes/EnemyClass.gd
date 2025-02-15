@@ -30,7 +30,7 @@ var freeze_timer: float = 0.0
 
 func _ready() -> void:
 	add_to_group("enemies")
-	#unfreeze()
+	unfreeze()
 	hit_sounds = $HitSounds.get_children()
 	death_sounds = $DeathSounds.get_children()
 	
@@ -42,7 +42,6 @@ func _process(delta: float) -> void:
 			if not $UnfreezeSound.playing:
 				$UnfreezeSound.play()
 			var freeze_vis_percent = floor((1 - freeze_timer) * 8) / 8.0
-			print(freeze_vis_percent)
 			$Sprite2D.modulate = Color(
 				floor(152 + 103 * freeze_vis_percent) / 255.0,
 				floor(220 + 35 * freeze_vis_percent) / 255.0,

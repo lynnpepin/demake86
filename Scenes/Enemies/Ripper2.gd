@@ -1,9 +1,10 @@
 extends EnemyClass
 
 var direction: int = 1
-func _ready():
-	super()
-	freeze(3)
+
+#func _ready():
+#	super()
+	
 
 func _physics_process(delta: float) -> void:
 	if freeze_timer <= 0:

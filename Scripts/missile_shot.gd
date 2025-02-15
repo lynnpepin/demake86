@@ -1,5 +1,3 @@
-# TODO - This is a clone of beam_shot.gd. I don't know how to do inheritance properly yet lol
-# TODO - Figure out a way to "pause" this but keep its particle effects, sounds, etc. wokring.
 extends AnimatableBody2D
 
 var LIFESPAN: float = 4.0;
@@ -28,14 +26,9 @@ func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(velocity * delta)
 	if collision != null and active:
 		if collision.get_collider().is_in_group("hatch"):
-			collision.get_collider().get_parent().open() # todo: differentiate between beam, missile, etc.
+			collision.get_collider().get_parent().open()
 		die()
-	# https://stackoverflow.com/questions/69728827/how-do-i-detect-collisions-in-godot#69731270
-	
-	#position += velocity * delta
 
-func beam_hits_enemy():
-	pass
 
 func create():
 	$Sounds/Create.play()
@@ -73,19 +66,3 @@ func _on_area_to_check_for_enemy_area_entered(area: Area2D) -> void:
 		# todo: This should take damage, cooldown, etc.
 		area.get_parent().hurt(30)
 		die()
-
-
-# TODO:
-# [x] sprite
-# [x] collision shape for enemies, and for walls
-# [x] dies when hit walls
-# - explodes when it hits walls
-# [x] shoot at angle
-# [x] sounds when made
-# [ ] Connect Signals so it can hit/kill ripper
-# - sounds while moving
-# - sound for when it times out
-# - sounds when it hits wall
-# - sounds when it hits enemy
-# - sounds when it hits invulnerable enemy
-# - subclass for missile, long beam, wave beam, ice beam

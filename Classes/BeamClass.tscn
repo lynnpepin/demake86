@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=4 uid="uid://bbws1u4auaj8h"]
+[gd_scene load_steps=13 format=4 uid="uid://bbws1u4auaj8h"]
 
+[ext_resource type="Script" path="res://Classes/BeamClass.gd" id="1_fi3c5"]
 [ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="1_sktnv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lk8bw"]
@@ -32,7 +33,14 @@ data = PackedByteArray("AQEBAQECAgIBAf/+/v39/f39/v8BAgMEBQUFBAMC//38+vn5+fr7/f8D
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_5vjxe"]
 data = PackedByteArray("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")
 
+[sub_resource type="Gradient" id="Gradient_ijmsq"]
+offsets = PackedFloat32Array(0, 0.0501253, 0.119048, 0.192982, 0.616541, 0.998747)
+colors = PackedColorArray(1, 1, 1, 1, 0.741176, 1, 0.792157, 1, 1, 0.905882, 0.215686, 1, 0.878431, 0.235294, 0.156863, 1, 0, 0.516667, 1, 0.501961, 0.357105, 0.0969, 0.57, 0.25098)
+
 [node name="BeamClass" type="AnimatableBody2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_fi3c5")
 
 [node name="ColliderWall" type="CollisionShape2D" parent="." groups=["beam"]]
 shape = SubResource("RectangleShape2D_lk8bw")
@@ -47,9 +55,9 @@ shape = SubResource("RectangleShape2D_wp4uf")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_m4cwr")
 
-[node name="Sounds" type="Node" parent="."]
+[node name="CreateSounds" type="Node" parent="."]
 
-[node name="Create" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Create" type="AudioStreamPlayer2D" parent="CreateSounds"]
 stream = SubResource("AudioStreamWAV_wldcn")
 script = ExtResource("1_sktnv")
 wave/type = 2
@@ -78,7 +86,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.0
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="Create2" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Create2" type="AudioStreamPlayer2D" parent="CreateSounds"]
 stream = SubResource("AudioStreamWAV_lqwqy")
 script = ExtResource("1_sktnv")
 wave/type = 2
@@ -107,7 +115,7 @@ low_pass_filter/resonance = 0.0425393
 high_pass_filter/cutoff_frequency = -0.0174134
 high_pass_filter/cutoff_sweep = -0.040659
 
-[node name="Create3" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Create3" type="AudioStreamPlayer2D" parent="CreateSounds"]
 stream = SubResource("AudioStreamWAV_1vil3")
 script = ExtResource("1_sktnv")
 wave/type = 2
@@ -136,7 +144,7 @@ low_pass_filter/resonance = 0.000829735
 high_pass_filter/cutoff_frequency = -0.0801363
 high_pass_filter/cutoff_sweep = -0.0741743
 
-[node name="Create4" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Create4" type="AudioStreamPlayer2D" parent="CreateSounds"]
 stream = SubResource("AudioStreamWAV_teaow")
 script = ExtResource("1_sktnv")
 wave/type = 2
@@ -165,7 +173,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = -0.00282922
 high_pass_filter/cutoff_sweep = 0.00845524
 
-[node name="Hit" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamWAV_5vjxe")
 script = ExtResource("1_sktnv")
 wave/type = 3
@@ -193,3 +201,15 @@ low_pass_filter/cutoff_sweep = 0.0
 low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.0
 high_pass_filter/cutoff_sweep = 0.0
+
+[node name="CPUParticles2D_Trail" type="CPUParticles2D" parent="."]
+z_index = 50
+position = Vector2(3, 0)
+amount = 256
+lifetime = 0.25
+fract_delta = false
+spread = 180.0
+gravity = Vector2(1, 0)
+initial_velocity_max = 32.0
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_ijmsq")

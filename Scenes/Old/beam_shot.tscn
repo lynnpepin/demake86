@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=4 uid="uid://cm4sgoeo882q7"]
 
-[ext_resource type="Script" path="res://Scripts/beam_shot.gd" id="1_vi1p0"]
-[ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="2_5csdl"]
+[ext_resource type="Script" path="res://Scripts/beam_shot.gd" id="1_pkrvo"]
+[ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="2_6l45t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rl5qe"]
 size = Vector2(4, 1)
@@ -36,7 +36,7 @@ data = PackedByteArray("CQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkMDg4ODg4ODg4ODg4ODg4ODg4O
 [node name="BeamShot" type="AnimatableBody2D" groups=["beam"]]
 collision_layer = 8
 collision_mask = 2
-script = ExtResource("1_vi1p0")
+script = ExtResource("1_pkrvo")
 
 [node name="ColliderWall" type="CollisionShape2D" parent="." groups=["beam"]]
 shape = SubResource("RectangleShape2D_rl5qe")
@@ -55,7 +55,7 @@ texture = SubResource("GradientTexture2D_ytdk8")
 
 [node name="Create" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = SubResource("AudioStreamWAV_nn3fs")
-script = ExtResource("2_5csdl")
+script = ExtResource("2_6l45t")
 wave/type = 2
 sample_params/sound_vol = 0.1
 sample_params/sample_rate = 44100.0
@@ -84,7 +84,7 @@ high_pass_filter/cutoff_sweep = 0.0
 
 [node name="Create2" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = SubResource("AudioStreamWAV_1sf0g")
-script = ExtResource("2_5csdl")
+script = ExtResource("2_6l45t")
 wave/type = 2
 sample_params/sound_vol = 0.125
 sample_params/sample_rate = 44100.0
@@ -113,7 +113,7 @@ high_pass_filter/cutoff_sweep = -0.040659
 
 [node name="Create3" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = SubResource("AudioStreamWAV_vr4la")
-script = ExtResource("2_5csdl")
+script = ExtResource("2_6l45t")
 wave/type = 2
 sample_params/sound_vol = 0.0625
 sample_params/sample_rate = 44100.0
@@ -142,7 +142,7 @@ high_pass_filter/cutoff_sweep = -0.0741743
 
 [node name="Create4" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = SubResource("AudioStreamWAV_k0qwr")
-script = ExtResource("2_5csdl")
+script = ExtResource("2_6l45t")
 wave/type = 2
 sample_params/sound_vol = 0.0625
 sample_params/sample_rate = 44100.0
@@ -171,7 +171,7 @@ high_pass_filter/cutoff_sweep = 0.00845524
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = SubResource("AudioStreamWAV_r6lou")
-script = ExtResource("2_5csdl")
+script = ExtResource("2_6l45t")
 wave/type = 3
 sample_params/sound_vol = 0.125
 sample_params/sample_rate = 44100.0
