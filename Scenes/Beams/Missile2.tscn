@@ -34,7 +34,6 @@ collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_5oxwn")
 LIFESPAN = 8.0
-ice = false
 damage = 6
 CreateOnDie = ExtResource("2_i2i1b")
 
@@ -107,7 +106,9 @@ scale_amount_min = 0.0
 scale_amount_max = 4.0
 color_ramp = SubResource("Gradient_jjo5x")
 
-[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+[node name="HitSounds" type="Node" parent="."]
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="HitSounds"]
 stream = SubResource("AudioStreamWAV_oifcy")
 script = ExtResource("2_05lwi")
 wave/type = 3

@@ -34,6 +34,9 @@ func _process(delta: float) -> void:
 			body.get_parent().open()
 		if body.is_in_group("level"):
 			pass
+		#if body.is_in_group("enemies"):
+		#	body.hurt(1)
+		# todo - this won't work if there are no iframes or tracking
 			# todo - bomb blocks here!
 
 	for body in $upbox.get_overlapping_bodies():

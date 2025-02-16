@@ -12,6 +12,6 @@ func _process(delta: float) -> void:
 		if body.is_in_group("player"):
 			print("Tada")
 			body.has_morph_ball = true
-			body.show_message("CRAWL BALL\nACQUIRED")
+			body.show_message("TUCK BALL\nACQUIRED")
 			queue_free()
 			# TODO - Make noise

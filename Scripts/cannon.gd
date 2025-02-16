@@ -7,15 +7,16 @@ var down: bool
 var right: bool
 var diag: bool
 
-# State
-## Shooting state
+# Powerup state
 var long: bool = false
-var wave: bool = false
+var wave: bool = true
 var ice:  bool = false
 var charge: bool = false
 
+# Beam specs
+var speed: float = 128.0
 var shoot_timer: float = 0
-var SHOOT_PERIOD: float = .375
+var SHOOT_PERIOD: float = .5
 
 ## Aiming state
 var aimvec: Vector2
@@ -34,6 +35,7 @@ var sprites# = [
 #var BeamShot = preload("res://Scenes/beam_shot.tscn")
 var BeamShot = preload("res://Classes/BeamClass.tscn")
 var MissileShot = preload("res://Scenes/Beams/Missile2.tscn")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -154,16 +156,49 @@ func shoot_missile(delta):
 		$Sounds/Click4.play()
 		
 func shoot_beam(delta: float) -> void:
-	# Notice: Beam stays attached to play
+	# Create first beam
 	var b = BeamShot.instantiate()
 	var rawangle = -angle * PI / 4
-	b.velocity = Vector2(128.0, 0).rotated(rawangle)
-	b.position = get_shoot_xy(angle)#global_position + get_shoot_xy(angle)
+	b.angle = rawangle
+	b.velocity = Vector2(speed, 0).rotated(rawangle)
+	b.position = get_shoot_xy(angle) + global_position# + get_shoot_xy(angle)
 	b.rotation = rawangle
+	owner.owner.add_child(b)
 	if long:
 		b.LIFESPAN = 2
+	b.ice = ice
 	owner.add_child(b)
-			
+	
+	if wave:
+		
+		# Shoot TWO MORE of them
+		b = BeamShot.instantiate()
+		b.angle = rawangle
+		b.velocity = Vector2(speed/2, 0).rotated(rawangle)
+		b.position = get_shoot_xy(angle) + global_position# + get_shoot_xy(angle)
+		b.rotation = rawangle
+		b.amplitude = 2
+		b.frequency = 1.0
+		b.phase_angle = 0.5
+		owner.owner.add_child(b)
+		if long:
+			b.LIFESPAN = 2
+		b.ice = ice
+		owner.add_child(b)
+		
+		b = BeamShot.instantiate()
+		b.angle = rawangle
+		b.velocity = Vector2(speed/2, 0).rotated(rawangle)
+		b.position = get_shoot_xy(angle) + global_position# + get_shoot_xy(angle)
+		b.rotation = rawangle
+		b.amplitude = 2
+		b.frequency = 1.0
+		owner.owner.add_child(b)
+		if long:
+			b.LIFESPAN = 2
+		b.ice = ice
+		owner.add_child(b)
+		
 
 func get_shoot_xy(angle):
 	return Vector2(
@@ -172,6 +207,7 @@ func get_shoot_xy(angle):
 		[4, 0, -4, 0,  4, 6, 8, 6][angle]
 	)
 
+
 func _highlight_cannon(color):
 	draw_circle(
 		get_shoot_xy(angle),
@@ -179,6 +215,7 @@ func _highlight_cannon(color):
 		color,
 		false
 	)
+	
 
 func _draw():
 	if Input.is_action_pressed("pad_rb"):

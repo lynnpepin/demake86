@@ -40,7 +40,7 @@ var hurt_timer = 0
 var bombs: float = BOMB_PERIOD * MAX_BOMBS
 
 # power ups
-var has_high_jump  = false#false`
+var has_high_jump  = true#false`
 var has_morph_ball = true#false
 var has_morph_bomb = true#false
 

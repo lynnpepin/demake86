@@ -7,31 +7,39 @@ extends AnimatableBody2D
 
 
 ## Time in seconds for this beam to exist
-@export var LIFESPAN: float = 1.0 / 12.0;
+@export var LIFESPAN: float = 12.0;#1.0 / 12.0;
 
 var lifetime: float = 0.0;
 
 ## Time in seconds to let sounds and particles finish up
 @export var dietime: float = 2.0; # timer after death to allow sounds, trails, etc. to finish
 
+var angle: float
 var velocity: Vector2
 
-
 ## If true, calls freeze() on enemies
-@export var ice: bool = true;
+@export var ice: bool = false;
 
 ## Amount of damage for this beam to deal
 @export var damage: int = 1;
 var create_sounds: Array;
+var hit_sounds: Array;
 var active: bool = true;
 
 ## Explosion (or other) node to create once this one explodes and dies
 @export var CreateOnDie: PackedScene = null; #preload("res://Scenes/BigExplosion.tscn")
 var preloaded_CreateOnDie: Node2D = null;
 
+# Total height to move up in a sinusoidal pattern
+@export var amplitude: float = 0.0;
+@export var frequency: float = 0.0;
+@export var phase_angle: float = 0;
+var offset: Vector2 = Vector2(0,0);
+
 
 func _ready() -> void:
 	create_sounds = $CreateSounds.get_children()
+	hit_sounds = $HitSounds.get_children()
 	
 	if len(create_sounds) > 0:
 		create_sounds.pick_random().play()
@@ -49,7 +57,18 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if lifetime > LIFESPAN:
 		die()
+	
 	lifetime += delta
+	# not sure why this isn't working :(
+	 
+	# TODO - Figure out raw rotations
+	velocity += Vector2(
+		0,
+		amplitude * cos((lifetime + phase_angle) * PI * 2 * frequency)
+	).rotated(angle)
+	
+	# TODO: make this work for other angles too
+	
 	var collision = move_and_collide(velocity * delta)
 	if collision != null and active:
 		if collision.get_collider().is_in_group("hatch"):
@@ -58,6 +77,8 @@ func _physics_process(delta: float) -> void:
 
 	
 func die():
+	if len(hit_sounds) > 0:
+		hit_sounds.pick_random().play()
 	active = false
 	$AreaToCheckForEnemy.set_deferred("disabled", true)
 	$AreaToCheckForEnemy.set_deferred("monitoring", false)
@@ -67,7 +88,6 @@ func die():
 	$CPUParticles2D_Trail.emitting = false
 	# todo - this is the wrong way to do it; sound player stops on destruction
 	# maybe different things have a sound to play when a beam hits it
-	#$Sounds/Hit.play()
 	if CreateOnDie != null:
 		print("Creating scene!")
 		var blam = CreateOnDie.instantiate()
@@ -76,7 +96,6 @@ func die():
 
 
 func _on_area_to_check_for_enemy_area_entered(area: Area2D) -> void:
-	$HitSound.play()
 	if area.is_in_group("enemies"):
 		var enemy = area.get_parent()
 		var is_frozen = enemy.freeze_timer > 0

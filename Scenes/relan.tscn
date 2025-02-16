@@ -356,7 +356,6 @@ frame_progress = 0.940879
 visible = false
 position = Vector2(32, 32)
 stream = SubResource("AudioStreamWAV_y8377")
-autoplay = true
 script = ExtResource("8_87bux")
 wave/type = 2
 sample_params/sound_vol = 0.2
@@ -387,7 +386,6 @@ high_pass_filter/cutoff_sweep = 0.0
 [node name="Jump" type="AudioStreamPlayer2D" parent="Sounds"]
 position = Vector2(16, 16)
 stream = SubResource("AudioStreamWAV_y8377")
-autoplay = true
 script = ExtResource("8_87bux")
 wave/type = 2
 sample_params/sound_vol = 0.125
