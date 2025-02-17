@@ -8,9 +8,7 @@ var right: bool
 var diag: bool
 
 # Powerup state
-var long: bool = false
-var wave: bool = true
-var ice:  bool = false
+var wave: bool = false
 var charge: bool = false
 
 # Beam specs
@@ -164,12 +162,12 @@ func shoot_beam(delta: float) -> void:
 	b.position = get_shoot_xy(angle) + global_position# + get_shoot_xy(angle)
 	b.rotation = rawangle
 	owner.owner.add_child(b)
-	if long:
+	if owner.has_long_beam:
 		b.LIFESPAN = 2
-	b.ice = ice
+	b.ice = owner.has_ice_beam
 	owner.add_child(b)
 	
-	if wave:
+	if owner.has_wave_beam:
 		
 		# Shoot TWO MORE of them
 		b = BeamShot.instantiate()
@@ -181,9 +179,9 @@ func shoot_beam(delta: float) -> void:
 		b.frequency = 1.0
 		b.phase_angle = 0.5
 		owner.owner.add_child(b)
-		if long:
+		if owner.has_long_beam:
 			b.LIFESPAN = 2
-		b.ice = ice
+		b.ice = owner.has_ice_beam
 		owner.add_child(b)
 		
 		b = BeamShot.instantiate()
@@ -194,9 +192,9 @@ func shoot_beam(delta: float) -> void:
 		b.amplitude = 2
 		b.frequency = 1.0
 		owner.owner.add_child(b)
-		if long:
+		if owner.has_long_beam:
 			b.LIFESPAN = 2
-		b.ice = ice
+		b.ice = owner.has_ice_beam
 		owner.add_child(b)
 		
 

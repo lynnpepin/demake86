@@ -1,0 +1,136 @@
+[gd_scene load_steps=14 format=3 uid="uid://m1ywb3q2iqkb"]
+
+[ext_resource type="Script" path="res://Scenes/Pickups/missile_pickup_2.gd" id="1_n2oeo"]
+[ext_resource type="Script" path="res://Scenes/Old/node_3d_missile.gd" id="2_56lp4"]
+[ext_resource type="Material" uid="uid://b7fnbkras7k2x" path="res://resources/missile_pickup_material.tres" id="3_knuo8"]
+[ext_resource type="Material" uid="uid://475c4ayib2vg" path="res://resources/material_white_unshaded.tres" id="4_4y18q"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8t7u6"]
+lightmap_size_hint = Vector2i(17, 9)
+material = ExtResource("3_knuo8")
+height = 0.125
+radial_segments = 12
+
+[sub_resource type="BoxMesh" id="BoxMesh_oplta"]
+material = ExtResource("3_knuo8")
+size = Vector3(0.125, 0.75, 0.125)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5ep0o"]
+material = ExtResource("3_knuo8")
+top_radius = 0.125
+bottom_radius = 0.125
+height = 0.375
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_o5cb7"]
+material = ExtResource("3_knuo8")
+size = Vector3(0.125, 0.375, 0.125)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m3psa"]
+material = ExtResource("4_4y18q")
+size = Vector3(1, 0.125, 0.125)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xnblc"]
+material = ExtResource("4_4y18q")
+size = Vector3(1, 0.125, 0.125)
+
+[sub_resource type="BoxMesh" id="BoxMesh_t0r2o"]
+material = ExtResource("4_4y18q")
+size = Vector3(1, 0.125, 0.125)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_o4707"]
+viewport_path = NodePath("SubViewport_missile")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w4wew"]
+radius = 4.0
+
+[node name="MissileTank" type="Node2D"]
+script = ExtResource("1_n2oeo")
+pickup_name = "Missile Tank"
+pickup_message = "MISSILE TANK\\nACQUIRED"
+
+[node name="SubViewport_missile" type="SubViewport" parent="."]
+transparent_bg = true
+canvas_item_default_texture_filter = 0
+canvas_cull_mask = 4294967196
+size = Vector2i(16, 16)
+
+[node name="Node3D_missile" type="Node3D" parent="SubViewport_missile"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+script = ExtResource("2_56lp4")
+
+[node name="BaseMesh" type="MeshInstance3D" parent="SubViewport_missile/Node3D_missile"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.437, 0)
+mesh = SubResource("CylinderMesh_8t7u6")
+skeleton = NodePath("../ColumnMesh")
+
+[node name="ColumnMesh" type="MeshInstance3D" parent="SubViewport_missile/Node3D_missile"]
+mesh = SubResource("BoxMesh_oplta")
+
+[node name="HeadMesh" type="MeshInstance3D" parent="SubViewport_missile/Node3D_missile"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.313, 0)
+mesh = SubResource("CylinderMesh_5ep0o")
+
+[node name="FletchMesh" type="MeshInstance3D" parent="SubViewport_missile/Node3D_missile"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.312, -0.25, 0.312)
+mesh = SubResource("BoxMesh_o5cb7")
+skeleton = NodePath("../ColumnMesh")
+
+[node name="FletchMesh2" type="MeshInstance3D" parent="SubViewport_missile/Node3D_missile"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.312, -0.25, 0.312)
+mesh = SubResource("BoxMesh_o5cb7")
+skeleton = NodePath("../ColumnMesh")
+
+[node name="FletchMesh3" type="MeshInstance3D" parent="SubViewport_missile/Node3D_missile"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.312, -0.25, -0.312)
+mesh = SubResource("BoxMesh_o5cb7")
+skeleton = NodePath("../ColumnMesh")
+
+[node name="FletchMesh4" type="MeshInstance3D" parent="SubViewport_missile/Node3D_missile"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.312, -0.25, -0.312)
+mesh = SubResource("BoxMesh_o5cb7")
+skeleton = NodePath("../ColumnMesh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport_missile/Node3D_missile"]
+transform = Transform3D(-2.18557e-08, 0.866025, -0.5, 3.78552e-08, 0.5, 0.866025, 1, 1.77636e-15, -4.37114e-08, -1.85221, 0, 0)
+visible = false
+light_energy = 2.0
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="SubViewport_missile/Node3D_missile"]
+transform = Transform3D(4.35451e-08, 0.0871556, 0.996195, 3.80969e-09, -0.996195, 0.0871556, 1, 1.77636e-15, -4.37114e-08, -1.85221, 0, 0)
+visible = false
+
+[node name="Node3D_container" type="Node3D" parent="SubViewport_missile"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport_missile/Node3D_container"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.562, 0)
+mesh = SubResource("BoxMesh_m3psa")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewport_missile/Node3D_container"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.563, 0)
+mesh = SubResource("BoxMesh_m3psa")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="SubViewport_missile/Node3D_container"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 2.568, 0, 0)
+mesh = SubResource("BoxMesh_xnblc")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="SubViewport_missile/Node3D_container"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1.438, 0, 0)
+mesh = SubResource("BoxMesh_t0r2o")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport_missile"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+projection = 1
+size = 2.0
+far = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("ViewportTexture_o4707")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_w4wew")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

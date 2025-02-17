@@ -7,7 +7,7 @@ extends AnimatableBody2D
 
 
 ## Time in seconds for this beam to exist
-@export var LIFESPAN: float = 12.0;#1.0 / 12.0;
+@export var LIFESPAN: float = 1.0 / 12.0;
 
 var lifetime: float = 0.0;
 
@@ -71,14 +71,14 @@ func _physics_process(delta: float) -> void:
 	
 	var collision = move_and_collide(velocity * delta)
 	if collision != null and active:
+		if len(hit_sounds) > 0:
+			hit_sounds.pick_random().play()
 		if collision.get_collider().is_in_group("hatch"):
 			collision.get_collider().get_parent().open()
 		die()
 
 	
 func die():
-	if len(hit_sounds) > 0:
-		hit_sounds.pick_random().play()
 	active = false
 	$AreaToCheckForEnemy.set_deferred("disabled", true)
 	$AreaToCheckForEnemy.set_deferred("monitoring", false)
@@ -97,6 +97,8 @@ func die():
 
 func _on_area_to_check_for_enemy_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemies"):
+		if len(hit_sounds) > 0:
+			hit_sounds.pick_random().play()
 		var enemy = area.get_parent()
 		var is_frozen = enemy.freeze_timer > 0
 		enemy.hurt(damage)

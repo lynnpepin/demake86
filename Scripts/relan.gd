@@ -40,9 +40,15 @@ var hurt_timer = 0
 var bombs: float = BOMB_PERIOD * MAX_BOMBS
 
 # power ups
-var has_high_jump  = true#false`
-var has_morph_ball = true#false
-var has_morph_bomb = true#false
+var has_high_jump  = false#false`
+var has_morph_ball = false#false
+var has_morph_bomb = false#false
+
+var has_long_beam = false
+var has_wave_beam = false
+var has_ice_beam = false
+
+var has_varia_suit = false
 
 # input
 var left: bool
@@ -64,7 +70,7 @@ func _ready():
 	set_up_energy_sprites(24)
 	set_up_missile_sprites(24)
 	# Now, set missiles visible by adding 4
-	add_missiles(2)
+	add_missiles(0)
 	add_energy(3)
 	$ball_sprite.play()
 	pass # Replace with function body.

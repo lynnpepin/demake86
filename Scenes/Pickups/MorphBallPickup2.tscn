@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://b74pk7u5uqokq"]
+
+[ext_resource type="PackedScene" uid="uid://dvmfspjjw6lrx" path="res://Classes/PickupClass.tscn" id="1_yu8wb"]
+[ext_resource type="Script" path="res://Scenes/Pickups/morph_ball_pickup_2.gd" id="2_h335q"]
+[ext_resource type="Script" path="res://Scripts/MorphBallPickup_Node3D.gd" id="3_j6iop"]
+
+[sub_resource type="Environment" id="Environment_bimby"]
+background_mode = 1
+background_color = Color(0, 0, 0, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_pkrex"]
+radial_segments = 36
+rings = 36
+
+[sub_resource type="Gradient" id="Gradient_01u08"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.0833333, 0.437831, 0.712963, 0.793651, 0.882275)
+colors = PackedColorArray(1, 0.733333, 0.192157, 1, 0.8, 0.560784, 0.0823529, 1, 0.360784, 0.235294, 0.0509804, 1, 0.309804, 0.0823529, 0.027451, 1, 0.678431, 0.305882, 0.101961, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aapjt"]
+gradient = SubResource("Gradient_01u08")
+width = 24
+height = 24
+fill = 1
+fill_from = Vector2(0.492877, 0.501424)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4lcw1"]
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture2D_aapjt")
+texture_filter = 0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jgd5b"]
+viewport_path = NodePath("SubViewport")
+
+[node name="MorphBallPickup" instance=ExtResource("1_yu8wb")]
+script = ExtResource("2_h335q")
+pickup_name = "morphball"
+pickup_message = "TUCK BALL\\nACQUIRED"
+
+[node name="SubViewport" type="SubViewport" parent="." index="1"]
+transparent_bg = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(6, 6)
+
+[node name="Node3D" type="Node3D" parent="SubViewport" index="0"]
+script = ExtResource("3_j6iop")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.72937)
+environment = SubResource("Environment_bimby")
+projection = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D" index="1"]
+mesh = SubResource("SphereMesh_pkrex")
+surface_material_override/0 = SubResource("StandardMaterial3D_4lcw1")
+
+[node name="PivotLight1" type="Node3D" parent="SubViewport/Node3D" index="2"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="0"]
+transform = Transform3D(-0.840657, 0.392522, -0.373125, -0.225254, 0.373124, 0.900022, 0.492499, 0.840658, -0.225253, 0, 0, 0.806871)
+visible = false
+light_color = Color(0.869911, 0.864236, 0.839635, 1)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="1"]
+transform = Transform3D(0.0606811, -0.981559, 0.181275, 0.609193, 0.180283, 0.772258, -0.790697, 0.0635702, 0.608899, 0.842064, 0, 0.806871)
+visible = false
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="2"]
+transform = Transform3D(0.870313, -0.475718, 0.127468, 0, -0.258819, -0.965926, 0.492499, 0.840658, -0.225254, 0, 0, 0.806871)
+visible = false
+light_color = Color(0.996078, 0.792157, 0.933333, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+texture = SubResource("ViewportTexture_jgd5b")

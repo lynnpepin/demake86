@@ -3,18 +3,18 @@
 [ext_resource type="Script" path="res://Scripts/energy_tank_pickup.gd" id="1_nacdo"]
 [ext_resource type="Script" path="res://Scripts/node_3d.gd" id="2_xmi6i"]
 
-[sub_resource type="Gradient" id="Gradient_amyq5"]
+[sub_resource type="Gradient" id="Gradient_gdhrv"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.174541, 0.396325, 0.60105, 0.82021)
 colors = PackedColorArray(0.356863, 0.658824, 1, 1, 0.596078, 0.862745, 1, 1, 0.00784314, 0.290196, 0.792157, 1, 0.596078, 0.862745, 1, 1, 0.356863, 0.658824, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lurid"]
-gradient = SubResource("Gradient_amyq5")
+gradient = SubResource("Gradient_gdhrv")
 width = 16
 height = 16
 fill_from = Vector2(0, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d4m3n"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04us7"]
 shading_mode = 0
 albedo_color = Color(0.356863, 0.658824, 1, 1)
 albedo_texture = SubResource("GradientTexture2D_lurid")
@@ -22,7 +22,7 @@ texture_filter = 0
 texture_repeat = false
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_yjt68"]
-material = SubResource("StandardMaterial3D_d4m3n")
+material = SubResource("StandardMaterial3D_04us7")
 radius = 0.375
 height = 1.0
 

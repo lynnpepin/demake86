@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://q18yqoqk757c"]
 
-[ext_resource type="Script" path="res://Scripts/missile_tank_pickup.gd" id="1_fih3e"]
-[ext_resource type="Script" path="res://Scenes/node_3d_missile.gd" id="2_yk6j6"]
+[ext_resource type="Script" path="res://Scenes/Pickups/missile_pickup_2.gd" id="1_7fwxe"]
+[ext_resource type="Script" path="res://Scenes/Old/node_3d_missile.gd" id="2_yk6j6"]
 [ext_resource type="Material" uid="uid://475c4ayib2vg" path="res://resources/material_white_unshaded.tres" id="3_460bh"]
 [ext_resource type="Material" uid="uid://b7fnbkras7k2x" path="res://resources/missile_pickup_material.tres" id="3_u366p"]
 
@@ -45,7 +45,7 @@ viewport_path = NodePath("SubViewport_missile")
 radius = 4.0
 
 [node name="MissileTankPickup" type="Node2D"]
-script = ExtResource("1_fih3e")
+script = ExtResource("1_7fwxe")
 
 [node name="SubViewport_missile" type="SubViewport" parent="."]
 transparent_bg = true
@@ -132,3 +132,4 @@ collision_layer = 2
 shape = SubResource("CircleShape2D_1xig2")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

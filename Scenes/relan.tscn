@@ -195,7 +195,6 @@ shape = SubResource("RectangleShape2D_db8h2")
 position_smoothing_speed = 96.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Camera2D"]
-current = true
 
 [node name="Cannon" type="Node2D" parent="."]
 z_index = 20
