@@ -17,8 +17,6 @@ var lifetime: float = 0.0;
 var angle: float
 var velocity: Vector2
 
-## If true, calls freeze() on enemies
-@export var ice: bool = false;
 
 ## Amount of damage for this beam to deal
 @export var damage: int = 1;
@@ -36,6 +34,9 @@ var preloaded_CreateOnDie: Node2D = null;
 @export var phase_angle: float = 0;
 var offset: Vector2 = Vector2(0,0);
 
+var ice: bool = false
+var wave: bool = false
+
 
 func _ready() -> void:
 	create_sounds = $CreateSounds.get_children()
@@ -44,8 +45,18 @@ func _ready() -> void:
 	if len(create_sounds) > 0:
 		create_sounds.pick_random().play()
 	add_to_group("beam")
-	if ice:
+	
+	if ice and wave:
+		print("wave + ice")
+		$Sprite2D.modulate = Color(255.0/255.0, 128.0/255.0, 512.0/255.0)
+	elif wave:
+		print("wave")
+		$Sprite2D.modulate = Color(255.0/255.0, 64.0/255.0, 255.0/255.0)
+	elif ice:
+		print("ice")
 		$Sprite2D.modulate = Color(152.0/255.0, 220.0/255.0, 255.0/255.0)
+	else:
+		print("none")
 
 
 func _process(delta: float) -> void:

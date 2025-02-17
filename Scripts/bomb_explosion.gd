@@ -72,7 +72,7 @@ func _exit_tree() -> void:
 
 #func _on_hurtbox_area_entered(area: Area2D) -> void:
 	#if area.is_in_group("enemies"):
-		## todo: This should take damage, cooldown, etc.
+		# todo: This should take damage, cooldown, etc.
 		#area.get_parent().hurt(2)
 		#print("Bomb hit an enemy!")
 #

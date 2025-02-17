@@ -156,6 +156,8 @@ func shoot_missile(delta):
 func shoot_beam(delta: float) -> void:
 	# Create first beam
 	var b = BeamShot.instantiate()
+	b.ice = owner.has_ice_beam
+	b.wave = owner.has_wave_beam
 	var rawangle = -angle * PI / 4
 	b.angle = rawangle
 	b.velocity = Vector2(speed, 0).rotated(rawangle)
@@ -164,13 +166,14 @@ func shoot_beam(delta: float) -> void:
 	owner.owner.add_child(b)
 	if owner.has_long_beam:
 		b.LIFESPAN = 2
-	b.ice = owner.has_ice_beam
 	owner.add_child(b)
 	
 	if owner.has_wave_beam:
 		
 		# Shoot TWO MORE of them
 		b = BeamShot.instantiate()
+		b.ice = owner.has_ice_beam
+		b.wave = owner.has_wave_beam
 		b.angle = rawangle
 		b.velocity = Vector2(speed/2, 0).rotated(rawangle)
 		b.position = get_shoot_xy(angle) + global_position# + get_shoot_xy(angle)
@@ -181,10 +184,11 @@ func shoot_beam(delta: float) -> void:
 		owner.owner.add_child(b)
 		if owner.has_long_beam:
 			b.LIFESPAN = 2
-		b.ice = owner.has_ice_beam
 		owner.add_child(b)
 		
 		b = BeamShot.instantiate()
+		b.ice = owner.has_ice_beam
+		b.wave = owner.has_wave_beam
 		b.angle = rawangle
 		b.velocity = Vector2(speed/2, 0).rotated(rawangle)
 		b.position = get_shoot_xy(angle) + global_position# + get_shoot_xy(angle)
@@ -194,7 +198,6 @@ func shoot_beam(delta: float) -> void:
 		owner.owner.add_child(b)
 		if owner.has_long_beam:
 			b.LIFESPAN = 2
-		b.ice = owner.has_ice_beam
 		owner.add_child(b)
 		
 
