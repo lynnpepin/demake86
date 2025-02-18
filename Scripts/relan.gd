@@ -70,7 +70,7 @@ func _ready():
 	set_up_energy_sprites(24)
 	set_up_missile_sprites(24)
 	# Now, set missiles visible by adding 4
-	add_missiles(0)
+	add_missiles(24)
 	add_energy(3)
 	$ball_sprite.play()
 	pass # Replace with function body.
