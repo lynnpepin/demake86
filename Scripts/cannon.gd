@@ -178,7 +178,7 @@ func shoot_beam(delta: float) -> void:
 		b.velocity = Vector2(speed/2, 0).rotated(rawangle)
 		b.position = get_shoot_xy(angle) + global_position# + get_shoot_xy(angle)
 		b.rotation = rawangle
-		b.amplitude = 2
+		b.amplitude = 1.0
 		b.frequency = 1.0
 		b.phase_angle = 0.5
 		owner.owner.add_child(b)
@@ -193,7 +193,7 @@ func shoot_beam(delta: float) -> void:
 		b.velocity = Vector2(speed/2, 0).rotated(rawangle)
 		b.position = get_shoot_xy(angle) + global_position# + get_shoot_xy(angle)
 		b.rotation = rawangle
-		b.amplitude = 2
+		b.amplitude = 1.0
 		b.frequency = 1.0
 		owner.owner.add_child(b)
 		if owner.has_long_beam:

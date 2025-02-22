@@ -44,8 +44,8 @@ var has_high_jump  = false#false`
 var has_morph_ball = false#false
 var has_morph_bomb = false#false
 
-var has_long_beam = false
-var has_wave_beam = false
+var has_long_beam = true
+var has_wave_beam = true
 var has_ice_beam = false
 
 var has_varia_suit = false

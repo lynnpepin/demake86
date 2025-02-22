@@ -1,0 +1,55 @@
+[gd_resource type="VisualShader" load_steps=7 format=3 uid="uid://dtr01v74mxa3i"]
+
+[ext_resource type="Texture2D" uid="uid://ox70v7php01v" path="res://art/tiles1_normal.png" id="1_2khr4"]
+[ext_resource type="Texture2D" uid="uid://dr2i71jasyecm" path="res://art/tiles1_albedo.png" id="2_euu8b"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_f7bwt"]
+texture = ExtResource("1_2khr4")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_tvvpu"]
+texture = ExtResource("2_euu8b")
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_a032m"]
+constant = 24.0
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_7vg6l"]
+texture = ExtResource("2_euu8b")
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform sampler2D tex_frg_2;
+
+
+
+void fragment() {
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, UV);
+
+
+// FloatConstant:5
+	float n_out5p0 = 24.000000;
+
+
+// Output:0
+	NORMAL = vec3(n_out2p0.xyz);
+	NORMAL_MAP = vec3(n_out2p0.xyz);
+	NORMAL_MAP_DEPTH = n_out5p0;
+
+
+}
+"
+graph_offset = Vector2(-424.944, -76.926)
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(1520, 440)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_f7bwt")
+nodes/fragment/2/position = Vector2(40, 520)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_tvvpu")
+nodes/fragment/3/position = Vector2(380, 140)
+nodes/fragment/5/node = SubResource("VisualShaderNodeFloatConstant_a032m")
+nodes/fragment/5/position = Vector2(540, 800)
+nodes/fragment/6/node = SubResource("VisualShaderNodeTexture_7vg6l")
+nodes/fragment/6/position = Vector2(-600, 180)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 2, 2, 0, 0, 3, 5, 0, 0, 4)

@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://m8soqc4a6abx"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8mcy5"]
+size = Vector2(3, 3)
+
+[node name="Options" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Container" type="Container" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Container"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Container/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Control/Container/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "hey"
+icon = SubResource("PlaceholderTexture2D_8mcy5")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Container/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Control/Container/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "hey"
+icon = SubResource("PlaceholderTexture2D_8mcy5")

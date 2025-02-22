@@ -22,6 +22,7 @@ window/size/viewport_height=512
 window/stretch/mode="viewport"
 window/stretch/scale=8.0
 window/stretch/scale_mode="integer"
+window/vsync/vsync_mode=0
 window/snap/snap_2d_transforms_to_pixel=false
 
 [editor]
@@ -259,6 +260,10 @@ pad_rs={
 2d_physics/layer_3="Enemies"
 2d_physics/layer_4="Beam"
 2d_physics/layer_5="Player_Hurtbox"
+
+[physics]
+
+common/physics_ticks_per_second=120
 
 [rendering]
 
