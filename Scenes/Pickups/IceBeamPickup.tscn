@@ -35,7 +35,7 @@ size = Vector2(4, 4)
 
 [node name="LongBeamPickup" instance=ExtResource("1_bemnw")]
 script = ExtResource("2_nffby")
-pickup_message = "ICE BEAM\\nACQUIRED"
+pickup_message = "COOL BEAM\\nACQUIRED"
 
 [node name="SubViewport" type="SubViewport" parent="." index="1"]
 transparent_bg = true

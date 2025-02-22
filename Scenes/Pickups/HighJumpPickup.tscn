@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://ck0v87hhb0amf"]
+
+[ext_resource type="PackedScene" uid="uid://dvmfspjjw6lrx" path="res://Classes/PickupClass.tscn" id="1_tdr4b"]
+[ext_resource type="Script" path="res://Scenes/Pickups/high_jump_pickup.gd" id="2_u7ihm"]
+[ext_resource type="Script" path="res://Scripts/MorphBallPickup_Node3D.gd" id="3_2hw6j"]
+
+[sub_resource type="Environment" id="Environment_bimby"]
+background_mode = 1
+background_color = Color(0, 0, 0, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_pkrex"]
+radial_segments = 36
+rings = 36
+
+[sub_resource type="Gradient" id="Gradient_01u08"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.0833333, 0.437831, 0.712963, 0.793651, 0.882275)
+colors = PackedColorArray(1, 0.733333, 0.192157, 1, 0.8, 0.560784, 0.0823529, 1, 0.360784, 0.235294, 0.0509804, 1, 0.309804, 0.0823529, 0.027451, 1, 0.678431, 0.305882, 0.101961, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aapjt"]
+gradient = SubResource("Gradient_01u08")
+width = 24
+height = 24
+fill = 1
+fill_from = Vector2(0.492877, 0.501424)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4lcw1"]
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture2D_aapjt")
+texture_filter = 0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yaety"]
+size = Vector2(4, 4)
+
+[node name="HighJumpPickup" instance=ExtResource("1_tdr4b")]
+script = ExtResource("2_u7ihm")
+
+[node name="SubViewport" type="SubViewport" parent="." index="1"]
+transparent_bg = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(6, 6)
+
+[node name="Node3D" type="Node3D" parent="SubViewport" index="0"]
+script = ExtResource("3_2hw6j")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.72937)
+environment = SubResource("Environment_bimby")
+projection = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D" index="1"]
+mesh = SubResource("SphereMesh_pkrex")
+surface_material_override/0 = SubResource("StandardMaterial3D_4lcw1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+texture = SubResource("PlaceholderTexture2D_yaety")
