@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=4 uid="uid://bqf183qi5gq3r"]
 
-[ext_resource type="Script" path="res://Scripts/BigExplosion.gd" id="1_su0y6"]
-[ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="2_alwa7"]
+[ext_resource type="Script" uid="uid://x0kuhyouevlf" path="res://Scripts/BigExplosion.gd" id="1_su0y6"]
+[ext_resource type="Script" uid="uid://bc0paoyr8p4u" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="2_alwa7"]
 
 [sub_resource type="Curve" id="Curve_fu1ap"]
-max_value = 100.0
+_limits = [0.0, 100.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.858586, 9.25173), 38.4592, 38.4592, 0, 0, Vector2(0.959596, 100), 4038.2, 0.0, 0, 0]
 point_count = 3
 

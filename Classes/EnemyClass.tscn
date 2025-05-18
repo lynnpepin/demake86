@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://be6esv11x3s5t"]
+[gd_scene load_steps=10 format=3 uid="uid://be6esv11x3s5t"]
 
-[ext_resource type="Script" path="res://Classes/EnemyClass.gd" id="1_44iho"]
-[ext_resource type="Texture2D" uid="uid://bn5kl3uuxwle6" path="res://art/zoomer/ripper.png" id="2_l651k"]
+[ext_resource type="Script" uid="uid://c4p06xddgtn10" path="res://Classes/EnemyClass.gd" id="1_44iho"]
 [ext_resource type="AudioStream" uid="uid://cd0bb667p5tn1" path="res://resources/freeze.wav" id="3_e20xd"]
 [ext_resource type="AudioStream" uid="uid://l6ntav3kt51h" path="res://resources/unfreeze.wav" id="3_j2gxe"]
 
@@ -58,8 +57,7 @@ collision_mask = 24
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_el2m2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_l651k")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 offset = Vector2(0, -3)
 
 [node name="HitSounds" type="Node" parent="."]

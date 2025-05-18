@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://m1ywb3q2iqkb"]
 
-[ext_resource type="Script" path="res://Scenes/Pickups/missile_pickup_2.gd" id="1_n2oeo"]
-[ext_resource type="Script" path="res://Scenes/Old/node_3d_missile.gd" id="2_56lp4"]
+[ext_resource type="Script" uid="uid://c2yky5t2hokoe" path="res://Scenes/Pickups/missile_pickup_2.gd" id="1_n2oeo"]
+[ext_resource type="Script" uid="uid://upu1kcsqk88p" path="res://Scenes/Old/node_3d_missile.gd" id="2_56lp4"]
 [ext_resource type="Material" uid="uid://b7fnbkras7k2x" path="res://resources/missile_pickup_material.tres" id="3_knuo8"]
 [ext_resource type="Material" uid="uid://475c4ayib2vg" path="res://resources/material_white_unshaded.tres" id="4_4y18q"]
 

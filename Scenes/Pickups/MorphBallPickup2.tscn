@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://b74pk7u5uqokq"]
 
 [ext_resource type="PackedScene" uid="uid://dvmfspjjw6lrx" path="res://Classes/PickupClass.tscn" id="1_yu8wb"]
-[ext_resource type="Script" path="res://Scenes/Pickups/morph_ball_pickup_2.gd" id="2_h335q"]
-[ext_resource type="Script" path="res://Scripts/MorphBallPickup_Node3D.gd" id="3_j6iop"]
+[ext_resource type="Script" uid="uid://ca2i20g4emrlj" path="res://Scenes/Pickups/morph_ball_pickup_2.gd" id="2_h335q"]
+[ext_resource type="Script" uid="uid://b5vwhcikrrgl6" path="res://Scripts/MorphBallPickup_Node3D.gd" id="3_j6iop"]
 
 [sub_resource type="Environment" id="Environment_bimby"]
 background_mode = 1

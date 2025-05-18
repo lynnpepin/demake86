@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://7inx7nnea1o3"]
 
 [ext_resource type="PackedScene" uid="uid://dvmfspjjw6lrx" path="res://Classes/PickupClass.tscn" id="1_5lifo"]
-[ext_resource type="Script" path="res://Scenes/Pickups/long_beam_pickup.gd" id="2_33hfu"]
-[ext_resource type="Script" path="res://Scripts/MorphBallPickup_Node3D.gd" id="3_gq4o8"]
+[ext_resource type="Script" uid="uid://cad45gseqkmvr" path="res://Scenes/Pickups/long_beam_pickup.gd" id="2_33hfu"]
+[ext_resource type="Script" uid="uid://b5vwhcikrrgl6" path="res://Scripts/MorphBallPickup_Node3D.gd" id="3_gq4o8"]
 
 [sub_resource type="Environment" id="Environment_bimby"]
 background_mode = 1

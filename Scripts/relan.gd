@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 
+@export var HAS_ALL_ITEMS: bool = false
+
 # tiles per second: we want 4, so, speed set to 32
 # (speed, jump_speed, high_jump_speed, gravity) = 28, 128, 160, 480
 # yields 2 blocks horz or vert for jump, 3 blocks horz or vert for high jump
@@ -19,7 +21,11 @@ var MAX_MISSILES = 24
 var MAX_ENERGY   = 24
 var BOMB_PERIOD: float = 0.5
 var MAX_BOMBS = 5
-enum States { Normal, Ball }
+enum States { Normal, Ball, Dead }
+#endregion
+
+#region insantiables
+var BiggerExplosion = preload("res://Scenes/BiggerExplosion.tscn")
 #endregion
 
 #region variables
@@ -73,10 +79,20 @@ func _ready():
 	add_missiles(24)
 	add_energy(3)
 	$ball_sprite.play()
+	if HAS_ALL_ITEMS:
+		has_high_jump = true
+		has_morph_ball = true
+		has_morph_bomb = true
+		has_long_beam = true
+		has_wave_beam = true
+		has_ice_beam = true
+		has_varia_suit = true
+		
 	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
-	# Set max speed, jump sioeed
+	# Set max speed, jump speed
+	
 	var SPEED
 	if state == States.Normal:
 		SPEED = MAX_WALK_SPEED
@@ -103,7 +119,7 @@ func _physics_process(delta: float) -> void:
 	left  = Input.is_action_pressed("pad_left")
 	right = Input.is_action_pressed("pad_right")
 	
-	if left or right:
+	if (left or right) and not (state == States.Dead):
 		vv.x = clamp(#        (1 - (1 - grounded)*.5) reduces air movement to 1/2; careful for momentum!
 			vv.x + ax*delta * (1 - (1 - grounded)*.5) * (int(right) - int(left)),
 			-SPEED, SPEED)
@@ -149,7 +165,7 @@ func _physics_process(delta: float) -> void:
 	
 	# If grounded and jump, set jump speed
 	if Input.is_action_just_released("pad_a") or Input.is_action_just_pressed("pad_y") or Input.is_action_just_pressed("pad_b"):
-		if vv.y < 0:
+		if vv.y < 0 and not (state == States.Dead):
 			$Sounds/Jump.seek(.2)
 #			$Sounds/Jump.play(0.25)
 			vv.y /= 2
@@ -187,6 +203,9 @@ func check_water():
 
 
 func _process(delta):
+	if (state == States.Dead):
+		return
+	
 	hurt_timer = max(0, hurt_timer - delta)
 	# Make body red when hurt; 0.25 is minimum, so there's no ambiguous area
 	var _hurt_timer_color_intensity =  clamp(hurt_timer, 0.25 * int(hurt_timer > 0), 1.0)
@@ -207,12 +226,10 @@ func _process(delta):
 			_transition_ball_to_normal()
 			
 	if Input.is_action_just_pressed("pad_left"):
-		pass
 		$body_sprite.flip_h = 1
 		$ball_sprite.flip_h = 1
 		#$Node2D_cannon.flip_h = 1
 	if Input.is_action_just_pressed("pad_right"):
-		pass
 		$body_sprite.flip_h = 0
 		$ball_sprite.flip_h = 0
 		#$Node2D_cannon.flip_h = 0
@@ -292,8 +309,9 @@ func hurt(damage: int, cooldown: float) -> void:
 		$Sounds/Hurt1.play()
 		hurt_timer = cooldown
 		add_energy(-damage)
-	if energy < 0:
-		print("OH NOOOO")
+	if energy == 0:
+		die()
+		#print("OH NOOOO")
 	
 func _draw():
 	pass
@@ -333,4 +351,24 @@ func add_energy(count: int) -> void:
 		for ei in range(_from, _to):
 			$HUD.ecounter_sprites[ei].visible = (count > 0)
 		energy = _set_to
+#endregion
+
+#region die
+func die():
+	state = States.Dead
+	var blam = BiggerExplosion.instantiate()
+	$sprite_boots.visible = true
+	blam.position = Vector2(0,0)#global_position
+	add_child(blam)
+	$body_sprite.visible = false
+	$ball_sprite.visible = false
+	$hurt_box/CollisionShape2D.set_deferred("disabled", true)
+	$hurt_box/CollisionShape2D_ball.set_deferred("disabled", true)
+	#$collision_platforming.set_deferred("disabled", true)
+	#$collision_platforming_ball.set_deferred("disabled", true)
+	$Cannon.process_mode = Node.PROCESS_MODE_DISABLED
+	$Cannon.visible = false
+	$smoke_boots.emitting = true
+	
+	pass
 #endregion

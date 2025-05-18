@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dm3p2bp5g1emx"]
 
-[ext_resource type="Script" path="res://Scripts/energy_tank_pickup.gd" id="1_nacdo"]
-[ext_resource type="Script" path="res://Scripts/node_3d.gd" id="2_xmi6i"]
+[ext_resource type="Script" uid="uid://w8qpvepxwqy5" path="res://Scripts/energy_tank_pickup.gd" id="1_nacdo"]
+[ext_resource type="Script" uid="uid://ixuaysx1ibjc" path="res://Scripts/node_3d.gd" id="2_xmi6i"]
 
 [sub_resource type="Gradient" id="Gradient_gdhrv"]
 interpolation_mode = 1

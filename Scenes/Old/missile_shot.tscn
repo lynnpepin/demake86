@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=4 uid="uid://dcebhm5y2hdmd"]
 
-[ext_resource type="Script" path="res://Scenes/Beams/Missile2.gd" id="1_7f38h"]
-[ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="2_0conl"]
+[ext_resource type="Script" uid="uid://cgnyxbyhpnb0k" path="res://Scenes/Beams/Missile2.gd" id="1_7f38h"]
+[ext_resource type="Script" uid="uid://bc0paoyr8p4u" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="2_0conl"]
 [ext_resource type="PackedScene" uid="uid://bqf183qi5gq3r" path="res://Scenes/BigExplosion.tscn" id="2_6disf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rl5qe"]

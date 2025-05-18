@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://inxg8wil5vub"]
 
 [ext_resource type="PackedScene" uid="uid://dvmfspjjw6lrx" path="res://Classes/PickupClass.tscn" id="1_q8jep"]
-[ext_resource type="Script" path="res://Scenes/Pickups/varia_pickup.gd" id="2_fpn7i"]
+[ext_resource type="Script" uid="uid://dma57rxdnhurj" path="res://Scenes/Pickups/varia_pickup.gd" id="2_fpn7i"]
 [ext_resource type="Material" uid="uid://dv8d5yba83yn3" path="res://Scenes/Pickups/VariaPickup.tres" id="4_l7hfb"]
-[ext_resource type="Script" path="res://Scenes/Pickups/node_3d.gd" id="4_vwnhu"]
+[ext_resource type="Script" uid="uid://b1r8rb4obokxl" path="res://Scenes/Pickups/node_3d.gd" id="4_vwnhu"]
 
 [sub_resource type="Environment" id="Environment_bimby"]
 background_mode = 1

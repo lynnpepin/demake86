@@ -1,0 +1,128 @@
+[gd_scene load_steps=17 format=3 uid="uid://dfumfi7yl7mha"]
+
+[ext_resource type="PackedScene" uid="uid://be6esv11x3s5t" path="res://Classes/EnemyClass.tscn" id="1_ecr7b"]
+[ext_resource type="Script" uid="uid://dg648004gykps" path="res://Scenes/Enemies/zoomer.gd" id="2_iugum"]
+[ext_resource type="Texture2D" uid="uid://6foxen5nbb80" path="res://art/zoomer/zoomer1.png" id="2_yrbxj"]
+[ext_resource type="Texture2D" uid="uid://de6h7tprsvjmk" path="res://art/zoomer/zoomer2.png" id="4_sscl6"]
+[ext_resource type="Texture2D" uid="uid://oqgjm72kgu78" path="res://art/zoomer/zoomer3.png" id="5_ky7hi"]
+[ext_resource type="Texture2D" uid="uid://tdacrkpridnc" path="res://art/zoomer/zoomer4.png" id="6_qiegg"]
+[ext_resource type="AudioStream" uid="uid://1ygdcflws88g" path="res://resources/zoomer_hurt_1.wav" id="7_mprox"]
+[ext_resource type="AudioStream" uid="uid://64nmaxlslvaf" path="res://resources/zoomer_hurt_2.wav" id="8_iu474"]
+[ext_resource type="AudioStream" uid="uid://dtm1d7e88a47h" path="res://resources/zoomer_hurt_3.wav" id="9_qwnhp"]
+[ext_resource type="AudioStream" uid="uid://d23h341e1qpnn" path="res://resources/zoomer_dead.wav" id="10_s7718"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iugum"]
+size = Vector2(6, 6)
+
+[sub_resource type="Gradient" id="Gradient_gq4he"]
+offsets = PackedFloat32Array(0, 0.647059, 0.743316, 0.903743, 1)
+colors = PackedColorArray(0.37749, 0.463932, 1, 0, 0, 0.571862, 0.923215, 1, 0.246865, 0.837284, 1, 1, 0.856143, 0.968919, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iugum"]
+gradient = SubResource("Gradient_gq4he")
+width = 8
+height = 8
+fill = 1
+fill_from = Vector2(0.517094, 1)
+fill_to = Vector2(0.495726, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylh3x"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yrbxj"]
+size = Vector2(6, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_en01a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yrbxj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_sscl6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ky7hi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qiegg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="Zoomer" instance=ExtResource("1_ecr7b")]
+script = ExtResource("2_iugum")
+start_hp = 4
+zoomer_speed = 12
+start_angle = 180
+
+[node name="CollisionPlatforming" parent="." index="0"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_iugum")
+
+[node name="Sprite2D_freeze_box" parent="." index="1"]
+visible = false
+position = Vector2(0, -4)
+texture = SubResource("GradientTexture2D_iugum")
+
+[node name="StaticBody2D_Frozen" parent="." index="2"]
+position = Vector2(0, -4)
+
+[node name="CollisionShape2D" parent="StaticBody2D_Frozen" index="0"]
+visible = false
+shape = SubResource("RectangleShape2D_ylh3x")
+
+[node name="AreaHitbox" parent="." index="3"]
+position = Vector2(0, -2.5)
+
+[node name="CollisionShape2D" parent="AreaHitbox" index="0"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_yrbxj")
+
+[node name="AnimatedSprite2D" parent="." index="4"]
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_en01a")
+autoplay = "default"
+frame_progress = 0.593374
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="HitSounds" index="0"]
+stream = ExtResource("7_mprox")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="HitSounds" index="1"]
+stream = ExtResource("8_iu474")
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="HitSounds" index="2"]
+stream = ExtResource("9_qwnhp")
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="DeathSounds" index="0"]
+stream = ExtResource("10_s7718")
+
+[node name="DeathExplosion" parent="." index="7"]
+position = Vector2(0, -4)
+lifetime = 0.65
+explosiveness = 0.85
+gravity = Vector2(0, 128)
+initial_velocity_min = 32.0
+initial_velocity_max = 48.0
+scale_amount_min = 0.0
+scale_amount_max = 2.0
+
+[node name="RayCast2D_ground" type="RayCast2D" parent="." index="10"]
+position = Vector2(0, -1)
+target_position = Vector2(0, 4)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="RayCast2D_left" type="RayCast2D" parent="." index="11"]
+position = Vector2(-2, -1)
+target_position = Vector2(0, 4)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="RayCast2D_right" type="RayCast2D" parent="." index="12"]
+position = Vector2(2, -1)
+target_position = Vector2(0, 4)
+collision_mask = 2
+collide_with_areas = true

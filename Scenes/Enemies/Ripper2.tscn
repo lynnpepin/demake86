@@ -1,9 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://dj5m7gq34ufod"]
+[gd_scene load_steps=14 format=4 uid="uid://dj5m7gq34ufod"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/Ripper2.gd" id="1_3tels"]
+[ext_resource type="Script" uid="uid://bv552r4i8uaow" path="res://Scenes/Enemies/Ripper2.gd" id="1_3tels"]
 [ext_resource type="Texture2D" uid="uid://bn5kl3uuxwle6" path="res://art/zoomer/ripper.png" id="2_ubmc4"]
 [ext_resource type="AudioStream" uid="uid://l6ntav3kt51h" path="res://resources/unfreeze.wav" id="3_3htg2"]
-[ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="3_xaqjg"]
+[ext_resource type="Script" uid="uid://bc0paoyr8p4u" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="3_xaqjg"]
 [ext_resource type="AudioStream" uid="uid://cd0bb667p5tn1" path="res://resources/freeze.wav" id="4_1pee1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_26ahl"]
@@ -26,6 +26,17 @@ size = Vector2(8, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_el2m2"]
 size = Vector2(6, 3)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7goqj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ubmc4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_huuw5"]
 data = PackedByteArray("CBkeFgsB+/r6+/v8+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/sQMjssFgX7+Pn7/Pz8+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+wwvPC8ZB/z4+fr7/Pz7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7AiM7NiIN//n4+vv8/Pz7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v8FTU7KxUE+vj5+/z8/Pv7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/sIKzwzHQn9+fn6+/z8+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+wEjOzcjDv/5+Pr7/Pz7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7/h46OSYQAfr4+fv8/Pv7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/sBIzw4JA7/+fj6+/z8+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+wswPjIcCPz5+fr7/Pv7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v+Hjs6JxEC+vj5+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+xU2PS0XBfv4+fr7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/sLMD4zHAn9+fn6+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7BCg+OCIN//n4+vv7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/4fOzwpEgP6+Pn7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7CzA/NB0K/fn5+vv7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/waOj4sFgX7+fn6+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7/h88PSoTA/r5+fv7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v8Gjo+LRYF+/n5+vv7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/sLMUA1Hwv++fn6+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/4fPT4rFAT7+fn7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+wsxQTYgC/75+fr7+/v7+/r6+vr7+/v7+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6/h89PiwVBPv5+fv7+/v7+/r6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr7EDVBNB0K/fn5+vv7+/v7+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+voHLUE5JA4B+vn6+/v7+/r6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+gctQjokDwH6+fr7+/v7+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6EDVCNR4L/vn5+vv7+/v6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+v0fPkAtFgX8+fn6+/v7+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6CzJDOCIN//r5+vv7+/r6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+gEkQD8rFAT7+fn6+/v7+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr7FTlDNB0K/fn5+vv7+/r6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+gMpQj4pEwP7+fr7+/v7+vr6")
@@ -62,8 +73,8 @@ collision_mask = 24
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_el2m2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ubmc4")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7goqj")
 offset = Vector2(0, -3)
 
 [node name="HitSounds" type="Node" parent="."]

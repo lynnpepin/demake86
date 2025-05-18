@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=4 uid="uid://bbws1u4auaj8h"]
 
-[ext_resource type="Script" path="res://Classes/BeamClass.gd" id="1_fi3c5"]
-[ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="1_sktnv"]
+[ext_resource type="Script" uid="uid://c0nunoenqm1q8" path="res://Classes/BeamClass.gd" id="1_fi3c5"]
+[ext_resource type="Script" uid="uid://bc0paoyr8p4u" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="1_sktnv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lk8bw"]
 size = Vector2(4, 1)

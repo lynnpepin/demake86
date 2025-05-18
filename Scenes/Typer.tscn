@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=4 uid="uid://b3oco4nqm7xc3"]
 
-[ext_resource type="Script" path="res://Scenes/status_typer.gd" id="1_0elc7"]
+[ext_resource type="Script" uid="uid://4nh1ik5cmaqb" path="res://Scenes/status_typer.gd" id="1_0elc7"]
 [ext_resource type="FontFile" uid="uid://50omi7qgmx2w" path="res://fonts/GravityRegular5.ttf" id="2_3nurj"]
-[ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="3_wd4n5"]
+[ext_resource type="Script" uid="uid://bc0paoyr8p4u" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="3_wd4n5"]
 
 [sub_resource type="Theme" id="Theme_0ojeo"]
 default_font = ExtResource("2_3nurj")

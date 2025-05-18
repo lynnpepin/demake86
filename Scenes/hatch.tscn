@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=4 uid="uid://bmg82tnsi1a6h"]
 
-[ext_resource type="Script" path="res://Scripts/hatch.gd" id="1_fqig8"]
+[ext_resource type="Script" uid="uid://c2equftk0475d" path="res://Scripts/hatch.gd" id="1_fqig8"]
 [ext_resource type="Texture2D" uid="uid://bnvs1wydybq2o" path="res://art/doors/hatch.png" id="2_lq7xn"]
 [ext_resource type="Texture2D" uid="uid://cqfqhkn7aal2t" path="res://art/doors/hatch_open1.png" id="3_senb3"]
 [ext_resource type="Texture2D" uid="uid://d1auotxibvns5" path="res://art/doors/hatch_open2.png" id="4_rqx76"]
 [ext_resource type="Texture2D" uid="uid://dblsyrglfd2uy" path="res://art/doors/hatch_open3.png" id="5_ubqax"]
 [ext_resource type="Texture2D" uid="uid://b5xcmktwlfcfc" path="res://art/doors/hatch_open5.png" id="6_6fvon"]
-[ext_resource type="Script" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="7_hk6e7"]
+[ext_resource type="Script" uid="uid://bc0paoyr8p4u" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="7_hk6e7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7kdc4"]
 size = Vector2(4, 16)

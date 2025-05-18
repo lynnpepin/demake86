@@ -25,6 +25,7 @@ extends CharacterBody2D
 var hit_sounds: Array
 var death_sounds: Array
 var freeze_timer: float = 0.0
+var hurt_timer: float = 0.0
 # Called when the node enters the scene tree for the first time.
 #endregion
 
@@ -36,13 +37,14 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	# Handle freeze timing
-	if freeze_timer > 0:
+	if freeze_timer > 0 and health > 0:
 		freeze_timer -= delta
 		if freeze_timer <= 1:
+			$AnimatedSprite2D.speed_scale = 1.0 - freeze_timer; # bring sprite back to speed
 			if not $UnfreezeSound.playing:
 				$UnfreezeSound.play()
 			var freeze_vis_percent = floor((1 - freeze_timer) * 8) / 8.0
-			$Sprite2D.modulate = Color(
+			$AnimatedSprite2D.modulate = Color(
 				floor(152 + 103 * freeze_vis_percent) / 255.0,
 				floor(220 + 35 * freeze_vis_percent) / 255.0,
 				255 / 255.0
@@ -51,6 +53,13 @@ func _process(delta: float) -> void:
 		if freeze_timer <= 0:
 			freeze_timer = 0
 			unfreeze()
+	else:
+		pass
+		# todo - modulate damage color feedback
+		#$AnimatedSprite2D.modulate(
+		#	255 / 255.0,
+		#	floor ()
+		#)
 
 func _physics_process(delta: float) -> void:
 	pass
@@ -64,31 +73,37 @@ func hurt(damage: int) -> void:
 		die()
 
 func die() -> void:
+	unfreeze()
+	freeze_timer = 0
 	$DeathExplosion.emitting = true
-	$Sprite2D.visible = false
+	$AnimatedSprite2D.visible = false
 	$CollisionPlatforming.set_deferred("disabled", true) 
 	$AreaHitbox/CollisionShape2D.set_deferred("disabled", true)
 	if len(death_sounds) > 0:
 		hit_sounds.pick_random().play()
 	$DeathExplosion.emitting = true
+	# no freeze box
 	# TODO: Worth deleting after sounds and emitter are done
 
 func freeze(timer: float) -> void:
-	$FreezeSound.play()
-	freeze_timer = timer
-	$Sprite2D.modulate = Color(152.0/255.0, 220.0/255.0, 255.0/255.0)
-	$Sprite2D_freeze_box.visible = true
-	$Sprite2D_freeze_box.modulate = Color(1.0, 1.0, 1.0, 1.0)
-	$CollisionPlatforming.set_deferred("disabled", true) 
-	$AreaHitbox/CollisionShape2D.set_deferred("disabled", true)
-	$StaticBody2D_Frozen/CollisionShape2D.set_deferred("disabled", false)
+	if health > 0:
+		$FreezeSound.play()
+		freeze_timer = timer
+		$AnimatedSprite2D.modulate = Color(152.0/255.0, 220.0/255.0, 255.0/255.0)
+		$AnimatedSprite2D.speed_scale = 0.0;
+		$Sprite2D_freeze_box.visible = true
+		$Sprite2D_freeze_box.modulate = Color(1.0, 1.0, 1.0, 1.0)
+		$CollisionPlatforming.set_deferred("disabled", true) 
+		$AreaHitbox/CollisionShape2D.set_deferred("disabled", true)
+		$StaticBody2D_Frozen/CollisionShape2D.set_deferred("disabled", false)
 
 func unfreeze() -> void:
-	$Sprite2D.modulate = Color.WHITE
+	$AnimatedSprite2D.modulate = Color.WHITE
 	$Sprite2D_freeze_box.visible = false
 	$CollisionPlatforming.set_deferred("disabled", false) 
 	$AreaHitbox/CollisionShape2D.set_deferred("disabled", false)
 	$StaticBody2D_Frozen/CollisionShape2D.set_deferred("disabled", true)
+	$AnimatedSprite2D.speed_scale = 1.0
 
 func _on_area_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
