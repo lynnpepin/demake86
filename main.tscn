@@ -665,5 +665,37 @@ zoomer_speed = -12
 start_angle = 90
 
 [node name="EnemyClass2" parent="." instance=ExtResource("26_lswn8")]
-position = Vector2(114, 144)
+position = Vector2(112, 144)
+zoomer_speed = -12
+
+[node name="EnemyClass8" parent="." instance=ExtResource("26_lswn8")]
+position = Vector2(104, 232)
+zoomer_speed = -12
+
+[node name="EnemyClass9" parent="." instance=ExtResource("26_lswn8")]
+position = Vector2(228, 240)
+zoomer_speed = -12
+
+[node name="EnemyClass11" parent="." instance=ExtResource("26_lswn8")]
+position = Vector2(300, 280)
+zoomer_speed = -12
+
+[node name="EnemyClass10" parent="." instance=ExtResource("26_lswn8")]
+position = Vector2(480, 200)
+zoomer_speed = -12
+
+[node name="EnemyClass7" parent="." instance=ExtResource("26_lswn8")]
+position = Vector2(164, 256)
+zoomer_speed = -12
+
+[node name="EnemyClass6" parent="." instance=ExtResource("26_lswn8")]
+position = Vector2(224, 128)
+zoomer_speed = -12
+
+[node name="EnemyClass4" parent="." instance=ExtResource("26_lswn8")]
+position = Vector2(296, 88)
+zoomer_speed = -12
+
+[node name="EnemyClass5" parent="." instance=ExtResource("26_lswn8")]
+position = Vector2(448, 96)
 zoomer_speed = -12
