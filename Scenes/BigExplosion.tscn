@@ -1,12 +1,7 @@
-[gd_scene load_steps=10 format=4 uid="uid://bqf183qi5gq3r"]
+[gd_scene load_steps=9 format=4 uid="uid://bqf183qi5gq3r"]
 
 [ext_resource type="Script" uid="uid://x0kuhyouevlf" path="res://Scripts/BigExplosion.gd" id="1_su0y6"]
 [ext_resource type="Script" uid="uid://bc0paoyr8p4u" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="2_alwa7"]
-
-[sub_resource type="Curve" id="Curve_fu1ap"]
-_limits = [0.0, 100.0, 0.0, 1.0]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.858586, 9.25173), 38.4592, 38.4592, 0, 0, Vector2(0.959596, 100), 4038.2, 0.0, 0, 0]
-point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_0s2tp"]
 offsets = PackedFloat32Array(0.0021978, 0.0043956, 0.0637363, 0.0791209, 0.226374, 0.56044, 0.789011, 0.993407, 1)
@@ -31,12 +26,12 @@ radius = 8.0
 z_index = 100
 position = Vector2(0, 1)
 emitting = false
-amount = 512
+amount = 1024
 lifetime = 0.75
 one_shot = true
 explosiveness = 0.88
-randomness = 0.25
-lifetime_randomness = 0.75
+randomness = 1.0
+lifetime_randomness = 1.0
 fract_delta = false
 emission_shape = 2
 emission_sphere_radius = 1.0
@@ -44,14 +39,17 @@ direction = Vector2(0, 0)
 spread = 180.0
 gravity = Vector2(0, -96)
 initial_velocity_min = 12.0
-initial_velocity_max = 48.0
+initial_velocity_max = 72.0
 angular_velocity_min = -8.0
 angular_velocity_max = 8.0
-linear_accel_min = -200.0
-damping_curve = SubResource("Curve_fu1ap")
+orbit_velocity_min = -0.25
+orbit_velocity_max = 0.25
+linear_accel_min = -256.0
+damping_min = 32.0
+damping_max = 256.0
 angle_max = 45.0
 scale_amount_min = 0.0
-scale_amount_max = 2.0
+scale_amount_max = 3.0
 color_ramp = SubResource("Gradient_0s2tp")
 script = ExtResource("1_su0y6")
 

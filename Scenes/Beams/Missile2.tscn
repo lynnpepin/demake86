@@ -23,7 +23,7 @@ width = 8
 height = 2
 
 [sub_resource type="Gradient" id="Gradient_jjo5x"]
-offsets = PackedFloat32Array(0, 0.10989, 0.331868, 0.648352, 1)
+offsets = PackedFloat32Array(0, 0.10989, 0.331868, 0.387978, 1)
 colors = PackedColorArray(0.882353, 0.227451, 0.137255, 1, 0.360784, 0.223529, 0.0117647, 1, 0.192157, 0.192157, 0.192157, 1, 0.163788, 0.163788, 0.163788, 0.889421, 0, 0, 0, 0.25098)
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_oifcy"]
@@ -83,11 +83,11 @@ texture = SubResource("GradientTexture2D_8v2wk")
 
 [node name="CPUParticles2D_Trail" type="CPUParticles2D" parent="."]
 z_index = 50
-amount = 256
-lifetime = 2.0
+amount = 2048
+lifetime = 3.0
 explosiveness = 0.25
-randomness = 0.5
-lifetime_randomness = 0.5
+randomness = 0.75
+lifetime_randomness = 0.75
 fract_delta = false
 emission_shape = 1
 emission_sphere_radius = 2.0
@@ -95,6 +95,8 @@ direction = Vector2(-1, 0)
 spread = 120.0
 gravity = Vector2(0, 0)
 initial_velocity_max = 16.0
+angular_velocity_min = -6.0
+angular_velocity_max = 6.0
 linear_accel_min = -4.0
 linear_accel_max = -4.0
 radial_accel_min = -2.0
@@ -102,8 +104,8 @@ radial_accel_max = -2.0
 tangential_accel_min = -4.0
 tangential_accel_max = 4.0
 angle_max = 45.0
-scale_amount_min = 0.0
-scale_amount_max = 4.0
+scale_amount_min = 1.5
+scale_amount_max = 2.5
 color_ramp = SubResource("Gradient_jjo5x")
 
 [node name="HitSounds" type="Node" parent="."]
