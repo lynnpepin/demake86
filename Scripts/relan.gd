@@ -164,7 +164,7 @@ func _physics_process(delta: float) -> void:
 	vv.y = min(vv.y, MAX_FALL_SPEED)
 	
 	# If grounded and jump, set jump speed
-	if Input.is_action_just_released("pad_a") or Input.is_action_just_pressed("pad_y") or Input.is_action_just_pressed("pad_b"):
+	if Input.is_action_just_released("pad_a"):# or Input.is_action_just_pressed("pad_y") or Input.is_action_just_pressed("pad_b"):
 		if vv.y < 0 and not (state == States.Dead):
 			$Sounds/Jump.seek(.2)
 #			$Sounds/Jump.play(0.25)
@@ -239,7 +239,11 @@ func _process(delta):
 	
 	if has_morph_bomb:
 		bombs = clamp(bombs + delta, 0, BOMB_PERIOD * MAX_BOMBS)
-		if state == States.Ball and Input.is_action_just_pressed("pad_x") and floor(bombs) > 0:
+		if (
+			state == States.Ball
+			and (Input.is_action_just_pressed("pad_x") or Input.is_action_just_pressed("pad_y"))
+			and floor(bombs) > 0
+		):
 			var b = Bomb.instantiate()
 			b.position = global_position + Vector2(0, 6)
 			owner.add_child(b)

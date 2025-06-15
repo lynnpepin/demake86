@@ -15,6 +15,9 @@ func _ready():
 	angle = start_angle * PI / 180;
 	super()
 
+	
+	
+
 func _physics_process(delta: float) -> void:
 	rotate_timer = clamp(rotate_timer - delta, 0.0, 1.0)
 	var ground_coll = $RayCast2D_ground.get_collider()
@@ -27,15 +30,15 @@ func _physics_process(delta: float) -> void:
 			# if neither or both, move downward until collision; todo
 			if left_coll == null and right_coll != null:
 				rotate(-PI / 2.0)
-				print("... Zoomer should rotate CCW!")
+				#print("... Zoomer should rotate CCW!")
 				angle = fmod(angle - PI / 2.0, PI * 2.0)
-				print("Zoomer rotated; angle=", angle/PI)
+				#print("Zoomer rotated; angle=", angle/PI)
 				rotate_timer = 0.5
 			elif left_coll != null and right_coll == null:
 				rotate(PI / 2.0)
-				print("... Zoomer should rotate CW!")
+				#print("... Zoomer should rotate CW!")
 				angle = fmod(angle + PI / 2.0, PI * 2.0)
-				print("Zoomer rotated; angle=", angle/PI)
+				#print("Zoomer rotated; angle=", angle/PI)
 				rotate_timer = 0.5
 			else:
 				# todo; 'fall' downward and dont rotate
