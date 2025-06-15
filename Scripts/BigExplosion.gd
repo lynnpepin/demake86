@@ -24,5 +24,5 @@ func _on_finished() -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemies") and time < collision_lifespan:
 		# todo: This should take damage, cooldown, etc.
-		area.get_parent().hurt(10)
+		area.get_parent().hurt(10, .25)
 		print("Missile hit an enemy!")

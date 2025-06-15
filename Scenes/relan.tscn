@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://bv0aynt6jkni2"]
+[gd_scene load_steps=55 format=4 uid="uid://bv0aynt6jkni2"]
 
 [ext_resource type="Script" uid="uid://c6htj1uosbs8w" path="res://Scripts/relan.gd" id="1_hqtwd"]
 [ext_resource type="Script" uid="uid://disyh5u23s0go" path="res://Scripts/cannon.gd" id="2_slkt1"]
@@ -29,6 +29,7 @@
 [ext_resource type="Script" uid="uid://ci475li2wefq" path="res://Scenes/hud.gd" id="27_7jqek"]
 [ext_resource type="Texture2D" uid="uid://7fslt01fx260" path="res://art/relan_boots.png" id="28_240g0"]
 [ext_resource type="PackedScene" uid="uid://bv7j2dij7vk4c" path="res://Scenes/MotesOfSmoke.tscn" id="29_5nb38"]
+[ext_resource type="PackedScene" uid="uid://cs0gcifpqgg8h" path="res://Scenes/Typer_Timer.tscn" id="30_72vhv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8s541"]
 radius = 3.0
@@ -795,5 +796,7 @@ sprite_frames = SubResource("SpriteFrames_5nb38")
 [node name="smoke_boots" parent="." instance=ExtResource("29_5nb38")]
 z_index = -100
 position = Vector2(0, 10)
+
+[node name="TimeTyper" parent="." instance=ExtResource("30_72vhv")]
 
 [connection signal="area_entered" from="hurt_box" to="." method="_on_hurt_area_area_entered"]

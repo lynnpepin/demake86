@@ -104,13 +104,13 @@ stream = ExtResource("10_s7718")
 
 [node name="DeathExplosion" parent="." index="7"]
 position = Vector2(0, -4)
-lifetime = 0.65
+lifetime = 0.35
 explosiveness = 0.85
 gravity = Vector2(0, 128)
 initial_velocity_min = 32.0
 initial_velocity_max = 48.0
 scale_amount_min = 0.0
-scale_amount_max = 2.0
+scale_amount_max = 3.0
 
 [node name="RayCast2D_ground" type="RayCast2D" parent="." index="10"]
 position = Vector2(0, -1)

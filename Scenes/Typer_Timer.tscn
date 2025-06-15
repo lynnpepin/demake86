@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs0gcifpqgg8h"]
+
+[ext_resource type="Script" uid="uid://dkbopufnt64f7" path="res://Scenes/typer_timer.gd" id="1_ceh3m"]
+[ext_resource type="FontFile" uid="uid://50omi7qgmx2w" path="res://fonts/GravityRegular5.ttf" id="2_60sig"]
+
+[sub_resource type="Theme" id="Theme_0ojeo"]
+default_font = ExtResource("2_60sig")
+default_font_size = 5
+
+[node name="TimeTyper" type="CanvasLayer"]
+layer = 2
+offset = Vector2(32, 32)
+transform = Transform2D(1, 0, 0, 1, 32, 32)
+script = ExtResource("1_ceh3m")
+
+[node name="Typer" type="RichTextLabel" parent="."]
+z_index = 4030
+z_as_relative = false
+offset_left = -32.0
+offset_top = -31.0
+offset_right = 32.0
+offset_bottom = 9.0
+theme = SubResource("Theme_0ojeo")
+theme_override_colors/default_color = Color(0.79, 0.8, 0.76, 1)
+theme_override_constants/line_separation = 2
+text = "Hello"
+horizontal_alignment = 1
+
+[node name="Shadow" type="RichTextLabel" parent="."]
+z_index = 4020
+z_as_relative = false
+offset_left = -32.0
+offset_top = -30.0
+offset_right = 32.0
+offset_bottom = 10.0
+theme = SubResource("Theme_0ojeo")
+theme_override_colors/default_color = Color(0, 0, 0, 0.501961)
+theme_override_constants/line_separation = 2
+text = "Hello"
+horizontal_alignment = 1

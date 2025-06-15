@@ -21,6 +21,7 @@ var MAX_MISSILES = 24
 var MAX_ENERGY   = 24
 var BOMB_PERIOD: float = 0.5
 var MAX_BOMBS = 5
+var time = 0;
 enum States { Normal, Ball, Dead }
 #endregion
 
@@ -203,6 +204,10 @@ func check_water():
 
 
 func _process(delta):
+	# timer
+	time += delta
+	$TimeTyper.target_text = str(snapped(time, 0.1))
+	
 	if (state == States.Dead):
 		return
 	
