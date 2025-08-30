@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdnmc46f8xghy"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lswn8"]
+friction = 0.0
+bounce = 0.35
+
+[sub_resource type="Gradient" id="Gradient_lswn8"]
+offsets = PackedFloat32Array(0.18894, 1)
+colors = PackedColorArray(0.2465, 0.29, 0.251575, 1, 0.374, 0.44, 0.3817, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a6jrf"]
+gradient = SubResource("Gradient_lswn8")
+width = 2
+height = 2
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0.122507, 0.022792)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xuqvo"]
+size = Vector2(2, 2)
+
+[node name="Stone" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+mass = 0.001
+physics_material_override = SubResource("PhysicsMaterial_lswn8")
+gravity_scale = 0.25
+lock_rotation = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_a6jrf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xuqvo")
