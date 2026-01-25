@@ -17,6 +17,8 @@ var CURRENT_JUMP_SPEED = JUMP_SPEED
 var NOMINAL_GRAVITY = 480 #320
 var GRAVITY = NOMINAL_GRAVITY #320
 var MAX_FALL_SPEED = 128
+var START_MISSILES = 0;
+var START_ENERGY   = 3;
 var MAX_MISSILES = 24
 var MAX_ENERGY   = 24
 var BOMB_PERIOD: float = 0.5
@@ -77,8 +79,8 @@ func _ready():
 	set_up_energy_sprites(24)
 	set_up_missile_sprites(24)
 	# Now, set missiles visible by adding 4
-	add_missiles(24)
-	add_energy(3)
+	add_missiles(START_MISSILES)
+	add_energy(START_ENERGY)
 	$ball_sprite.play()
 	if HAS_ALL_ITEMS:
 		has_high_jump = true
