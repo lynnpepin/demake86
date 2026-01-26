@@ -2,23 +2,25 @@
 
 [sub_resource type="Gradient" id="Gradient_dmrur"]
 interpolation_mode = 1
-offsets = PackedFloat32Array(0.0021978, 0.0061633284, 0.064714946, 0.0874317, 0.18489985, 0.45608628, 0.94607085, 0.993407)
-colors = PackedColorArray(0, 0, 0, 0, 0.823529, 0.313726, 0.176471, 1, 0, 0, 0, 0, 0.133333, 0.0941176, 0.0705882, 1, 0.13753738, 0.100038365, 0.07572252, 0.98788136, 0.160676, 0.132623, 0.103979, 0.921187, 0.05, 0.047125, 0.0385, 0.25098, 0.2, 0.188, 0.152, 0.807843)
+offsets = PackedFloat32Array(0.0021978, 0.040061634, 0.092449926, 0.12634823, 0.13867489, 0.18489985, 0.24961479, 0.31124806, 0.3882897, 0.44375962, 0.4899846)
+colors = PackedColorArray(0, 0, 0, 0, 0.823529, 0.313726, 0.176471, 1, 0, 0, 0, 0, 0.823529, 0.313726, 0.176471, 1, 0, 0, 0, 0, 0.133333, 0.0941176, 0.0705882, 1, 0.13753738, 0.100038365, 0.07572252, 0.98788136, 0.160676, 0.132623, 0.103979, 0.921187, 0.05, 0.047125, 0.0385, 0.25098, 0.2, 0.188, 0.152, 0.807843, 0.05, 0.047125, 0.0385, 0.25098)
 
 [node name="CPUParticles2D_BigExplosion" type="CPUParticles2D" unique_id=1955906494]
 z_index = 100
 position = Vector2(0, 1)
 emitting = false
-amount = 256
+amount = 128
 lifetime = 8.0
 randomness = 1.0
-lifetime_randomness = 0.5
+lifetime_randomness = 1.0
+fixed_fps = 30
 fract_delta = false
 emission_shape = 3
-emission_rect_extents = Vector2(4, 2)
+emission_rect_extents = Vector2(3, 2)
 direction = Vector2(0, -1)
 spread = 5.0
 gravity = Vector2(0, -12)
+initial_velocity_min = 2.0
 initial_velocity_max = 16.0
 angular_velocity_min = -8.0
 angular_velocity_max = 8.0

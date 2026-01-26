@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://bv0aynt6jkni2"]
+[gd_scene format=4 uid="uid://bv0aynt6jkni2"]
 
 [ext_resource type="Script" uid="uid://c6htj1uosbs8w" path="res://Scripts/relan.gd" id="1_hqtwd"]
 [ext_resource type="Script" uid="uid://disyh5u23s0go" path="res://Scripts/cannon.gd" id="2_slkt1"]
@@ -178,64 +178,72 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Relan" type="CharacterBody2D" groups=["player"]]
+[sub_resource type="Gradient" id="Gradient_72vhv"]
+offsets = PackedFloat32Array(0.09399076, 0.19568567, 0.23266564, 0.48228043, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.6392157, 0.85490197, 0.99215686, 1, 0.6162416, 0.84566236, 0.9916574, 0.5120183, 0.63204664, 0.85201883, 0.99200106, 0.12541339, 0.6392157, 0.85490197, 0.99215686, 0)
+
+[sub_resource type="Gradient" id="Gradient_q4257"]
+offsets = PackedFloat32Array(0.7966102, 0.95377505, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.6392157, 0.85490197, 0.99215686, 1, 0.6392157, 0.85490197, 0.99215686, 0)
+
+[node name="Relan" type="CharacterBody2D" unique_id=1720302912 groups=["player"]]
 collision_mask = 2
 floor_max_angle = 0.872665
 safe_margin = 0.25
 script = ExtResource("1_hqtwd")
 
-[node name="collision_platforming" type="CollisionShape2D" parent="."]
+[node name="collision_platforming" type="CollisionShape2D" parent="." unique_id=730730959]
 position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_8s541")
 
-[node name="collision_platforming_ball" type="CollisionShape2D" parent="."]
+[node name="collision_platforming_ball" type="CollisionShape2D" parent="." unique_id=822246069]
 position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_8m2xg")
 disabled = true
 
-[node name="hurt_box" type="Area2D" parent="." groups=["player"]]
+[node name="hurt_box" type="Area2D" parent="." unique_id=1764354105 groups=["player"]]
 collision_layer = 16
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_box" groups=["player"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_box" unique_id=1401805081 groups=["player"]]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_l4cb7")
 
-[node name="CollisionShape2D_ball" type="CollisionShape2D" parent="hurt_box" groups=["player"]]
+[node name="CollisionShape2D_ball" type="CollisionShape2D" parent="hurt_box" unique_id=725690682 groups=["player"]]
 position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_db8h2")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=558517496]
 position_smoothing_speed = 96.0
 
-[node name="AudioListener2D" type="AudioListener2D" parent="Camera2D"]
+[node name="AudioListener2D" type="AudioListener2D" parent="Camera2D" unique_id=981408164]
 
-[node name="Cannon" type="Node2D" parent="."]
+[node name="Cannon" type="Node2D" parent="." unique_id=1669016483]
 z_index = 20
 script = ExtResource("2_slkt1")
 
-[node name="Sprite2D_cannon_u" type="Sprite2D" parent="Cannon"]
+[node name="Sprite2D_cannon_u" type="Sprite2D" parent="Cannon" unique_id=130754022]
 visible = false
 texture = ExtResource("3_lgw80")
 
-[node name="Sprite2D_cannon_uf" type="Sprite2D" parent="Cannon"]
+[node name="Sprite2D_cannon_uf" type="Sprite2D" parent="Cannon" unique_id=1152849409]
 visible = false
 texture = ExtResource("4_o6qhq")
 
-[node name="Sprite2D_cannon_f" type="Sprite2D" parent="Cannon"]
+[node name="Sprite2D_cannon_f" type="Sprite2D" parent="Cannon" unique_id=628306529]
 texture = ExtResource("5_d634i")
 
-[node name="Sprite2D_cannon_df" type="Sprite2D" parent="Cannon"]
+[node name="Sprite2D_cannon_df" type="Sprite2D" parent="Cannon" unique_id=856672938]
 visible = false
 texture = ExtResource("6_ws1if")
 
-[node name="Sprite2D_cannon_d" type="Sprite2D" parent="Cannon"]
+[node name="Sprite2D_cannon_d" type="Sprite2D" parent="Cannon" unique_id=1767322708]
 visible = false
 texture = ExtResource("7_stq8y")
 
-[node name="Sounds" type="Node" parent="Cannon"]
+[node name="Sounds" type="Node" parent="Cannon" unique_id=1703607886]
 
-[node name="Click" type="AudioStreamPlayer2D" parent="Cannon/Sounds"]
+[node name="Click" type="AudioStreamPlayer2D" parent="Cannon/Sounds" unique_id=1902687858]
 stream = SubResource("AudioStreamWAV_8ncxv")
 script = ExtResource("8_87bux")
 wave/type = 3
@@ -264,7 +272,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.969822
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="Click2" type="AudioStreamPlayer2D" parent="Cannon/Sounds"]
+[node name="Click2" type="AudioStreamPlayer2D" parent="Cannon/Sounds" unique_id=377051740]
 stream = SubResource("AudioStreamWAV_b7vyj")
 script = ExtResource("8_87bux")
 wave/type = 3
@@ -293,7 +301,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.969822
 high_pass_filter/cutoff_sweep = 0.0463694
 
-[node name="Click3" type="AudioStreamPlayer2D" parent="Cannon/Sounds"]
+[node name="Click3" type="AudioStreamPlayer2D" parent="Cannon/Sounds" unique_id=143827380]
 stream = SubResource("AudioStreamWAV_cpp0g")
 script = ExtResource("8_87bux")
 wave/type = 3
@@ -322,7 +330,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.969822
 high_pass_filter/cutoff_sweep = -0.0183598
 
-[node name="Click4" type="AudioStreamPlayer2D" parent="Cannon/Sounds"]
+[node name="Click4" type="AudioStreamPlayer2D" parent="Cannon/Sounds" unique_id=11278210]
 stream = SubResource("AudioStreamWAV_7ol50")
 script = ExtResource("8_87bux")
 wave/type = 3
@@ -351,11 +359,11 @@ low_pass_filter/resonance = -0.0175363
 high_pass_filter/cutoff_frequency = 0.969822
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="body_sprite" type="AnimatedSprite2D" parent="."]
+[node name="body_sprite" type="AnimatedSprite2D" parent="." unique_id=1263854999]
 z_index = 10
 sprite_frames = SubResource("SpriteFrames_1gacd")
 
-[node name="ball_sprite" type="AnimatedSprite2D" parent="."]
+[node name="ball_sprite" type="AnimatedSprite2D" parent="." unique_id=697340464]
 visible = false
 z_index = 10
 position = Vector2(0, 6)
@@ -363,9 +371,9 @@ sprite_frames = SubResource("SpriteFrames_3dp7j")
 animation = &"s"
 frame_progress = 0.940879
 
-[node name="Sounds" type="Node" parent="."]
+[node name="Sounds" type="Node" parent="." unique_id=739576696]
 
-[node name="Jump2" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Jump2" type="AudioStreamPlayer2D" parent="Sounds" unique_id=444655883]
 visible = false
 position = Vector2(32, 32)
 stream = SubResource("AudioStreamWAV_y8377")
@@ -396,7 +404,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.125
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="Jump" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Jump" type="AudioStreamPlayer2D" parent="Sounds" unique_id=2136381120]
 position = Vector2(16, 16)
 stream = SubResource("AudioStreamWAV_y8377")
 script = ExtResource("8_87bux")
@@ -426,7 +434,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.125
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="ChangeDirection" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="ChangeDirection" type="AudioStreamPlayer2D" parent="Sounds" unique_id=657756152]
 stream = SubResource("AudioStreamWAV_dh75d")
 script = ExtResource("8_87bux")
 wave/type = 3
@@ -455,7 +463,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.35
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="Land" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Land" type="AudioStreamPlayer2D" parent="Sounds" unique_id=2140331472]
 stream = SubResource("AudioStreamWAV_l3rj8")
 script = ExtResource("8_87bux")
 wave/type = 1
@@ -484,7 +492,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.0609142
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="Land2" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Land2" type="AudioStreamPlayer2D" parent="Sounds" unique_id=72572428]
 stream = SubResource("AudioStreamWAV_ct8qu")
 script = ExtResource("8_87bux")
 wave/type = 1
@@ -513,7 +521,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.0609142
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="Land3" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Land3" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1943539066]
 stream = SubResource("AudioStreamWAV_tx27n")
 script = ExtResource("8_87bux")
 wave/type = 1
@@ -542,7 +550,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.0609142
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="Land4" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Land4" type="AudioStreamPlayer2D" parent="Sounds" unique_id=2097647442]
 stream = SubResource("AudioStreamWAV_eep0n")
 script = ExtResource("8_87bux")
 wave/type = 1
@@ -571,7 +579,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.0609142
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="Hurt1" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Hurt1" type="AudioStreamPlayer2D" parent="Sounds" unique_id=827203061]
 stream = SubResource("AudioStreamWAV_7es7k")
 script = ExtResource("8_87bux")
 wave/type = 3
@@ -600,7 +608,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.0
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="Unused1" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Unused1" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1603563907]
 stream = SubResource("AudioStreamWAV_tnaay")
 script = ExtResource("8_87bux")
 wave/type = 2
@@ -629,7 +637,7 @@ low_pass_filter/resonance = 0.333
 high_pass_filter/cutoff_frequency = 0.0
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="SfxrStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="SfxrStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sounds" unique_id=656236536]
 stream = SubResource("AudioStreamWAV_lxn1j")
 script = ExtResource("8_87bux")
 wave/type = 3
@@ -658,7 +666,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.0
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="ToBall" type="AudioStreamPlayer2D" parent="Sounds" groups=["hatch"]]
+[node name="ToBall" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1624622921 groups=["hatch"]]
 stream = SubResource("AudioStreamWAV_caavp")
 script = ExtResource("8_87bux")
 wave/type = 0
@@ -687,7 +695,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.23916
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="FromBall" type="AudioStreamPlayer2D" parent="Sounds" groups=["hatch"]]
+[node name="FromBall" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1048870320 groups=["hatch"]]
 stream = SubResource("AudioStreamWAV_npta6")
 script = ExtResource("8_87bux")
 wave/type = 1
@@ -716,7 +724,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.23916
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="CantUntuck" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="CantUntuck" type="AudioStreamPlayer2D" parent="Sounds" unique_id=118408020]
 stream = SubResource("AudioStreamWAV_djxyo")
 script = ExtResource("8_87bux")
 wave/type = 1
@@ -745,7 +753,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.0
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="PickupPlaceholder" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="PickupPlaceholder" type="AudioStreamPlayer2D" parent="Sounds" unique_id=772606810]
 stream = SubResource("AudioStreamWAV_nkx1q")
 script = ExtResource("8_87bux")
 wave/type = 2
@@ -774,18 +782,18 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.0
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="RayCast2D_TuckChecker" type="RayCast2D" parent="."]
+[node name="RayCast2D_TuckChecker" type="RayCast2D" parent="." unique_id=1003190590]
 position = Vector2(0, 6)
 target_position = Vector2(0, -6)
 collision_mask = 2
 
-[node name="Typer" parent="." instance=ExtResource("26_dahf0")]
+[node name="Typer" parent="." unique_id=1620163331 instance=ExtResource("26_dahf0")]
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="HUD" type="CanvasLayer" parent="." unique_id=717007836]
 layer = 10
 script = ExtResource("27_7jqek")
 
-[node name="sprite_boots" type="AnimatedSprite2D" parent="."]
+[node name="sprite_boots" type="AnimatedSprite2D" parent="." unique_id=666160313]
 visible = false
 z_index = 100
 z_as_relative = false
@@ -793,10 +801,47 @@ position = Vector2(0, 2)
 scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_5nb38")
 
-[node name="smoke_boots" parent="." instance=ExtResource("29_5nb38")]
+[node name="smoke_boots" parent="." unique_id=1176423483 instance=ExtResource("29_5nb38")]
 z_index = -100
 position = Vector2(0, 10)
 
-[node name="TimeTyper" parent="." instance=ExtResource("30_72vhv")]
+[node name="TimeTyper" parent="." unique_id=73354578 instance=ExtResource("30_72vhv")]
+
+[node name="ball_trail" type="Node2D" parent="." unique_id=769611890]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="ball_trail" unique_id=1876662182]
+texture_filter = 1
+position = Vector2(0, 6)
+emitting = false
+amount = 240
+lifetime = 0.5
+direction = Vector2(0, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+color_ramp = SubResource("Gradient_72vhv")
+
+[node name="CPUParticles2D_top" type="CPUParticles2D" parent="ball_trail" unique_id=965554664]
+position = Vector2(0, 3.5)
+emitting = false
+amount = 240
+lifetime = 0.5
+direction = Vector2(0, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+color = Color(0.6392157, 0.85490197, 0.99215686, 1)
+color_ramp = SubResource("Gradient_q4257")
+
+[node name="CPUParticles2D_bot" type="CPUParticles2D" parent="ball_trail" unique_id=580789851]
+position = Vector2(0, 8.5)
+emitting = false
+amount = 240
+lifetime = 0.5
+direction = Vector2(0, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+color = Color(0.6392157, 0.85490197, 0.99215686, 1)
+color_ramp = SubResource("Gradient_q4257")
 
 [connection signal="area_entered" from="hurt_box" to="." method="_on_hurt_area_area_entered"]

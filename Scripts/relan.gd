@@ -274,6 +274,9 @@ func _transition_normal_to_ball():
         # Disable normal collisions, hurtbox, sprite
         # Enable ball collisions, hurtbox, sprite
         # sounds, no step sounds
+        $ball_trail/CPUParticles2D.emitting = true
+        $ball_trail/CPUParticles2D_top.emitting = true
+        $ball_trail/CPUParticles2D_bot.emitting = true
 
 func _transition_ball_to_normal():
     # First, check that there's no clipping
@@ -293,6 +296,9 @@ func _transition_ball_to_normal():
         $ball_sprite.visible = false
         $Cannon.process_mode = Node.PROCESS_MODE_ALWAYS
         $Cannon.visible = true
+        $ball_trail/CPUParticles2D.emitting = false
+        $ball_trail/CPUParticles2D_top.emitting = false
+        $ball_trail/CPUParticles2D_bot.emitting = false
 
 func play_landing_sound():
     [$Sounds/Land, $Sounds/Land2, $Sounds/Land3, $Sounds/Land4][randi() % 4].play()
