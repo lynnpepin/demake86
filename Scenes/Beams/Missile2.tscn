@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bqwj05ruus1or"]
+[gd_scene format=4 uid="uid://bqwj05ruus1or"]
 
 [ext_resource type="Script" uid="uid://cgnyxbyhpnb0k" path="res://Scenes/Beams/Missile2.gd" id="1_5oxwn"]
 [ext_resource type="Script" uid="uid://bc0paoyr8p4u" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="2_05lwi"]
@@ -23,13 +23,14 @@ width = 8
 height = 2
 
 [sub_resource type="Gradient" id="Gradient_jjo5x"]
-offsets = PackedFloat32Array(0, 0.10989, 0.331868, 0.387978, 1)
-colors = PackedColorArray(0.882353, 0.227451, 0.137255, 1, 0.360784, 0.223529, 0.0117647, 1, 0.192157, 0.192157, 0.192157, 1, 0.163788, 0.163788, 0.163788, 0.889421, 0, 0, 0, 0.25098)
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.10989, 0.23882897, 0.331868, 0.46995378, 0.6302003, 0.71648693, 0.8243452, 0.8828968, 0.9414484, 0.972265, 1)
+colors = PackedColorArray(0.882353, 0.227451, 0.137255, 1, 0.360784, 0.223529, 0.0117647, 1, 0.26283467, 0.20530614, 0.11654805, 1, 0.192157, 0.192157, 0.192157, 1, 0.11710858, 0.11710858, 0.11710858, 0.7074659, 0.163788, 0.163788, 0.163788, 0.889421, 0.04288484, 0.04288484, 0.04288484, 0.41814387, 0.11710858, 0.11710858, 0.11710858, 0.7074659, 0.031338915, 0.031338915, 0.031338915, 0.3731382, 0.11710858, 0.11710858, 0.11710858, 0.7074659, 0.019793004, 0.019793004, 0.019793004, 0.32813257, 0, 0, 0, 0.25098)
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_oifcy"]
 data = PackedByteArray("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")
 
-[node name="Missile" type="AnimatableBody2D" groups=["beam"]]
+[node name="Missile" type="AnimatableBody2D" unique_id=1423770095 groups=["beam"]]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_5oxwn")
@@ -37,19 +38,19 @@ LIFESPAN = 8.0
 damage = 6
 CreateOnDie = ExtResource("2_i2i1b")
 
-[node name="ColliderWall" type="CollisionShape2D" parent="." groups=["beam"]]
+[node name="ColliderWall" type="CollisionShape2D" parent="." unique_id=1531176293 groups=["beam"]]
 shape = SubResource("RectangleShape2D_fq56s")
 
-[node name="AreaToCheckForEnemy" type="Area2D" parent="." groups=["beam"]]
+[node name="AreaToCheckForEnemy" type="Area2D" parent="." unique_id=1912178074 groups=["beam"]]
 collision_layer = 8
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaToCheckForEnemy" groups=["beam"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaToCheckForEnemy" unique_id=358912967 groups=["beam"]]
 shape = SubResource("RectangleShape2D_l31wo")
 
-[node name="CreateSounds" type="Node" parent="."]
+[node name="CreateSounds" type="Node" parent="." unique_id=723317298]
 
-[node name="Create5" type="AudioStreamPlayer2D" parent="CreateSounds"]
+[node name="Create5" type="AudioStreamPlayer2D" parent="CreateSounds" unique_id=1476703565]
 stream = SubResource("AudioStreamWAV_26ckg")
 script = ExtResource("2_05lwi")
 wave/type = 3
@@ -78,14 +79,15 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.0
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1324028927]
 texture = SubResource("GradientTexture2D_8v2wk")
 
-[node name="CPUParticles2D_Trail" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D_Trail" type="CPUParticles2D" parent="." unique_id=115228394]
 z_index = 50
 amount = 2048
-lifetime = 3.0
-explosiveness = 0.25
+lifetime = 12.0
+speed_scale = 3.0
+explosiveness = 0.88
 randomness = 0.75
 lifetime_randomness = 0.75
 fract_delta = false
@@ -105,12 +107,12 @@ tangential_accel_min = -4.0
 tangential_accel_max = 4.0
 angle_max = 45.0
 scale_amount_min = 1.5
-scale_amount_max = 2.5
+scale_amount_max = 3.5
 color_ramp = SubResource("Gradient_jjo5x")
 
-[node name="HitSounds" type="Node" parent="."]
+[node name="HitSounds" type="Node" parent="." unique_id=800122925]
 
-[node name="HitSound" type="AudioStreamPlayer2D" parent="HitSounds"]
+[node name="HitSound" type="AudioStreamPlayer2D" parent="HitSounds" unique_id=759624247]
 stream = SubResource("AudioStreamWAV_oifcy")
 script = ExtResource("2_05lwi")
 wave/type = 3

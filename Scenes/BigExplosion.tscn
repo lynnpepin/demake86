@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://bqf183qi5gq3r"]
+[gd_scene format=4 uid="uid://bqf183qi5gq3r"]
 
 [ext_resource type="Script" uid="uid://x0kuhyouevlf" path="res://Scripts/BigExplosion.gd" id="1_su0y6"]
 [ext_resource type="Script" uid="uid://bc0paoyr8p4u" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="2_alwa7"]
 
 [sub_resource type="Gradient" id="Gradient_0s2tp"]
+interpolation_mode = 1
 offsets = PackedFloat32Array(0.0021978, 0.0043956, 0.0637363, 0.0791209, 0.226374, 0.56044, 0.789011, 0.993407, 1)
 colors = PackedColorArray(0, 0, 0, 0, 0.823529, 0.313726, 0.176471, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0.921569, 0.584314, 0.25098, 1, 0.823529, 0.313726, 0.176471, 1, 0.133333, 0.0941176, 0.0705882, 1, 0.2, 0.188, 0.152, 0.807843, 0.05, 0.047125, 0.0385, 0.25098)
 
@@ -22,7 +23,7 @@ data = PackedByteArray("BQkOEhcbICQpLTE2Oj6AgICAcwwMDAwMDAwMDAwMDAwMDAwMDBNISEhI
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xwx4"]
 radius = 8.0
 
-[node name="CPUParticles2D_BigExplosion" type="CPUParticles2D"]
+[node name="CPUParticles2D_BigExplosion" type="CPUParticles2D" unique_id=1354750708]
 z_index = 100
 position = Vector2(0, 1)
 emitting = false
@@ -53,7 +54,7 @@ scale_amount_max = 3.0
 color_ramp = SubResource("Gradient_0s2tp")
 script = ExtResource("1_su0y6")
 
-[node name="Explode1" type="AudioStreamPlayer2D" parent="."]
+[node name="Explode1" type="AudioStreamPlayer2D" parent="." unique_id=1779382380]
 stream = SubResource("AudioStreamWAV_4al4q")
 script = ExtResource("2_alwa7")
 wave/type = 3
@@ -82,7 +83,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.0
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="Explode2" type="AudioStreamPlayer2D" parent="."]
+[node name="Explode2" type="AudioStreamPlayer2D" parent="." unique_id=1755232723]
 stream = SubResource("AudioStreamWAV_vv355")
 script = ExtResource("2_alwa7")
 wave/type = 3
@@ -111,7 +112,7 @@ low_pass_filter/resonance = -0.0223835
 high_pass_filter/cutoff_frequency = 0.0267764
 high_pass_filter/cutoff_sweep = -0.0274871
 
-[node name="Explode3" type="AudioStreamPlayer2D" parent="."]
+[node name="Explode3" type="AudioStreamPlayer2D" parent="." unique_id=746610960]
 stream = SubResource("AudioStreamWAV_h37hu")
 script = ExtResource("2_alwa7")
 wave/type = 3
@@ -140,7 +141,7 @@ low_pass_filter/resonance = -0.0195186
 high_pass_filter/cutoff_frequency = -0.0335064
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="Explode4" type="AudioStreamPlayer2D" parent="."]
+[node name="Explode4" type="AudioStreamPlayer2D" parent="." unique_id=582196489]
 stream = SubResource("AudioStreamWAV_i654f")
 script = ExtResource("2_alwa7")
 wave/type = 3
@@ -169,11 +170,11 @@ low_pass_filter/resonance = -0.0234575
 high_pass_filter/cutoff_frequency = -0.0328728
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="Area2D" type="Area2D" parent="." groups=["beam"]]
+[node name="Area2D" type="Area2D" parent="." unique_id=487014255 groups=["beam"]]
 collision_layer = 8
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1827773298]
 shape = SubResource("CircleShape2D_0xwx4")
 
 [connection signal="finished" from="." to="." method="_on_finished"]

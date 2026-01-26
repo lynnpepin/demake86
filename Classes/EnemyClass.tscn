@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://be6esv11x3s5t"]
+[gd_scene format=3 uid="uid://be6esv11x3s5t"]
 
 [ext_resource type="Script" uid="uid://c4p06xddgtn10" path="res://Classes/EnemyClass.gd" id="1_44iho"]
 [ext_resource type="AudioStream" uid="uid://cd0bb667p5tn1" path="res://resources/freeze.wav" id="3_e20xd"]
@@ -26,65 +26,66 @@ size = Vector2(8, 4)
 size = Vector2(6, 3)
 
 [sub_resource type="Gradient" id="Gradient_hffr3"]
-offsets = PackedFloat32Array(0, 0.0325815, 0.122807, 0.269424, 0.318296, 0.863409)
-colors = PackedColorArray(0.05, 0.047125, 0.0385, 0.25098, 1, 1, 1, 1, 1, 0.566667, 0, 1, 1, 0, 0, 1, 0.665, 0.09075, 0.0969375, 1, 0.05, 0.047125, 0.0385, 0.25098)
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.103235744, 0.1494607, 0.2788906, 0.5808937, 0.60246533, 0.79969186)
+colors = PackedColorArray(0.05, 0.047125, 0.0385, 0.25098, 1, 1, 1, 1, 1, 0.566667, 0, 1, 1, 0, 0, 1, 0.99999994, 0.7278676, 0.47917533, 1, 0.665, 0.09075, 0.0969375, 1, 0.05, 0.047125, 0.0385, 0.25098)
 
-[node name="EnemyClass" type="CharacterBody2D"]
+[node name="EnemyClass" type="CharacterBody2D" unique_id=1981089262]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_44iho")
 
-[node name="CollisionPlatforming" type="CollisionShape2D" parent="." groups=["enemies"]]
+[node name="CollisionPlatforming" type="CollisionShape2D" parent="." unique_id=1771735465 groups=["enemies"]]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_26ahl")
 
-[node name="Sprite2D_freeze_box" type="Sprite2D" parent="."]
+[node name="Sprite2D_freeze_box" type="Sprite2D" parent="." unique_id=840567474]
 z_index = 10
 texture = SubResource("GradientTexture2D_aklbp")
 
-[node name="StaticBody2D_Frozen" type="StaticBody2D" parent="."]
+[node name="StaticBody2D_Frozen" type="StaticBody2D" parent="." unique_id=84451283]
 visible = false
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D_Frozen"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D_Frozen" unique_id=1883882091]
 shape = SubResource("RectangleShape2D_y7bss")
 
-[node name="AreaHitbox" type="Area2D" parent="." groups=["enemies"]]
+[node name="AreaHitbox" type="Area2D" parent="." unique_id=114516459 groups=["enemies"]]
 collision_layer = 4
 collision_mask = 24
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaHitbox" groups=["enemies"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaHitbox" unique_id=56055242 groups=["enemies"]]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_el2m2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=787643559]
 offset = Vector2(0, -3)
 
-[node name="HitSounds" type="Node" parent="."]
+[node name="HitSounds" type="Node" parent="." unique_id=2050774207]
 
-[node name="DeathSounds" type="Node" parent="."]
+[node name="DeathSounds" type="Node" parent="." unique_id=1411267192]
 
-[node name="DeathExplosion" type="CPUParticles2D" parent="."]
+[node name="DeathExplosion" type="CPUParticles2D" parent="." unique_id=1266681577]
 emitting = false
 amount = 128
-lifetime = 0.38
+lifetime = 0.75
 one_shot = true
-explosiveness = 0.75
-randomness = 0.25
+explosiveness = 0.88
+randomness = 0.38
 lifetime_randomness = 0.25
 fract_delta = false
 direction = Vector2(0, 0)
 spread = 180.0
-gravity = Vector2(0, 32)
-initial_velocity_min = 24.0
-initial_velocity_max = 32.0
-damping_max = 100.0
+gravity = Vector2(0, 8)
+initial_velocity_min = 48.0
+initial_velocity_max = 900.0
+damping_max = 25.0
 color_ramp = SubResource("Gradient_hffr3")
 
-[node name="UnfreezeSound" type="AudioStreamPlayer2D" parent="."]
+[node name="UnfreezeSound" type="AudioStreamPlayer2D" parent="." unique_id=76772355]
 stream = ExtResource("3_j2gxe")
 
-[node name="FreezeSound" type="AudioStreamPlayer2D" parent="."]
+[node name="FreezeSound" type="AudioStreamPlayer2D" parent="." unique_id=1382549539]
 stream = ExtResource("3_e20xd")
 
 [connection signal="area_entered" from="AreaHitbox" to="." method="_on_area_hitbox_area_entered"]

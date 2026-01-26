@@ -12,7 +12,7 @@ extends AnimatableBody2D
 var lifetime: float = 0.0;
 
 ## Time in seconds to let sounds and particles finish up
-@export var dietime: float = 2.0; # timer after death to allow sounds, trails, etc. to finish
+@export var dietime: float = 6.0; # timer after death to allow sounds, trails, etc. to finish
 
 var angle: float
 var velocity: Vector2
@@ -39,80 +39,80 @@ var wave: bool = false
 
 
 func _ready() -> void:
-	create_sounds = $CreateSounds.get_children()
-	hit_sounds = $HitSounds.get_children()
-	
-	if len(create_sounds) > 0:
-		create_sounds.pick_random().play()
-	add_to_group("beam")
-	
-	if ice and wave:
-		print("wave + ice")
-		$Sprite2D.modulate = Color(255.0/255.0, 128.0/255.0, 512.0/255.0)
-	elif wave:
-		print("wave")
-		$Sprite2D.modulate = Color(255.0/255.0, 64.0/255.0, 255.0/255.0)
-	elif ice:
-		print("ice")
-		$Sprite2D.modulate = Color(152.0/255.0, 220.0/255.0, 255.0/255.0)
-	else:
-		print("none")
+    create_sounds = $CreateSounds.get_children()
+    hit_sounds = $HitSounds.get_children()
+    
+    if len(create_sounds) > 0:
+        create_sounds.pick_random().play()
+    add_to_group("beam")
+    
+    if ice and wave:
+        print("wave + ice")
+        $Sprite2D.modulate = Color(255.0/255.0, 128.0/255.0, 512.0/255.0)
+    elif wave:
+        print("wave")
+        $Sprite2D.modulate = Color(255.0/255.0, 64.0/255.0, 255.0/255.0)
+    elif ice:
+        print("ice")
+        $Sprite2D.modulate = Color(152.0/255.0, 220.0/255.0, 255.0/255.0)
+    else:
+        print("none")
 
 
 func _process(delta: float) -> void:
-	if !active:
-		dietime -= delta
-		if dietime <= 0:
-			queue_free()
+    if !active:
+        dietime -= delta
+        if dietime <= 0:
+            queue_free()
 
 func _physics_process(delta: float) -> void:
-	if lifetime > LIFESPAN:
-		die()
-	
-	lifetime += delta
-	# not sure why this isn't working :(
-	 
-	# TODO - Figure out raw rotations
-	velocity += Vector2(
-		0,
-		amplitude * cos((lifetime + phase_angle) * PI * 2 * frequency)
-	).rotated(angle)
-	
-	# TODO: make this work for other angles too
-	
-	var collision = move_and_collide(velocity * delta)
-	if collision != null and active:
-		if len(hit_sounds) > 0:
-			hit_sounds.pick_random().play()
-		if collision.get_collider().is_in_group("hatch"):
-			collision.get_collider().get_parent().open()
-		die()
+    if lifetime > LIFESPAN:
+        die()
+    
+    lifetime += delta
+    # not sure why this isn't working :(
+     
+    # TODO - Figure out raw rotations
+    velocity += Vector2(
+        0,
+        amplitude * cos((lifetime + phase_angle) * PI * 2 * frequency)
+    ).rotated(angle)
+    
+    # TODO: make this work for other angles too
+    
+    var collision = move_and_collide(velocity * delta)
+    if collision != null and active:
+        if len(hit_sounds) > 0:
+            hit_sounds.pick_random().play()
+        if collision.get_collider().is_in_group("hatch"):
+            collision.get_collider().get_parent().open()
+        die()
 
-	
+    
 func die():
-	active = false
-	$AreaToCheckForEnemy.set_deferred("disabled", true)
-	$AreaToCheckForEnemy.set_deferred("monitoring", false)
-	$AreaToCheckForEnemy.set_deferred("monitorable", false)
-	$AreaToCheckForEnemy/CollisionShape2D.set_deferred("disabled", true)
-	$Sprite2D.visible = false
-	$CPUParticles2D_Trail.emitting = false
-	# todo - this is the wrong way to do it; sound player stops on destruction
-	# maybe different things have a sound to play when a beam hits it
-	if CreateOnDie != null:
-		print("Creating scene!")
-		var blam = CreateOnDie.instantiate()
-		blam.position = Vector2(0,0)#global_position
-		add_child(blam)
+    active = false
+    $AreaToCheckForEnemy.set_deferred("disabled", true)
+    $AreaToCheckForEnemy.set_deferred("monitoring", false)
+    $AreaToCheckForEnemy.set_deferred("monitorable", false)
+    $AreaToCheckForEnemy/CollisionShape2D.set_deferred("disabled", true)
+    $Sprite2D.visible = false
+    $CPUParticles2D_Trail.emitting = false
+    # todo - this is the wrong way to do it; sound player stops on destruction
+    # maybe different things have a sound to play when a beam hits it
+    if CreateOnDie != null:
+        print("Creating scene!")
+        var blam = CreateOnDie.instantiate()
+        blam.position = Vector2(0,0)#global_position
+        add_child(blam)
 
 
 func _on_area_to_check_for_enemy_area_entered(area: Area2D) -> void:
-	if area.is_in_group("enemies"):
-		if len(hit_sounds) > 0:
-			hit_sounds.pick_random().play()
-		var enemy = area.get_parent()
-		var is_frozen = enemy.freeze_timer > 0
-		enemy.hurt(damage, .125)
-		if ice and not is_frozen:
-			enemy.freeze(12)
-		die()
+    if area.is_in_group("enemies"):
+        if len(hit_sounds) > 0:
+            hit_sounds.pick_random().play()
+        var enemy = area.get_parent()
+        var is_frozen = enemy.freeze_timer > 0
+        enemy.hurt(damage, .125)
+        if ice and not is_frozen:
+            enemy.freeze(12)
+        die()

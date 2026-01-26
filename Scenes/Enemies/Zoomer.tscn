@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dfumfi7yl7mha"]
+[gd_scene format=3 uid="uid://dfumfi7yl7mha"]
 
 [ext_resource type="PackedScene" uid="uid://be6esv11x3s5t" path="res://Classes/EnemyClass.tscn" id="1_ecr7b"]
 [ext_resource type="Script" uid="uid://dg648004gykps" path="res://Scenes/Enemies/zoomer.gd" id="2_iugum"]
@@ -52,79 +52,82 @@ animations = [{
 "speed": 4.0
 }]
 
-[node name="Zoomer" instance=ExtResource("1_ecr7b")]
+[node name="Zoomer" unique_id=1007610357 instance=ExtResource("1_ecr7b")]
 script = ExtResource("2_iugum")
 start_hp = 2
 zoomer_speed = 12
 start_angle = 180
 
-[node name="CollisionPlatforming" parent="." index="0"]
+[node name="CollisionPlatforming" parent="." index="0" unique_id=1771735465]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_iugum")
 
-[node name="Sprite2D_freeze_box" parent="." index="1"]
+[node name="Sprite2D_freeze_box" parent="." index="1" unique_id=840567474]
 visible = false
 position = Vector2(0, -4)
 texture = SubResource("GradientTexture2D_iugum")
 
-[node name="StaticBody2D_Frozen" parent="." index="2"]
+[node name="StaticBody2D_Frozen" parent="." index="2" unique_id=84451283]
 position = Vector2(0, -4)
 
-[node name="CollisionShape2D" parent="StaticBody2D_Frozen" index="0"]
+[node name="CollisionShape2D" parent="StaticBody2D_Frozen" index="0" unique_id=1883882091]
 visible = false
 shape = SubResource("RectangleShape2D_ylh3x")
 
-[node name="AreaHitbox" parent="." index="3"]
+[node name="AreaHitbox" parent="." index="3" unique_id=114516459]
 position = Vector2(0, -2.5)
 
-[node name="CollisionShape2D" parent="AreaHitbox" index="0"]
+[node name="CollisionShape2D" parent="AreaHitbox" index="0" unique_id=56055242]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_yrbxj")
 
-[node name="AnimatedSprite2D" parent="." index="4"]
+[node name="AnimatedSprite2D" parent="." index="4" unique_id=787643559]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_en01a")
 autoplay = "default"
 frame_progress = 0.593374
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="HitSounds" index="0"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="HitSounds" parent_id_path=PackedInt32Array(2050774207) index="0" unique_id=1818991700]
 stream = ExtResource("7_mprox")
 volume_db = -10.0
 
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="HitSounds" index="1"]
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="HitSounds" parent_id_path=PackedInt32Array(2050774207) index="1" unique_id=1337125148]
 stream = ExtResource("8_iu474")
 volume_db = -10.0
 
-[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="HitSounds" index="2"]
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="HitSounds" parent_id_path=PackedInt32Array(2050774207) index="2" unique_id=1792006897]
 stream = ExtResource("9_qwnhp")
 volume_db = -10.0
 
-[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="DeathSounds" index="0"]
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="DeathSounds" parent_id_path=PackedInt32Array(1411267192) index="0" unique_id=30387930]
 stream = ExtResource("10_s7718")
 
-[node name="DeathExplosion" parent="." index="7"]
+[node name="DeathExplosion" parent="." index="7" unique_id=1266681577]
 position = Vector2(0, -4)
-lifetime = 0.35
-explosiveness = 0.85
-gravity = Vector2(0, 128)
-initial_velocity_min = 32.0
+amount = 256
+lifetime = 0.38
+randomness = 0.25
+fixed_fps = 30
+gravity = Vector2(0, 24)
+initial_velocity_min = 36.0
 initial_velocity_max = 48.0
+damping_max = 10.0
 scale_amount_min = 0.0
-scale_amount_max = 3.0
+scale_amount_max = 2.5
 
-[node name="RayCast2D_ground" type="RayCast2D" parent="." index="10"]
+[node name="RayCast2D_ground" type="RayCast2D" parent="." index="10" unique_id=1171514914]
 position = Vector2(0, -1)
 target_position = Vector2(0, 4)
 collision_mask = 2
 collide_with_areas = true
 
-[node name="RayCast2D_left" type="RayCast2D" parent="." index="11"]
+[node name="RayCast2D_left" type="RayCast2D" parent="." index="11" unique_id=1977852644]
 position = Vector2(-2, -1)
 target_position = Vector2(0, 4)
 collision_mask = 2
 collide_with_areas = true
 
-[node name="RayCast2D_right" type="RayCast2D" parent="." index="12"]
+[node name="RayCast2D_right" type="RayCast2D" parent="." index="12" unique_id=1611313076]
 position = Vector2(2, -1)
 target_position = Vector2(0, 4)
 collision_mask = 2

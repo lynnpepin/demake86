@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://j0fgyd78r5j8"]
+[gd_scene format=4 uid="uid://j0fgyd78r5j8"]
 
 [ext_resource type="Script" uid="uid://vl351gas1gx8" path="res://Scripts/bomb_explosion.gd" id="1_5jogq"]
 [ext_resource type="Script" uid="uid://bc0paoyr8p4u" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="2_y41sv"]
@@ -17,6 +17,7 @@ height = 12.0
 radius = 1.0
 
 [sub_resource type="Gradient" id="Gradient_0s2tp"]
+interpolation_mode = 1
 offsets = PackedFloat32Array(0.164835, 0.265934, 0.397802, 0.507692, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 0.566667, 0, 1, 1, 0, 0, 1, 0.665, 0.09075, 0.0969375, 1, 0, 0, 0, 0.25098)
 
@@ -27,42 +28,42 @@ data = PackedByteArray("xb29vb29vb29vb6+vr6+vr6+vr6+vr7Y8fHx8fHx8fHx8fHx8fHx8fHy
 offsets = PackedFloat32Array(0, 0.0615385, 1)
 colors = PackedColorArray(0.803092, 0.531193, 0.410865, 1, 0.234668, 0.0801397, 2.40654e-08, 0.941176, 0, 0, 0, 0.25098)
 
-[node name="BombExplosion" type="Node2D" groups=["beam", "bomb"]]
+[node name="BombExplosion" type="Node2D" unique_id=500664754 groups=["beam", "bomb"]]
 z_index = 20
 script = ExtResource("1_5jogq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1304456877]
 visible = false
 texture = SubResource("PlaceholderTexture2D_41q26")
 
-[node name="leftbox" type="Area2D" parent="." groups=["beam"]]
+[node name="leftbox" type="Area2D" parent="." unique_id=1691187497 groups=["beam"]]
 position = Vector2(-2, 0)
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="leftbox" groups=["beam"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leftbox" unique_id=1994038340 groups=["beam"]]
 shape = SubResource("CircleShape2D_4xsji")
 
-[node name="rightbox" type="Area2D" parent="." groups=["beam"]]
+[node name="rightbox" type="Area2D" parent="." unique_id=197860838 groups=["beam"]]
 position = Vector2(2, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="rightbox" groups=["beam"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rightbox" unique_id=295358833 groups=["beam"]]
 shape = SubResource("CircleShape2D_4xsji")
 
-[node name="upbox" type="Area2D" parent="." groups=["beam", "bomb"]]
+[node name="upbox" type="Area2D" parent="." unique_id=1146406581 groups=["beam", "bomb"]]
 position = Vector2(0, -2)
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="upbox" groups=["beam"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="upbox" unique_id=1251072247 groups=["beam"]]
 shape = SubResource("CapsuleShape2D_8ch22")
 
-[node name="hurtbox" type="Area2D" parent="." groups=["beam", "bomb"]]
+[node name="hurtbox" type="Area2D" parent="." unique_id=59880373 groups=["beam", "bomb"]]
 collision_layer = 8
 collision_mask = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" groups=["beam", "bomb"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=143021352 groups=["beam", "bomb"]]
 shape = SubResource("CircleShape2D_15piw")
 
-[node name="CPUParticles2D_SmallExplosion_Ring" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D_SmallExplosion_Ring" type="CPUParticles2D" parent="." unique_id=297880149]
 emitting = false
 amount = 64
 lifetime = 0.38
@@ -72,6 +73,7 @@ randomness = 0.5
 lifetime_randomness = 0.5
 fixed_fps = 24
 fract_delta = false
+local_coords = true
 direction = Vector2(0, 0)
 spread = 180.0
 gravity = Vector2(0, 0)
@@ -81,7 +83,7 @@ scale_amount_min = 0.0
 scale_amount_max = 2.0
 color_ramp = SubResource("Gradient_0s2tp")
 
-[node name="CPUParticles2D_SmallExplosion_Directional0" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D_SmallExplosion_Directional0" type="CPUParticles2D" parent="." unique_id=1724868544]
 emitting = false
 amount = 32
 lifetime = 0.25
@@ -102,7 +104,7 @@ angle_min = -45.0
 angle_max = 45.0
 color_ramp = SubResource("Gradient_0s2tp")
 
-[node name="CPUParticles2D_SmallExplosion_Directional1" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D_SmallExplosion_Directional1" type="CPUParticles2D" parent="." unique_id=1952798947]
 emitting = false
 amount = 32
 lifetime = 0.25
@@ -124,7 +126,7 @@ angle_min = -45.0
 angle_max = 45.0
 color_ramp = SubResource("Gradient_0s2tp")
 
-[node name="CPUParticles2D_SmallExplosion_Directional2" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D_SmallExplosion_Directional2" type="CPUParticles2D" parent="." unique_id=605728807]
 emitting = false
 amount = 32
 lifetime = 0.25
@@ -146,7 +148,7 @@ angle_min = -45.0
 angle_max = 45.0
 color_ramp = SubResource("Gradient_0s2tp")
 
-[node name="CPUParticles2D_SmallExplosion_Directional3" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D_SmallExplosion_Directional3" type="CPUParticles2D" parent="." unique_id=1488188085]
 emitting = false
 amount = 32
 lifetime = 0.25
@@ -168,7 +170,7 @@ angle_min = -45.0
 angle_max = 45.0
 color_ramp = SubResource("Gradient_0s2tp")
 
-[node name="CPUParticles2D_SmallExplosion_Directional4" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D_SmallExplosion_Directional4" type="CPUParticles2D" parent="." unique_id=1682622458]
 emitting = false
 amount = 32
 lifetime = 0.25
@@ -190,7 +192,7 @@ angle_min = -45.0
 angle_max = 45.0
 color_ramp = SubResource("Gradient_0s2tp")
 
-[node name="CPUParticles2D_SmallExplosion_Directional5" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D_SmallExplosion_Directional5" type="CPUParticles2D" parent="." unique_id=651409346]
 emitting = false
 amount = 32
 lifetime = 0.25
@@ -212,7 +214,7 @@ angle_min = -45.0
 angle_max = 45.0
 color_ramp = SubResource("Gradient_0s2tp")
 
-[node name="CPUParticles2D_SmallExplosion_Directional6" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D_SmallExplosion_Directional6" type="CPUParticles2D" parent="." unique_id=797731134]
 emitting = false
 amount = 32
 lifetime = 0.25
@@ -234,7 +236,7 @@ angle_min = -45.0
 angle_max = 45.0
 color_ramp = SubResource("Gradient_0s2tp")
 
-[node name="CPUParticles2D_SmallExplosion_Directional7" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D_SmallExplosion_Directional7" type="CPUParticles2D" parent="." unique_id=582517399]
 emitting = false
 amount = 32
 lifetime = 0.25
@@ -256,7 +258,7 @@ angle_min = -45.0
 angle_max = 45.0
 color_ramp = SubResource("Gradient_0s2tp")
 
-[node name="Explode" type="AudioStreamPlayer2D" parent="."]
+[node name="Explode" type="AudioStreamPlayer2D" parent="." unique_id=1895597812]
 stream = SubResource("AudioStreamWAV_mdt5x")
 script = ExtResource("2_y41sv")
 wave/type = 3
@@ -285,7 +287,7 @@ low_pass_filter/resonance = -0.0195186
 high_pass_filter/cutoff_frequency = -0.0335064
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="CPUParticles2D_SmokePuff" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D_SmokePuff" type="CPUParticles2D" parent="." unique_id=1421833292]
 z_index = -10
 emitting = false
 amount = 16

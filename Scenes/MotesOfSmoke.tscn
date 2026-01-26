@@ -1,10 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv7j2dij7vk4c"]
+[gd_scene format=3 uid="uid://bv7j2dij7vk4c"]
 
 [sub_resource type="Gradient" id="Gradient_dmrur"]
-offsets = PackedFloat32Array(0.0021978, 0.0043956, 0.0273224, 0.0874317, 0.721311, 0.993407, 1)
-colors = PackedColorArray(0, 0, 0, 0, 0.823529, 0.313726, 0.176471, 1, 0, 0, 0, 0, 0.133333, 0.0941176, 0.0705882, 1, 0.160676, 0.132623, 0.103979, 0.921187, 0.2, 0.188, 0.152, 0.807843, 0.05, 0.047125, 0.0385, 0.25098)
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.0021978, 0.0061633284, 0.064714946, 0.0874317, 0.18489985, 0.45608628, 0.94607085, 0.993407)
+colors = PackedColorArray(0, 0, 0, 0, 0.823529, 0.313726, 0.176471, 1, 0, 0, 0, 0, 0.133333, 0.0941176, 0.0705882, 1, 0.13753738, 0.100038365, 0.07572252, 0.98788136, 0.160676, 0.132623, 0.103979, 0.921187, 0.05, 0.047125, 0.0385, 0.25098, 0.2, 0.188, 0.152, 0.807843)
 
-[node name="CPUParticles2D_BigExplosion" type="CPUParticles2D"]
+[node name="CPUParticles2D_BigExplosion" type="CPUParticles2D" unique_id=1955906494]
 z_index = 100
 position = Vector2(0, 1)
 emitting = false
