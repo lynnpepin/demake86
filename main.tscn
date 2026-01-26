@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dk8unr07bj50f"]
 
 [ext_resource type="PackedScene" uid="uid://drk8exn5eh8fd" path="res://Scenes/BombableBlock.tscn" id="1_3oaw5"]
+[ext_resource type="Script" uid="uid://bwidy4yt6b2m8" path="res://addons/levelshot/level_shot_boundary.gd" id="1_a6jrf"]
 [ext_resource type="Texture2D" uid="uid://ce2tibknbbtee" path="res://art/8px_ground.png" id="2_yoeee"]
 [ext_resource type="Texture2D" uid="uid://ox70v7php01v" path="res://art/tiles1_normal.png" id="3_ia83q"]
 [ext_resource type="Texture2D" uid="uid://ksg2mh188uub" path="res://art/1024_bg.png" id="4_ix4gv"]
@@ -147,6 +148,17 @@ normal_texture = ExtResource("3_ia83q")
 specular_color = Color(0, 0, 0, 1)
 
 [node name="Root" type="Node2D" unique_id=1570894400]
+
+[node name="LevelshotBoundary" type="ReferenceRect" parent="." unique_id=1537332123]
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 640.0
+offset_bottom = 640.0
+border_color = Color(1, 1, 0, 1)
+border_width = 4.0
+script = ExtResource("1_a6jrf")
+_first_run = false
+metadata/_custom_type_script = "uid://bwidy4yt6b2m8"
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
 position = Vector2(96, 156)
