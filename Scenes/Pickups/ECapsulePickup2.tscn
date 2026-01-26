@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://btb3undlg66ka"]
+[gd_scene format=3 uid="uid://btb3undlg66ka"]
 
 [ext_resource type="Script" uid="uid://d3sa3xjjqxexs" path="res://Scenes/Pickups/e_capsule_pickup_2.gd" id="1_gwgti"]
 [ext_resource type="Script" uid="uid://ixuaysx1ibjc" path="res://Scripts/node_3d.gd" id="2_4ul7c"]
@@ -36,57 +36,218 @@ size = Vector3(0.125, 0.26, 1)
 size = Vector3(0.265, 0.25, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_fwu0w"]
-size = Vector3(0.21, 0.125, 1)
+size = Vector3(1, 0.125, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0f5tt"]
+shading_mode = 0
+albedo_color = Color(0.84313726, 0.84313726, 0.84313726, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bqwj8"]
+material = SubResource("StandardMaterial3D_0f5tt")
+size = Vector3(0.75, 0.125, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y861r"]
+material = SubResource("StandardMaterial3D_0f5tt")
+size = Vector3(0.25, 0.125, 1)
+
+[sub_resource type="Gradient" id="Gradient_0f5tt"]
+colors = PackedColorArray(0.48235294, 0.48235294, 0.48235294, 1, 0.65882355, 0.65882355, 0.65882355, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y861r"]
+gradient = SubResource("Gradient_0f5tt")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0.33048433, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bqwj8"]
+shading_mode = 0
+albedo_color = Color(0.48235294, 0.48235294, 0.48235294, 1)
+albedo_texture = SubResource("GradientTexture2D_y861r")
+
+[sub_resource type="BoxMesh" id="BoxMesh_rpnwc"]
+material = SubResource("StandardMaterial3D_bqwj8")
+size = Vector3(1, 0.125, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0f5tt"]
+material = SubResource("StandardMaterial3D_0f5tt")
+size = Vector3(0.125, 0.675, 0.125)
+
+[sub_resource type="Gradient" id="Gradient_y861r"]
+colors = PackedColorArray(0.6392157, 0.85490197, 0.99215686, 0.8666667, 0.14509805, 0.5294118, 0.9843137, 0.6)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bqwj8"]
+gradient = SubResource("Gradient_y861r")
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rpnwc"]
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.73333335)
+albedo_texture = SubResource("GradientTexture2D_bqwj8")
+disable_receive_shadows = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bqwj8"]
+material = SubResource("StandardMaterial3D_rpnwc")
+top_radius = 0.375
+bottom_radius = 0.375
+height = 0.625
+radial_segments = 12
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y861r"]
+shading_mode = 0
+albedo_color = Color(0.49411765, 0.15686275, 0.27058825, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g34p1"]
+material = SubResource("StandardMaterial3D_y861r")
+size = Vector3(0.5, 0.125, 0.063)
+
+[sub_resource type="BoxMesh" id="BoxMesh_djt64"]
+material = SubResource("StandardMaterial3D_y861r")
+size = Vector3(0.125, 0.5, 0.063)
+
+[sub_resource type="BoxMesh" id="BoxMesh_375ek"]
+material = SubResource("StandardMaterial3D_y861r")
+size = Vector3(0.375, 0.125, 0.063)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_2p5ev"]
 viewport_path = NodePath("SubViewport_etank")
 
-[node name="EnergyTank" type="Node2D"]
+[node name="EnergyTank" type="Node2D" unique_id=2002973485]
 script = ExtResource("1_gwgti")
 pickup_name = "ecapsule"
 pickup_message = "E-CAPSULE\\nACQUIRED"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1266748939]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2027803969]
 shape = SubResource("CircleShape2D_w4wew")
 
-[node name="SubViewport_etank" type="SubViewport" parent="."]
+[node name="SubViewport_etank" type="SubViewport" parent="." unique_id=964250724]
 transparent_bg = true
 canvas_item_default_texture_filter = 0
 canvas_cull_mask = 4294967196
 size = Vector2i(16, 16)
 
-[node name="Node3D_rotating_body" type="Node3D" parent="SubViewport_etank"]
+[node name="Node3D_rotating_body" type="Node3D" parent="SubViewport_etank" unique_id=988929476]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
-script = ExtResource("2_4ul7c")
+visible = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport_etank/Node3D_rotating_body"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport_etank/Node3D_rotating_body" unique_id=335732530]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_2436g")
 
-[node name="Camera3D" type="Camera3D" parent="SubViewport_etank"]
+[node name="Camera3D" type="Camera3D" parent="SubViewport_etank" unique_id=817451249]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
 projection = 1
 size = 2.0
 far = 2.0
 
-[node name="Node3D_E" type="Node3D" parent="SubViewport_etank"]
+[node name="Node3D_E" type="Node3D" parent="SubViewport_etank" unique_id=1853632024]
+visible = false
 
-[node name="Tall" type="MeshInstance3D" parent="SubViewport_etank/Node3D_E"]
+[node name="Tall" type="MeshInstance3D" parent="SubViewport_etank/Node3D_E" unique_id=14162479]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.875, -0.0643633, 0)
+visible = false
 mesh = SubResource("BoxMesh_nbqlj")
 
-[node name="Top" type="MeshInstance3D" parent="SubViewport_etank/Node3D_E"]
+[node name="Top" type="MeshInstance3D" parent="SubViewport_etank/Node3D_E" unique_id=1752506606]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01441, 0.0972252, 0)
+visible = false
 mesh = SubResource("BoxMesh_dc44a")
 
-[node name="Top2" type="MeshInstance3D" parent="SubViewport_etank/Node3D_E"]
+[node name="Top2" type="MeshInstance3D" parent="SubViewport_etank/Node3D_E" unique_id=430342065]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02737, -0.229092, 0)
+visible = false
 mesh = SubResource("BoxMesh_fwu0w")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Node3D_VialBody" type="Node3D" parent="SubViewport_etank" unique_id=1413326469]
+
+[node name="Bottom" type="MeshInstance3D" parent="SubViewport_etank/Node3D_VialBody" unique_id=1123555750]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.437, 0)
+mesh = SubResource("BoxMesh_bqwj8")
+skeleton = NodePath("../../Node3D_E")
+
+[node name="Top_Left" type="MeshInstance3D" parent="SubViewport_etank/Node3D_VialBody" unique_id=155002984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75, 0.313, 0)
+mesh = SubResource("BoxMesh_y861r")
+skeleton = NodePath("../../Node3D_E")
+
+[node name="Top_Right" type="MeshInstance3D" parent="SubViewport_etank/Node3D_VialBody" unique_id=1872991265]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25, 0.313, 0)
+mesh = SubResource("BoxMesh_y861r")
+skeleton = NodePath("../../Node3D_E")
+
+[node name="Top" type="MeshInstance3D" parent="SubViewport_etank/Node3D_VialBody" unique_id=1340464940]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.438, 0)
+mesh = SubResource("BoxMesh_rpnwc")
+skeleton = NodePath("../../Node3D_E")
+
+[node name="Left_Side" type="MeshInstance3D" parent="SubViewport_etank/Node3D_VialBody" unique_id=1136679183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.568, -0.062, 0)
+mesh = SubResource("BoxMesh_0f5tt")
+skeleton = NodePath("../../Node3D_E")
+
+[node name="Right_Side" type="MeshInstance3D" parent="SubViewport_etank/Node3D_VialBody" unique_id=974036972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.433, -0.062, 0)
+mesh = SubResource("BoxMesh_0f5tt")
+skeleton = NodePath("../../Node3D_E")
+
+[node name="Node3D_VialLiquid" type="Node3D" parent="SubViewport_etank" unique_id=2121838452]
+script = ExtResource("2_4ul7c")
+
+[node name="Liquid" type="MeshInstance3D" parent="SubViewport_etank/Node3D_VialLiquid" unique_id=1712861918]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.062, 0)
+mesh = SubResource("CylinderMesh_bqwj8")
+skeleton = NodePath("")
+
+[node name="Node3D_E_2" type="Node3D" parent="." unique_id=449515118]
+script = ExtResource("2_4ul7c")
+
+[node name="Bottom2" type="MeshInstance3D" parent="Node3D_E_2" unique_id=588059515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.312, 0.5)
+mesh = SubResource("BoxMesh_g34p1")
+skeleton = NodePath("../../SubViewport_etank/Node3D_E")
+
+[node name="Bottom5" type="MeshInstance3D" parent="Node3D_E_2" unique_id=557533663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.813, -0.062, 0.5)
+mesh = SubResource("BoxMesh_djt64")
+skeleton = NodePath("../../SubViewport_etank/Node3D_E")
+
+[node name="Bottom3" type="MeshInstance3D" parent="Node3D_E_2" unique_id=1550506859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.188, 0.5)
+mesh = SubResource("BoxMesh_g34p1")
+skeleton = NodePath("../../SubViewport_etank/Node3D_E")
+
+[node name="Bottom4" type="MeshInstance3D" parent="Node3D_E_2" unique_id=791754048]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.938, -0.062, 0.5)
+mesh = SubResource("BoxMesh_375ek")
+skeleton = NodePath("../../SubViewport_etank/Node3D_E")
+
+[node name="Node3D_E_3" type="Node3D" parent="." unique_id=1216083730]
+script = ExtResource("2_4ul7c")
+
+[node name="Bottom2" type="MeshInstance3D" parent="Node3D_E_3" unique_id=579566116]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.8754997, -0.312, -0.5)
+mesh = SubResource("BoxMesh_g34p1")
+skeleton = NodePath("../../SubViewport_etank/Node3D_E")
+
+[node name="Bottom5" type="MeshInstance3D" parent="Node3D_E_3" unique_id=2129652614]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.0625, -0.062, -0.5)
+mesh = SubResource("BoxMesh_djt64")
+skeleton = NodePath("../../SubViewport_etank/Node3D_E")
+
+[node name="Bottom3" type="MeshInstance3D" parent="Node3D_E_3" unique_id=1089242958]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.8754997, 0.188, -0.5)
+mesh = SubResource("BoxMesh_g34p1")
+skeleton = NodePath("../../SubViewport_etank/Node3D_E")
+
+[node name="Bottom4" type="MeshInstance3D" parent="Node3D_E_3" unique_id=590304282]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.9374998, -0.062, -0.5)
+mesh = SubResource("BoxMesh_375ek")
+skeleton = NodePath("../../SubViewport_etank/Node3D_E")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1450243342]
 texture = SubResource("ViewportTexture_2p5ev")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
