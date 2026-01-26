@@ -6,38 +6,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_w4wew"]
 radius = 4.0
 
-[sub_resource type="Gradient" id="Gradient_amyq5"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.174541, 0.396325, 0.60105, 0.82021)
-colors = PackedColorArray(0.356863, 0.658824, 1, 1, 0.596078, 0.862745, 1, 1, 0.00784314, 0.290196, 0.792157, 1, 0.596078, 0.862745, 1, 1, 0.356863, 0.658824, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_l5fx8"]
-gradient = SubResource("Gradient_amyq5")
-width = 16
-height = 16
-fill_from = Vector2(0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d4m3n"]
-shading_mode = 0
-albedo_color = Color(0.356863, 0.658824, 1, 1)
-albedo_texture = SubResource("GradientTexture2D_l5fx8")
-texture_filter = 0
-texture_repeat = false
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_2436g"]
-material = SubResource("StandardMaterial3D_d4m3n")
-radius = 0.375
-height = 1.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_nbqlj"]
-size = Vector3(0.125, 0.26, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_dc44a"]
-size = Vector3(0.265, 0.25, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_fwu0w"]
-size = Vector3(1, 0.125, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0f5tt"]
 shading_mode = 0
 albedo_color = Color(0.84313726, 0.84313726, 0.84313726, 1)
@@ -114,7 +82,7 @@ viewport_path = NodePath("SubViewport_etank")
 [node name="EnergyTank" type="Node2D" unique_id=2002973485]
 script = ExtResource("1_gwgti")
 pickup_name = "ecapsule"
-pickup_message = "E-CAPSULE\\nACQUIRED"
+pickup_message = "E VIAL\\nACQUIRED"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1266748939]
 collision_layer = 2
@@ -128,124 +96,100 @@ canvas_item_default_texture_filter = 0
 canvas_cull_mask = 4294967196
 size = Vector2i(16, 16)
 
-[node name="Node3D_rotating_body" type="Node3D" parent="SubViewport_etank" unique_id=988929476]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
-visible = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport_etank/Node3D_rotating_body" unique_id=335732530]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
-visible = false
-mesh = SubResource("CapsuleMesh_2436g")
-
 [node name="Camera3D" type="Camera3D" parent="SubViewport_etank" unique_id=817451249]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
 projection = 1
 size = 2.0
-far = 2.0
-
-[node name="Node3D_E" type="Node3D" parent="SubViewport_etank" unique_id=1853632024]
-visible = false
-
-[node name="Tall" type="MeshInstance3D" parent="SubViewport_etank/Node3D_E" unique_id=14162479]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.875, -0.0643633, 0)
-visible = false
-mesh = SubResource("BoxMesh_nbqlj")
-
-[node name="Top" type="MeshInstance3D" parent="SubViewport_etank/Node3D_E" unique_id=1752506606]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01441, 0.0972252, 0)
-visible = false
-mesh = SubResource("BoxMesh_dc44a")
-
-[node name="Top2" type="MeshInstance3D" parent="SubViewport_etank/Node3D_E" unique_id=430342065]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02737, -0.229092, 0)
-visible = false
-mesh = SubResource("BoxMesh_fwu0w")
+far = 4.0
 
 [node name="Node3D_VialBody" type="Node3D" parent="SubViewport_etank" unique_id=1413326469]
 
 [node name="Bottom" type="MeshInstance3D" parent="SubViewport_etank/Node3D_VialBody" unique_id=1123555750]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.437, 0)
 mesh = SubResource("BoxMesh_bqwj8")
-skeleton = NodePath("../../Node3D_E")
+skeleton = NodePath("")
 
 [node name="Top_Left" type="MeshInstance3D" parent="SubViewport_etank/Node3D_VialBody" unique_id=155002984]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75, 0.313, 0)
 mesh = SubResource("BoxMesh_y861r")
-skeleton = NodePath("../../Node3D_E")
+skeleton = NodePath("")
 
 [node name="Top_Right" type="MeshInstance3D" parent="SubViewport_etank/Node3D_VialBody" unique_id=1872991265]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25, 0.313, 0)
 mesh = SubResource("BoxMesh_y861r")
-skeleton = NodePath("../../Node3D_E")
+skeleton = NodePath("")
 
 [node name="Top" type="MeshInstance3D" parent="SubViewport_etank/Node3D_VialBody" unique_id=1340464940]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.438, 0)
 mesh = SubResource("BoxMesh_rpnwc")
-skeleton = NodePath("../../Node3D_E")
+skeleton = NodePath("")
 
 [node name="Left_Side" type="MeshInstance3D" parent="SubViewport_etank/Node3D_VialBody" unique_id=1136679183]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.568, -0.062, 0)
 mesh = SubResource("BoxMesh_0f5tt")
-skeleton = NodePath("../../Node3D_E")
+skeleton = NodePath("")
 
 [node name="Right_Side" type="MeshInstance3D" parent="SubViewport_etank/Node3D_VialBody" unique_id=974036972]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.433, -0.062, 0)
 mesh = SubResource("BoxMesh_0f5tt")
-skeleton = NodePath("../../Node3D_E")
+skeleton = NodePath("")
 
 [node name="Node3D_VialLiquid" type="Node3D" parent="SubViewport_etank" unique_id=2121838452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
 script = ExtResource("2_4ul7c")
 
 [node name="Liquid" type="MeshInstance3D" parent="SubViewport_etank/Node3D_VialLiquid" unique_id=1712861918]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.062, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.062, 0)
 mesh = SubResource("CylinderMesh_bqwj8")
 skeleton = NodePath("")
 
 [node name="Node3D_E_2" type="Node3D" parent="." unique_id=449515118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
 script = ExtResource("2_4ul7c")
 
 [node name="Bottom2" type="MeshInstance3D" parent="Node3D_E_2" unique_id=588059515]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.312, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.312, 0.375)
 mesh = SubResource("BoxMesh_g34p1")
-skeleton = NodePath("../../SubViewport_etank/Node3D_E")
+skeleton = NodePath("")
 
 [node name="Bottom5" type="MeshInstance3D" parent="Node3D_E_2" unique_id=557533663]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.813, -0.062, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.187, -0.062, 0.375)
 mesh = SubResource("BoxMesh_djt64")
-skeleton = NodePath("../../SubViewport_etank/Node3D_E")
+skeleton = NodePath("")
 
 [node name="Bottom3" type="MeshInstance3D" parent="Node3D_E_2" unique_id=1550506859]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.188, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.188, 0.375)
 mesh = SubResource("BoxMesh_g34p1")
-skeleton = NodePath("../../SubViewport_etank/Node3D_E")
+skeleton = NodePath("")
 
 [node name="Bottom4" type="MeshInstance3D" parent="Node3D_E_2" unique_id=791754048]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.938, -0.062, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.062, -0.062, 0.375)
 mesh = SubResource("BoxMesh_375ek")
-skeleton = NodePath("../../SubViewport_etank/Node3D_E")
+skeleton = NodePath("")
 
 [node name="Node3D_E_3" type="Node3D" parent="." unique_id=1216083730]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
 script = ExtResource("2_4ul7c")
 
 [node name="Bottom2" type="MeshInstance3D" parent="Node3D_E_3" unique_id=579566116]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.8754997, -0.312, -0.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.125, -0.312, -0.375)
 mesh = SubResource("BoxMesh_g34p1")
-skeleton = NodePath("../../SubViewport_etank/Node3D_E")
+skeleton = NodePath("")
 
 [node name="Bottom5" type="MeshInstance3D" parent="Node3D_E_3" unique_id=2129652614]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.0625, -0.062, -0.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.0625, -0.062, -0.375)
 mesh = SubResource("BoxMesh_djt64")
-skeleton = NodePath("../../SubViewport_etank/Node3D_E")
+skeleton = NodePath("")
 
 [node name="Bottom3" type="MeshInstance3D" parent="Node3D_E_3" unique_id=1089242958]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.8754997, 0.188, -0.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.124500275, 0.188, -0.375)
 mesh = SubResource("BoxMesh_g34p1")
-skeleton = NodePath("../../SubViewport_etank/Node3D_E")
+skeleton = NodePath("")
 
 [node name="Bottom4" type="MeshInstance3D" parent="Node3D_E_3" unique_id=590304282]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.9374998, -0.062, -0.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.0625, -0.062, -0.375)
 mesh = SubResource("BoxMesh_375ek")
-skeleton = NodePath("../../SubViewport_etank/Node3D_E")
+skeleton = NodePath("")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1450243342]
 texture = SubResource("ViewportTexture_2p5ev")

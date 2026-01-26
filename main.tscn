@@ -280,6 +280,9 @@ position = Vector2(416, 276)
 pickup_name = "high jump"
 pickup_message = "HIGH JUMP\\nACQUIRED"
 
+[node name="EnergyTank3" parent="Pickups" unique_id=2002973485 instance=ExtResource("16_dj1xh")]
+position = Vector2(108, 172)
+
 [node name="LevelBlocks" type="Node2D" parent="." unique_id=1858907284]
 
 [node name="BombableBlock2" parent="LevelBlocks" unique_id=2036642449 instance=ExtResource("1_3oaw5")]
