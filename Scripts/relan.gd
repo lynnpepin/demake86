@@ -22,7 +22,7 @@ var START_ENERGY   = 3;
 var MAX_MISSILES = 24
 var MAX_ENERGY   = 24
 var BOMB_PERIOD: float = 0.5
-var BARRIER_RECHARGE_PERIOD: float = 2.86 # todo change
+var BARRIER_RECHARGE_PERIOD: float = 8.6 # todo change
 var MAX_BOMBS = 5
 
 var time = 0;
