@@ -25,11 +25,44 @@
 [ext_resource type="Texture2D" uid="uid://cyx8qxku5lo30" path="res://art/relan/relan_run_0.png" id="19_bw8u6"]
 [ext_resource type="Texture2D" uid="uid://ct0hfh3g8ff7c" path="res://art/relan/relan_run_1.png" id="20_6w8dc"]
 [ext_resource type="Texture2D" uid="uid://cw5xj5g875xbr" path="res://art/relan/relan_run_2.png" id="21_1m4bp"]
+[ext_resource type="AudioStream" uid="uid://cci6sutsxcbek" path="res://sfx/shield_hurt.wav" id="26_15ux0"]
 [ext_resource type="PackedScene" uid="uid://b3oco4nqm7xc3" path="res://Scenes/Typer.tscn" id="26_dahf0"]
 [ext_resource type="Script" uid="uid://ci475li2wefq" path="res://Scenes/hud.gd" id="27_7jqek"]
+[ext_resource type="AudioStream" uid="uid://dbxajgddua35c" path="res://sfx/shield_charge.wav" id="27_74dfm"]
+[ext_resource type="AudioStream" uid="uid://dw3dxdq4hnq3m" path="res://sfx/shield_beep.wav" id="27_iiqjc"]
 [ext_resource type="Texture2D" uid="uid://7fslt01fx260" path="res://art/relan_boots.png" id="28_240g0"]
 [ext_resource type="PackedScene" uid="uid://bv7j2dij7vk4c" path="res://Scenes/MotesOfSmoke.tscn" id="29_5nb38"]
 [ext_resource type="PackedScene" uid="uid://cs0gcifpqgg8h" path="res://Scenes/Typer_Timer.tscn" id="30_72vhv"]
+[ext_resource type="Texture2D" uid="uid://wmw2830gd0cv" path="res://art/barrier_frames/outfile00000.png" id="31_nsgbk"]
+[ext_resource type="Texture2D" uid="uid://r8itplc6uyxp" path="res://art/barrier_frames/outfile00001.png" id="32_15ux0"]
+[ext_resource type="Texture2D" uid="uid://hk23fnsbi3v8" path="res://art/barrier_frames/outfile00002.png" id="33_iiqjc"]
+[ext_resource type="Texture2D" uid="uid://cmkrty4vnv6ce" path="res://art/barrier_frames/outfile00003.png" id="34_74dfm"]
+[ext_resource type="Texture2D" uid="uid://dgvs5hhoxhqu8" path="res://art/barrier_frames/outfile00004.png" id="35_vhaco"]
+[ext_resource type="Texture2D" uid="uid://dhnr5ctjdyj35" path="res://art/barrier_frames/outfile00005.png" id="36_5vuaf"]
+[ext_resource type="Texture2D" uid="uid://bs344fs6gc8a1" path="res://art/barrier_frames/outfile00006.png" id="37_fxuio"]
+[ext_resource type="Texture2D" uid="uid://b7nwdfv8mfplg" path="res://art/barrier_frames/outfile00007.png" id="38_j7v81"]
+[ext_resource type="Texture2D" uid="uid://bnpt48xs5r21t" path="res://art/barrier_frames/outfile00008.png" id="39_bh2oj"]
+[ext_resource type="Texture2D" uid="uid://c2ymg7mkxh6es" path="res://art/barrier_frames/outfile00009.png" id="40_dw83p"]
+[ext_resource type="Texture2D" uid="uid://dpbrpowon3k1s" path="res://art/barrier_frames/outfile00010.png" id="41_o3kwa"]
+[ext_resource type="Texture2D" uid="uid://c2lg6uitmmr4h" path="res://art/barrier_frames/outfile00011.png" id="42_nni4w"]
+[ext_resource type="Texture2D" uid="uid://c8r7fu8iudj4v" path="res://art/barrier_frames/outfile00012.png" id="43_mr6aa"]
+[ext_resource type="Texture2D" uid="uid://066mt3i1k235" path="res://art/barrier_frames/outfile00013.png" id="44_478yo"]
+[ext_resource type="Texture2D" uid="uid://bk317o6bne1d2" path="res://art/barrier_frames/outfile00014.png" id="45_473r1"]
+[ext_resource type="Texture2D" uid="uid://dst11o2h0w2ns" path="res://art/barrier_frames/outfile00015.png" id="46_0whd5"]
+[ext_resource type="Texture2D" uid="uid://d1i4hyfjrf58x" path="res://art/barrier_frames/outfile00016.png" id="47_i0hd8"]
+[ext_resource type="Texture2D" uid="uid://63q7xn34cstv" path="res://art/barrier_frames/outfile00017.png" id="48_bm3d7"]
+[ext_resource type="Texture2D" uid="uid://q7mn0l44kk3g" path="res://art/barrier_frames/outfile00018.png" id="49_yy1tg"]
+[ext_resource type="Texture2D" uid="uid://v5h40dhha2hh" path="res://art/barrier_frames/outfile00019.png" id="50_xaaqx"]
+[ext_resource type="Texture2D" uid="uid://ehf4l5wqqe08" path="res://art/barrier_frames/outfile00020.png" id="51_j887i"]
+[ext_resource type="Texture2D" uid="uid://dqf620lxxjxlv" path="res://art/barrier_frames/outfile00021.png" id="52_2340e"]
+[ext_resource type="Texture2D" uid="uid://c6g815kv8toi3" path="res://art/barrier_frames/outfile00022.png" id="53_apfav"]
+[ext_resource type="Texture2D" uid="uid://dms5umqhjjeim" path="res://art/barrier_frames/outfile00023.png" id="54_7ycrr"]
+[ext_resource type="Texture2D" uid="uid://dinnyfnpjc26p" path="res://art/barrier_frames/outfile00024.png" id="55_1whvm"]
+[ext_resource type="Texture2D" uid="uid://ddw5da63nnr62" path="res://art/barrier_frames/outfile00025.png" id="56_jr3c4"]
+[ext_resource type="Texture2D" uid="uid://bnq35f5u233dc" path="res://art/barrier_frames/outfile00026.png" id="57_h00ml"]
+[ext_resource type="Texture2D" uid="uid://w0aqor1jlecp" path="res://art/barrier_frames/outfile00027.png" id="58_w7bw4"]
+[ext_resource type="Texture2D" uid="uid://bu3oord5ckk35" path="res://art/barrier_frames/outfile00028.png" id="59_4tdhm"]
+[ext_resource type="Texture2D" uid="uid://dl5q1xm31ktw4" path="res://art/barrier_frames/outfile00029.png" id="60_rfqoy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8s541"]
 radius = 3.0
@@ -185,6 +218,104 @@ colors = PackedColorArray(1, 1, 1, 1, 0.6392157, 0.85490197, 0.99215686, 0.13333
 [sub_resource type="Gradient" id="Gradient_q4257"]
 offsets = PackedFloat32Array(0.7966102, 0.95377505, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.6392157, 0.85490197, 0.99215686, 1, 0.6392157, 0.85490197, 0.99215686, 0)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c0fq5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_nsgbk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_15ux0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_iiqjc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_74dfm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_vhaco")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_5vuaf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_fxuio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_j7v81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_bh2oj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_dw83p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_o3kwa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_nni4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_mr6aa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_478yo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_473r1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_0whd5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_i0hd8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_bm3d7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_yy1tg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_xaaqx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_j887i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_2340e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_apfav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_7ycrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_1whvm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_jr3c4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_h00ml")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_w7bw4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_4tdhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_rfqoy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [node name="Relan" type="CharacterBody2D" unique_id=1720302912 groups=["player"]]
 collision_mask = 2
@@ -377,6 +508,7 @@ frame_progress = 0.940879
 visible = false
 position = Vector2(32, 32)
 stream = SubResource("AudioStreamWAV_y8377")
+panning_strength = 0.0
 script = ExtResource("8_87bux")
 wave/type = 2
 sample_params/sound_vol = 0.2
@@ -407,6 +539,7 @@ high_pass_filter/cutoff_sweep = 0.0
 [node name="Jump" type="AudioStreamPlayer2D" parent="Sounds" unique_id=2136381120]
 position = Vector2(16, 16)
 stream = SubResource("AudioStreamWAV_y8377")
+panning_strength = 0.0
 script = ExtResource("8_87bux")
 wave/type = 2
 sample_params/sound_vol = 0.125
@@ -436,6 +569,7 @@ high_pass_filter/cutoff_sweep = 0.0
 
 [node name="ChangeDirection" type="AudioStreamPlayer2D" parent="Sounds" unique_id=657756152]
 stream = SubResource("AudioStreamWAV_dh75d")
+panning_strength = 0.0
 script = ExtResource("8_87bux")
 wave/type = 3
 sample_params/sound_vol = 0.125
@@ -465,6 +599,7 @@ high_pass_filter/cutoff_sweep = 0.0
 
 [node name="Land" type="AudioStreamPlayer2D" parent="Sounds" unique_id=2140331472]
 stream = SubResource("AudioStreamWAV_l3rj8")
+panning_strength = 0.0
 script = ExtResource("8_87bux")
 wave/type = 1
 sample_params/sound_vol = 0.25
@@ -494,6 +629,7 @@ high_pass_filter/cutoff_sweep = 0.0
 
 [node name="Land2" type="AudioStreamPlayer2D" parent="Sounds" unique_id=72572428]
 stream = SubResource("AudioStreamWAV_ct8qu")
+panning_strength = 0.0
 script = ExtResource("8_87bux")
 wave/type = 1
 sample_params/sound_vol = 0.25
@@ -523,6 +659,7 @@ high_pass_filter/cutoff_sweep = 0.0
 
 [node name="Land3" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1943539066]
 stream = SubResource("AudioStreamWAV_tx27n")
+panning_strength = 0.0
 script = ExtResource("8_87bux")
 wave/type = 1
 sample_params/sound_vol = 0.25
@@ -552,6 +689,7 @@ high_pass_filter/cutoff_sweep = 0.0
 
 [node name="Land4" type="AudioStreamPlayer2D" parent="Sounds" unique_id=2097647442]
 stream = SubResource("AudioStreamWAV_eep0n")
+panning_strength = 0.0
 script = ExtResource("8_87bux")
 wave/type = 1
 sample_params/sound_vol = 0.25
@@ -581,6 +719,75 @@ high_pass_filter/cutoff_sweep = 0.0
 
 [node name="Hurt1" type="AudioStreamPlayer2D" parent="Sounds" unique_id=827203061]
 stream = SubResource("AudioStreamWAV_7es7k")
+panning_strength = 0.0
+script = ExtResource("8_87bux")
+wave/type = 3
+sample_params/sound_vol = 0.375
+sample_params/sample_rate = 44100.0
+envelope/attack_time = 0.0
+envelope/sustain_time = 0.25
+envelope/punch_time = 0.05
+envelope/decay_time = 0.25
+frequency/start_frequency = 0.375
+frequency/min_freq_cutoff = 0.0
+frequency/slide = 0.25
+frequency/delta_slide = -0.625
+vibrato/depth = 0.0
+vibrato/speed = 0.0
+arpeggiation/frequency_mult = 0.0
+arpeggiation/change_speed = 0.0
+duty_cycle/duty_cycle = 0.0
+duty_cycle/sweep = 0.0
+retrigger/rate = 0.0
+flanger/offset = 0.0
+flanger/sweep = 0.0
+low_pass_filter/cutoff_frequency = 1.0
+low_pass_filter/cutoff_sweep = 0.0
+low_pass_filter/resonance = 0.0
+high_pass_filter/cutoff_frequency = 0.0
+high_pass_filter/cutoff_sweep = 0.0
+
+[node name="ShieldBeep" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1654675681]
+stream = ExtResource("27_iiqjc")
+volume_db = -20.0
+panning_strength = 0.0
+
+[node name="ShieldHurt" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1732461588]
+stream = ExtResource("26_15ux0")
+volume_db = -10.0
+panning_strength = 0.0
+script = ExtResource("8_87bux")
+wave/type = 3
+sample_params/sound_vol = 0.375
+sample_params/sample_rate = 44100.0
+envelope/attack_time = 0.0
+envelope/sustain_time = 0.25
+envelope/punch_time = 0.05
+envelope/decay_time = 0.25
+frequency/start_frequency = 0.375
+frequency/min_freq_cutoff = 0.0
+frequency/slide = 0.25
+frequency/delta_slide = -0.625
+vibrato/depth = 0.0
+vibrato/speed = 0.0
+arpeggiation/frequency_mult = 0.0
+arpeggiation/change_speed = 0.0
+duty_cycle/duty_cycle = 0.0
+duty_cycle/sweep = 0.0
+retrigger/rate = 0.0
+flanger/offset = 0.0
+flanger/sweep = 0.0
+low_pass_filter/cutoff_frequency = 1.0
+low_pass_filter/cutoff_sweep = 0.0
+low_pass_filter/resonance = 0.0
+high_pass_filter/cutoff_frequency = 0.0
+high_pass_filter/cutoff_sweep = 0.0
+
+[node name="ShieldRegain" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1174139608]
+stream = ExtResource("27_74dfm")
+volume_db = -10.0
+panning_strength = 0.0
+playback_type = 1
 script = ExtResource("8_87bux")
 wave/type = 3
 sample_params/sound_vol = 0.375
@@ -610,6 +817,7 @@ high_pass_filter/cutoff_sweep = 0.0
 
 [node name="Unused1" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1603563907]
 stream = SubResource("AudioStreamWAV_tnaay")
+panning_strength = 0.0
 script = ExtResource("8_87bux")
 wave/type = 2
 sample_params/sound_vol = 0.125
@@ -639,6 +847,7 @@ high_pass_filter/cutoff_sweep = 0.0
 
 [node name="SfxrStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sounds" unique_id=656236536]
 stream = SubResource("AudioStreamWAV_lxn1j")
+panning_strength = 0.0
 script = ExtResource("8_87bux")
 wave/type = 3
 sample_params/sound_vol = 0.25
@@ -668,6 +877,7 @@ high_pass_filter/cutoff_sweep = 0.0
 
 [node name="ToBall" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1624622921 groups=["hatch"]]
 stream = SubResource("AudioStreamWAV_caavp")
+panning_strength = 0.0
 script = ExtResource("8_87bux")
 wave/type = 0
 sample_params/sound_vol = 0.15
@@ -697,6 +907,7 @@ high_pass_filter/cutoff_sweep = 0.0
 
 [node name="FromBall" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1048870320 groups=["hatch"]]
 stream = SubResource("AudioStreamWAV_npta6")
+panning_strength = 0.0
 script = ExtResource("8_87bux")
 wave/type = 1
 sample_params/sound_vol = 0.15
@@ -726,6 +937,7 @@ high_pass_filter/cutoff_sweep = 0.0
 
 [node name="CantUntuck" type="AudioStreamPlayer2D" parent="Sounds" unique_id=118408020]
 stream = SubResource("AudioStreamWAV_djxyo")
+panning_strength = 0.0
 script = ExtResource("8_87bux")
 wave/type = 1
 sample_params/sound_vol = 0.375
@@ -755,6 +967,7 @@ high_pass_filter/cutoff_sweep = 0.0
 
 [node name="PickupPlaceholder" type="AudioStreamPlayer2D" parent="Sounds" unique_id=772606810]
 stream = SubResource("AudioStreamWAV_nkx1q")
+panning_strength = 0.0
 script = ExtResource("8_87bux")
 wave/type = 2
 sample_params/sound_vol = 0.25
@@ -843,5 +1056,13 @@ spread = 0.0
 gravity = Vector2(0, 0)
 color = Color(0.6392157, 0.85490197, 0.99215686, 1)
 color_ramp = SubResource("Gradient_q4257")
+
+[node name="Sprite2D_barrier_feature" type="AnimatedSprite2D" parent="." unique_id=1827119021]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1.353256, 1.353256, 1.353256, 1)
+z_index = 20
+sprite_frames = SubResource("SpriteFrames_c0fq5")
+autoplay = "default"
+offset = Vector2(0, 4)
 
 [connection signal="area_entered" from="hurt_box" to="." method="_on_hurt_area_area_entered"]

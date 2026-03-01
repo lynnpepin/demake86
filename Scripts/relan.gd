@@ -22,7 +22,9 @@ var START_ENERGY   = 3;
 var MAX_MISSILES = 24
 var MAX_ENERGY   = 24
 var BOMB_PERIOD: float = 0.5
+var BARRIER_RECHARGE_PERIOD: float = 2.86 # todo change
 var MAX_BOMBS = 5
+
 var time = 0;
 enum States { Normal, Ball, Dead }
 #endregion
@@ -58,6 +60,8 @@ var has_wave_beam = false
 var has_ice_beam = false
 
 var has_varia_suit = false
+var barrier = false
+var barrier_timer = 0
 
 # input
 var left: bool
@@ -255,6 +259,12 @@ func _process(delta):
             b.position = global_position + Vector2(0, 6)
             owner.add_child(b)
             bombs -= BOMB_PERIOD
+    
+    # set up barrier
+    if has_varia_suit:
+        barrier_timer = clamp(barrier_timer + delta, 0, BARRIER_RECHARGE_PERIOD)
+        if barrier_timer >= BARRIER_RECHARGE_PERIOD:
+            regain_barrier()
         
     queue_redraw()
 
@@ -277,6 +287,7 @@ func _transition_normal_to_ball():
         $ball_trail/CPUParticles2D.emitting = true
         $ball_trail/CPUParticles2D_top.emitting = true
         $ball_trail/CPUParticles2D_bot.emitting = true
+        $Sprite2D_barrier_feature.offset.y = 6.0
 
 func _transition_ball_to_normal():
     # First, check that there's no clipping
@@ -299,6 +310,7 @@ func _transition_ball_to_normal():
         $ball_trail/CPUParticles2D.emitting = false
         $ball_trail/CPUParticles2D_top.emitting = false
         $ball_trail/CPUParticles2D_bot.emitting = false
+        $Sprite2D_barrier_feature.offset.y = 4.0
 
 func play_landing_sound():
     [$Sounds/Land, $Sounds/Land2, $Sounds/Land3, $Sounds/Land4][randi() % 4].play()
@@ -317,21 +329,37 @@ func play_screech_sound():
         $Sounds/ChangeDirection.stop()
 
 func hurt(damage: int, cooldown: float) -> void:
-    # todo
-    # - take damage
-    # - make noise
-    # - whether damage should take off last bit of health
+    # todo  whether damage should take off last bit of health
     $body_sprite.modulate = Color.RED
     if hurt_timer <= 0:
-        $Sounds/Hurt1.play()
         hurt_timer = cooldown
-        add_energy(-damage)
+        if barrier_timer >= BARRIER_RECHARGE_PERIOD:
+            remove_barrier()
+        else:
+            barrier_timer = 0
+            $Sounds/Hurt1.play()
+            add_energy(-damage)
     if energy == 0:
         die()
         #print("OH NOOOO")
-    
+
+func remove_barrier():
+    barrier_timer = 0
+    barrier = false
+    $Sprite2D_barrier_feature.modulate = Color(1, 1, 1, 0)
+    $Sounds/ShieldHurt.play()
+    $Sounds/ShieldBeep.play(0)
+
+func regain_barrier():
+    if !barrier:
+        barrier = true
+        $Sprite2D_barrier_feature.modulate = Color(1,1,1, .5)
+        $Sounds/ShieldRegain.play()
+        $Sounds/ShieldBeep.stop()
+
 func _draw():
-    pass
+    #draw_circle(Vector2(0,6),6, Color(0, 1.0, 1.0, 0.2), false, -1, false)
+    pass   
 
 func show_message(message):
     $Typer.start(message)
