@@ -84,6 +84,7 @@ color_ramp = SubResource("Gradient_hffr3")
 
 [node name="UnfreezeSound" type="AudioStreamPlayer2D" parent="." unique_id=76772355]
 stream = ExtResource("3_j2gxe")
+panning_strength = 3.0
 
 [node name="FreezeSound" type="AudioStreamPlayer2D" parent="." unique_id=1382549539]
 stream = ExtResource("3_e20xd")
