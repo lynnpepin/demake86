@@ -414,6 +414,7 @@ func die():
     $Cannon.process_mode = Node.PROCESS_MODE_DISABLED
     $Cannon.visible = false
     $smoke_boots.emitting = true
+    $ball_trail.visible = false
     
     pass
 #endregion
