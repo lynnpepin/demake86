@@ -31,6 +31,11 @@ window/snap/snap_2d_transforms_to_pixel=false
 
 [editor]
 
+movie_writer/video_quality=1.0
+movie_writer/ogv/encoding_speed=3
+movie_writer/ogv/keyframe_interval=16
+movie_writer/movie_file="/home/lynn/proj/demake86/z_ExportedMovies/out.avi"
+movie_writer/fps=120
 movie_writer/mjpeg_quality=0.9
 
 [editor_plugins]
