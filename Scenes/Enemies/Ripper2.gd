@@ -6,6 +6,7 @@ var direction: int = 1
 #	super()
 
 func _process(delta: float) -> void:
+    super(delta)
     $AnimatedSprite2D.modulate = Color(255.0/255.0, 220.0/255.0, 255.0/255.0)
 
 func _physics_process(delta: float) -> void:

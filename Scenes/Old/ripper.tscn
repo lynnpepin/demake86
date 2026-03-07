@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://ddd2blsbfg3ws"]
+[gd_scene format=4 uid="uid://ddd2blsbfg3ws"]
 
 [ext_resource type="Script" uid="uid://ddinltiid1woo" path="res://Scripts/ripper.gd" id="1_ijmpo"]
 [ext_resource type="Texture2D" uid="uid://bn5kl3uuxwle6" path="res://art/zoomer/ripper.png" id="2_86ph5"]
@@ -22,31 +22,30 @@ data = PackedByteArray("AQIHDRQZHBYNA/fu5+Pk6O/5BA4XHB0aFAsB9ezm4+To8PkEDhYcHRsV
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_b4ncq"]
 data = PackedByteArray("CBkeFgsB+/r6+/v8+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/sQMjssFgX7+Pn7/Pz8+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+wwvPC8ZB/z4+fr7/Pz7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7AiM7NiIN//n4+vv8/Pz7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v8FTU7KxUE+vj5+/z8/Pv7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/sIKzwzHQn9+fn6+/z8+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+wEjOzcjDv/5+Pr7/Pz7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7/h46OSYQAfr4+fv8/Pv7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/sBIzw4JA7/+fj6+/z8+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+wswPjIcCPz5+fr7/Pv7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v+Hjs6JxEC+vj5+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+xU2PS0XBfv4+fr7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/sLMD4zHAn9+fn6+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7BCg+OCIN//n4+vv7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/4fOzwpEgP6+Pn7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7CzA/NB0K/fn5+vv7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/waOj4sFgX7+fn6+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7/h88PSoTA/r5+fv7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v8Gjo+LRYF+/n5+vv7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/sLMUA1Hwv++fn6+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/4fPT4rFAT7+fn7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+wsxQTYgC/75+fr7+/v7+/r6+vr7+/v7+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6/h89PiwVBPv5+fv7+/v7+/r6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr7EDVBNB0K/fn5+vv7+/v7+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+voHLUE5JA4B+vn6+/v7+/r6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+gctQjokDwH6+fr7+/v7+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6EDVCNR4L/vn5+vv7+/v6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+v0fPkAtFgX8+fn6+/v7+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6CzJDOCIN//r5+vv7+/r6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+gEkQD8rFAT7+fn6+/v7+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr7FTlDNB0K/fn5+vv7+/r6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+vr6+gMpQj4pEwP7+fr7+/v7+vr6")
 
-[node name="Ripper" type="CharacterBody2D" groups=["enemies"]]
-position = Vector2(232, 160)
+[node name="Ripper" type="CharacterBody2D" unique_id=895621416 groups=["enemies"]]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_ijmpo")
 
-[node name="collision_platforming" type="CollisionShape2D" parent="." groups=["enemies"]]
+[node name="collision_platforming" type="CollisionShape2D" parent="." unique_id=984144626 groups=["enemies"]]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_qx8bm")
 
-[node name="area_hitbox" type="Area2D" parent="." groups=["enemies"]]
+[node name="area_hitbox" type="Area2D" parent="." unique_id=1218303974 groups=["enemies"]]
 collision_layer = 4
 collision_mask = 24
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="area_hitbox" groups=["enemies"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_hitbox" unique_id=1160711293 groups=["enemies"]]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ggu4r")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1480332579]
 texture = ExtResource("2_86ph5")
 offset = Vector2(0, -3)
 
-[node name="HitSounds" type="Node" parent="."]
+[node name="HitSounds" type="Node" parent="." unique_id=960186190]
 
-[node name="Hit1" type="AudioStreamPlayer2D" parent="HitSounds"]
+[node name="Hit1" type="AudioStreamPlayer2D" parent="HitSounds" unique_id=899938732]
 stream = SubResource("AudioStreamWAV_qp3l5")
 script = ExtResource("3_jmkf4")
 wave/type = 2
@@ -75,7 +74,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.0
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="Hit2" type="AudioStreamPlayer2D" parent="HitSounds"]
+[node name="Hit2" type="AudioStreamPlayer2D" parent="HitSounds" unique_id=911395730]
 stream = SubResource("AudioStreamWAV_13ri7")
 script = ExtResource("3_jmkf4")
 wave/type = 2
@@ -104,7 +103,7 @@ low_pass_filter/resonance = -0.0712409
 high_pass_filter/cutoff_frequency = 0.0277684
 high_pass_filter/cutoff_sweep = 0.00674058
 
-[node name="Hit3" type="AudioStreamPlayer2D" parent="HitSounds"]
+[node name="Hit3" type="AudioStreamPlayer2D" parent="HitSounds" unique_id=1621384233]
 stream = SubResource("AudioStreamWAV_8r2fx")
 script = ExtResource("3_jmkf4")
 wave/type = 2
@@ -133,7 +132,7 @@ low_pass_filter/resonance = -0.0350474
 high_pass_filter/cutoff_frequency = 0.0316207
 high_pass_filter/cutoff_sweep = 0.0204578
 
-[node name="Hit4" type="AudioStreamPlayer2D" parent="HitSounds"]
+[node name="Hit4" type="AudioStreamPlayer2D" parent="HitSounds" unique_id=1645400349]
 stream = SubResource("AudioStreamWAV_b4ncq")
 script = ExtResource("3_jmkf4")
 wave/type = 1
@@ -162,6 +161,6 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.888428
 high_pass_filter/cutoff_sweep = -0.504132
 
-[node name="DeathSounds" type="Node" parent="."]
+[node name="DeathSounds" type="Node" parent="." unique_id=1169327483]
 
 [connection signal="area_entered" from="area_hitbox" to="." method="_on_area_hitbox_area_entered"]
