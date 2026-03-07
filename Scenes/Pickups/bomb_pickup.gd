@@ -1,4 +1,4 @@
 extends PickupClass
 
 func player_do(body):
-	body.has_morph_bomb = true
+    body.has_morph_bomb = true

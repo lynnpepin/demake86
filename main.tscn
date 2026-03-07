@@ -961,6 +961,91 @@ zoomer_speed = -12
 position = Vector2(220, 304)
 zoomer_speed = -12
 
+[node name="EnemyClass16" parent="Enemies" unique_id=1049770726 instance=ExtResource("26_lswn8")]
+position = Vector2(236, 320)
+zoomer_speed = -12
+
+[node name="EnemyClass17" parent="Enemies" unique_id=612462787 instance=ExtResource("26_lswn8")]
+position = Vector2(220, 320)
+zoomer_speed = -12
+
+[node name="EnemyClass18" parent="Enemies" unique_id=1133896219 instance=ExtResource("26_lswn8")]
+position = Vector2(244, 272)
+zoomer_speed = -12
+
+[node name="EnemyClass34" parent="Enemies" unique_id=2111815773 instance=ExtResource("26_lswn8")]
+position = Vector2(228, 320)
+zoomer_speed = -12
+
+[node name="EnemyClass28" parent="Enemies" unique_id=1039860625 instance=ExtResource("26_lswn8")]
+position = Vector2(212, 248)
+zoomer_speed = -12
+
+[node name="EnemyClass29" parent="Enemies" unique_id=82712059 instance=ExtResource("26_lswn8")]
+position = Vector2(228, 256)
+zoomer_speed = -12
+
+[node name="EnemyClass30" parent="Enemies" unique_id=1457192153 instance=ExtResource("26_lswn8")]
+position = Vector2(236, 256)
+zoomer_speed = -12
+
+[node name="EnemyClass31" parent="Enemies" unique_id=1247287227 instance=ExtResource("26_lswn8")]
+position = Vector2(244, 256)
+zoomer_speed = -12
+
+[node name="EnemyClass32" parent="Enemies" unique_id=442130094 instance=ExtResource("26_lswn8")]
+position = Vector2(252, 256)
+zoomer_speed = -12
+
+[node name="EnemyClass33" parent="Enemies" unique_id=1982363767 instance=ExtResource("26_lswn8")]
+position = Vector2(220, 256)
+zoomer_speed = -12
+
+[node name="EnemyClass19" parent="Enemies" unique_id=1481181181 instance=ExtResource("26_lswn8")]
+position = Vector2(240, 288)
+rotation = -1.5707941
+zoomer_speed = -12
+
+[node name="EnemyClass20" parent="Enemies" unique_id=1459708836 instance=ExtResource("26_lswn8")]
+position = Vector2(224, 244)
+rotation = -1.5707941
+zoomer_speed = -12
+
+[node name="EnemyClass21" parent="Enemies" unique_id=357260000 instance=ExtResource("26_lswn8")]
+position = Vector2(240, 244)
+rotation = -1.5707941
+zoomer_speed = -12
+
+[node name="EnemyClass22" parent="Enemies" unique_id=1295388221 instance=ExtResource("26_lswn8")]
+position = Vector2(240, 228)
+rotation = -1.5707941
+zoomer_speed = -12
+
+[node name="EnemyClass23" parent="Enemies" unique_id=1260856543 instance=ExtResource("26_lswn8")]
+position = Vector2(208, 196)
+rotation = -1.5707941
+zoomer_speed = -12
+
+[node name="EnemyClass24" parent="Enemies" unique_id=930209921 instance=ExtResource("26_lswn8")]
+position = Vector2(208, 220)
+rotation = -1.5707941
+zoomer_speed = -12
+
+[node name="EnemyClass25" parent="Enemies" unique_id=1214214513 instance=ExtResource("26_lswn8")]
+position = Vector2(208, 208)
+rotation = -1.5707941
+zoomer_speed = -12
+
+[node name="EnemyClass26" parent="Enemies" unique_id=1894155028 instance=ExtResource("26_lswn8")]
+position = Vector2(208, 252)
+rotation = -1.5707941
+zoomer_speed = -12
+
+[node name="EnemyClass27" parent="Enemies" unique_id=5828487 instance=ExtResource("26_lswn8")]
+position = Vector2(240, 196)
+rotation = -1.5707941
+zoomer_speed = -12
+
 [node name="EnemyClass6" parent="Enemies" unique_id=793799247 instance=ExtResource("26_lswn8")]
 position = Vector2(224, 128)
 zoomer_speed = -12

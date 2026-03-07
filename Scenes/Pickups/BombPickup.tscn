@@ -1,8 +1,32 @@
-[gd_scene load_steps=10 format=3 uid="uid://cacny0hjo4im5"]
+[gd_scene format=3 uid="uid://cacny0hjo4im5"]
 
 [ext_resource type="PackedScene" uid="uid://dvmfspjjw6lrx" path="res://Classes/PickupClass.tscn" id="1_sm50s"]
 [ext_resource type="Script" uid="uid://b3lpvo7ih4bif" path="res://Scenes/Pickups/bomb_pickup.gd" id="2_3nrrn"]
 [ext_resource type="Script" uid="uid://b5vwhcikrrgl6" path="res://Scripts/MorphBallPickup_Node3D.gd" id="3_optip"]
+[ext_resource type="Texture2D" uid="uid://bm1xq355l3lur" path="res://art/bomb_pickup_sprite/out-0.png" id="4_vwt8w"]
+[ext_resource type="Texture2D" uid="uid://b8viq200b6ebs" path="res://art/bomb_pickup_sprite/out-1.png" id="5_srjg8"]
+[ext_resource type="Texture2D" uid="uid://bblrfpxdci44k" path="res://art/bomb_pickup_sprite/out-2.png" id="6_hjca7"]
+[ext_resource type="Texture2D" uid="uid://tnjnf2lxnt52" path="res://art/bomb_pickup_sprite/out-3.png" id="7_js5vi"]
+[ext_resource type="Texture2D" uid="uid://orju15j3emjp" path="res://art/bomb_pickup_sprite/out-4.png" id="8_virny"]
+[ext_resource type="Texture2D" uid="uid://x55nalaecff5" path="res://art/bomb_pickup_sprite/out-5.png" id="9_wqmfl"]
+[ext_resource type="Texture2D" uid="uid://b55gnnjf185iy" path="res://art/bomb_pickup_sprite/out-6.png" id="10_8t3ar"]
+[ext_resource type="Texture2D" uid="uid://br0haaotubebi" path="res://art/bomb_pickup_sprite/out-7.png" id="11_wjltj"]
+[ext_resource type="Texture2D" uid="uid://87u440dvpbgp" path="res://art/bomb_pickup_sprite/out-8.png" id="12_u5tnr"]
+[ext_resource type="Texture2D" uid="uid://cxqj5w5tay0bl" path="res://art/bomb_pickup_sprite/out-9.png" id="13_hfesk"]
+[ext_resource type="Texture2D" uid="uid://c5f1hqjypiakg" path="res://art/bomb_pickup_sprite/out-10.png" id="14_2owsy"]
+[ext_resource type="Texture2D" uid="uid://cx5ef50guu35p" path="res://art/bomb_pickup_sprite/out-11.png" id="15_16cgt"]
+[ext_resource type="Texture2D" uid="uid://cjkar6dkcqhov" path="res://art/bomb_pickup_sprite/out-12.png" id="16_2owuf"]
+[ext_resource type="Texture2D" uid="uid://bnyx5l86cxb4c" path="res://art/bomb_pickup_sprite/out-13.png" id="17_agqfh"]
+[ext_resource type="Texture2D" uid="uid://c4ku1roreiq3r" path="res://art/bomb_pickup_sprite/out-14.png" id="18_nxcor"]
+[ext_resource type="Texture2D" uid="uid://bauqyay6m3ova" path="res://art/bomb_pickup_sprite/out-15.png" id="19_2pwp2"]
+[ext_resource type="Texture2D" uid="uid://dndff8n3b0qe4" path="res://art/bomb_pickup_sprite/out-16.png" id="20_uwyhu"]
+[ext_resource type="Texture2D" uid="uid://bvxyt0psuxpek" path="res://art/bomb_pickup_sprite/out-17.png" id="21_c2uai"]
+[ext_resource type="Texture2D" uid="uid://dltjs7q7f5brx" path="res://art/bomb_pickup_sprite/out-18.png" id="22_slnrp"]
+[ext_resource type="Texture2D" uid="uid://cue41w5o8ngod" path="res://art/bomb_pickup_sprite/out-19.png" id="23_388gw"]
+[ext_resource type="Texture2D" uid="uid://jxc6bmj7lfny" path="res://art/bomb_pickup_sprite/out-20.png" id="24_u17m5"]
+[ext_resource type="Texture2D" uid="uid://6aw5iqfdy6nu" path="res://art/bomb_pickup_sprite/out-21.png" id="25_ii0np"]
+[ext_resource type="Texture2D" uid="uid://xdjgu5v7no5k" path="res://art/bomb_pickup_sprite/out-22.png" id="26_8jl6u"]
+[ext_resource type="Texture2D" uid="uid://cdckh6mik73l4" path="res://art/bomb_pickup_sprite/out-23.png" id="27_lgy7y"]
 
 [sub_resource type="Environment" id="Environment_bimby"]
 background_mode = 1
@@ -30,45 +54,124 @@ shading_mode = 0
 albedo_texture = SubResource("GradientTexture2D_aapjt")
 texture_filter = 0
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yaety"]
-size = Vector2(4, 4)
+[sub_resource type="SpriteFrames" id="SpriteFrames_ug7q6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_vwt8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_srjg8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hjca7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_js5vi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_virny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wqmfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8t3ar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_wjltj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_u5tnr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_hfesk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_2owsy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_16cgt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_2owuf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_agqfh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_nxcor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_2pwp2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_uwyhu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_c2uai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_slnrp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_388gw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_u17m5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_ii0np")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_8jl6u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_lgy7y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
 
-[node name="BombPickup" instance=ExtResource("1_sm50s")]
+[node name="BombPickup" unique_id=362009216 instance=ExtResource("1_sm50s")]
 script = ExtResource("2_3nrrn")
 pickup_message = "BALL BOMB\\nACQUIRED"
 
-[node name="SubViewport" type="SubViewport" parent="." index="1"]
+[node name="SubViewport" type="SubViewport" parent="." index="1" unique_id=1335599591]
 transparent_bg = true
 canvas_item_default_texture_filter = 0
 size = Vector2i(6, 6)
 
-[node name="Node3D" type="Node3D" parent="SubViewport" index="0"]
+[node name="Node3D" type="Node3D" parent="SubViewport" index="0" unique_id=673573016]
 script = ExtResource("3_optip")
 
-[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D" index="0"]
+[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D" index="0" unique_id=326998057]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.72937)
 environment = SubResource("Environment_bimby")
 projection = 1
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D" index="1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D" index="1" unique_id=1019385581]
 mesh = SubResource("SphereMesh_pkrex")
 surface_material_override/0 = SubResource("StandardMaterial3D_4lcw1")
 
-[node name="PivotLight1" type="Node3D" parent="SubViewport/Node3D" index="2"]
+[node name="PivotLight1" type="Node3D" parent="SubViewport/Node3D" index="2" unique_id=1781503765]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="0"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="0" unique_id=1442567960]
 transform = Transform3D(-0.840657, 0.392522, -0.373125, -0.225254, 0.373124, 0.900022, 0.492499, 0.840658, -0.225253, 0, 0, 0.806871)
 visible = false
 light_color = Color(0.869911, 0.864236, 0.839635, 1)
 
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="1"]
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="1" unique_id=434752349]
 transform = Transform3D(0.0606811, -0.981559, 0.181275, 0.609193, 0.180283, 0.772258, -0.790697, 0.0635702, 0.608899, 0.842064, 0, 0.806871)
 visible = false
 
-[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="2"]
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="2" unique_id=915231055]
 transform = Transform3D(0.870313, -0.475718, 0.127468, 0, -0.258819, -0.965926, 0.492499, 0.840658, -0.225254, 0, 0, 0.806871)
 visible = false
 light_color = Color(0.996078, 0.792157, 0.933333, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
-texture = SubResource("PlaceholderTexture2D_yaety")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=655437794]
+sprite_frames = SubResource("SpriteFrames_ug7q6")
+autoplay = "default"
+frame_progress = 0.03422396
