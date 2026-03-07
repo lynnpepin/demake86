@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ck0v87hhb0amf"]
+[gd_scene format=3 uid="uid://ck0v87hhb0amf"]
 
 [ext_resource type="PackedScene" uid="uid://dvmfspjjw6lrx" path="res://Classes/PickupClass.tscn" id="1_tdr4b"]
 [ext_resource type="Script" uid="uid://dml7rckk1vg8b" path="res://Scenes/Pickups/high_jump_pickup.gd" id="2_u7ihm"]
@@ -33,25 +33,26 @@ texture_filter = 0
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yaety"]
 size = Vector2(4, 4)
 
-[node name="HighJumpPickup" instance=ExtResource("1_tdr4b")]
+[node name="HighJumpPickup" unique_id=1677123926 instance=ExtResource("1_tdr4b")]
 script = ExtResource("2_u7ihm")
+pickup_message = "BELLBIRD'S WINGS\\nACQUIRED"
 
-[node name="SubViewport" type="SubViewport" parent="." index="1"]
+[node name="SubViewport" type="SubViewport" parent="." index="1" unique_id=2017651310]
 transparent_bg = true
 canvas_item_default_texture_filter = 0
 size = Vector2i(6, 6)
 
-[node name="Node3D" type="Node3D" parent="SubViewport" index="0"]
+[node name="Node3D" type="Node3D" parent="SubViewport" index="0" unique_id=1382464777]
 script = ExtResource("3_2hw6j")
 
-[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D" index="0"]
+[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D" index="0" unique_id=1097563595]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.72937)
 environment = SubResource("Environment_bimby")
 projection = 1
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D" index="1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D" index="1" unique_id=114208818]
 mesh = SubResource("SphereMesh_pkrex")
 surface_material_override/0 = SubResource("StandardMaterial3D_4lcw1")
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="2" unique_id=1195181314]
 texture = SubResource("PlaceholderTexture2D_yaety")

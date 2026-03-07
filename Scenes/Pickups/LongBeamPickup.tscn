@@ -1,8 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://7inx7nnea1o3"]
+[gd_scene format=3 uid="uid://7inx7nnea1o3"]
 
 [ext_resource type="PackedScene" uid="uid://dvmfspjjw6lrx" path="res://Classes/PickupClass.tscn" id="1_5lifo"]
 [ext_resource type="Script" uid="uid://cad45gseqkmvr" path="res://Scenes/Pickups/long_beam_pickup.gd" id="2_33hfu"]
 [ext_resource type="Script" uid="uid://b5vwhcikrrgl6" path="res://Scripts/MorphBallPickup_Node3D.gd" id="3_gq4o8"]
+[ext_resource type="Texture2D" uid="uid://bkoo21yqg2ori" path="res://art/bomb_pickup_sprite/beam_pick_long-0.png" id="4_3jpjh"]
+[ext_resource type="Texture2D" uid="uid://i0hj173mf6l4" path="res://art/bomb_pickup_sprite/beam_pick_long-1.png" id="5_e70xg"]
+[ext_resource type="Texture2D" uid="uid://dwo6srfc8qjkf" path="res://art/bomb_pickup_sprite/beam_pick_long-2.png" id="6_bbol5"]
+[ext_resource type="Texture2D" uid="uid://drq06eaq6bwoq" path="res://art/bomb_pickup_sprite/beam_pick_long-3.png" id="7_73jrh"]
+[ext_resource type="Texture2D" uid="uid://framdjma35s2" path="res://art/bomb_pickup_sprite/beam_pick_long-4.png" id="8_brb3f"]
 
 [sub_resource type="Environment" id="Environment_bimby"]
 background_mode = 1
@@ -30,46 +35,67 @@ shading_mode = 0
 albedo_texture = SubResource("GradientTexture2D_aapjt")
 texture_filter = 0
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yaety"]
-size = Vector2(4, 4)
+[sub_resource type="SpriteFrames" id="SpriteFrames_dshy1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_3jpjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_e70xg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bbol5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_73jrh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_brb3f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
 
-[node name="LongBeamPickup" instance=ExtResource("1_5lifo")]
+[node name="LongBeamPickup" unique_id=544985207 instance=ExtResource("1_5lifo")]
 script = ExtResource("2_33hfu")
 pickup_name = "morphball"
 pickup_message = "TUCK BALL\\nACQUIRED"
 
-[node name="SubViewport" type="SubViewport" parent="." index="1"]
+[node name="SubViewport" type="SubViewport" parent="." index="1" unique_id=768741068]
 transparent_bg = true
 canvas_item_default_texture_filter = 0
 size = Vector2i(6, 6)
 
-[node name="Node3D" type="Node3D" parent="SubViewport" index="0"]
+[node name="Node3D" type="Node3D" parent="SubViewport" index="0" unique_id=2107104077]
 script = ExtResource("3_gq4o8")
 
-[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D" index="0"]
+[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D" index="0" unique_id=333661612]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.72937)
 environment = SubResource("Environment_bimby")
 projection = 1
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D" index="1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D" index="1" unique_id=366536564]
 mesh = SubResource("SphereMesh_pkrex")
 surface_material_override/0 = SubResource("StandardMaterial3D_4lcw1")
 
-[node name="PivotLight1" type="Node3D" parent="SubViewport/Node3D" index="2"]
+[node name="PivotLight1" type="Node3D" parent="SubViewport/Node3D" index="2" unique_id=1827708768]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="0"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="0" unique_id=670188228]
 transform = Transform3D(-0.840657, 0.392522, -0.373125, -0.225254, 0.373124, 0.900022, 0.492499, 0.840658, -0.225253, 0, 0, 0.806871)
 visible = false
 light_color = Color(0.869911, 0.864236, 0.839635, 1)
 
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="1"]
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="1" unique_id=673060342]
 transform = Transform3D(0.0606811, -0.981559, 0.181275, 0.609193, 0.180283, 0.772258, -0.790697, 0.0635702, 0.608899, 0.842064, 0, 0.806871)
 visible = false
 
-[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="2"]
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="2" unique_id=1504968412]
 transform = Transform3D(0.870313, -0.475718, 0.127468, 0, -0.258819, -0.965926, 0.492499, 0.840658, -0.225254, 0, 0, 0.806871)
 visible = false
 light_color = Color(0.996078, 0.792157, 0.933333, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
-texture = SubResource("PlaceholderTexture2D_yaety")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=906005604]
+sprite_frames = SubResource("SpriteFrames_dshy1")
+autoplay = "default"

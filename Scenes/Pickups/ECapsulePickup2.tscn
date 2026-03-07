@@ -82,7 +82,7 @@ viewport_path = NodePath("SubViewport_etank")
 [node name="EnergyTank" type="Node2D" unique_id=2002973485]
 script = ExtResource("1_gwgti")
 pickup_name = "ecapsule"
-pickup_message = "E VIAL\\nACQUIRED"
+pickup_message = "E VIAL\\nINJECTED"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1266748939]
 collision_layer = 2

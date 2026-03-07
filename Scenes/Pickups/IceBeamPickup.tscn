@@ -1,8 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7fcu5hfcc2as"]
+[gd_scene format=3 uid="uid://b7fcu5hfcc2as"]
 
 [ext_resource type="PackedScene" uid="uid://dvmfspjjw6lrx" path="res://Classes/PickupClass.tscn" id="1_bemnw"]
 [ext_resource type="Script" uid="uid://dlqjigeqpu5vs" path="res://Scenes/Pickups/ice_beam_pickup.gd" id="2_nffby"]
 [ext_resource type="Script" uid="uid://b5vwhcikrrgl6" path="res://Scripts/MorphBallPickup_Node3D.gd" id="3_iiw0s"]
+[ext_resource type="Texture2D" uid="uid://b850mlnnpma01" path="res://art/bomb_pickup_sprite/beam_pick_ice-0.png" id="4_12amm"]
+[ext_resource type="Texture2D" uid="uid://3cn1ubfl1m65" path="res://art/bomb_pickup_sprite/beam_pick_ice-1.png" id="5_2q13s"]
+[ext_resource type="Texture2D" uid="uid://dbmd4eruk675o" path="res://art/bomb_pickup_sprite/beam_pick_ice-2.png" id="6_u53mh"]
+[ext_resource type="Texture2D" uid="uid://tek82cwxsv6r" path="res://art/bomb_pickup_sprite/beam_pick_ice-3.png" id="7_mjfuu"]
+[ext_resource type="Texture2D" uid="uid://b1o75des0sora" path="res://art/bomb_pickup_sprite/beam_pick_ice-4.png" id="8_f3yyq"]
+[ext_resource type="Texture2D" uid="uid://bguq8kk58qx8b" path="res://art/bomb_pickup_sprite/beam_pick_ice-5.png" id="9_d6pq3"]
+[ext_resource type="Texture2D" uid="uid://u4e0n0bifb2s" path="res://art/bomb_pickup_sprite/beam_pick_ice-6.png" id="10_yftaq"]
+[ext_resource type="Texture2D" uid="uid://pchb2adg4qyn" path="res://art/bomb_pickup_sprite/beam_pick_ice-7.png" id="11_qjglf"]
+[ext_resource type="Texture2D" uid="uid://bvue33o8fvf5h" path="res://art/bomb_pickup_sprite/beam_pick_ice-8.png" id="12_uteba"]
+[ext_resource type="Texture2D" uid="uid://xrgyfp66pgg8" path="res://art/bomb_pickup_sprite/beam_pick_ice-9.png" id="13_ux7q3"]
 
 [sub_resource type="Environment" id="Environment_bimby"]
 background_mode = 1
@@ -30,45 +40,81 @@ shading_mode = 0
 albedo_texture = SubResource("GradientTexture2D_aapjt")
 texture_filter = 0
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yaety"]
-size = Vector2(4, 4)
+[sub_resource type="SpriteFrames" id="SpriteFrames_bt1si"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_12amm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2q13s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u53mh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mjfuu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_f3yyq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_d6pq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_yftaq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qjglf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_uteba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ux7q3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
 
-[node name="LongBeamPickup" instance=ExtResource("1_bemnw")]
+[node name="LongBeamPickup" unique_id=1128136538 instance=ExtResource("1_bemnw")]
 script = ExtResource("2_nffby")
 pickup_message = "COOL BEAM\\nACQUIRED"
 
-[node name="SubViewport" type="SubViewport" parent="." index="1"]
+[node name="SubViewport" type="SubViewport" parent="." index="1" unique_id=951564553]
 transparent_bg = true
 canvas_item_default_texture_filter = 0
 size = Vector2i(6, 6)
 
-[node name="Node3D" type="Node3D" parent="SubViewport" index="0"]
+[node name="Node3D" type="Node3D" parent="SubViewport" index="0" unique_id=1806564515]
 script = ExtResource("3_iiw0s")
 
-[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D" index="0"]
+[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D" index="0" unique_id=1381767695]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.72937)
 environment = SubResource("Environment_bimby")
 projection = 1
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D" index="1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D" index="1" unique_id=1751039247]
 mesh = SubResource("SphereMesh_pkrex")
 surface_material_override/0 = SubResource("StandardMaterial3D_4lcw1")
 
-[node name="PivotLight1" type="Node3D" parent="SubViewport/Node3D" index="2"]
+[node name="PivotLight1" type="Node3D" parent="SubViewport/Node3D" index="2" unique_id=679593309]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="0"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="0" unique_id=1646891832]
 transform = Transform3D(-0.840657, 0.392522, -0.373125, -0.225254, 0.373124, 0.900022, 0.492499, 0.840658, -0.225253, 0, 0, 0.806871)
 visible = false
 light_color = Color(0.869911, 0.864236, 0.839635, 1)
 
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="1"]
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="1" unique_id=1644609980]
 transform = Transform3D(0.0606811, -0.981559, 0.181275, 0.609193, 0.180283, 0.772258, -0.790697, 0.0635702, 0.608899, 0.842064, 0, 0.806871)
 visible = false
 
-[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="2"]
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="2" unique_id=961064210]
 transform = Transform3D(0.870313, -0.475718, 0.127468, 0, -0.258819, -0.965926, 0.492499, 0.840658, -0.225254, 0, 0, 0.806871)
 visible = false
 light_color = Color(0.996078, 0.792157, 0.933333, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
-texture = SubResource("PlaceholderTexture2D_yaety")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=99942127]
+sprite_frames = SubResource("SpriteFrames_bt1si")
+autoplay = "default"

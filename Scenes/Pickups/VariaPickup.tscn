@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://inxg8wil5vub"]
+[gd_scene format=3 uid="uid://inxg8wil5vub"]
 
 [ext_resource type="PackedScene" uid="uid://dvmfspjjw6lrx" path="res://Classes/PickupClass.tscn" id="1_q8jep"]
 [ext_resource type="Script" uid="uid://dma57rxdnhurj" path="res://Scenes/Pickups/varia_pickup.gd" id="2_fpn7i"]
@@ -38,40 +38,41 @@ height = 0.5
 [sub_resource type="ViewportTexture" id="ViewportTexture_dw4dy"]
 viewport_path = NodePath("SubViewport")
 
-[node name="VariaPickup" instance=ExtResource("1_q8jep")]
+[node name="VariaPickup" unique_id=1424359215 instance=ExtResource("1_q8jep")]
 script = ExtResource("2_fpn7i")
+pickup_message = "BARRIER FEAT.\\nACQUIRED"
 
-[node name="SubViewport" type="SubViewport" parent="." index="1"]
+[node name="SubViewport" type="SubViewport" parent="." index="1" unique_id=1718320149]
 transparent_bg = true
 canvas_item_default_texture_filter = 0
 size = Vector2i(8, 8)
 
-[node name="Node3D" type="Node3D" parent="SubViewport" index="0"]
+[node name="Node3D" type="Node3D" parent="SubViewport" index="0" unique_id=1580803059]
 
-[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D" index="0"]
+[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D" index="0" unique_id=1813333736]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 2)
 environment = SubResource("Environment_bimby")
 projection = 1
 
-[node name="Node3D" type="Node3D" parent="SubViewport/Node3D" index="1"]
+[node name="Node3D" type="Node3D" parent="SubViewport/Node3D" index="1" unique_id=1127119984]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 
-[node name="Node3D" type="Node3D" parent="SubViewport/Node3D/Node3D" index="0"]
+[node name="Node3D" type="Node3D" parent="SubViewport/Node3D/Node3D" index="0" unique_id=2093009592]
 script = ExtResource("4_vwnhu")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewport/Node3D/Node3D/Node3D" index="0"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewport/Node3D/Node3D/Node3D" index="0" unique_id=570875787]
 transform = Transform3D(0.612372, 0.612372, -0.5, -0.707107, 0.707107, 0, 0.353553, 0.353553, 0.866025, 0, 0, 0)
 mesh = SubResource("TorusMesh_g7geb")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="SubViewport/Node3D/Node3D/Node3D" index="1"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="SubViewport/Node3D/Node3D/Node3D" index="1" unique_id=1708716539]
 transform = Transform3D(0.704416, -0.704416, 0.0871557, 0.707107, 0.707107, 0, -0.0616284, 0.0616284, 0.996195, 0, 0, 0)
 mesh = SubResource("TorusMesh_g7geb")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D/Node3D" index="1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D/Node3D" index="1" unique_id=1466491602]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("SphereMesh_stawq")
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="2" unique_id=1446446156]
 texture = SubResource("ViewportTexture_dw4dy")
