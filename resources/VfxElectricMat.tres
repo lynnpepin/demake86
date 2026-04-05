@@ -29,6 +29,34 @@ curve = SubResource("Curve_x6c1i")
 [sub_resource type="VisualShaderNodeCurveTexture" id="VisualShaderNodeCurveTexture_do8aq"]
 texture = SubResource("CurveTexture_7kodk")
 
+[sub_resource type="VisualShaderNodeColorOp" id="VisualShaderNodeColorOp_ht3vd"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_ht3vd"]
+output_port_for_preview = 0
+size = Vector2(1020, 1280)
+expression = "vec3 result;
+float t = mod(time, 1.0)*2.0;
+t = mod(t, 1.0);
+
+vec3 blue = vec3(0.4, 0.8, 1.0);
+//	float(0x5b)/255.0, float(0xCF)/255.0, float(0xFB)/255.0)
+vec3 white = vec3(1.0, 1.0, 1.0);
+vec3 pink = vec3(1.0, 0.75, 0.85);
+//	float(0xF5)/255.0, float(0xAb)/255.0, float(0xB9)/255.0)
+
+if (t < 0.333) result = mix(blue, white, t/0.333);
+else if (t < 0.666) result = mix(white, pink, (t-0.333)/.333);
+else result = mix(pink, blue, (t-0.666)/.333);
+//if (t < 0.125) result = mix(blue, white, _mix_ratio);
+//else if (t < 0.125) result = mix(pink, white, _mix_ratio);
+
+color = result;
+//color = vec3(1.0, 0.0, 1.0);"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_8j23w"]
+input_name = "time"
+
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_7kodk"]
 input_name = "uv"
 
@@ -69,7 +97,7 @@ input_name = "uv"
 [resource]
 mode = 1
 flags/light_only = false
-nodes/fragment/0/position = Vector2(493.33334, 106.666664)
+nodes/fragment/0/position = Vector2(946.6667, 186.66667)
 nodes/fragment/3/node = SubResource("VisualShaderNodeInput_7kodk")
 nodes/fragment/3/position = Vector2(-1133.3334, -120)
 nodes/fragment/4/node = SubResource("VisualShaderNodeTexture3D_7kodk")
@@ -87,9 +115,36 @@ nodes/fragment/9/position = Vector2(-1013.3333, 506.66666)
 nodes/fragment/10/node = SubResource("VisualShaderNodeVectorOp_ht3vd")
 nodes/fragment/10/position = Vector2(-600, 426.66666)
 nodes/fragment/11/node = SubResource("VisualShaderNodeVectorLen_ht3vd")
-nodes/fragment/11/position = Vector2(-306.66666, 440)
+nodes/fragment/11/position = Vector2(-293.33334, 1120)
 nodes/fragment/12/node = SubResource("VisualShaderNodeCurveTexture_7kodk")
-nodes/fragment/12/position = Vector2(78.826744, 157.97095)
+nodes/fragment/12/position = Vector2(106.666664, 973.3333)
 nodes/fragment/13/node = SubResource("VisualShaderNodeCurveTexture_do8aq")
-nodes/fragment/13/position = Vector2(173.33333, -186.66667)
-nodes/fragment/connections = PackedInt32Array(3, 0, 6, 0, 6, 0, 7, 0, 7, 0, 4, 0, 6, 1, 7, 1, 5, 0, 8, 0, 8, 0, 7, 2, 9, 0, 10, 0, 10, 0, 11, 0, 11, 0, 12, 0, 12, 0, 0, 1, 4, 0, 13, 0, 13, 0, 0, 0)
+nodes/fragment/13/position = Vector2(160, -266.66666)
+nodes/fragment/14/node = SubResource("VisualShaderNodeColorOp_ht3vd")
+nodes/fragment/14/position = Vector2(706.6667, -13.333333)
+nodes/fragment/15/node = SubResource("VisualShaderNodeExpression_ht3vd")
+nodes/fragment/15/position = Vector2(-93.333336, 80)
+nodes/fragment/15/size = Vector2(1020, 1280)
+nodes/fragment/15/input_ports = "0,0,time;"
+nodes/fragment/15/output_ports = "0,4,color;"
+nodes/fragment/15/expression = "vec3 result;
+float t = mod(time, 1.0)*2.0;
+t = mod(t, 1.0);
+
+vec3 blue = vec3(0.4, 0.8, 1.0);
+//	float(0x5b)/255.0, float(0xCF)/255.0, float(0xFB)/255.0)
+vec3 white = vec3(1.0, 1.0, 1.0);
+vec3 pink = vec3(1.0, 0.75, 0.85);
+//	float(0xF5)/255.0, float(0xAb)/255.0, float(0xB9)/255.0)
+
+if (t < 0.333) result = mix(blue, white, t/0.333);
+else if (t < 0.666) result = mix(white, pink, (t-0.333)/.333);
+else result = mix(pink, blue, (t-0.666)/.333);
+//if (t < 0.125) result = mix(blue, white, _mix_ratio);
+//else if (t < 0.125) result = mix(pink, white, _mix_ratio);
+
+color = result;
+//color = vec3(1.0, 0.0, 1.0);"
+nodes/fragment/16/node = SubResource("VisualShaderNodeInput_8j23w")
+nodes/fragment/16/position = Vector2(-413.33334, 160)
+nodes/fragment/connections = PackedInt32Array(3, 0, 6, 0, 6, 0, 7, 0, 7, 0, 4, 0, 6, 1, 7, 1, 5, 0, 8, 0, 8, 0, 7, 2, 9, 0, 10, 0, 10, 0, 11, 0, 11, 0, 12, 0, 12, 0, 0, 1, 4, 0, 13, 0, 13, 0, 14, 0, 16, 0, 15, 0, 15, 0, 14, 1, 14, 0, 0, 0)
