@@ -1077,6 +1077,7 @@ position = Vector2(0, 4)
 script = ExtResource("64_fxuio")
 
 [node name="Sprite2D" parent="Node2D_Screw_Attack" unique_id=678579505 instance=ExtResource("64_vhaco")]
+z_index = 100
 
 [node name="Area2D" type="Area2D" parent="Node2D_Screw_Attack" unique_id=669550649 groups=["beam"]]
 collision_layer = 8
