@@ -10,10 +10,10 @@ shader = ExtResource("1_rbkl6")
 
 [node name="Sprite2D" type="Sprite2D" unique_id=678579505]
 material = SubResource("ShaderMaterial_rbkl6")
-position = Vector2(12, 12)
 texture = ExtResource("1_usy51")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=808271168]
+visible = false
 position = Vector2(0, -4)
 texture = ExtResource("3_deehv")
 

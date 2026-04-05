@@ -63,6 +63,10 @@
 [ext_resource type="Texture2D" uid="uid://w0aqor1jlecp" path="res://art/barrier_frames/outfile00027.png" id="58_w7bw4"]
 [ext_resource type="Texture2D" uid="uid://bu3oord5ckk35" path="res://art/barrier_frames/outfile00028.png" id="59_4tdhm"]
 [ext_resource type="Texture2D" uid="uid://dl5q1xm31ktw4" path="res://art/barrier_frames/outfile00029.png" id="60_rfqoy"]
+[ext_resource type="Script" uid="uid://dgn3qxw0xbndk" path="res://Scenes/node_2d_screw_attack.gd" id="64_fxuio"]
+[ext_resource type="PackedScene" uid="uid://bdrhfhftvg8lb" path="res://Scenes/VfxElectric.tscn" id="64_vhaco"]
+[ext_resource type="Script" uid="uid://qr2nn5y5e1q" path="res://Scenes/screw_attack_area2d_script.gd" id="65_5vuaf"]
+[ext_resource type="AudioStream" uid="uid://bk2s3ltjf0cwf" path="res://resources/screw.wav" id="67_j7v81"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8s541"]
 radius = 3.0
@@ -316,6 +320,9 @@ animations = [{
 "name": &"default",
 "speed": 12.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vhaco"]
+radius = 7.0
 
 [node name="Relan" type="CharacterBody2D" unique_id=1720302912 groups=["player"]]
 collision_mask = 2
@@ -1065,4 +1072,26 @@ sprite_frames = SubResource("SpriteFrames_c0fq5")
 autoplay = "default"
 offset = Vector2(0, 4)
 
+[node name="Node2D_Screw_Attack" type="Node2D" parent="." unique_id=1145614643]
+position = Vector2(0, 4)
+script = ExtResource("64_fxuio")
+
+[node name="Sprite2D" parent="Node2D_Screw_Attack" unique_id=678579505 instance=ExtResource("64_vhaco")]
+
+[node name="Area2D" type="Area2D" parent="Node2D_Screw_Attack" unique_id=669550649 groups=["beam"]]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("65_5vuaf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D_Screw_Attack/Area2D" unique_id=1610714370]
+shape = SubResource("CircleShape2D_vhaco")
+
+[node name="SfxrStreamPlayer" type="AudioStreamPlayer" parent="Node2D_Screw_Attack" unique_id=2132590423]
+stream = ExtResource("67_j7v81")
+volume_db = -15.0
+pitch_scale = 0.5
+autoplay = true
+metadata/_custom_type_script = "uid://iplhaktauf"
+
 [connection signal="area_entered" from="hurt_box" to="." method="_on_hurt_area_area_entered"]
+[connection signal="area_entered" from="Node2D_Screw_Attack/Area2D" to="Node2D_Screw_Attack/Area2D" method="_on_area_entered_to_check_for_enemies"]

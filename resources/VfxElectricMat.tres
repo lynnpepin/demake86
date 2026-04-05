@@ -9,8 +9,8 @@ operator = 1
 output_port_for_preview = 0
 
 [sub_resource type="Curve" id="Curve_ht3vd"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.26007327, 0.32391024), 3.4038265, 3.4038265, 0, 0, Vector2(0.26556778, 1), 0.0, 0.0, 0, 0, Vector2(0.35966316, 0.24016774), -2.923155, -2.923155, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 5
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.26007327, 0.32391024), 3.4038265, 3.4038265, 0, 0, Vector2(0.26556778, 1), 0.0, 0.0, 0, 0, Vector2(0.30743566, 1), 0.0, 0.0, 0, 0, Vector2(0.39822146, 0.23904538), -2.923155, -2.923155, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 6
 
 [sub_resource type="CurveTexture" id="CurveTexture_x6c1i"]
 width = 512
@@ -39,10 +39,10 @@ expression = "vec3 result;
 float t = mod(time, 1.0)*2.0;
 t = mod(t, 1.0);
 
-vec3 blue = vec3(0.4, 0.8, 1.0);
+vec3 blue = vec3(0.639, 0.855, 0.992);
 //	float(0x5b)/255.0, float(0xCF)/255.0, float(0xFB)/255.0)
 vec3 white = vec3(1.0, 1.0, 1.0);
-vec3 pink = vec3(1.0, 0.75, 0.85);
+vec3 pink = vec3(0.969, 0.804, 0.925);
 //	float(0xF5)/255.0, float(0xAb)/255.0, float(0xB9)/255.0)
 
 if (t < 0.333) result = mix(blue, white, t/0.333);
@@ -131,10 +131,10 @@ nodes/fragment/15/expression = "vec3 result;
 float t = mod(time, 1.0)*2.0;
 t = mod(t, 1.0);
 
-vec3 blue = vec3(0.4, 0.8, 1.0);
+vec3 blue = vec3(0.639, 0.855, 0.992);
 //	float(0x5b)/255.0, float(0xCF)/255.0, float(0xFB)/255.0)
 vec3 white = vec3(1.0, 1.0, 1.0);
-vec3 pink = vec3(1.0, 0.75, 0.85);
+vec3 pink = vec3(0.969, 0.804, 0.925);
 //	float(0xF5)/255.0, float(0xAb)/255.0, float(0xB9)/255.0)
 
 if (t < 0.333) result = mix(blue, white, t/0.333);

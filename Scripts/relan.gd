@@ -63,6 +63,8 @@ var has_varia_suit = false
 var barrier = false
 var barrier_timer = 0
 
+var has_screw_attack = false
+
 # input
 var left: bool
 var right: bool
@@ -77,6 +79,8 @@ var steps: float = 0
 #endregion
 
 # Called when the node enters the scene tree for the first time.
+
+#region _ready _process and _whatnot
 func _ready():
     show_message(" ")
     add_to_group("player")
@@ -94,6 +98,7 @@ func _ready():
         has_wave_beam = true
         has_ice_beam = true
         has_varia_suit = true
+        has_screw_attack = true
         
     pass # Replace with function body.
 
@@ -113,7 +118,11 @@ func _physics_process(delta: float) -> void:
         CURRENT_JUMP_SPEED = HIGH_JUMP_SPEED
     else:
         CURRENT_JUMP_SPEED = JUMP_SPEED
-        
+    
+    if grounded == 0:
+        # Enable srew attack if we're off the ground...
+        if has_screw_attack: $Node2D_Screw_Attack.on()
+    
     check_water()
     if is_in_water:
         SPEED = SPEED / 2
@@ -188,26 +197,10 @@ func _physics_process(delta: float) -> void:
     move_and_slide()
     play_screech_sound()
     impulse_applied = false
-
-func apply_impulse(impulse: Vector2):
-    # Bad name-- this function is used for bomb.gd explosion physics
-    impulse_applied = true
-    grounded = 0
-    vv.x += impulse.x
-    if impulse.y < 0:
-        vv.y = min(impulse.y, vv.y)
-    elif impulse.y > 0:
-        vv.y = max(impulse.y, vv.y)
-
-func check_water():
-    is_in_water = false
-    for area in $hurt_box.get_overlapping_areas():
-        if area.is_in_group("water"):
-            is_in_water = true
-            # todo - cheap hack
-            hurt(area.hurt_value, 3)
-        
-
+    
+    # Disable screw attack otherwise
+    if grounded != 0.0:
+        $Node2D_Screw_Attack.off()
 
 func _process(delta):
     # timer
@@ -268,6 +261,31 @@ func _process(delta):
         
     queue_redraw()
 
+
+func _draw():
+    #draw_circle(Vector2(0,6),6, Color(0, 1.0, 1.0, 0.2), false, -1, false)
+    pass   
+
+#endregion
+
+func apply_impulse(impulse: Vector2):
+    # Bad name-- this function is used for bomb.gd explosion physics
+    impulse_applied = true
+    grounded = 0
+    vv.x += impulse.x
+    if impulse.y < 0:
+        vv.y = min(impulse.y, vv.y)
+    elif impulse.y > 0:
+        vv.y = max(impulse.y, vv.y)
+
+func check_water():
+    is_in_water = false
+    for area in $hurt_box.get_overlapping_areas():
+        if area.is_in_group("water"):
+            is_in_water = true
+            # todo - cheap hack
+            hurt(area.hurt_value, 3)
+
 func _transition_normal_to_ball():
     if has_morph_ball:
         $Sounds/ToBall.play()
@@ -287,7 +305,10 @@ func _transition_normal_to_ball():
         $ball_trail/CPUParticles2D.emitting = true
         $ball_trail/CPUParticles2D_top.emitting = true
         $ball_trail/CPUParticles2D_bot.emitting = true
+        
+        # Orbs to ponder should be in the appropriate location
         $Sprite2D_barrier_feature.offset.y = 6.0
+        $Node2D_Screw_Attack.position.y = 6.0
 
 func _transition_ball_to_normal():
     # First, check that there's no clipping
@@ -310,7 +331,10 @@ func _transition_ball_to_normal():
         $ball_trail/CPUParticles2D.emitting = false
         $ball_trail/CPUParticles2D_top.emitting = false
         $ball_trail/CPUParticles2D_bot.emitting = false
+        
+        # Orbs to ponder should be in the appropriate location
         $Sprite2D_barrier_feature.offset.y = 4.0
+        $Node2D_Screw_Attack.position.y = 4.0
 
 func play_landing_sound():
     [$Sounds/Land, $Sounds/Land2, $Sounds/Land3, $Sounds/Land4][randi() % 4].play()
@@ -356,10 +380,6 @@ func regain_barrier():
         $Sprite2D_barrier_feature.modulate = Color(1,1,1, .5)
         $Sounds/ShieldRegain.play()
         $Sounds/ShieldBeep.stop()
-
-func _draw():
-    #draw_circle(Vector2(0,6),6, Color(0, 1.0, 1.0, 0.2), false, -1, false)
-    pass   
 
 func show_message(message):
     $Typer.start(message)

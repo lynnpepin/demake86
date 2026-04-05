@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dvmfspjjw6lrx" path="res://Classes/PickupClass.tscn" id="1_ojcb6"]
 [ext_resource type="Texture2D" uid="uid://igrk7h4ksrvd" path="res://art/bomb_pickup_sprite/screw-0.png" id="2_7afhn"]
+[ext_resource type="Script" uid="uid://dqiwtieg3mgib" path="res://Scenes/Pickups/electrolyzer.gd" id="2_wf6s4"]
 [ext_resource type="Texture2D" uid="uid://i7g5vu47e6ep" path="res://art/bomb_pickup_sprite/screw-1.png" id="3_wf6s4"]
 [ext_resource type="Texture2D" uid="uid://bd7p501w438no" path="res://art/bomb_pickup_sprite/screw-2.png" id="4_1aibm"]
 [ext_resource type="Texture2D" uid="uid://d4ax0fotfh74h" path="res://art/bomb_pickup_sprite/screw-3.png" id="5_5rn4e"]
@@ -203,8 +204,9 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="PickupClass" unique_id=856457037 instance=ExtResource("1_ojcb6")]
-pickup_message = "ELECTROLYZER\\nPOWERED"
+[node name="ElectrolyzerPickup" unique_id=856457037 instance=ExtResource("1_ojcb6")]
+script = ExtResource("2_wf6s4")
+pickup_message = "ELECTROLYZER\\nACQUIRED"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1" unique_id=2025653381]
 sprite_frames = SubResource("SpriteFrames_3aw4t")
