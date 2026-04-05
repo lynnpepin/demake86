@@ -303,7 +303,7 @@ pickup_message = "TUCK BALL\\nACTIVE"
 [node name="LongBeamPickup" parent="Pickups" unique_id=1290188979 instance=ExtResource("6_7xndq")]
 position = Vector2(148, 92)
 pickup_name = "long beam"
-pickup_message = "BEAM\\nAUGMENTED"
+pickup_message = "BEAM LENGTH\\nAUGMENTED"
 
 [node name="IceBeamPickup" parent="Pickups" unique_id=202620812 instance=ExtResource("18_6kr84")]
 position = Vector2(396, 116)
@@ -818,7 +818,6 @@ tile_set = SubResource("TileSet_cnug1")
 
 [node name="ParallaxBackground_fg" type="ParallaxBackground" parent="." unique_id=849633338]
 layer = 0
-visible = false
 offset = Vector2(384, 384)
 transform = Transform2D(1, 0, 0, 1, 384, 384)
 
@@ -832,7 +831,6 @@ motion_offset = Vector2(96, 96)
 texture = ExtResource("4_ix4gv")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=76924821]
-visible = false
 offset = Vector2(256, 256)
 transform = Transform2D(1, 0, 0, 1, 256, 256)
 
