@@ -63,7 +63,7 @@ var has_varia_suit = false
 var barrier = false
 var barrier_timer = 0
 
-var has_screw_attack = true
+var has_screw_attack = false
 
 # input
 var left: bool

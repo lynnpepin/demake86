@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b0y874xsfexd1"]
+
+[sub_resource type="Gradient" id="Gradient_ixjva"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.103235744, 0.1494607, 0.2489796, 0.60246533, 0.79969186)
+colors = PackedColorArray(0.05, 0.047125, 0.0385, 0.25098, 1, 1, 1, 1, 1, 0.566667, 0, 1, 0.2901961, 0.105882354, 0.03529412, 1, 0.49411765, 0.15686275, 0.27058825, 1, 0.05, 0.047125, 0.0385, 0.25098)
+
+[node name="DeathExplosion" type="CPUParticles2D" unique_id=1149512892]
+emitting = false
+amount = 512
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.88
+randomness = 0.75
+lifetime_randomness = 0.25
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 96)
+initial_velocity_min = 4.0
+initial_velocity_max = 96.0
+damping_max = 10.0
+scale_amount_min = 0.0
+scale_amount_max = 1.5
+color_ramp = SubResource("Gradient_ixjva")
+hue_variation_min = -1.0
+hue_variation_max = 1.0

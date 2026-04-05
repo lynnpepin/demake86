@@ -102,17 +102,10 @@ volume_db = -10.0
 [node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="DeathSounds" parent_id_path=PackedInt32Array(1411267192) index="0" unique_id=30387930]
 stream = ExtResource("10_s7718")
 
-[node name="DeathExplosion" parent="." index="7" unique_id=1266681577]
-position = Vector2(0, -4)
-amount = 256
-lifetime = 0.38
-randomness = 0.25
-fixed_fps = 30
+[node name="DeathExplosion" parent="." index="9" unique_id=1149512892]
+randomness = 1.0
+lifetime_randomness = 0.75
 gravity = Vector2(0, 24)
-initial_velocity_min = 36.0
-initial_velocity_max = 48.0
-damping_max = 10.0
-scale_amount_min = 0.0
 scale_amount_max = 2.5
 
 [node name="RayCast2D_ground" type="RayCast2D" parent="." index="10" unique_id=1171514914]

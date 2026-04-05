@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c4p06xddgtn10" path="res://Classes/EnemyClass.gd" id="1_44iho"]
 [ext_resource type="AudioStream" uid="uid://cd0bb667p5tn1" path="res://resources/freeze.wav" id="3_e20xd"]
 [ext_resource type="AudioStream" uid="uid://l6ntav3kt51h" path="res://resources/unfreeze.wav" id="3_j2gxe"]
+[ext_resource type="PackedScene" uid="uid://b0y874xsfexd1" path="res://Classes/death_explosion.tscn" id="4_x4ypb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_26ahl"]
 size = Vector2(6, 3)
@@ -24,11 +25,6 @@ size = Vector2(8, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_el2m2"]
 size = Vector2(6, 3)
-
-[sub_resource type="Gradient" id="Gradient_hffr3"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.103235744, 0.1494607, 0.2788906, 0.5808937, 0.60246533, 0.79969186)
-colors = PackedColorArray(0.05, 0.047125, 0.0385, 0.25098, 1, 1, 1, 1, 1, 0.566667, 0, 1, 1, 0, 0, 1, 0.99999994, 0.7278676, 0.47917533, 1, 0.665, 0.09075, 0.0969375, 1, 0.05, 0.047125, 0.0385, 0.25098)
 
 [node name="EnemyClass" type="CharacterBody2D" unique_id=1981089262]
 collision_layer = 4
@@ -65,28 +61,15 @@ offset = Vector2(0, -3)
 
 [node name="DeathSounds" type="Node" parent="." unique_id=1411267192]
 
-[node name="DeathExplosion" type="CPUParticles2D" parent="." unique_id=1266681577]
-emitting = false
-amount = 128
-lifetime = 0.75
-one_shot = true
-explosiveness = 0.88
-randomness = 0.38
-lifetime_randomness = 0.25
-fract_delta = false
-direction = Vector2(0, 0)
-spread = 180.0
-gravity = Vector2(0, 8)
-initial_velocity_min = 48.0
-initial_velocity_max = 900.0
-damping_max = 25.0
-color_ramp = SubResource("Gradient_hffr3")
-
 [node name="UnfreezeSound" type="AudioStreamPlayer2D" parent="." unique_id=76772355]
 stream = ExtResource("3_j2gxe")
 panning_strength = 3.0
 
 [node name="FreezeSound" type="AudioStreamPlayer2D" parent="." unique_id=1382549539]
 stream = ExtResource("3_e20xd")
+
+[node name="DeathExplosion" parent="." unique_id=1149512892 instance=ExtResource("4_x4ypb")]
+position = Vector2(0, -4)
+initial_velocity_max = 48.0
 
 [connection signal="area_entered" from="AreaHitbox" to="." method="_on_area_hitbox_area_entered"]
