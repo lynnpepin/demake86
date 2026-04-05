@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bdrhfhftvg8lb"]
+
+[ext_resource type="Shader" uid="uid://demuyq5uybxv1" path="res://resources/VfxElectricMat.tres" id="1_rbkl6"]
+[ext_resource type="Texture2D" uid="uid://bp1is6pfr4ywq" path="res://resources/GradientTexture2D_White36px.tres" id="1_usy51"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rbkl6"]
+shader = ExtResource("1_rbkl6")
+
+[node name="Node2D" type="Sprite2D" unique_id=678579505]
+material = SubResource("ShaderMaterial_rbkl6")
+texture = ExtResource("1_usy51")
