@@ -2,10 +2,20 @@
 
 [ext_resource type="Shader" uid="uid://demuyq5uybxv1" path="res://resources/VfxElectricMat.tres" id="1_rbkl6"]
 [ext_resource type="Texture2D" uid="uid://bp1is6pfr4ywq" path="res://resources/GradientTexture2D_White36px.tres" id="1_usy51"]
+[ext_resource type="Texture2D" uid="uid://dvhp4h1tyypv6" path="res://art/relan/relan_run_8.png" id="3_deehv"]
+[ext_resource type="Texture2D" uid="uid://oip1i5o2irt1" path="res://art/relan/cannon_right_df.png" id="4_ir4m3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rbkl6"]
 shader = ExtResource("1_rbkl6")
 
-[node name="Node2D" type="Sprite2D" unique_id=678579505]
+[node name="Sprite2D" type="Sprite2D" unique_id=678579505]
 material = SubResource("ShaderMaterial_rbkl6")
+position = Vector2(12, 12)
 texture = ExtResource("1_usy51")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=808271168]
+position = Vector2(0, -4)
+texture = ExtResource("3_deehv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=1361975650]
+texture = ExtResource("4_ir4m3")
