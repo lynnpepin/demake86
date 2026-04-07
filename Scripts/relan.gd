@@ -51,15 +51,15 @@ var hurt_timer = 0
 var bombs: float = BOMB_PERIOD * MAX_BOMBS
 
 # power ups
-var has_high_jump  = false#false`
-var has_morph_ball = false#false
-var has_morph_bomb = false#false
+@export var has_high_jump  = false#false`
+@export var has_morph_ball = false#false
+@export var has_morph_bomb = false#false
 
-var has_long_beam = false
-var has_wave_beam = false
-var has_ice_beam = false
+@export var has_long_beam = false
+@export var has_wave_beam = false
+@export var has_ice_beam = false
 
-var has_varia_suit = false
+@export var has_varia_suit = false
 var barrier = false
 var barrier_timer = 0
 
