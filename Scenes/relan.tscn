@@ -216,12 +216,12 @@ animations = [{
 }]
 
 [sub_resource type="Gradient" id="Gradient_72vhv"]
-offsets = PackedFloat32Array(0.09399076, 0.19568567, 0.72265023, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.6392157, 0.85490197, 0.99215686, 0.13333334, 0.63204664, 0.85201883, 0.99200106, 0.12541339, 0.6392157, 0.85490197, 0.99215686, 0)
+offsets = PackedFloat32Array(0.05102041, 0.21020408, 0.60612243, 0.8734694, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.14509805, 0.5294118, 0.9843137, 1, 0.14509805, 0.5294118, 0.9843137, 0.13333334, 0.63204664, 0.85201883, 0.99200106, 0.12541339, 0.6392157, 0.85490197, 0.99215686, 0)
 
 [sub_resource type="Gradient" id="Gradient_q4257"]
-offsets = PackedFloat32Array(0.7966102, 0.95377505, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.6392157, 0.85490197, 0.99215686, 1, 0.6392157, 0.85490197, 0.99215686, 0)
+offsets = PackedFloat32Array(0.5387755, 0.655102, 0.8734694, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.6392157, 0.85490197, 0.99215686, 1, 0.14509805, 0.5294118, 0.9843137, 1, 0.6392157, 0.85490197, 0.99215686, 0)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c0fq5"]
 animations = [{
@@ -1033,8 +1033,8 @@ position = Vector2(0, 10)
 texture_filter = 1
 position = Vector2(0, 6)
 emitting = false
-amount = 240
-lifetime = 0.5
+amount = 30
+fract_delta = false
 direction = Vector2(0, 0)
 spread = 0.0
 gravity = Vector2(0, 0)
@@ -1045,7 +1045,7 @@ color_ramp = SubResource("Gradient_72vhv")
 [node name="CPUParticles2D_top" type="CPUParticles2D" parent="ball_trail" unique_id=965554664]
 position = Vector2(0, 3.5)
 emitting = false
-amount = 240
+amount = 60
 lifetime = 0.5
 direction = Vector2(0, 0)
 spread = 0.0
@@ -1056,7 +1056,7 @@ color_ramp = SubResource("Gradient_q4257")
 [node name="CPUParticles2D_bot" type="CPUParticles2D" parent="ball_trail" unique_id=580789851]
 position = Vector2(0, 8.5)
 emitting = false
-amount = 240
+amount = 60
 lifetime = 0.5
 direction = Vector2(0, 0)
 spread = 0.0
