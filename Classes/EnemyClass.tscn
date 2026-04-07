@@ -70,6 +70,8 @@ stream = ExtResource("3_e20xd")
 
 [node name="DeathExplosion" parent="." unique_id=1149512892 instance=ExtResource("4_x4ypb")]
 position = Vector2(0, -4)
+emission_shape = 2
+emission_sphere_radius = 4.0
 initial_velocity_max = 48.0
 
 [connection signal="area_entered" from="AreaHitbox" to="." method="_on_area_hitbox_area_entered"]

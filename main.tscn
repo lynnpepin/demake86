@@ -177,7 +177,6 @@ metadata/_custom_type_script = "uid://bwidy4yt6b2m8"
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
 position = Vector2(208, 20)
-HAS_ALL_ITEMS = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Relan" unique_id=31498320]
 visible = false
