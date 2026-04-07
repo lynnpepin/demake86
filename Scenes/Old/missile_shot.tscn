@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dcebhm5y2hdmd"]
+[gd_scene format=4 uid="uid://dcebhm5y2hdmd"]
 
 [ext_resource type="Script" uid="uid://cgnyxbyhpnb0k" path="res://Scenes/Beams/Missile2.gd" id="1_7f38h"]
 [ext_resource type="Script" uid="uid://bc0paoyr8p4u" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="2_0conl"]
@@ -29,29 +29,29 @@ data = PackedByteArray("CQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkMDg4ODg4ODg4ODg4ODg4ODg4O
 offsets = PackedFloat32Array(0, 0.10989, 0.331868, 0.648352, 1)
 colors = PackedColorArray(0.882353, 0.227451, 0.137255, 1, 0.360784, 0.223529, 0.0117647, 1, 0.192157, 0.192157, 0.192157, 1, 0.163788, 0.163788, 0.163788, 0.889421, 0, 0, 0, 0.25098)
 
-[node name="MissileShot" type="AnimatableBody2D" groups=["beam"]]
+[node name="MissileShot" type="AnimatableBody2D" unique_id=361571648 groups=["beam"]]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_7f38h")
 LIFESPAN = 12.0
 CreateOnDie = ExtResource("2_6disf")
 
-[node name="ColliderWall" type="CollisionShape2D" parent="." groups=["beam"]]
+[node name="ColliderWall" type="CollisionShape2D" parent="." unique_id=1737283161 groups=["beam"]]
 shape = SubResource("RectangleShape2D_rl5qe")
 
-[node name="AreaToCheckForEnemy" type="Area2D" parent="." groups=["beam"]]
+[node name="AreaToCheckForEnemy" type="Area2D" parent="." unique_id=1409607557 groups=["beam"]]
 collision_layer = 8
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaToCheckForEnemy" groups=["beam"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaToCheckForEnemy" unique_id=765064320 groups=["beam"]]
 shape = SubResource("RectangleShape2D_xflsg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=861722168]
 texture = SubResource("GradientTexture2D_c7sga")
 
-[node name="Sounds" type="Node" parent="."]
+[node name="Sounds" type="Node" parent="." unique_id=198859639]
 
-[node name="Create" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Create" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1844886478]
 stream = SubResource("AudioStreamWAV_yfknn")
 script = ExtResource("2_0conl")
 wave/type = 3
@@ -80,7 +80,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.0
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="Hit" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Hit" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1279051877]
 stream = SubResource("AudioStreamWAV_r6lou")
 script = ExtResource("2_0conl")
 wave/type = 3
@@ -109,7 +109,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.0
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="CPUParticles2D_Smoke" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D_Smoke" type="CPUParticles2D" parent="." unique_id=342514480]
 z_index = 50
 amount = 256
 lifetime = 2.0
