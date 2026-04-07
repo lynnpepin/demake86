@@ -3,6 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://dvmfspjjw6lrx" path="res://Classes/PickupClass.tscn" id="1_tdr4b"]
 [ext_resource type="Script" uid="uid://dml7rckk1vg8b" path="res://Scenes/Pickups/high_jump_pickup.gd" id="2_u7ihm"]
 [ext_resource type="Script" uid="uid://b5vwhcikrrgl6" path="res://Scripts/MorphBallPickup_Node3D.gd" id="3_2hw6j"]
+[ext_resource type="Texture2D" uid="uid://c1p5tjvn3j5xd" path="res://art/bbwings-0.png" id="4_ighal"]
+[ext_resource type="Texture2D" uid="uid://ba8ieie5woboa" path="res://art/bbwings-1.png" id="5_eukcg"]
+[ext_resource type="Texture2D" uid="uid://cuiwxwhrl6hs6" path="res://art/bbwings-2.png" id="6_el417"]
+[ext_resource type="Texture2D" uid="uid://cvac1u1k04xsl" path="res://art/bbwings-3.png" id="7_of0q6"]
+[ext_resource type="Texture2D" uid="uid://d1pap8ohbq37j" path="res://art/bbwings-5.png" id="8_v0feo"]
+[ext_resource type="Texture2D" uid="uid://cjgeqdpuh8l26" path="res://art/bbwings-6.png" id="9_fj6u0"]
+[ext_resource type="Texture2D" uid="uid://frj1qbwqy3kf" path="res://art/bbwings-7.png" id="10_8g3w1"]
+[ext_resource type="Texture2D" uid="uid://brbv2d4185i1w" path="res://art/bbwings-8.png" id="11_ka6r6"]
 
 [sub_resource type="Environment" id="Environment_bimby"]
 background_mode = 1
@@ -30,8 +38,37 @@ shading_mode = 0
 albedo_texture = SubResource("GradientTexture2D_aapjt")
 texture_filter = 0
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yaety"]
-size = Vector2(4, 4)
+[sub_resource type="SpriteFrames" id="SpriteFrames_di2gy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ighal")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_eukcg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_el417")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_of0q6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_v0feo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fj6u0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8g3w1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ka6r6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [node name="HighJumpPickup" unique_id=1677123926 instance=ExtResource("1_tdr4b")]
 script = ExtResource("2_u7ihm")
@@ -54,5 +91,6 @@ projection = 1
 mesh = SubResource("SphereMesh_pkrex")
 surface_material_override/0 = SubResource("StandardMaterial3D_4lcw1")
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="2" unique_id=1195181314]
-texture = SubResource("PlaceholderTexture2D_yaety")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=1293779693]
+sprite_frames = SubResource("SpriteFrames_di2gy")
+frame_progress = 0.98556155
