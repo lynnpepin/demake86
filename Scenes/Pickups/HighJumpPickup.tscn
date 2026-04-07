@@ -93,4 +93,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_4lcw1")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=1293779693]
 sprite_frames = SubResource("SpriteFrames_di2gy")
-frame_progress = 0.98556155
+autoplay = "default"
+frame_progress = 0.8707173
