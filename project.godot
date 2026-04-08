@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=512
 window/size/viewport_height=512
+window/size/transparent=true
 window/stretch/mode="viewport"
 window/stretch/scale=8.0
 window/stretch/scale_mode="integer"
@@ -278,3 +279,4 @@ textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+viewport/transparent_background=true

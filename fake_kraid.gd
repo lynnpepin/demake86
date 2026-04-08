@@ -33,14 +33,15 @@ func _on_body_entered(body: Node2D) -> void:
         explode()
 
 func fall():
-    # todo - play sfx
-    $CollisionShape2D_up.disabled = true
-    $CollisionShape2D_up.disabled = false
-    $Sprite2D_up.visible = false
-    $Sprite2D_fallen.visible = true
-    $CPUParticles2D_FakeKraidSmoke.emission_rect_extents = Vector2(10, 3)
-    $CPUParticles2D_FakeKraidSmoke.position.x += 4
-    fallen = true
+    if not fallen:
+        # todo - play sfx
+        $CollisionShape2D_up.disabled = true
+        $CollisionShape2D_up.disabled = false
+        $Sprite2D_up.visible = false
+        $Sprite2D_fallen.visible = true
+        $CPUParticles2D_FakeKraidSmoke.emission_rect_extents = Vector2(10, 3)
+        $CPUParticles2D_FakeKraidSmoke.position.x += 4
+        fallen = true
     $sfx_fall.play()
 
 func explode():

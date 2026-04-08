@@ -176,7 +176,7 @@ _first_run = false
 metadata/_custom_type_script = "uid://bwidy4yt6b2m8"
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
-position = Vector2(208, 20)
+position = Vector2(96, 144)
 
 [node name="PointLight2D" type="PointLight2D" parent="Relan" unique_id=31498320]
 visible = false
@@ -887,6 +887,7 @@ tile_set = SubResource("TileSet_cnug1")
 
 [node name="ParallaxBackground_fg" type="ParallaxBackground" parent="." unique_id=849633338]
 layer = 0
+visible = false
 offset = Vector2(384, 384)
 transform = Transform2D(1, 0, 0, 1, 384, 384)
 
@@ -900,6 +901,7 @@ motion_offset = Vector2(96, 96)
 texture = ExtResource("4_ix4gv")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=76924821]
+visible = false
 offset = Vector2(256, 256)
 transform = Transform2D(1, 0, 0, 1, 256, 256)
 
