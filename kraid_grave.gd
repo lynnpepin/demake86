@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-func _enter_tree() -> void:
+func _ready() -> void:
     #activate()
     pass
 

@@ -1,7 +1,7 @@
 extends StaticBody2D
 
-func _enter_tree() -> void:
-    activate()
+func _ready() -> void:
+    #activate()
     pass
 
 func activate():

@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://dfumfi7yl7mha" path="res://Scenes/Enemies/Zoomer.tscn" id="26_lswn8"]
 [ext_resource type="PackedScene" uid="uid://cgum5ifi31713" path="res://Scenes/Pickups/Electrolyzer.tscn" id="27_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://bmg82tnsi1a6h" path="res://Scenes/hatch.tscn" id="30_1unny"]
+[ext_resource type="PackedScene" uid="uid://dot1khax1tk1i" path="res://Scenes/new_lava.tscn" id="38_b1qrp"]
 
 [sub_resource type="Gradient" id="Gradient_43svb"]
 offsets = PackedFloat32Array(0.00497512, 0.883085, 1)
@@ -185,9 +186,8 @@ _first_run = false
 metadata/_custom_type_script = "uid://bwidy4yt6b2m8"
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
-position = Vector2(204, 20)
-has_morph_ball = true
-has_morph_bomb = true
+position = Vector2(96, 136)
+HAS_ALL_ITEMS = false
 
 [node name="PointLight2D" type="PointLight2D" parent="Relan" unique_id=31498320]
 visible = false
@@ -480,6 +480,9 @@ position = Vector2(332, 52)
 
 [node name="Hatch4" parent="LevelBlocks" unique_id=523828260 instance=ExtResource("30_1unny")]
 position = Vector2(192, 168)
+
+[node name="Hatch46" parent="LevelBlocks" unique_id=619466197 instance=ExtResource("30_1unny")]
+position = Vector2(128, 168)
 
 [node name="Hatch30" parent="LevelBlocks" unique_id=2030873963 instance=ExtResource("30_1unny")]
 position = Vector2(192, 224)
@@ -1389,6 +1392,9 @@ texture = SubResource("CanvasTexture_e01uv")
 visible = false
 position = Vector2(80, 208)
 texture = SubResource("CanvasTexture_e01uv")
+
+[node name="NEWLAVA" parent="." unique_id=371466265 instance=ExtResource("38_b1qrp")]
+position = Vector2(-76, 140)
 
 [connection signal="area_entered" from="BOSSES/FakeKraid" to="BOSSES/FakeKraid" method="_on_area_entered"]
 [connection signal="body_entered" from="BOSSES/FakeKraid" to="BOSSES/FakeKraid" method="_on_body_entered"]
