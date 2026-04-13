@@ -33,6 +33,7 @@ data = PackedByteArray("CQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkMDg4ODg4ODg4ODg4ODg4ODg4O
 [node name="Missile" type="AnimatableBody2D" unique_id=1423770095 groups=["beam"]]
 collision_layer = 8
 collision_mask = 2
+sync_to_physics = false
 script = ExtResource("1_5oxwn")
 LIFESPAN = 8.0
 damage = 6

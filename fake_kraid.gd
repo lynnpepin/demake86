@@ -35,8 +35,9 @@ func _on_body_entered(body: Node2D) -> void:
 func fall():
     if not fallen:
         # todo - play sfx
-        $CollisionShape2D_up.disabled = true
-        $CollisionShape2D_up.disabled = false
+        # what was the point of this part ??
+        $CollisionShape2D_up.set_deferred("disabled", true)
+        $CollisionShape2D_up.set_deferred("disabled", false)
         $Sprite2D_up.visible = false
         $Sprite2D_fallen.visible = true
         $CPUParticles2D_FakeKraidSmoke.emission_rect_extents = Vector2(10, 3)
@@ -48,8 +49,7 @@ func explode():
     if global_position.distance_to(tracking.global_position) <= 24.0:
         # Only explode if the player is close enough to see!
         print("KRAID-BLAM!")
-        $CollisionShape2D_up.disabled = true
-        $CollisionShape2D_up.disabled = true
+        $CollisionShape2D_up.set_deferred("disabled", true)
         $CPUParticles2D_FakeKraidSmoke.emitting = true
     $sfx_fall.play()
     

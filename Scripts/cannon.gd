@@ -166,7 +166,7 @@ func shoot_beam(delta: float) -> void:
     owner.owner.add_child(b)
     if owner.has_long_beam:
         b.LIFESPAN = 3
-    owner.add_child(b)
+    #owner.add_child(b)
     
     if owner.has_wave_beam:
         
@@ -184,7 +184,7 @@ func shoot_beam(delta: float) -> void:
         owner.owner.add_child(b)
         if owner.has_long_beam:
             b.LIFESPAN = 3
-        owner.add_child(b)
+        #owner.add_child(b)
         
         b = BeamShot.instantiate()
         b.ice = owner.has_ice_beam
@@ -198,7 +198,7 @@ func shoot_beam(delta: float) -> void:
         owner.owner.add_child(b)
         if owner.has_long_beam:
             b.LIFESPAN = 3
-        owner.add_child(b)
+        #owner.add_child(b)
         
 
 func get_shoot_xy(angle):

@@ -36,6 +36,7 @@ data = PackedByteArray("CQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkMDg4ODg4ODg4ODg4ODg4ODg4O
 [node name="BeamShot" type="AnimatableBody2D" unique_id=2109067786 groups=["beam"]]
 collision_layer = 8
 collision_mask = 2
+sync_to_physics = false
 script = ExtResource("1_pkrvo")
 
 [node name="ColliderWall" type="CollisionShape2D" parent="." unique_id=1733203444 groups=["beam"]]
