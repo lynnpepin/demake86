@@ -329,6 +329,7 @@ collision_mask = 2
 floor_max_angle = 0.872665
 safe_margin = 0.25
 script = ExtResource("1_hqtwd")
+HAS_ALL_ITEMS = true
 
 [node name="collision_platforming" type="CollisionShape2D" parent="." unique_id=730730959]
 position = Vector2(0, 5)

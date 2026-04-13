@@ -9,8 +9,8 @@ operator = 1
 output_port_for_preview = 0
 
 [sub_resource type="Curve" id="Curve_ht3vd"]
-_data = [Vector2(0.00063462555, 0), 0.0, 0.0, 0, 0, Vector2(0.1696805, 0.5206107), 10.573674, 10.573674, 0, 0, Vector2(0.28707352, 1), -0.20300092, -0.20300092, 0, 0, Vector2(0.2881575, 0.5529061), -5.7874427, -5.7874427, 0, 0, Vector2(0.501741, 0), 0.0, 0.0, 0, 0]
-point_count = 5
+_data = [Vector2(0.00063462555, 0), 0.0, 0.0, 0, 0, Vector2(0.1696805, 0.5206107), 10.573674, 10.573674, 0, 0, Vector2(0.28707352, 1), -0.20300092, -0.20300092, 0, 0, Vector2(0.3083311, 0.44767088), -0.92093056, -0.92093056, 0, 0, Vector2(0.49583107, 0.21511275), -0.7674383, -0.7674383, 0, 0, Vector2(0.5163366, 0), 0.0, 0.0, 0, 0]
+point_count = 6
 
 [sub_resource type="CurveTexture" id="CurveTexture_x6c1i"]
 width = 512
@@ -21,8 +21,8 @@ size = Vector2(639.99994, 0)
 texture = SubResource("CurveTexture_x6c1i")
 
 [sub_resource type="Curve" id="Curve_x6c1i"]
-_data = [Vector2(0, 1), 0.0, -7.0279007, 0, 0, Vector2(0.10164264, 0.09211135), 0.0, 0.0, 0, 0, Vector2(0.2600522, 0.025028348), 1.5317233, 1.5317233, 0, 0, Vector2(0.29351884, 0.9865547), 0.0, 0.0, 0, 0, Vector2(0.36045262, 0.025028348), -3.1966345, -3.1966345, 0, 0, Vector2(0.66165423, 0.14056015), 0.0, 0.0, 0, 0, Vector2(0.67504084, 1), 0.0, 0.0, 0, 0, Vector2(0.74197495, 0), 0.0, 0.0, 0, 0, Vector2(0.9740114, 0.06975043), 0.0, 0.0, 0, 0, Vector2(1, 1), 5.430654, 0.0, 0, 0]
-point_count = 10
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.52654445, 0), 0.0, 0.0, 0, 0, Vector2(0.6308923, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 5.430654, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_7kodk"]
 curve = SubResource("Curve_x6c1i")
@@ -58,15 +58,31 @@ color = result;
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_8j23w"]
 input_name = "time"
 
+[sub_resource type="VisualShaderNodeColorOp" id="VisualShaderNodeColorOp_x6c1i"]
+operator = 5
+
 [sub_resource type="Curve" id="Curve_7kodk"]
-_data = [Vector2(0, 0), 0.0, -1.2139373, 0, 0, Vector2(0.036630042, 0.082649946), -1.350076, 0.0, 0, 0, Vector2(0.053113557, 1), 0.0, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0, 1), 0.0, -7.0279007, 0, 0, Vector2(0.10164264, 0.09211135), 0.0, 0.0, 0, 0, Vector2(0.2600522, 0.025028348), 1.5317233, 1.5317233, 0, 0, Vector2(0.29351884, 0.9865547), 0.0, 0.0, 0, 0, Vector2(0.36045262, 0.025028348), -3.1966345, -3.1966345, 0, 0, Vector2(0.66165423, 0.14056015), 0.0, 0.0, 0, 0, Vector2(0.67504084, 1), 0.0, 0.0, 0, 0, Vector2(0.74197495, 0), 0.0, 0.0, 0, 0, Vector2(0.9740114, 0.06975043), 0.0, 0.0, 0, 0, Vector2(1, 1), 5.430654, 0.0, 0, 0]
+point_count = 10
 
 [sub_resource type="CurveTexture" id="CurveTexture_do8aq"]
 curve = SubResource("Curve_7kodk")
 
 [sub_resource type="VisualShaderNodeCurveTexture" id="VisualShaderNodeCurveTexture_8j23w"]
 texture = SubResource("CurveTexture_do8aq")
+
+[sub_resource type="Curve" id="Curve_do8aq"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.02442415, 1), 0.0, 0.0, 0, 0, Vector2(0.25457877, 1), 0.0, 0.0, 0, 0, Vector2(0.94505495, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_8j23w"]
+curve = SubResource("Curve_do8aq")
+
+[sub_resource type="VisualShaderNodeCurveTexture" id="VisualShaderNodeCurveTexture_udeno"]
+texture = SubResource("CurveTexture_8j23w")
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_6xcvj"]
+operator = 2
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_7kodk"]
 input_name = "uv"
@@ -108,7 +124,7 @@ input_name = "uv"
 [resource]
 mode = 1
 flags/light_only = false
-nodes/fragment/0/position = Vector2(1200, 186.66667)
+nodes/fragment/0/position = Vector2(1773.3334, 306.66666)
 nodes/fragment/3/node = SubResource("VisualShaderNodeInput_7kodk")
 nodes/fragment/3/position = Vector2(-1133.3334, -120)
 nodes/fragment/4/node = SubResource("VisualShaderNodeTexture3D_7kodk")
@@ -128,13 +144,13 @@ nodes/fragment/10/position = Vector2(-600, 426.66666)
 nodes/fragment/11/node = SubResource("VisualShaderNodeVectorLen_ht3vd")
 nodes/fragment/11/position = Vector2(-293.33334, 1120)
 nodes/fragment/12/node = SubResource("VisualShaderNodeCurveTexture_7kodk")
-nodes/fragment/12/position = Vector2(106.666664, 973.3333)
+nodes/fragment/12/position = Vector2(293.33334, 1066.6666)
 nodes/fragment/13/node = SubResource("VisualShaderNodeCurveTexture_do8aq")
-nodes/fragment/13/position = Vector2(160, -266.66666)
+nodes/fragment/13/position = Vector2(173.33333, -226.66667)
 nodes/fragment/14/node = SubResource("VisualShaderNodeColorOp_ht3vd")
-nodes/fragment/14/position = Vector2(853.3333, -40)
+nodes/fragment/14/position = Vector2(906.6667, 13.333333)
 nodes/fragment/15/node = SubResource("VisualShaderNodeExpression_ht3vd")
-nodes/fragment/15/position = Vector2(-93.333336, 80)
+nodes/fragment/15/position = Vector2(80, 40)
 nodes/fragment/15/size = Vector2(1020, 1280)
 nodes/fragment/15/input_ports = "0,0,time;"
 nodes/fragment/15/output_ports = "0,4,color;"
@@ -158,6 +174,12 @@ color = result;
 //color = vec3(1.0, 0.0, 1.0);"
 nodes/fragment/16/node = SubResource("VisualShaderNodeInput_8j23w")
 nodes/fragment/16/position = Vector2(-413.33334, 160)
-nodes/fragment/17/node = SubResource("VisualShaderNodeCurveTexture_8j23w")
-nodes/fragment/17/position = Vector2(426.66666, -240)
-nodes/fragment/connections = PackedInt32Array(3, 0, 6, 0, 6, 0, 7, 0, 7, 0, 4, 0, 6, 1, 7, 1, 5, 0, 8, 0, 8, 0, 7, 2, 9, 0, 10, 0, 10, 0, 11, 0, 11, 0, 12, 0, 12, 0, 0, 1, 4, 0, 13, 0, 16, 0, 15, 0, 14, 0, 0, 0, 15, 0, 14, 1, 13, 0, 17, 0, 17, 0, 14, 0)
+nodes/fragment/18/node = SubResource("VisualShaderNodeColorOp_x6c1i")
+nodes/fragment/18/position = Vector2(986.6667, 880)
+nodes/fragment/19/node = SubResource("VisualShaderNodeCurveTexture_8j23w")
+nodes/fragment/19/position = Vector2(840, -533.3333)
+nodes/fragment/20/node = SubResource("VisualShaderNodeCurveTexture_udeno")
+nodes/fragment/20/position = Vector2(1186.6666, 240)
+nodes/fragment/21/node = SubResource("VisualShaderNodeFloatOp_6xcvj")
+nodes/fragment/21/position = Vector2(1506.6666, 613.3333)
+nodes/fragment/connections = PackedInt32Array(3, 0, 6, 0, 6, 0, 7, 0, 7, 0, 4, 0, 6, 1, 7, 1, 5, 0, 8, 0, 8, 0, 7, 2, 9, 0, 10, 0, 10, 0, 11, 0, 11, 0, 12, 0, 4, 0, 13, 0, 16, 0, 15, 0, 15, 0, 14, 1, 12, 0, 18, 0, 13, 0, 14, 0, 14, 0, 20, 0, 18, 0, 21, 1, 20, 0, 21, 0, 21, 0, 0, 1, 14, 0, 0, 0)
