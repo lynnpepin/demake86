@@ -223,7 +223,6 @@ sources/0 = SubResource("TileSetAtlasSource_0cp0l")
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
 position = Vector2(96, 136)
-HAS_ALL_ITEMS = false
 
 [node name="PointLight2D" type="PointLight2D" parent="Relan" unique_id=31498320]
 visible = false
