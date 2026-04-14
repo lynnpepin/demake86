@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://cgum5ifi31713" path="res://Scenes/Pickups/Electrolyzer.tscn" id="27_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://bmg82tnsi1a6h" path="res://Scenes/hatch.tscn" id="30_1unny"]
 [ext_resource type="PackedScene" uid="uid://dot1khax1tk1i" path="res://Scenes/new_lava.tscn" id="38_b1qrp"]
+[ext_resource type="Texture2D" uid="uid://cf5ceesdjdm8x" path="res://art/lavawip.png" id="38_come4"]
 
 [sub_resource type="Gradient" id="Gradient_43svb"]
 offsets = PackedFloat32Array(0.00497512, 0.883085, 1)
@@ -57,14 +58,6 @@ scenes/1/scene = ExtResource("1_3oaw5")
 [sub_resource type="TileSet" id="TileSet_come4"]
 tile_size = Vector2i(8, 8)
 sources/0 = SubResource("TileSetScenesCollectionSource_b1qrp")
-
-[sub_resource type="Gradient" id="Gradient_hvat8"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_udgw0"]
-gradient = SubResource("Gradient_hvat8")
-width = 8
-height = 8
-fill_from = Vector2(1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kq58d"]
 size = Vector2(4, 16)
@@ -178,12 +171,53 @@ diffuse_texture = ExtResource("22_o8q7v")
 normal_texture = ExtResource("3_ia83q")
 specular_color = Color(0, 0, 0, 1)
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_facbu"]
-scenes/1/scene = ExtResource("30_1unny")
+[sub_resource type="Gradient" id="Gradient_hvat8"]
 
-[sub_resource type="TileSet" id="TileSet_b1qrp"]
-tile_size = Vector2i(4, 16)
-sources/0 = SubResource("TileSetScenesCollectionSource_facbu")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_udgw0"]
+gradient = SubResource("Gradient_hvat8")
+width = 8
+height = 8
+fill_from = Vector2(1, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h8e4i"]
+texture = ExtResource("38_come4")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0/terrains_peering_bit/left_side = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/terrains_peering_bit/top_side = 0
+
+[sub_resource type="TileSet" id="TileSet_4lmeg"]
+tile_size = Vector2i(8, 8)
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/0 = SubResource("TileSetAtlasSource_h8e4i")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0cp0l"]
+texture = ExtResource("38_come4")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/terrains_peering_bit/top_side = 0
+
+[sub_resource type="TileSet" id="TileSet_d2t1y"]
+tile_size = Vector2i(8, 8)
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "Lava"
+terrain_set_0/terrain_0/color = Color(1, 0.8, 0, 1)
+sources/0 = SubResource("TileSetAtlasSource_0cp0l")
 
 [node name="Root" type="Node2D" unique_id=1570894400]
 
@@ -197,6 +231,10 @@ position = Vector2(0, 1)
 scale = Vector2(0.578125, 0.484375)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_p8m5k")
+
+[node name="BombBlocks_TileMapLayer" type="TileMapLayer" parent="." unique_id=1496238402]
+tile_map_data = PackedByteArray("AAASABYAAAAAAAAAAQATABYAAAAAAAAAAQAUABYAAAAAAAAAAQAVABYAAAAAAAAAAQAtABYAAAAAAAAAAQAuABYAAAAAAAAAAQA8AB4AAAAAAAAAAQAjACAAAAAAAAAAAQAbAC4AAAAAAAAAAQAdADAAAAAAAAAAAQAbADIAAAAAAAAAAQAdADQAAAAAAAAAAQAdADMAAAAAAAAAAQAbADYAAAAAAAAAAQAbADUAAAAAAAAAAQAdADgAAAAAAAAAAQAdADcAAAAAAAAAAQAbADoAAAAAAAAAAQAbADkAAAAAAAAAAQAdADwAAAAAAAAAAQAlAC0AAAAAAAAAAQAlAC4AAAAAAAAAAQAlADEAAAAAAAAAAQAlADIAAAAAAAAAAQAiAC8AAAAAAAAAAQAiADAAAAAAAAAAAQAiADMAAAAAAAAAAQAiADQAAAAAAAAAAQA+ADsAAAAAAAAAAQA9ADsAAAAAAAAAAQA9ADwAAAAAAAAAAQAIADYAAAAAAAAAAQApAAYAAAAAAAAAAQA=")
+tile_set = SubResource("TileSet_come4")
 
 [node name="Pickups" type="Node2D" parent="." unique_id=1088888324]
 
@@ -362,350 +400,144 @@ pickup_message = "BELLBIRD'S\\nWINGS\\nINHERITED"
 [node name="Electrolyzer" parent="Pickups" unique_id=856457037 instance=ExtResource("27_a6jrf")]
 position = Vector2(304, 248)
 
-[node name="BombBlocks_Tilemap" type="TileMapLayer" parent="." unique_id=1496238402]
-tile_map_data = PackedByteArray("AAASABYAAAAAAAAAAQATABYAAAAAAAAAAQAUABYAAAAAAAAAAQAVABYAAAAAAAAAAQAtABYAAAAAAAAAAQAuABYAAAAAAAAAAQA8AB4AAAAAAAAAAQAjACAAAAAAAAAAAQAbAC4AAAAAAAAAAQAdADAAAAAAAAAAAQAbADIAAAAAAAAAAQAdADQAAAAAAAAAAQAdADMAAAAAAAAAAQAbADYAAAAAAAAAAQAbADUAAAAAAAAAAQAdADgAAAAAAAAAAQAdADcAAAAAAAAAAQAbADoAAAAAAAAAAQAbADkAAAAAAAAAAQAdADwAAAAAAAAAAQAlAC0AAAAAAAAAAQAlAC4AAAAAAAAAAQAlADEAAAAAAAAAAQAlADIAAAAAAAAAAQAiAC8AAAAAAAAAAQAiADAAAAAAAAAAAQAiADMAAAAAAAAAAQAiADQAAAAAAAAAAQA+ADsAAAAAAAAAAQA9ADsAAAAAAAAAAQA9ADwAAAAAAAAAAQAIADYAAAAAAAAAAQApAAYAAAAAAAAAAQA=")
-tile_set = SubResource("TileSet_come4")
+[node name="Hatches" type="Node2D" parent="." unique_id=1858907284]
 
-[node name="LevelBlocks" type="Node2D" parent="." unique_id=1858907284]
+[node name="Hatch" parent="Hatches" unique_id=2046127137 instance=ExtResource("30_1unny")]
 
-[node name="Hatch" parent="LevelBlocks" unique_id=2046127137 instance=ExtResource("30_1unny")]
-
-[node name="Hatch4" parent="LevelBlocks" unique_id=523828260 instance=ExtResource("30_1unny")]
+[node name="Hatch4" parent="Hatches" unique_id=523828260 instance=ExtResource("30_1unny")]
 position = Vector2(192, 168)
 
-[node name="Hatch30" parent="LevelBlocks" unique_id=2030873963 instance=ExtResource("30_1unny")]
+[node name="Hatch46" parent="Hatches" unique_id=619466197 instance=ExtResource("30_1unny")]
+position = Vector2(128, 168)
+
+[node name="Hatch30" parent="Hatches" unique_id=2030873963 instance=ExtResource("30_1unny")]
 position = Vector2(192, 224)
 
-[node name="Hatch39" parent="LevelBlocks" unique_id=888020469 instance=ExtResource("30_1unny")]
+[node name="Hatch39" parent="Hatches" unique_id=888020469 instance=ExtResource("30_1unny")]
 position = Vector2(128, 288)
 
-[node name="Hatch40" parent="LevelBlocks" unique_id=1251746077 instance=ExtResource("30_1unny")]
+[node name="Hatch40" parent="Hatches" unique_id=1251746077 instance=ExtResource("30_1unny")]
 position = Vector2(192, 288)
 
-[node name="Hatch41" parent="LevelBlocks" unique_id=1569268786 instance=ExtResource("30_1unny")]
+[node name="Hatch41" parent="Hatches" unique_id=1569268786 instance=ExtResource("30_1unny")]
 position = Vector2(192, 352)
 
-[node name="Hatch44" parent="LevelBlocks" unique_id=420635438 instance=ExtResource("30_1unny")]
+[node name="Hatch44" parent="Hatches" unique_id=420635438 instance=ExtResource("30_1unny")]
 position = Vector2(192, 392)
 
-[node name="Hatch42" parent="LevelBlocks" unique_id=1735590854 instance=ExtResource("30_1unny")]
+[node name="Hatch42" parent="Hatches" unique_id=1735590854 instance=ExtResource("30_1unny")]
 position = Vector2(128, 352)
 
-[node name="Hatch31" parent="LevelBlocks" unique_id=1638727782 instance=ExtResource("30_1unny")]
+[node name="Hatch31" parent="Hatches" unique_id=1638727782 instance=ExtResource("30_1unny")]
 position = Vector2(128, 224)
 
-[node name="Hatch32" parent="LevelBlocks" unique_id=255839258 instance=ExtResource("30_1unny")]
+[node name="Hatch32" parent="Hatches" unique_id=255839258 instance=ExtResource("30_1unny")]
 position = Vector2(64, 208)
 
-[node name="Hatch33" parent="LevelBlocks" unique_id=438306485 instance=ExtResource("30_1unny")]
+[node name="Hatch33" parent="Hatches" unique_id=438306485 instance=ExtResource("30_1unny")]
 position = Vector2(64, 424)
 
-[node name="Hatch34" parent="LevelBlocks" unique_id=777912138 instance=ExtResource("30_1unny")]
+[node name="Hatch34" parent="Hatches" unique_id=777912138 instance=ExtResource("30_1unny")]
 position = Vector2(128, 424)
 
-[node name="Hatch35" parent="LevelBlocks" unique_id=735833825 instance=ExtResource("30_1unny")]
+[node name="Hatch35" parent="Hatches" unique_id=735833825 instance=ExtResource("30_1unny")]
 position = Vector2(192, 424)
 
-[node name="Hatch36" parent="LevelBlocks" unique_id=1542653003 instance=ExtResource("30_1unny")]
+[node name="Hatch36" parent="Hatches" unique_id=1542653003 instance=ExtResource("30_1unny")]
 position = Vector2(192, 480)
 
-[node name="Hatch37" parent="LevelBlocks" unique_id=2093864108 instance=ExtResource("30_1unny")]
+[node name="Hatch37" parent="Hatches" unique_id=2093864108 instance=ExtResource("30_1unny")]
 position = Vector2(128, 480)
 
-[node name="Hatch38" parent="LevelBlocks" unique_id=37162125 instance=ExtResource("30_1unny")]
+[node name="Hatch38" parent="Hatches" unique_id=37162125 instance=ExtResource("30_1unny")]
 position = Vector2(64, 480)
 
-[node name="Hatch2" parent="LevelBlocks" unique_id=782426860 instance=ExtResource("30_1unny")]
+[node name="Hatch2" parent="Hatches" unique_id=782426860 instance=ExtResource("30_1unny")]
 position = Vector2(192, 96)
 
-[node name="Hatch5" parent="LevelBlocks" unique_id=1927325671 instance=ExtResource("30_1unny")]
+[node name="Hatch5" parent="Hatches" unique_id=1927325671 instance=ExtResource("30_1unny")]
 position = Vector2(192, 24)
 
-[node name="Hatch9" parent="LevelBlocks" unique_id=924412973 instance=ExtResource("30_1unny")]
+[node name="Hatch9" parent="Hatches" unique_id=924412973 instance=ExtResource("30_1unny")]
 position = Vector2(128, 24)
 
-[node name="Hatch10" parent="LevelBlocks" unique_id=927119109 instance=ExtResource("30_1unny")]
+[node name="Hatch10" parent="Hatches" unique_id=927119109 instance=ExtResource("30_1unny")]
 position = Vector2(104, 48)
 
-[node name="Hatch3" parent="LevelBlocks" unique_id=226820385 instance=ExtResource("30_1unny")]
+[node name="Hatch3" parent="Hatches" unique_id=226820385 instance=ExtResource("30_1unny")]
 position = Vector2(256, 96)
 
-[node name="Hatch6" parent="LevelBlocks" unique_id=793646031 instance=ExtResource("30_1unny")]
+[node name="Hatch6" parent="Hatches" unique_id=793646031 instance=ExtResource("30_1unny")]
 position = Vector2(320, 96)
 
-[node name="Hatch7" parent="LevelBlocks" unique_id=1953546099 instance=ExtResource("30_1unny")]
+[node name="Hatch7" parent="Hatches" unique_id=1953546099 instance=ExtResource("30_1unny")]
 position = Vector2(320, 40)
 
-[node name="Hatch8" parent="LevelBlocks" unique_id=383334278 instance=ExtResource("30_1unny")]
+[node name="Hatch8" parent="Hatches" unique_id=383334278 instance=ExtResource("30_1unny")]
 position = Vector2(320, 160)
 
-[node name="Hatch11" parent="LevelBlocks" unique_id=598341157 instance=ExtResource("30_1unny")]
+[node name="Hatch11" parent="Hatches" unique_id=598341157 instance=ExtResource("30_1unny")]
 position = Vector2(384, 40)
 
-[node name="Hatch12" parent="LevelBlocks" unique_id=2020779599 instance=ExtResource("30_1unny")]
+[node name="Hatch12" parent="Hatches" unique_id=2020779599 instance=ExtResource("30_1unny")]
 position = Vector2(416, 32)
 
-[node name="Hatch13" parent="LevelBlocks" unique_id=1103482607 instance=ExtResource("30_1unny")]
+[node name="Hatch13" parent="Hatches" unique_id=1103482607 instance=ExtResource("30_1unny")]
 position = Vector2(480, 32)
 
-[node name="Hatch16" parent="LevelBlocks" unique_id=829256881 instance=ExtResource("30_1unny")]
+[node name="Hatch16" parent="Hatches" unique_id=829256881 instance=ExtResource("30_1unny")]
 position = Vector2(480, 72)
 
-[node name="Hatch17" parent="LevelBlocks" unique_id=1538231851 instance=ExtResource("30_1unny")]
+[node name="Hatch17" parent="Hatches" unique_id=1538231851 instance=ExtResource("30_1unny")]
 position = Vector2(480, 104)
 
-[node name="Hatch14" parent="LevelBlocks" unique_id=1684741445 instance=ExtResource("30_1unny")]
+[node name="Hatch14" parent="Hatches" unique_id=1684741445 instance=ExtResource("30_1unny")]
 position = Vector2(424, 96)
 
-[node name="Hatch18" parent="LevelBlocks" unique_id=1666581502 instance=ExtResource("30_1unny")]
+[node name="Hatch18" parent="Hatches" unique_id=1666581502 instance=ExtResource("30_1unny")]
 position = Vector2(448, 160)
 
-[node name="Hatch19" parent="LevelBlocks" unique_id=269893668 instance=ExtResource("30_1unny")]
+[node name="Hatch19" parent="Hatches" unique_id=269893668 instance=ExtResource("30_1unny")]
 position = Vector2(448, 224)
 
-[node name="Hatch21" parent="LevelBlocks" unique_id=715145677 instance=ExtResource("30_1unny")]
+[node name="Hatch21" parent="Hatches" unique_id=715145677 instance=ExtResource("30_1unny")]
 position = Vector2(448, 288)
 
-[node name="Hatch22" parent="LevelBlocks" unique_id=1903899100 instance=ExtResource("30_1unny")]
+[node name="Hatch22" parent="Hatches" unique_id=1903899100 instance=ExtResource("30_1unny")]
 position = Vector2(448, 336)
 
-[node name="Hatch23" parent="LevelBlocks" unique_id=113123017 instance=ExtResource("30_1unny")]
+[node name="Hatch23" parent="Hatches" unique_id=113123017 instance=ExtResource("30_1unny")]
 position = Vector2(320, 416)
 
-[node name="Hatch24" parent="LevelBlocks" unique_id=735176395 instance=ExtResource("30_1unny")]
+[node name="Hatch24" parent="Hatches" unique_id=735176395 instance=ExtResource("30_1unny")]
 position = Vector2(384, 408)
 
-[node name="Hatch26" parent="LevelBlocks" unique_id=759967597 instance=ExtResource("30_1unny")]
+[node name="Hatch26" parent="Hatches" unique_id=759967597 instance=ExtResource("30_1unny")]
 position = Vector2(448, 416)
 
-[node name="Hatch27" parent="LevelBlocks" unique_id=1483798051 instance=ExtResource("30_1unny")]
+[node name="Hatch27" parent="Hatches" unique_id=1483798051 instance=ExtResource("30_1unny")]
 position = Vector2(448, 480)
 
-[node name="Hatch28" parent="LevelBlocks" unique_id=2113252171 instance=ExtResource("30_1unny")]
+[node name="Hatch28" parent="Hatches" unique_id=2113252171 instance=ExtResource("30_1unny")]
 position = Vector2(384, 480)
 
-[node name="Hatch29" parent="LevelBlocks" unique_id=1782779969 instance=ExtResource("30_1unny")]
+[node name="Hatch29" parent="Hatches" unique_id=1782779969 instance=ExtResource("30_1unny")]
 position = Vector2(320, 480)
 
-[node name="Hatch25" parent="LevelBlocks" unique_id=1205716761 instance=ExtResource("30_1unny")]
+[node name="Hatch25" parent="Hatches" unique_id=1205716761 instance=ExtResource("30_1unny")]
 position = Vector2(384, 352)
 
-[node name="Hatch20" parent="LevelBlocks" unique_id=982829845 instance=ExtResource("30_1unny")]
+[node name="Hatch20" parent="Hatches" unique_id=982829845 instance=ExtResource("30_1unny")]
 position = Vector2(320, 216)
 
-[node name="Hatch45" parent="LevelBlocks" unique_id=495255765 instance=ExtResource("30_1unny")]
+[node name="Hatch45" parent="Hatches" unique_id=495255765 instance=ExtResource("30_1unny")]
 position = Vector2(376, 216)
 
-[node name="Hatch43" parent="LevelBlocks" unique_id=595813636 instance=ExtResource("30_1unny")]
+[node name="Hatch43" parent="Hatches" unique_id=595813636 instance=ExtResource("30_1unny")]
 position = Vector2(320, 288)
 
-[node name="Hatch15" parent="LevelBlocks" unique_id=855628115 instance=ExtResource("30_1unny")]
+[node name="Hatch15" parent="Hatches" unique_id=855628115 instance=ExtResource("30_1unny")]
 position = Vector2(392, 96)
-
-[node name="lava" parent="LevelBlocks" unique_id=1387368635 instance=ExtResource("13_jfd1l")]
-position = Vector2(160, 52)
-scale = Vector2(7, 1.8062142)
-
-[node name="lava2" parent="LevelBlocks" unique_id=1440025331 instance=ExtResource("13_jfd1l")]
-position = Vector2(84, 116)
-scale = Vector2(5, 1)
-
-[node name="lava5" parent="LevelBlocks" unique_id=1893788917 instance=ExtResource("13_jfd1l")]
-position = Vector2(100, 244)
-scale = Vector2(5, 1)
-
-[node name="lava3" parent="LevelBlocks" unique_id=1824209407 instance=ExtResource("13_jfd1l")]
-position = Vector2(36, 116)
-scale = Vector2(5, 1)
-
-[node name="lava4" parent="LevelBlocks" unique_id=1151211304 instance=ExtResource("13_jfd1l")]
-position = Vector2(84, -12)
-scale = Vector2(5, 1)
-
-[node name="lava6" parent="LevelBlocks" unique_id=588269656 instance=ExtResource("13_jfd1l")]
-position = Vector2(364, 60)
-
-[node name="lava7" parent="LevelBlocks" unique_id=621607260 instance=ExtResource("13_jfd1l")]
-position = Vector2(396, 60)
-
-[node name="lava8" parent="LevelBlocks" unique_id=998084060 instance=ExtResource("13_jfd1l")]
-position = Vector2(404, 60)
-
-[node name="lava16" parent="LevelBlocks" unique_id=2116992538 instance=ExtResource("13_jfd1l")]
-position = Vector2(412, 60)
-
-[node name="lava9" parent="LevelBlocks" unique_id=1103579192 instance=ExtResource("13_jfd1l")]
-position = Vector2(428, 60)
-
-[node name="lava10" parent="LevelBlocks" unique_id=1159775990 instance=ExtResource("13_jfd1l")]
-position = Vector2(436, 60)
-
-[node name="lava11" parent="LevelBlocks" unique_id=1641759703 instance=ExtResource("13_jfd1l")]
-position = Vector2(444, 60)
-
-[node name="lava12" parent="LevelBlocks" unique_id=1150875491 instance=ExtResource("13_jfd1l")]
-position = Vector2(452, 60)
-
-[node name="lava14" parent="LevelBlocks" unique_id=1591704204 instance=ExtResource("13_jfd1l")]
-position = Vector2(476, 116)
-
-[node name="lava15" parent="LevelBlocks" unique_id=856380886 instance=ExtResource("13_jfd1l")]
-position = Vector2(468, 116)
-
-[node name="lava17" parent="LevelBlocks" unique_id=922595814 instance=ExtResource("13_jfd1l")]
-position = Vector2(452, 116)
-
-[node name="lava18" parent="LevelBlocks" unique_id=1287167397 instance=ExtResource("13_jfd1l")]
-position = Vector2(436, 116)
-
-[node name="lava19" parent="LevelBlocks" unique_id=1034326764 instance=ExtResource("13_jfd1l")]
-position = Vector2(444, 116)
-
-[node name="lava21" parent="LevelBlocks" unique_id=1350726830 instance=ExtResource("13_jfd1l")]
-position = Vector2(444, 108)
-
-[node name="lava22" parent="LevelBlocks" unique_id=774268620 instance=ExtResource("13_jfd1l")]
-position = Vector2(436, 108)
-
-[node name="lava25" parent="LevelBlocks" unique_id=1035367919 instance=ExtResource("13_jfd1l")]
-position = Vector2(356, 116)
-scale = Vector2(8.6, 1)
-
-[node name="lava27" parent="LevelBlocks" unique_id=258712354 instance=ExtResource("13_jfd1l")]
-position = Vector2(396, 196)
-
-[node name="lava28" parent="LevelBlocks" unique_id=1214938507 instance=ExtResource("13_jfd1l")]
-position = Vector2(372, 308)
-
-[node name="lava29" parent="LevelBlocks" unique_id=262735493 instance=ExtResource("13_jfd1l")]
-position = Vector2(416, 244)
-scale = Vector2(6.48, 1)
-
-[node name="lava29" parent="LevelBlocks/lava29" unique_id=264382420 instance=ExtResource("13_jfd1l")]
-position = Vector2(190.84, -152)
-
-[node name="lava30" parent="LevelBlocks" unique_id=1579751471 instance=ExtResource("13_jfd1l")]
-position = Vector2(416, 244)
-scale = Vector2(6.48, 1)
-
-[node name="lava29" parent="LevelBlocks/lava30" unique_id=1790276165 instance=ExtResource("13_jfd1l")]
-position = Vector2(190.84, -152)
-
-[node name="lava31" parent="LevelBlocks" unique_id=1213008787 instance=ExtResource("13_jfd1l")]
-position = Vector2(428, 372)
-scale = Vector2(4.36, 1)
-
-[node name="lava29" parent="LevelBlocks/lava31" unique_id=1623424698 instance=ExtResource("13_jfd1l")]
-position = Vector2(102.752, -152)
-
-[node name="lava32" parent="LevelBlocks" unique_id=458695950 instance=ExtResource("13_jfd1l")]
-position = Vector2(288, 440)
-scale = Vector2(7.24728, 2.77218)
-
-[node name="lava29" parent="LevelBlocks/lava32" unique_id=736215793 instance=ExtResource("13_jfd1l")]
-position = Vector2(210.019, 111.38)
-
-[node name="lava37" parent="LevelBlocks" unique_id=1113411242 instance=ExtResource("13_jfd1l")]
-position = Vector2(156, 444)
-scale = Vector2(-7.74074, 1.43542)
-
-[node name="lava29" parent="LevelBlocks/lava37" unique_id=672765419 instance=ExtResource("13_jfd1l")]
-position = Vector2(210.019, 111.38)
-
-[node name="lava38" parent="LevelBlocks" unique_id=232914726 instance=ExtResource("13_jfd1l")]
-position = Vector2(84, 396)
-scale = Vector2(6, 1)
-
-[node name="lava29" parent="LevelBlocks/lava38" unique_id=1266318849 instance=ExtResource("13_jfd1l")]
-position = Vector2(210.019, 111.38)
-
-[node name="lava39" parent="LevelBlocks" unique_id=83516284 instance=ExtResource("13_jfd1l")]
-position = Vector2(128, 396)
-scale = Vector2(6, 1)
-
-[node name="lava29" parent="LevelBlocks/lava39" unique_id=713546171 instance=ExtResource("13_jfd1l")]
-position = Vector2(210.019, 111.38)
-
-[node name="lava40" parent="LevelBlocks" unique_id=1287625708 instance=ExtResource("13_jfd1l")]
-position = Vector2(152, 396)
-scale = Vector2(6, 1)
-
-[node name="lava29" parent="LevelBlocks/lava40" unique_id=477277241 instance=ExtResource("13_jfd1l")]
-position = Vector2(210.019, 111.38)
-
-[node name="lava33" parent="LevelBlocks" unique_id=1165379357 instance=ExtResource("13_jfd1l")]
-position = Vector2(476, 504)
-scale = Vector2(7.24728, 2.77218)
-
-[node name="lava29" parent="LevelBlocks/lava33" unique_id=571068757 instance=ExtResource("13_jfd1l")]
-position = Vector2(210.019, 111.38)
-
-[node name="lava34" parent="LevelBlocks" unique_id=1237681443 instance=ExtResource("13_jfd1l")]
-position = Vector2(416, 500)
-scale = Vector2(6.8, 1)
-
-[node name="lava29" parent="LevelBlocks/lava34" unique_id=1376687916 instance=ExtResource("13_jfd1l")]
-position = Vector2(199.365, -152)
-
-[node name="lava35" parent="LevelBlocks" unique_id=1149122490 instance=ExtResource("13_jfd1l")]
-position = Vector2(352, 508)
-scale = Vector2(6.8, 1)
-
-[node name="lava29" parent="LevelBlocks/lava35" unique_id=781402101 instance=ExtResource("13_jfd1l")]
-position = Vector2(199.365, -152)
-
-[node name="lava36" parent="LevelBlocks" unique_id=647017858 instance=ExtResource("13_jfd1l")]
-position = Vector2(292, 504)
-scale = Vector2(6.8, 3.16)
-
-[node name="lava29" parent="LevelBlocks/lava36" unique_id=1695764282 instance=ExtResource("13_jfd1l")]
-position = Vector2(199.365, -152)
-
-[node name="lava41" parent="LevelBlocks" unique_id=2048876341 instance=ExtResource("13_jfd1l")]
-position = Vector2(16, 500)
-scale = Vector2(2, 1)
-
-[node name="lava42" parent="LevelBlocks" unique_id=173927195 instance=ExtResource("13_jfd1l")]
-position = Vector2(48, 500)
-scale = Vector2(2, 1)
-
-[node name="lava26" parent="LevelBlocks" unique_id=1967697246 instance=ExtResource("13_jfd1l")]
-position = Vector2(288, 308)
-scale = Vector2(4.56, 1)
-
-[node name="lava20" parent="LevelBlocks" unique_id=210050161 instance=ExtResource("13_jfd1l")]
-position = Vector2(452, 108)
-
-[node name="lava13" parent="LevelBlocks" unique_id=1075532213 instance=ExtResource("13_jfd1l")]
-position = Vector2(460, 60)
-
-[node name="FakeLava" type="Sprite2D" parent="LevelBlocks" unique_id=372660869]
-z_index = -200
-z_as_relative = false
-position = Vector2(408, 112)
-scale = Vector2(4, 2)
-texture = SubResource("GradientTexture2D_udgw0")
-
-[node name="FakeLava2" type="Sprite2D" parent="LevelBlocks" unique_id=556106857]
-z_index = -200
-z_as_relative = false
-position = Vector2(288, 228)
-scale = Vector2(6, 2)
-texture = SubResource("GradientTexture2D_udgw0")
-
-[node name="FakeLava4" type="Sprite2D" parent="LevelBlocks" unique_id=1769603298]
-z_index = -200
-z_as_relative = false
-position = Vector2(348, 368)
-scale = Vector2(6, 2)
-texture = SubResource("GradientTexture2D_udgw0")
-
-[node name="FakeLava3" type="Sprite2D" parent="LevelBlocks" unique_id=227486887]
-z_index = -200
-z_as_relative = false
-position = Vector2(32, 232)
-scale = Vector2(6, 2)
-texture = SubResource("GradientTexture2D_udgw0")
 
 [node name="BOSSES" type="Node2D" parent="." unique_id=1862384476]
 
@@ -1278,10 +1110,220 @@ texture = SubResource("CanvasTexture_e01uv")
 [node name="NEWLAVA" parent="." unique_id=371466265 instance=ExtResource("38_b1qrp")]
 position = Vector2(-76, 140)
 
-[node name="HatchesTilemap" type="TileMapLayer" parent="." unique_id=682341742]
-position = Vector2(-2, 0)
-tile_map_data = PackedByteArray("AAAgAAoAAAAAAAAAAQA=")
-tile_set = SubResource("TileSet_b1qrp")
+[node name="LavaOld" type="Node2D" parent="." unique_id=428012852]
+
+[node name="lava" parent="LavaOld" unique_id=1387368635 instance=ExtResource("13_jfd1l")]
+position = Vector2(160, 52)
+scale = Vector2(7, 1.8062142)
+
+[node name="lava2" parent="LavaOld" unique_id=1440025331 instance=ExtResource("13_jfd1l")]
+position = Vector2(84, 116)
+scale = Vector2(5, 1)
+
+[node name="lava5" parent="LavaOld" unique_id=1893788917 instance=ExtResource("13_jfd1l")]
+position = Vector2(100, 244)
+scale = Vector2(5, 1)
+
+[node name="lava3" parent="LavaOld" unique_id=1824209407 instance=ExtResource("13_jfd1l")]
+position = Vector2(36, 116)
+scale = Vector2(5, 1)
+
+[node name="lava4" parent="LavaOld" unique_id=1151211304 instance=ExtResource("13_jfd1l")]
+position = Vector2(84, -12)
+scale = Vector2(5, 1)
+
+[node name="lava6" parent="LavaOld" unique_id=588269656 instance=ExtResource("13_jfd1l")]
+position = Vector2(364, 60)
+
+[node name="lava7" parent="LavaOld" unique_id=621607260 instance=ExtResource("13_jfd1l")]
+position = Vector2(396, 60)
+
+[node name="lava8" parent="LavaOld" unique_id=998084060 instance=ExtResource("13_jfd1l")]
+position = Vector2(404, 60)
+
+[node name="lava16" parent="LavaOld" unique_id=2116992538 instance=ExtResource("13_jfd1l")]
+position = Vector2(412, 60)
+
+[node name="lava9" parent="LavaOld" unique_id=1103579192 instance=ExtResource("13_jfd1l")]
+position = Vector2(428, 60)
+
+[node name="lava10" parent="LavaOld" unique_id=1159775990 instance=ExtResource("13_jfd1l")]
+position = Vector2(436, 60)
+
+[node name="lava11" parent="LavaOld" unique_id=1641759703 instance=ExtResource("13_jfd1l")]
+position = Vector2(444, 60)
+
+[node name="lava12" parent="LavaOld" unique_id=1150875491 instance=ExtResource("13_jfd1l")]
+position = Vector2(452, 60)
+
+[node name="lava14" parent="LavaOld" unique_id=1591704204 instance=ExtResource("13_jfd1l")]
+position = Vector2(476, 116)
+
+[node name="lava15" parent="LavaOld" unique_id=856380886 instance=ExtResource("13_jfd1l")]
+position = Vector2(468, 116)
+
+[node name="lava17" parent="LavaOld" unique_id=922595814 instance=ExtResource("13_jfd1l")]
+position = Vector2(452, 116)
+
+[node name="lava18" parent="LavaOld" unique_id=1287167397 instance=ExtResource("13_jfd1l")]
+position = Vector2(436, 116)
+
+[node name="lava19" parent="LavaOld" unique_id=1034326764 instance=ExtResource("13_jfd1l")]
+position = Vector2(444, 116)
+
+[node name="lava21" parent="LavaOld" unique_id=1350726830 instance=ExtResource("13_jfd1l")]
+position = Vector2(444, 108)
+
+[node name="lava22" parent="LavaOld" unique_id=774268620 instance=ExtResource("13_jfd1l")]
+position = Vector2(436, 108)
+
+[node name="lava25" parent="LavaOld" unique_id=1035367919 instance=ExtResource("13_jfd1l")]
+position = Vector2(356, 116)
+scale = Vector2(8.6, 1)
+
+[node name="lava27" parent="LavaOld" unique_id=258712354 instance=ExtResource("13_jfd1l")]
+position = Vector2(396, 196)
+
+[node name="lava28" parent="LavaOld" unique_id=1214938507 instance=ExtResource("13_jfd1l")]
+position = Vector2(372, 308)
+
+[node name="lava29" parent="LavaOld" unique_id=262735493 instance=ExtResource("13_jfd1l")]
+position = Vector2(416, 244)
+scale = Vector2(6.48, 1)
+
+[node name="lava29" parent="LavaOld/lava29" unique_id=264382420 instance=ExtResource("13_jfd1l")]
+position = Vector2(190.84, -152)
+
+[node name="lava30" parent="LavaOld" unique_id=1579751471 instance=ExtResource("13_jfd1l")]
+position = Vector2(416, 244)
+scale = Vector2(6.48, 1)
+
+[node name="lava29" parent="LavaOld/lava30" unique_id=1790276165 instance=ExtResource("13_jfd1l")]
+position = Vector2(190.84, -152)
+
+[node name="lava31" parent="LavaOld" unique_id=1213008787 instance=ExtResource("13_jfd1l")]
+position = Vector2(428, 372)
+scale = Vector2(4.36, 1)
+
+[node name="lava29" parent="LavaOld/lava31" unique_id=1623424698 instance=ExtResource("13_jfd1l")]
+position = Vector2(102.752, -152)
+
+[node name="lava32" parent="LavaOld" unique_id=458695950 instance=ExtResource("13_jfd1l")]
+position = Vector2(288, 440)
+scale = Vector2(7.24728, 2.77218)
+
+[node name="lava29" parent="LavaOld/lava32" unique_id=736215793 instance=ExtResource("13_jfd1l")]
+position = Vector2(210.019, 111.38)
+
+[node name="lava37" parent="LavaOld" unique_id=1113411242 instance=ExtResource("13_jfd1l")]
+position = Vector2(156, 444)
+rotation = 3.1415927
+scale = Vector2(7.74074, -1.43542)
+
+[node name="lava29" parent="LavaOld/lava37" unique_id=672765419 instance=ExtResource("13_jfd1l")]
+position = Vector2(210.019, 111.38)
+
+[node name="lava38" parent="LavaOld" unique_id=232914726 instance=ExtResource("13_jfd1l")]
+position = Vector2(84, 396)
+scale = Vector2(6, 1)
+
+[node name="lava29" parent="LavaOld/lava38" unique_id=1266318849 instance=ExtResource("13_jfd1l")]
+position = Vector2(210.019, 111.38)
+
+[node name="lava39" parent="LavaOld" unique_id=83516284 instance=ExtResource("13_jfd1l")]
+position = Vector2(128, 396)
+scale = Vector2(6, 1)
+
+[node name="lava29" parent="LavaOld/lava39" unique_id=713546171 instance=ExtResource("13_jfd1l")]
+position = Vector2(210.019, 111.38)
+
+[node name="lava40" parent="LavaOld" unique_id=1287625708 instance=ExtResource("13_jfd1l")]
+position = Vector2(152, 396)
+scale = Vector2(6, 1)
+
+[node name="lava29" parent="LavaOld/lava40" unique_id=477277241 instance=ExtResource("13_jfd1l")]
+position = Vector2(210.019, 111.38)
+
+[node name="lava33" parent="LavaOld" unique_id=1165379357 instance=ExtResource("13_jfd1l")]
+position = Vector2(476, 504)
+scale = Vector2(7.24728, 2.77218)
+
+[node name="lava29" parent="LavaOld/lava33" unique_id=571068757 instance=ExtResource("13_jfd1l")]
+position = Vector2(210.019, 111.38)
+
+[node name="lava34" parent="LavaOld" unique_id=1237681443 instance=ExtResource("13_jfd1l")]
+position = Vector2(416, 500)
+scale = Vector2(6.8, 1)
+
+[node name="lava29" parent="LavaOld/lava34" unique_id=1376687916 instance=ExtResource("13_jfd1l")]
+position = Vector2(199.365, -152)
+
+[node name="lava35" parent="LavaOld" unique_id=1149122490 instance=ExtResource("13_jfd1l")]
+position = Vector2(352, 508)
+scale = Vector2(6.8, 1)
+
+[node name="lava29" parent="LavaOld/lava35" unique_id=781402101 instance=ExtResource("13_jfd1l")]
+position = Vector2(199.365, -152)
+
+[node name="lava36" parent="LavaOld" unique_id=647017858 instance=ExtResource("13_jfd1l")]
+position = Vector2(292, 504)
+scale = Vector2(6.8, 3.16)
+
+[node name="lava29" parent="LavaOld/lava36" unique_id=1695764282 instance=ExtResource("13_jfd1l")]
+position = Vector2(199.365, -152)
+
+[node name="lava41" parent="LavaOld" unique_id=2048876341 instance=ExtResource("13_jfd1l")]
+position = Vector2(16, 500)
+scale = Vector2(2, 1)
+
+[node name="lava42" parent="LavaOld" unique_id=173927195 instance=ExtResource("13_jfd1l")]
+position = Vector2(48, 500)
+scale = Vector2(2, 1)
+
+[node name="lava26" parent="LavaOld" unique_id=1967697246 instance=ExtResource("13_jfd1l")]
+position = Vector2(288, 308)
+scale = Vector2(4.56, 1)
+
+[node name="lava20" parent="LavaOld" unique_id=210050161 instance=ExtResource("13_jfd1l")]
+position = Vector2(452, 108)
+
+[node name="lava13" parent="LavaOld" unique_id=1075532213 instance=ExtResource("13_jfd1l")]
+position = Vector2(460, 60)
+
+[node name="FakeLava" type="Sprite2D" parent="LavaOld" unique_id=372660869]
+z_index = -200
+z_as_relative = false
+position = Vector2(408, 112)
+scale = Vector2(4, 2)
+texture = SubResource("GradientTexture2D_udgw0")
+
+[node name="FakeLava2" type="Sprite2D" parent="LavaOld" unique_id=556106857]
+z_index = -200
+z_as_relative = false
+position = Vector2(288, 228)
+scale = Vector2(6, 2)
+texture = SubResource("GradientTexture2D_udgw0")
+
+[node name="FakeLava4" type="Sprite2D" parent="LavaOld" unique_id=1769603298]
+z_index = -200
+z_as_relative = false
+position = Vector2(348, 368)
+scale = Vector2(6, 2)
+texture = SubResource("GradientTexture2D_udgw0")
+
+[node name="FakeLava3" type="Sprite2D" parent="LavaOld" unique_id=227486887]
+z_index = -200
+z_as_relative = false
+position = Vector2(32, 232)
+scale = Vector2(6, 2)
+texture = SubResource("GradientTexture2D_udgw0")
+
+[node name="NewLavaTilemap" type="TileMap" parent="." unique_id=823142644]
+tile_set = SubResource("TileSet_4lmeg")
+format = 2
+
+[node name="LavaTileMapLayer" type="TileMapLayer" parent="." unique_id=1183457836]
+tile_set = SubResource("TileSet_d2t1y")
 
 [connection signal="area_entered" from="BOSSES/FakeKraid" to="BOSSES/FakeKraid" method="_on_area_entered"]
 [connection signal="body_entered" from="BOSSES/FakeKraid" to="BOSSES/FakeKraid" method="_on_body_entered"]

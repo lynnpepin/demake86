@@ -9,8 +9,8 @@ operator = 1
 output_port_for_preview = 0
 
 [sub_resource type="Curve" id="Curve_ht3vd"]
-_data = [Vector2(0.00063462555, 0), 0.0, 0.0, 0, 0, Vector2(0.1696805, 0.5206107), 10.573674, 10.573674, 0, 0, Vector2(0.28707352, 1), -0.20300092, -0.20300092, 0, 0, Vector2(0.3083311, 0.44767088), -0.92093056, -0.92093056, 0, 0, Vector2(0.49583107, 0.21511275), -0.7674383, -0.7674383, 0, 0, Vector2(0.5163366, 0), 0.0, 0.0, 0, 0]
-point_count = 6
+_data = [Vector2(0, 0), 10.573674, 0.0, 0, 0, Vector2(0.28707352, 1), -0.20300092, -0.20300092, 0, 0, Vector2(0.3083311, 0.44767088), -0.45153666, -0.45153666, 0, 0, Vector2(0.35291246, 0.1231544), -0.7674383, -0.7674383, 0, 0, Vector2(0.5163366, 0), 0.0, 0.0, 0, 0]
+point_count = 5
 
 [sub_resource type="CurveTexture" id="CurveTexture_x6c1i"]
 width = 512
@@ -21,16 +21,18 @@ size = Vector2(639.99994, 0)
 texture = SubResource("CurveTexture_x6c1i")
 
 [sub_resource type="Curve" id="Curve_x6c1i"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.52654445, 0), 0.0, 0.0, 0, 0, Vector2(0.6308923, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 5.430654, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.47832718, 0), -0.17962909, -0.17962909, 0, 0, Vector2(0.54145765, 0), 0.0, 0.0, 0, 0, Vector2(0.99999, 1), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_7kodk"]
 curve = SubResource("Curve_x6c1i")
 
 [sub_resource type="VisualShaderNodeCurveTexture" id="VisualShaderNodeCurveTexture_do8aq"]
+output_port_for_preview = 0
 texture = SubResource("CurveTexture_7kodk")
 
 [sub_resource type="VisualShaderNodeColorOp" id="VisualShaderNodeColorOp_ht3vd"]
+output_port_for_preview = 0
 operator = 5
 
 [sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_ht3vd"]
@@ -62,7 +64,7 @@ input_name = "time"
 operator = 5
 
 [sub_resource type="Curve" id="Curve_7kodk"]
-_data = [Vector2(0, 1), 0.0, -7.0279007, 0, 0, Vector2(0.10164264, 0.09211135), 0.0, 0.0, 0, 0, Vector2(0.2600522, 0.025028348), 1.5317233, 1.5317233, 0, 0, Vector2(0.29351884, 0.9865547), 0.0, 0.0, 0, 0, Vector2(0.36045262, 0.025028348), -3.1966345, -3.1966345, 0, 0, Vector2(0.66165423, 0.14056015), 0.0, 0.0, 0, 0, Vector2(0.67504084, 1), 0.0, 0.0, 0, 0, Vector2(0.74197495, 0), 0.0, 0.0, 0, 0, Vector2(0.9740114, 0.06975043), 0.0, 0.0, 0, 0, Vector2(1, 1), 5.430654, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, -7.0279007, 0, 0, Vector2(0.10164264, 0.09211135), 0.0, 0.0, 0, 0, Vector2(0.2600522, 0.025028348), 1.5317233, 1.5317233, 0, 0, Vector2(0.30576277, 1), 0.0, 0.0, 0, 0, Vector2(0.54250276, 0.8629908), -3.1966345, -3.1966345, 0, 0, Vector2(0.66165423, 0.14056015), 0.0, 0.0, 0, 0, Vector2(0.67504084, 1), 0.0, 0.0, 0, 0, Vector2(0.74197495, 0), 0.0, 0.0, 0, 0, Vector2(0.9740114, 0.06975043), 0.0, 0.0, 0, 0, Vector2(1, 1), 5.430654, 0.0, 0, 0]
 point_count = 10
 
 [sub_resource type="CurveTexture" id="CurveTexture_do8aq"]
@@ -72,28 +74,32 @@ curve = SubResource("Curve_7kodk")
 texture = SubResource("CurveTexture_do8aq")
 
 [sub_resource type="Curve" id="Curve_do8aq"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.02442415, 1), 0.0, 0.0, 0, 0, Vector2(0.25457877, 1), 0.0, 0.0, 0, 0, Vector2(0.94505495, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.34700388), 0.0, 0.0, 0, 0, Vector2(0.06431195, 1), 0.0, 0.0, 0, 0, Vector2(0.25457877, 1), 0.0, 0.0, 0, 0, Vector2(0.90390575, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.14858639), 0.0, 0.0, 0, 0]
 point_count = 5
 
 [sub_resource type="CurveTexture" id="CurveTexture_8j23w"]
 curve = SubResource("Curve_do8aq")
 
 [sub_resource type="VisualShaderNodeCurveTexture" id="VisualShaderNodeCurveTexture_udeno"]
+output_port_for_preview = 0
 texture = SubResource("CurveTexture_8j23w")
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_6xcvj"]
+output_port_for_preview = 0
 operator = 2
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_7kodk"]
 input_name = "uv"
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ht3vd"]
-seed = 3
-frequency = 0.02
+seed = 11
+frequency = 0.008
 fractal_gain = 0.545
 domain_warp_enabled = true
 domain_warp_type = 1
+domain_warp_amplitude = 15.0
 domain_warp_frequency = 0.01
+domain_warp_fractal_octaves = 1
 
 [sub_resource type="NoiseTexture3D" id="NoiseTexture3D_x6c1i"]
 width = 48
@@ -146,7 +152,7 @@ nodes/fragment/11/position = Vector2(-293.33334, 1120)
 nodes/fragment/12/node = SubResource("VisualShaderNodeCurveTexture_7kodk")
 nodes/fragment/12/position = Vector2(293.33334, 1066.6666)
 nodes/fragment/13/node = SubResource("VisualShaderNodeCurveTexture_do8aq")
-nodes/fragment/13/position = Vector2(173.33333, -226.66667)
+nodes/fragment/13/position = Vector2(240, -453.33334)
 nodes/fragment/14/node = SubResource("VisualShaderNodeColorOp_ht3vd")
 nodes/fragment/14/position = Vector2(906.6667, 13.333333)
 nodes/fragment/15/node = SubResource("VisualShaderNodeExpression_ht3vd")
