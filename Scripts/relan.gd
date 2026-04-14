@@ -370,6 +370,7 @@ func hurt(damage: int, cooldown: float) -> void:
         #print("OH NOOOO")
 
 func remove_barrier():
+    print("BUH BYE BARRIER")
     barrier_timer = 0
     barrier = false
     $Sprite2D_barrier_feature.modulate = Color(1, 1, 1, 0)
@@ -378,6 +379,7 @@ func remove_barrier():
 
 func regain_barrier():
     if !barrier:
+        print("BARRIER ACTIVE")
         barrier = true
         $Sprite2D_barrier_feature.modulate = Color(1,1,1, .5)
         $Sounds/ShieldRegain.play()
