@@ -280,11 +280,11 @@ func apply_impulse(impulse: Vector2):
 
 func check_water():
     is_in_water = false
-    for area in $hurt_box.get_overlapping_areas():
+    for area in $hurt_box.get_overlapping_bodies():
         if area.is_in_group("water"):
             is_in_water = true
             # todo - cheap hack
-            hurt(area.hurt_value, 3)
+            hurt(area.hurt_value, 3.0)
 
 func _transition_normal_to_ball():
     if has_morph_ball:
