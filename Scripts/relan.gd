@@ -121,7 +121,7 @@ func _physics_process(delta: float) -> void:
     
     if grounded == 0:
         # Enable srew attack if we're off the ground...
-        if has_screw_attack: $Node2D_Screw_Attack.on()
+        if has_screw_attack and state == States.Normal: $Node2D_Screw_Attack.on()
     
     check_water()
     if is_in_water:
@@ -309,6 +309,8 @@ func _transition_normal_to_ball():
         # Orbs to ponder should be in the appropriate location
         $Sprite2D_barrier_feature.offset.y = 6.0
         $Node2D_Screw_Attack.position.y = 6.0
+        # actually screw attack shouldnt be active while ballin
+        $Node2D_Screw_Attack.off()
 
 func _transition_ball_to_normal():
     # First, check that there's no clipping

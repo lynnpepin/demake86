@@ -14,14 +14,13 @@ width = 8
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ja4tt"]
 size = Vector2(6, 6)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s2qmj"]
-texture = ExtResource("2_s2qmj")
-texture_region_size = Vector2i(8, 8)
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_i3pmj"]
+[sub_resource type="TileSet" id="TileSet_s2qmj"]
 tile_size = Vector2i(8, 8)
-sources/0 = SubResource("TileSetAtlasSource_s2qmj")
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+terrain_set_0/terrain_1/name = "Terrain 1"
+terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 
 [node name="Node2D" type="Node2D" unique_id=371466265]
 script = ExtResource("1_gyc8b")
@@ -61,6 +60,6 @@ stretch_mode = 1
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1152635647]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-tile_set = SubResource("TileSet_i3pmj")
+tile_set = SubResource("TileSet_s2qmj")
 
 [connection signal="area_entered" from="new_lava" to="new_lava" method="_on_area_entered"]

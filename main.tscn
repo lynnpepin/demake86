@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://dk8unr07bj50f"]
 
 [ext_resource type="PackedScene" uid="uid://drk8exn5eh8fd" path="res://Scenes/BombableBlock.tscn" id="1_3oaw5"]
-[ext_resource type="Script" uid="uid://bwidy4yt6b2m8" path="res://addons/levelshot/level_shot_boundary.gd" id="1_a6jrf"]
 [ext_resource type="Texture2D" uid="uid://ce2tibknbbtee" path="res://art/8px_ground.png" id="2_yoeee"]
 [ext_resource type="Texture2D" uid="uid://ox70v7php01v" path="res://art/tiles1_normal.png" id="3_ia83q"]
 [ext_resource type="Texture2D" uid="uid://ksg2mh188uub" path="res://art/1024_bg.png" id="4_ix4gv"]
@@ -51,6 +50,13 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 metadata/_snap_enabled = true
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_b1qrp"]
+scenes/1/scene = ExtResource("1_3oaw5")
+
+[sub_resource type="TileSet" id="TileSet_come4"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetScenesCollectionSource_b1qrp")
 
 [sub_resource type="Gradient" id="Gradient_hvat8"]
 
@@ -172,18 +178,14 @@ diffuse_texture = ExtResource("22_o8q7v")
 normal_texture = ExtResource("3_ia83q")
 specular_color = Color(0, 0, 0, 1)
 
-[node name="Root" type="Node2D" unique_id=1570894400]
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_facbu"]
+scenes/1/scene = ExtResource("30_1unny")
 
-[node name="LevelshotBoundary" type="ReferenceRect" parent="." unique_id=1537332123]
-offset_left = -128.0
-offset_top = -128.0
-offset_right = 640.0
-offset_bottom = 640.0
-border_color = Color(1, 1, 0, 1)
-border_width = 4.0
-script = ExtResource("1_a6jrf")
-_first_run = false
-metadata/_custom_type_script = "uid://bwidy4yt6b2m8"
+[sub_resource type="TileSet" id="TileSet_b1qrp"]
+tile_size = Vector2i(4, 16)
+sources/0 = SubResource("TileSetScenesCollectionSource_facbu")
+
+[node name="Root" type="Node2D" unique_id=1570894400]
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
 position = Vector2(96, 136)
@@ -360,129 +362,16 @@ pickup_message = "BELLBIRD'S\\nWINGS\\nINHERITED"
 [node name="Electrolyzer" parent="Pickups" unique_id=856457037 instance=ExtResource("27_a6jrf")]
 position = Vector2(304, 248)
 
+[node name="BombBlocks_Tilemap" type="TileMapLayer" parent="." unique_id=1496238402]
+tile_map_data = PackedByteArray("AAASABYAAAAAAAAAAQATABYAAAAAAAAAAQAUABYAAAAAAAAAAQAVABYAAAAAAAAAAQAtABYAAAAAAAAAAQAuABYAAAAAAAAAAQA8AB4AAAAAAAAAAQAjACAAAAAAAAAAAQAbAC4AAAAAAAAAAQAdADAAAAAAAAAAAQAbADIAAAAAAAAAAQAdADQAAAAAAAAAAQAdADMAAAAAAAAAAQAbADYAAAAAAAAAAQAbADUAAAAAAAAAAQAdADgAAAAAAAAAAQAdADcAAAAAAAAAAQAbADoAAAAAAAAAAQAbADkAAAAAAAAAAQAdADwAAAAAAAAAAQAlAC0AAAAAAAAAAQAlAC4AAAAAAAAAAQAlADEAAAAAAAAAAQAlADIAAAAAAAAAAQAiAC8AAAAAAAAAAQAiADAAAAAAAAAAAQAiADMAAAAAAAAAAQAiADQAAAAAAAAAAQA+ADsAAAAAAAAAAQA9ADsAAAAAAAAAAQA9ADwAAAAAAAAAAQAIADYAAAAAAAAAAQApAAYAAAAAAAAAAQA=")
+tile_set = SubResource("TileSet_come4")
+
 [node name="LevelBlocks" type="Node2D" parent="." unique_id=1858907284]
-
-[node name="BombableBlock2" parent="LevelBlocks" unique_id=2036642449 instance=ExtResource("1_3oaw5")]
-position = Vector2(148, 180)
-
-[node name="BombableBlock16" parent="LevelBlocks" unique_id=1137275870 instance=ExtResource("1_3oaw5")]
-position = Vector2(300, 364)
-
-[node name="BombableBlock17" parent="LevelBlocks" unique_id=996293798 instance=ExtResource("1_3oaw5")]
-position = Vector2(300, 372)
-
-[node name="BombableBlock18" parent="LevelBlocks" unique_id=835698265 instance=ExtResource("1_3oaw5")]
-position = Vector2(276, 420)
-
-[node name="BombableBlock19" parent="LevelBlocks" unique_id=2076103923 instance=ExtResource("1_3oaw5")]
-position = Vector2(276, 388)
-
-[node name="BombableBlock20" parent="LevelBlocks" unique_id=1511467389 instance=ExtResource("1_3oaw5")]
-position = Vector2(276, 380)
-
-[node name="BombableBlock40" parent="LevelBlocks" unique_id=1704859785 instance=ExtResource("1_3oaw5")]
-position = Vector2(68, 436)
-
-[node name="BombableBlock25" parent="LevelBlocks" unique_id=1212890610 instance=ExtResource("1_3oaw5")]
-position = Vector2(220, 372)
-
-[node name="BombableBlock26" parent="LevelBlocks" unique_id=1208719661 instance=ExtResource("1_3oaw5")]
-position = Vector2(236, 380)
-
-[node name="BombableBlock27" parent="LevelBlocks" unique_id=388846165 instance=ExtResource("1_3oaw5")]
-position = Vector2(236, 388)
-
-[node name="BombableBlock28" parent="LevelBlocks" unique_id=401710607 instance=ExtResource("1_3oaw5")]
-position = Vector2(220, 396)
-
-[node name="BombableBlock29" parent="LevelBlocks" unique_id=1449086476 instance=ExtResource("1_3oaw5")]
-position = Vector2(220, 404)
-
-[node name="BombableBlock30" parent="LevelBlocks" unique_id=363918308 instance=ExtResource("1_3oaw5")]
-position = Vector2(236, 412)
-
-[node name="BombableBlock31" parent="LevelBlocks" unique_id=646249955 instance=ExtResource("1_3oaw5")]
-position = Vector2(236, 420)
-
-[node name="BombableBlock32" parent="LevelBlocks" unique_id=341690161 instance=ExtResource("1_3oaw5")]
-position = Vector2(220, 428)
-
-[node name="BombableBlock33" parent="LevelBlocks" unique_id=1743306212 instance=ExtResource("1_3oaw5")]
-position = Vector2(220, 436)
-
-[node name="BombableBlock34" parent="LevelBlocks" unique_id=84784809 instance=ExtResource("1_3oaw5")]
-position = Vector2(236, 444)
-
-[node name="BombableBlock35" parent="LevelBlocks" unique_id=61062829 instance=ExtResource("1_3oaw5")]
-position = Vector2(236, 452)
-
-[node name="BombableBlock36" parent="LevelBlocks" unique_id=1452476090 instance=ExtResource("1_3oaw5")]
-position = Vector2(220, 460)
-
-[node name="BombableBlock37" parent="LevelBlocks" unique_id=1427445509 instance=ExtResource("1_3oaw5")]
-position = Vector2(220, 468)
-
-[node name="BombableBlock38" parent="LevelBlocks" unique_id=1688101195 instance=ExtResource("1_3oaw5")]
-position = Vector2(236, 476)
-
-[node name="BombableBlock39" parent="LevelBlocks" unique_id=726032293 instance=ExtResource("1_3oaw5")]
-position = Vector2(236, 484)
-
-[node name="BombableBlock21" parent="LevelBlocks" unique_id=1652887192 instance=ExtResource("1_3oaw5")]
-position = Vector2(300, 396)
-
-[node name="BombableBlock22" parent="LevelBlocks" unique_id=1283246583 instance=ExtResource("1_3oaw5")]
-position = Vector2(300, 404)
-
-[node name="BombableBlock23" parent="LevelBlocks" unique_id=700703180 instance=ExtResource("1_3oaw5")]
-position = Vector2(276, 412)
-
-[node name="BombableBlock3" parent="LevelBlocks" unique_id=1680585862 instance=ExtResource("1_3oaw5")]
-position = Vector2(156, 180)
-
-[node name="BombableBlock4" parent="LevelBlocks" unique_id=797975922 instance=ExtResource("1_3oaw5")]
-position = Vector2(164, 180)
-
-[node name="BombableBlock5" parent="LevelBlocks" unique_id=1538517121 instance=ExtResource("1_3oaw5")]
-position = Vector2(172, 180)
-
-[node name="BombableBlock9" parent="LevelBlocks" unique_id=386925344 instance=ExtResource("1_3oaw5")]
-position = Vector2(484, 244)
-
-[node name="BombableBlock14" parent="LevelBlocks" unique_id=697887492 instance=ExtResource("1_3oaw5")]
-position = Vector2(284, 252)
-
-[node name="BombableBlock15" parent="LevelBlocks" unique_id=1864900096 instance=ExtResource("1_3oaw5")]
-position = Vector2(284, 252)
-
-[node name="BombableBlock53" parent="LevelBlocks" unique_id=1330850177 instance=ExtResource("1_3oaw5")]
-position = Vector2(364, 180)
-
-[node name="BombableBlock54" parent="LevelBlocks" unique_id=1622838985 instance=ExtResource("1_3oaw5")]
-position = Vector2(372, 180)
-
-[node name="BombableBlock50" parent="LevelBlocks" unique_id=1701080374 instance=ExtResource("1_3oaw5")]
-position = Vector2(500, 476)
-
-[node name="BombableBlock51" parent="LevelBlocks" unique_id=915788887 instance=ExtResource("1_3oaw5")]
-position = Vector2(492, 476)
-
-[node name="BombableBlock52" parent="LevelBlocks" unique_id=2133486101 instance=ExtResource("1_3oaw5")]
-position = Vector2(492, 484)
-
-[node name="BombableBlock10" parent="LevelBlocks" unique_id=286514920 instance=ExtResource("1_3oaw5")]
-position = Vector2(276, 236)
-
-[node name="BombableBlock6" parent="LevelBlocks" unique_id=966783660 instance=ExtResource("1_3oaw5")]
-position = Vector2(332, 52)
 
 [node name="Hatch" parent="LevelBlocks" unique_id=2046127137 instance=ExtResource("30_1unny")]
 
 [node name="Hatch4" parent="LevelBlocks" unique_id=523828260 instance=ExtResource("30_1unny")]
 position = Vector2(192, 168)
-
-[node name="Hatch46" parent="LevelBlocks" unique_id=619466197 instance=ExtResource("30_1unny")]
-position = Vector2(128, 168)
 
 [node name="Hatch30" parent="LevelBlocks" unique_id=2030873963 instance=ExtResource("30_1unny")]
 position = Vector2(192, 224)
@@ -800,14 +689,7 @@ texture = SubResource("GradientTexture2D_udgw0")
 [node name="FakeLava2" type="Sprite2D" parent="LevelBlocks" unique_id=556106857]
 z_index = -200
 z_as_relative = false
-position = Vector2(288, 232)
-scale = Vector2(6, 2)
-texture = SubResource("GradientTexture2D_udgw0")
-
-[node name="FakeLava5" type="Sprite2D" parent="LevelBlocks" unique_id=1085454221]
-z_index = -200
-z_as_relative = false
-position = Vector2(288, 232)
+position = Vector2(288, 228)
 scale = Vector2(6, 2)
 texture = SubResource("GradientTexture2D_udgw0")
 
@@ -1395,6 +1277,11 @@ texture = SubResource("CanvasTexture_e01uv")
 
 [node name="NEWLAVA" parent="." unique_id=371466265 instance=ExtResource("38_b1qrp")]
 position = Vector2(-76, 140)
+
+[node name="HatchesTilemap" type="TileMapLayer" parent="." unique_id=682341742]
+position = Vector2(-2, 0)
+tile_map_data = PackedByteArray("AAAgAAoAAAAAAAAAAQA=")
+tile_set = SubResource("TileSet_b1qrp")
 
 [connection signal="area_entered" from="BOSSES/FakeKraid" to="BOSSES/FakeKraid" method="_on_area_entered"]
 [connection signal="body_entered" from="BOSSES/FakeKraid" to="BOSSES/FakeKraid" method="_on_body_entered"]
