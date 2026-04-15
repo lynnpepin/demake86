@@ -15,10 +15,13 @@ func _ready():
     angle = start_angle * PI / 180;
     super()
 
-    
-    
 
 func _physics_process(delta: float) -> void:
+    if freeze_timer <= 0 and health >= 0:
+        pass
+    
+
+func _old_physics_process(delta: float) -> void:
     rotate_timer = clamp(rotate_timer - delta, 0.0, 1.0)
     var ground_coll = $RayCast2D_ground.get_collider()
     
