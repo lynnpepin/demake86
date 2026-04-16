@@ -26,6 +26,7 @@ var hit_sounds: Array
 var death_sounds: Array
 var freeze_timer: float = 0.0
 var hurt_timer: float = 0.0
+var death_timer: float = 0.0 # set to negative on die(), then count up and delete in process
 # Called when the node enters the scene tree for the first time.
 #endregion
 
@@ -36,6 +37,12 @@ func _ready() -> void:
     death_sounds = $DeathSounds.get_children()
     
 func _process(delta: float) -> void:
+    # If dead, delete self after a short timer
+    if death_timer < 0.0:
+        death_timer += delta
+        if death_timer >= 0.0:
+            queue_free()
+    
     # Handle hurt modulation
     hurt_timer = max(0, hurt_timer - delta)
     var _hurt_timer_color_intensity =  clamp(hurt_timer, 0.5 * int(hurt_timer > 0), 1.0)
@@ -98,6 +105,7 @@ func die() -> void:
     $DeathExplosion.emitting = true
     # no freeze box
     # TODO: Worth deleting after sounds and emitter are done
+    death_timer = -6.0
 
 func freeze(timer: float) -> void:
     if health > 0:

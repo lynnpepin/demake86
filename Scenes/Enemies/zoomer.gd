@@ -5,14 +5,28 @@ var direction: int = 1
 @export var start_hp := 2  # new default
 @export var zoomer_speed := 12
 
-var angle = PI; # make sure this is 
-@export var start_angle = 180;
-var rotate_timer = 0.25;
+var angle = 0; # make sure this is 
+var rotate_timer = 0.25; # todo delete
+
+var readytimer = 0.125;
+
+# Our rays
+@onready var j_ray = $RayCast2D_just_off
+@onready var l_ray = $RayCast2D_left
+@onready var g_ray = $RayCast2D_ground
+@onready var r_ray = $RayCast2D_right
+@onready var f_ray = $RayCast2D_forward
+
+var j_col = false
+var l_col = false
+var g_col = false
+var r_col = false
+var f_col = false
 
 func _ready():
     health = start_hp
     speed = zoomer_speed
-    angle = start_angle * PI / 180;
+    angle = transform.get_rotation()
     super()
 
 func spin_cw():
@@ -22,24 +36,72 @@ func spin_cw():
 func spin_ccw():
     rotate(-PI/2.0)
     angle = fmod(angle - PI / 2.0, PI * 2.0)
-    
-    
-func _physics_process(delta: float) -> void:
 
-    if freeze_timer <= 0 and health >= 0:
-        var f_col = $RayCast2D_forward.get_collider()
-        var g_col = $RayCast2D_ground.get_collider()
-        var l_col = $RayCast2D_left.get_collider()
-        var r_col = $RayCast2D_right.get_collider()
+
+func _debugcolor(color=Color.WHITE):
+    $AnimatedSprite2D.modulate = color
+
+func _physics_process(delta: float) -> void:
+    # need readytimer; things work weird without it
+    readytimer = max(0.0, readytimer - delta)
+    if (freeze_timer <= 0 and health >= 0 and readytimer <= 0.0):
+        g_col = g_ray.is_colliding()
+        l_col = l_ray.is_colliding()
+        r_col = r_ray.is_colliding()
+        f_col = f_ray.is_colliding()
+        j_col = j_ray.is_colliding()
         
-        if r_col == null and g_col == null and l_col != null:
-            # rotate!
-            spin_cw()
-        # TODO - more cases: Inner angle, ramp outer angle, ramp inner angle, U-bend inner angle
-        # TODO - g_col <= .25px any time
+        match [f_col, j_col, l_col, g_col, r_col]:
+            [false, false, false, false, false]:
+                # todo! orient and fall
+                _debugcolor(Color(.5, .5, .5, .25))
+                pass
+            [false, false, _, _, _]:
+                # normal; just move forward
+                _debugcolor()
+                pass
+            [false, true, false, false, _]:
+                # "spin cw and move by G 1px"
+                # not sure why this is x and not y;
+                # not sure why this is 3 and not 1 or 2
+                # todo
+                _debugcolor(Color.RED)
+                move_local_x(-3) 
+                spin_cw()
+            [false, true, _, _, _]:
+                # normal; just move forward
+                _debugcolor()
+                pass 
+            [true, false, _, _, _]:
+                # "spin ccw and move G 4 px"
+                # hitting a wall while in the air or not
+                # again: why is this x not y? why is this 6 not 1?
+                # TODO - Floating Zoomer hits this one first
+                _debugcolor(Color(0, 1, 0))
+                move_local_x(6)
+                spin_ccw()
+            [true, true, false, false, false]:
+                _debugcolor(Color.RED)
+                move_local_x(-3) 
+                spin_cw()
+            [true, true, _, _, _]:
+                _debugcolor(Color(0, 1, 0))
+                move_local_x(6)
+                spin_ccw()
+                # todo; move down along ray by 1 pixel
+            _:
+                # this should not be possible
+                print("This should never happen")
+                _debugcolor(Color(1, 0, 1, .75))
+                pass
         
         var collision = move_and_collide(delta * Vector2(speed , 0).rotated(angle))
-    
+
+func _process(delta):
+    _draw()
+
+func _draw():
+    pass
 
 func _old_physics_process(delta: float) -> void:
     rotate_timer = clamp(rotate_timer - delta, 0.0, 1.0)
