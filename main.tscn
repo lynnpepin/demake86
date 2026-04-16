@@ -287,11 +287,8 @@ sources/2 = SubResource("TileSetAtlasSource_come4")
 [node name="Root" type="Node2D" unique_id=1570894400]
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
-position = Vector2(-268, -104)
+position = Vector2(364, 388)
 HAS_ALL_ITEMS = false
-START_MISSILES = 20
-START_ENERGY = 20
-has_high_jump = true
 has_morph_ball = true
 has_morph_bomb = true
 has_varia_suit = true
@@ -804,284 +801,196 @@ position = Vector2(20, 368)
 [node name="Ripper14" parent="Enemies" unique_id=464789937 instance=ExtResource("17_3k0f5")]
 position = Vector2(44, 384)
 
-[node name="EnemyClass3" parent="Enemies" unique_id=743314971 instance=ExtResource("26_lswn8")]
+[node name="Zoomer" parent="Enemies" unique_id=743314971 instance=ExtResource("26_lswn8")]
 position = Vector2(80, 148)
 rotation = -1.57079
-zoomer_speed = -12
 
-[node name="EnemyClass59" parent="Enemies" unique_id=1007610357 instance=ExtResource("26_lswn8")]
+[node name="Zoomer2" parent="Enemies" unique_id=1007610357 instance=ExtResource("26_lswn8")]
 position = Vector2(-260, -48)
 
-[node name="EnemyClass65" parent="Enemies" unique_id=1574221000 instance=ExtResource("26_lswn8")]
+[node name="Zoomer3" parent="Enemies" unique_id=1574221000 instance=ExtResource("26_lswn8")]
 position = Vector2(-248, -32)
 
-[node name="EnemyClass66" parent="Enemies" unique_id=1579221539 instance=ExtResource("26_lswn8")]
+[node name="Zoomer4" parent="Enemies" unique_id=1579221539 instance=ExtResource("26_lswn8")]
 position = Vector2(-320, -88)
 
-[node name="EnemyClass68" parent="Enemies" unique_id=355759905 instance=ExtResource("26_lswn8")]
+[node name="Zoomer5" parent="Enemies" unique_id=355759905 instance=ExtResource("26_lswn8")]
 position = Vector2(-300, -120)
 
-[node name="EnemyClass74" parent="Enemies" unique_id=1641698000 instance=ExtResource("26_lswn8")]
+[node name="Zoomer6" parent="Enemies" unique_id=1641698000 instance=ExtResource("26_lswn8")]
 position = Vector2(-268, -112)
 
-[node name="EnemyClass72" parent="Enemies" unique_id=2019120291 instance=ExtResource("26_lswn8")]
+[node name="Zoomer7" parent="Enemies" unique_id=2019120291 instance=ExtResource("26_lswn8")]
 position = Vector2(-240, -112)
 
-[node name="EnemyClass73" parent="Enemies" unique_id=141948007 instance=ExtResource("26_lswn8")]
+[node name="Zoomer8" parent="Enemies" unique_id=141948007 instance=ExtResource("26_lswn8")]
 position = Vector2(-228, -144)
 
-[node name="EnemyClass69" parent="Enemies" unique_id=1569029504 instance=ExtResource("26_lswn8")]
+[node name="Zoomer9" parent="Enemies" unique_id=1569029504 instance=ExtResource("26_lswn8")]
 position = Vector2(-300, -104)
 
-[node name="EnemyClass70" parent="Enemies" unique_id=1136209769 instance=ExtResource("26_lswn8")]
+[node name="Zoomer10" parent="Enemies" unique_id=1136209769 instance=ExtResource("26_lswn8")]
 position = Vector2(-276, -136)
 
-[node name="EnemyClass71" parent="Enemies" unique_id=1208605186 instance=ExtResource("26_lswn8")]
+[node name="Zoomer11" parent="Enemies" unique_id=1208605186 instance=ExtResource("26_lswn8")]
 position = Vector2(-276, -152)
 
-[node name="EnemyClass67" parent="Enemies" unique_id=192255400 instance=ExtResource("26_lswn8")]
+[node name="Zoomer12" parent="Enemies" unique_id=192255400 instance=ExtResource("26_lswn8")]
 position = Vector2(-216, -88)
 
-[node name="EnemyClass60" parent="Enemies" unique_id=1735839147 instance=ExtResource("26_lswn8")]
+[node name="Zoomer13" parent="Enemies" unique_id=1735839147 instance=ExtResource("26_lswn8")]
 position = Vector2(-220, -64)
 
-[node name="EnemyClass61" parent="Enemies" unique_id=1251107220 instance=ExtResource("26_lswn8")]
+[node name="Zoomer14" parent="Enemies" unique_id=1251107220 instance=ExtResource("26_lswn8")]
 position = Vector2(-180, -72)
 
-[node name="EnemyClass62" parent="Enemies" unique_id=769961080 instance=ExtResource("26_lswn8")]
+[node name="Zoomer15" parent="Enemies" unique_id=769961080 instance=ExtResource("26_lswn8")]
 position = Vector2(-276, -72)
 
-[node name="EnemyClass63" parent="Enemies" unique_id=1161245635 instance=ExtResource("26_lswn8")]
+[node name="Zoomer16" parent="Enemies" unique_id=1161245635 instance=ExtResource("26_lswn8")]
 position = Vector2(-284, -48)
 
-[node name="EnemyClass64" parent="Enemies" unique_id=1322876186 instance=ExtResource("26_lswn8")]
+[node name="Zoomer17" parent="Enemies" unique_id=1322876186 instance=ExtResource("26_lswn8")]
 position = Vector2(-300, -64)
 
-[node name="EnemyClass2" parent="Enemies" unique_id=1598515539 instance=ExtResource("26_lswn8")]
+[node name="Zoomer18" parent="Enemies" unique_id=1598515539 instance=ExtResource("26_lswn8")]
 position = Vector2(112, 144)
-zoomer_speed = -12
 
-[node name="EnemyClass8" parent="Enemies" unique_id=573957798 instance=ExtResource("26_lswn8")]
-position = Vector2(104, 232)
-zoomer_speed = -12
+[node name="Zoomer19" parent="Enemies" unique_id=1801570524 instance=ExtResource("26_lswn8")]
+position = Vector2(224, 128)
 
-[node name="EnemyClass9" parent="Enemies" unique_id=1792893388 instance=ExtResource("26_lswn8")]
-position = Vector2(228, 232)
-zoomer_speed = -12
+[node name="Zoomer20" parent="Enemies" unique_id=2110982592 instance=ExtResource("26_lswn8")]
+position = Vector2(288, 88)
 
-[node name="EnemyClass13" parent="Enemies" unique_id=1871262451 instance=ExtResource("26_lswn8")]
-position = Vector2(228, 208)
-rotation = -3.14159
-zoomer_speed = -12
+[node name="Zoomer21" parent="Enemies" unique_id=1533409799 instance=ExtResource("26_lswn8")]
+position = Vector2(288, 120)
 
-[node name="EnemyClass11" parent="Enemies" unique_id=922307947 instance=ExtResource("26_lswn8")]
-position = Vector2(300, 280)
-zoomer_speed = -12
-
-[node name="EnemyClass10" parent="Enemies" unique_id=429594932 instance=ExtResource("26_lswn8")]
+[node name="Zoomer22" parent="Enemies" unique_id=1235552202 instance=ExtResource("26_lswn8")]
 position = Vector2(480, 200)
-zoomer_speed = -12
 
-[node name="EnemyClass7" parent="Enemies" unique_id=160894359 instance=ExtResource("26_lswn8")]
+[node name="Zoomer23" parent="Enemies" unique_id=281428271 instance=ExtResource("26_lswn8")]
+position = Vector2(348, 400)
+
+[node name="Zoomer24" parent="Enemies" unique_id=2125112689 instance=ExtResource("26_lswn8")]
+position = Vector2(300, 392)
+
+[node name="Zoomer25" parent="Enemies" unique_id=922307947 instance=ExtResource("26_lswn8")]
+position = Vector2(300, 280)
+
+[node name="Zoomer26" parent="Enemies" unique_id=160894359 instance=ExtResource("26_lswn8")]
 position = Vector2(164, 256)
-zoomer_speed = -12
 
-[node name="EnemyClass14" parent="Enemies" unique_id=415879273 instance=ExtResource("26_lswn8")]
-position = Vector2(68, 296)
-zoomer_speed = -12
+[node name="Zoomer27" parent="Enemies" unique_id=1929801363 instance=ExtResource("26_lswn8")]
+position = Vector2(156, 256)
 
-[node name="EnemyClass15" parent="Enemies" unique_id=301684600 instance=ExtResource("26_lswn8")]
+[node name="Zoomer28" parent="Enemies" unique_id=1177597580 instance=ExtResource("26_lswn8")]
+position = Vector2(244, 216)
+
+[node name="Zoomer29" parent="Enemies" unique_id=1306639300 instance=ExtResource("26_lswn8")]
+position = Vector2(236, 224)
+
+[node name="Zoomer30" parent="Enemies" unique_id=653978154 instance=ExtResource("26_lswn8")]
+position = Vector2(236, 232)
+
+[node name="Zoomer31" parent="Enemies" unique_id=912259668 instance=ExtResource("26_lswn8")]
+position = Vector2(236, 240)
+
+[node name="Zoomer32" parent="Enemies" unique_id=1202142549 instance=ExtResource("26_lswn8")]
+position = Vector2(236, 248)
+
+[node name="Zoomer33" parent="Enemies" unique_id=401690992 instance=ExtResource("26_lswn8")]
+position = Vector2(228, 232)
+
+[node name="Zoomer34" parent="Enemies" unique_id=1086385172 instance=ExtResource("26_lswn8")]
+position = Vector2(220, 240)
+
+[node name="Zoomer35" parent="Enemies" unique_id=685658905 instance=ExtResource("26_lswn8")]
+position = Vector2(220, 248)
+
+[node name="Zoomer36" parent="Enemies" unique_id=1138539945 instance=ExtResource("26_lswn8")]
+position = Vector2(212, 248)
+
+[node name="Zoomer37" parent="Enemies" unique_id=262221890 instance=ExtResource("26_lswn8")]
+position = Vector2(108, 272)
+
+[node name="Zoomer38" parent="Enemies" unique_id=1326812630 instance=ExtResource("26_lswn8")]
 position = Vector2(92, 360)
-zoomer_speed = -12
 
-[node name="EnemyClass12" parent="Enemies" unique_id=1012078943 instance=ExtResource("26_lswn8")]
+[node name="Zoomer39" parent="Enemies" unique_id=357201980 instance=ExtResource("26_lswn8")]
+position = Vector2(108, 384)
+
+[node name="Zoomer40" parent="Enemies" unique_id=1897984229 instance=ExtResource("26_lswn8")]
+position = Vector2(76, 384)
+
+[node name="Zoomer41" parent="Enemies" unique_id=1255324372 instance=ExtResource("26_lswn8")]
+position = Vector2(220, 368)
+
+[node name="Zoomer42" parent="Enemies" unique_id=604270216 instance=ExtResource("26_lswn8")]
+position = Vector2(100, 232)
+
+[node name="Zoomer43" parent="Enemies" unique_id=1012078943 instance=ExtResource("26_lswn8")]
 position = Vector2(220, 304)
-zoomer_speed = -12
 
-[node name="EnemyClass16" parent="Enemies" unique_id=1049770726 instance=ExtResource("26_lswn8")]
+[node name="Zoomer44" parent="Enemies" unique_id=1074030477 instance=ExtResource("26_lswn8")]
 position = Vector2(236, 320)
-zoomer_speed = -12
 
-[node name="EnemyClass17" parent="Enemies" unique_id=612462787 instance=ExtResource("26_lswn8")]
+[node name="Zoomer45" parent="Enemies" unique_id=55175767 instance=ExtResource("26_lswn8")]
+position = Vector2(228, 320)
+
+[node name="Zoomer46" parent="Enemies" unique_id=412377717 instance=ExtResource("26_lswn8")]
 position = Vector2(220, 320)
-zoomer_speed = -12
 
-[node name="EnemyClass18" parent="Enemies" unique_id=1133896219 instance=ExtResource("26_lswn8")]
+[node name="Zoomer47" parent="Enemies" unique_id=2039141567 instance=ExtResource("26_lswn8")]
+position = Vector2(212, 320)
+
+[node name="Zoomer48" parent="Enemies" unique_id=1513415418 instance=ExtResource("26_lswn8")]
+position = Vector2(236, 304)
+
+[node name="Zoomer49" parent="Enemies" unique_id=1867858114 instance=ExtResource("26_lswn8")]
+position = Vector2(236, 288)
+
+[node name="Zoomer50" parent="Enemies" unique_id=1984111372 instance=ExtResource("26_lswn8")]
+position = Vector2(236, 288)
+
+[node name="Zoomer51" parent="Enemies" unique_id=503268937 instance=ExtResource("26_lswn8")]
+position = Vector2(236, 280)
+
+[node name="Zoomer52" parent="Enemies" unique_id=1917192143 instance=ExtResource("26_lswn8")]
+position = Vector2(252, 296)
+
+[node name="Zoomer53" parent="Enemies" unique_id=860744470 instance=ExtResource("26_lswn8")]
+position = Vector2(252, 304)
+
+[node name="Zoomer54" parent="Enemies" unique_id=734263137 instance=ExtResource("26_lswn8")]
+position = Vector2(252, 312)
+
+[node name="Zoomer55" parent="Enemies" unique_id=1703848500 instance=ExtResource("26_lswn8")]
+position = Vector2(252, 320)
+
+[node name="Zoomer56" parent="Enemies" unique_id=1681198511 instance=ExtResource("26_lswn8")]
+position = Vector2(252, 336)
+
+[node name="Zoomer57" parent="Enemies" unique_id=485976152 instance=ExtResource("26_lswn8")]
+position = Vector2(244, 336)
+
+[node name="Zoomer58" parent="Enemies" unique_id=1247488816 instance=ExtResource("26_lswn8")]
+position = Vector2(236, 336)
+
+[node name="Zoomer59" parent="Enemies" unique_id=1326085743 instance=ExtResource("26_lswn8")]
+position = Vector2(228, 336)
+
+[node name="Zoomer60" parent="Enemies" unique_id=382348347 instance=ExtResource("26_lswn8")]
+position = Vector2(220, 336)
+
+[node name="Zoomer61" parent="Enemies" unique_id=1195469312 instance=ExtResource("26_lswn8")]
+position = Vector2(220, 336)
+
+[node name="Zoomer62" parent="Enemies" unique_id=1133896219 instance=ExtResource("26_lswn8")]
 position = Vector2(244, 272)
 zoomer_speed = -12
 
-[node name="EnemyClass34" parent="Enemies" unique_id=2111815773 instance=ExtResource("26_lswn8")]
-position = Vector2(228, 320)
-zoomer_speed = -12
-
-[node name="EnemyClass28" parent="Enemies" unique_id=1039860625 instance=ExtResource("26_lswn8")]
-position = Vector2(212, 248)
-zoomer_speed = -12
-
-[node name="EnemyClass29" parent="Enemies" unique_id=82712059 instance=ExtResource("26_lswn8")]
-position = Vector2(228, 256)
-zoomer_speed = -12
-
-[node name="EnemyClass30" parent="Enemies" unique_id=1457192153 instance=ExtResource("26_lswn8")]
-position = Vector2(236, 256)
-zoomer_speed = -12
-
-[node name="EnemyClass31" parent="Enemies" unique_id=1247287227 instance=ExtResource("26_lswn8")]
-position = Vector2(244, 256)
-zoomer_speed = -12
-
-[node name="EnemyClass32" parent="Enemies" unique_id=442130094 instance=ExtResource("26_lswn8")]
-position = Vector2(252, 256)
-zoomer_speed = -12
-
-[node name="EnemyClass33" parent="Enemies" unique_id=1982363767 instance=ExtResource("26_lswn8")]
-position = Vector2(220, 256)
-zoomer_speed = -12
-
-[node name="EnemyClass19" parent="Enemies" unique_id=1481181181 instance=ExtResource("26_lswn8")]
-position = Vector2(240, 288)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass20" parent="Enemies" unique_id=1459708836 instance=ExtResource("26_lswn8")]
-position = Vector2(224, 244)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass21" parent="Enemies" unique_id=357260000 instance=ExtResource("26_lswn8")]
-position = Vector2(240, 244)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass22" parent="Enemies" unique_id=1295388221 instance=ExtResource("26_lswn8")]
-position = Vector2(240, 228)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass23" parent="Enemies" unique_id=1260856543 instance=ExtResource("26_lswn8")]
-position = Vector2(208, 196)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass24" parent="Enemies" unique_id=930209921 instance=ExtResource("26_lswn8")]
-position = Vector2(208, 220)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass35" parent="Enemies" unique_id=2067290338 instance=ExtResource("26_lswn8")]
-position = Vector2(208, 244)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass36" parent="Enemies" unique_id=808659979 instance=ExtResource("26_lswn8")]
-position = Vector2(224, 236)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass37" parent="Enemies" unique_id=831738489 instance=ExtResource("26_lswn8")]
-position = Vector2(224, 204)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass38" parent="Enemies" unique_id=347786432 instance=ExtResource("26_lswn8")]
-position = Vector2(224, 196)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass39" parent="Enemies" unique_id=71908430 instance=ExtResource("26_lswn8")]
-position = Vector2(240, 276)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass40" parent="Enemies" unique_id=1627903984 instance=ExtResource("26_lswn8")]
-position = Vector2(240, 296)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass41" parent="Enemies" unique_id=1762003176 instance=ExtResource("26_lswn8")]
-position = Vector2(240, 304)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass42" parent="Enemies" unique_id=757972636 instance=ExtResource("26_lswn8")]
-position = Vector2(256, 316)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass43" parent="Enemies" unique_id=1394495927 instance=ExtResource("26_lswn8")]
-position = Vector2(256, 304)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass44" parent="Enemies" unique_id=1734899766 instance=ExtResource("26_lswn8")]
-position = Vector2(256, 292)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass45" parent="Enemies" unique_id=679312166 instance=ExtResource("26_lswn8")]
-position = Vector2(256, 332)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass46" parent="Enemies" unique_id=207576509 instance=ExtResource("26_lswn8")]
-position = Vector2(120, 312)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass47" parent="Enemies" unique_id=953546230 instance=ExtResource("26_lswn8")]
-position = Vector2(120, 300)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass48" parent="Enemies" unique_id=1388849813 instance=ExtResource("26_lswn8")]
-position = Vector2(104, 276)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass49" parent="Enemies" unique_id=1994708949 instance=ExtResource("26_lswn8")]
-position = Vector2(104, 388)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass50" parent="Enemies" unique_id=1107719647 instance=ExtResource("26_lswn8")]
-position = Vector2(72, 388)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass51" parent="Enemies" unique_id=1335127830 instance=ExtResource("26_lswn8")]
-position = Vector2(120, 268)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass25" parent="Enemies" unique_id=1214214513 instance=ExtResource("26_lswn8")]
-position = Vector2(208, 208)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass26" parent="Enemies" unique_id=1894155028 instance=ExtResource("26_lswn8")]
-position = Vector2(208, 252)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass27" parent="Enemies" unique_id=5828487 instance=ExtResource("26_lswn8")]
-position = Vector2(240, 196)
-rotation = -1.5707941
-zoomer_speed = -12
-
-[node name="EnemyClass6" parent="Enemies" unique_id=793799247 instance=ExtResource("26_lswn8")]
-position = Vector2(224, 128)
-zoomer_speed = -12
-
-[node name="EnemyClass52" parent="Enemies" unique_id=1792394096 instance=ExtResource("26_lswn8")]
+[node name="Zoomer63" parent="Enemies" unique_id=1792394096 instance=ExtResource("26_lswn8")]
 position = Vector2(20, -168)
-zoomer_speed = -12
-
-[node name="EnemyClass4" parent="Enemies" unique_id=1445215376 instance=ExtResource("26_lswn8")]
-position = Vector2(296, 88)
-zoomer_speed = -12
-
-[node name="EnemyClass5" parent="Enemies" unique_id=1021753409 instance=ExtResource("26_lswn8")]
-position = Vector2(448, 96)
 zoomer_speed = -12
 
 [node name="Misc" type="Node2D" parent="." unique_id=1313501230]
@@ -1237,7 +1146,7 @@ texture = SubResource("CanvasTexture_e01uv")
 
 [node name="LavaTileMapLayer" type="TileMapLayer" parent="." unique_id=1183457836 groups=["water"]]
 z_index = 60
-tile_map_data = PackedByteArray("AAAvAA4AAQAAAAAAAAAuAA4AAQAAAAAAAAAtAA4AAQAAAAAAAAAsAA4AAQAAAAAAAAArAA4AAQAAAAAAAAAqAA4AAQAAAAAAAAApAA4AAQAAAAAAAAA2AA0AAQAAAAAAAAA3AA0AAQAAAAAAAAA4AA0AAQAAAAAAAAA4AA4AAQAAAAEAAAA3AA4AAQAAAAEAAAA2AA4AAQAAAAEAAAA7AA4AAQAAAAAAAAA6AA4AAQAAAAAAAAAxAAYAAQAAAAAAAAAyAAYAAQAAAAAAAAAzAAYAAQAAAAAAAAAzAAcAAQAAAAEAAAAyAAcAAQAAAAEAAAAxAAcAAQAAAAEAAAA1AAcAAQAAAAEAAAA2AAcAAQAAAAEAAAA3AAcAAQAAAAEAAAA4AAcAAQAAAAEAAAA5AAcAAQAAAAEAAAA5AAYAAQAAAAAAAAA4AAYAAQAAAAAAAAA3AAYAAQAAAAAAAAA2AAYAAQAAAAAAAAA1AAYAAQAAAAAAAAAtAAcAAQAAAAAAAAARAAcAAQAAAAEAAAASAAcAAQAAAAEAAAATAAcAAQAAAAEAAAAUAAcAAQAAAAEAAAAVAAcAAQAAAAEAAAAWAAcAAQAAAAEAAAAWAAYAAQAAAAEAAAAVAAYAAQAAAAEAAAAUAAYAAQAAAAEAAAATAAYAAQAAAAEAAAASAAYAAQAAAAEAAAARAAYAAQAAAAEAAAARAAUAAQAAAAAAAAASAAUAAQAAAAAAAAATAAUAAQAAAAAAAAAUAAUAAQAAAAAAAAAVAAUAAQAAAAAAAAAWAAUAAQAAAAAAAAAKAB4AAQAAAAAAAAALAB4AAQAAAAAAAAAMAB4AAQAAAAAAAAANAB4AAQAAAAAAAAAOAB4AAQAAAAAAAAAIADEAAQAAAAAAAAAJADEAAQAAAAAAAAAKADEAAQAAAAAAAAALADEAAQAAAAAAAAAMADEAAQAAAAAAAAANADEAAQAAAAAAAAAOADEAAQAAAAAAAAAPADEAAQAAAAAAAAAQADEAAQAAAAAAAAARADEAAQAAAAAAAAASADEAAQAAAAAAAAATADEAAQAAAAAAAAAGAD4AAQAAAAAAAAAFAD4AAQAAAAAAAAAEAD4AAQAAAAAAAAADAD4AAQAAAAAAAAACAD4AAQAAAAAAAAABAD4AAQAAAAAAAAARADcAAQAAAAAAAAASADcAAQAAAAAAAAATADcAAQAAAAAAAAAUADcAAQAAAAAAAAAVADcAAQAAAAAAAAAhADYAAQAAAAAAAAAiADYAAQAAAAAAAAAjADYAAQAAAAAAAAAkADYAAQAAAAAAAAAlADYAAQAAAAAAAAAmADYAAQAAAAAAAAAmADcAAQAAAAEAAAAlADcAAQAAAAEAAAAkADcAAQAAAAEAAAAjADcAAQAAAAEAAAAiADcAAQAAAAEAAAAhADcAAQAAAAEAAAAiAD4AAQAAAAAAAAAjAD4AAQAAAAAAAAAkAD4AAQAAAAAAAAAlAD4AAQAAAAAAAAAmAD4AAQAAAAAAAAAlAD8AAQAAAAEAAAAkAD8AAQAAAAEAAAAiAD8AAQAAAAEAAAAjAD8AAQAAAAEAAAAmAD8AAQAAAAEAAAApAD4AAQAAAAAAAAAqAD4AAQAAAAAAAAArAD4AAQAAAAAAAAAsAD4AAQAAAAAAAAAtAD4AAQAAAAAAAAAuAD4AAQAAAAAAAAAuAD8AAQAAAAEAAAAtAD8AAQAAAAEAAAAsAD8AAQAAAAEAAAArAD8AAQAAAAEAAAAqAD8AAQAAAAEAAAApAD8AAQAAAAEAAAAyAD4AAQAAAAAAAAAzAD4AAQAAAAAAAAA0AD4AAQAAAAAAAAA1AD4AAQAAAAAAAAA2AD4AAQAAAAAAAAA4AD4AAQAAAAAAAAA5AD4AAQAAAAAAAAA6AD4AAQAAAAAAAAA7AD4AAQAAAAAAAAA8AD4AAQAAAAAAAAA9AD4AAQAAAAAAAAA+AD4AAQAAAAAAAAA4AD8AAQAAAAEAAAA5AD8AAQAAAAEAAAA6AD8AAQAAAAEAAAA7AD8AAQAAAAEAAAA8AD8AAQAAAAEAAAA9AD8AAQAAAAEAAAA+AD8AAQAAAAEAAAA4AEAAAQAAAAEAAAA5AEAAAQAAAAEAAAA6AEAAAQAAAAEAAAA7AEAAAQAAAAEAAAA8AEAAAQAAAAEAAAA9AEAAAQAAAAEAAAA+AEAAAQAAAAEAAAA2AD8AAQAAAAEAAAA1AD8AAQAAAAEAAAA0AD8AAQAAAAEAAAAzAD8AAQAAAAEAAAAyAD8AAQAAAAEAAAAyAEAAAQAAAAEAAAAzAEAAAQAAAAEAAAA0AEAAAQAAAAEAAAA1AEAAAQAAAAEAAAA2AEAAAQAAAAEAAAAzAC4AAQAAAAAAAAA0AC4AAQAAAAAAAAA1AC4AAQAAAAAAAAA2AC4AAQAAAAAAAAAEAA4AAQAAAAAAAAAFAA4AAQAAAAAAAAAGAA4AAQAAAAAAAAAMAA4AAQAAAAAAAAALAA4AAQAAAAAAAAAKAA4AAQAAAAAAAAAJAA4AAQAAAAAAAAAIAA4AAQAAAAAAAAAHAA4AAQAAAAAAAAAKAP7/AQAAAAAAAAAJAP7/AQAAAAAAAAAIAP7/AQAAAAAAAAANAPr/AQAAAAAAAAANAPv/AQAAAAEAAAAOAPr/AQAAAAAAAAANAPz/AQAAAAEAAAAxABgAAQAAAAAAAAAxAB4AAQAAAAAAAAAyAB4AAQAAAAAAAAAzAB4AAQAAAAAAAAA0AB4AAQAAAAAAAAA1AB4AAQAAAAAAAAA2AB4AAQAAAAAAAAAuACYAAQAAAAAAAAAlACYAAQAAAAAAAAAkACYAAQAAAAAAAAAjACYAAQAAAAAAAAAiACYAAQAAAAAAAAABABwAAgAAAAAAAAACABwAAgAAAAAAAAADABwAAgAAAAAAAAAEABwAAgAAAAAAAAAFABwAAgAAAAAAAAAGABwAAgAAAAAAAAAGAB0AAgAAAAEAAAAFAB0AAgAAAAEAAAAEAB0AAgAAAAEAAAADAB0AAgAAAAEAAAACAB0AAgAAAAEAAAABAB0AAgAAAAEAAAAmABwAAgAAAAAAAAAlABwAAgAAAAAAAAAkABwAAgAAAAAAAAAjABwAAgAAAAAAAAAiABwAAgAAAAAAAAAhABwAAgAAAAAAAAAxAA0AAgAAAAAAAAAyAA0AAgAAAAAAAAAzAA0AAgAAAAAAAAAxAA4AAgAAAAEAAAAyAA4AAgAAAAEAAAAzAA4AAgAAAAEAAAA0AA4AAgAAAAEAAAAuAC0AAgAAAAAAAAAtAC0AAgAAAAAAAAAsAC0AAgAAAAAAAAArAC0AAgAAAAAAAAAqAC0AAgAAAAAAAAAtAC4AAgAAAAEAAAAsAC4AAgAAAAEAAAArAC4AAgAAAAEAAAAqAC4AAgAAAAEAAAAqAC8AAgAAAAEAAAArAC8AAgAAAAEAAAAsAC8AAgAAAAEAAAAtAC8AAgAAAAEAAAANAP3/AQAAAAEAAAA=")
+tile_map_data = PackedByteArray("AAAvAA4AAQAAAAAAAAAuAA4AAQAAAAAAAAAtAA4AAQAAAAAAAAAsAA4AAQAAAAAAAAArAA4AAQAAAAAAAAAqAA4AAQAAAAAAAAApAA4AAQAAAAAAAAA2AA0AAQAAAAAAAAA3AA0AAQAAAAAAAAA4AA0AAQAAAAAAAAA4AA4AAQAAAAEAAAA3AA4AAQAAAAEAAAA2AA4AAQAAAAEAAAA7AA4AAQAAAAAAAAA6AA4AAQAAAAAAAAAxAAYAAQAAAAAAAAAyAAYAAQAAAAAAAAAzAAYAAQAAAAAAAAAzAAcAAQAAAAEAAAAyAAcAAQAAAAEAAAAxAAcAAQAAAAEAAAA1AAcAAQAAAAEAAAA2AAcAAQAAAAEAAAA3AAcAAQAAAAEAAAA4AAcAAQAAAAEAAAA5AAcAAQAAAAEAAAA5AAYAAQAAAAAAAAA4AAYAAQAAAAAAAAA3AAYAAQAAAAAAAAA2AAYAAQAAAAAAAAA1AAYAAQAAAAAAAAAtAAcAAQAAAAAAAAARAAcAAQAAAAEAAAASAAcAAQAAAAEAAAATAAcAAQAAAAEAAAAUAAcAAQAAAAEAAAAVAAcAAQAAAAEAAAAWAAcAAQAAAAEAAAAWAAYAAQAAAAEAAAAVAAYAAQAAAAEAAAAUAAYAAQAAAAEAAAATAAYAAQAAAAEAAAASAAYAAQAAAAEAAAARAAYAAQAAAAEAAAARAAUAAQAAAAAAAAASAAUAAQAAAAAAAAATAAUAAQAAAAAAAAAUAAUAAQAAAAAAAAAVAAUAAQAAAAAAAAAWAAUAAQAAAAAAAAAKAB4AAQAAAAAAAAALAB4AAQAAAAAAAAAMAB4AAQAAAAAAAAANAB4AAQAAAAAAAAAOAB4AAQAAAAAAAAAIADEAAQAAAAAAAAAJADEAAQAAAAAAAAAKADEAAQAAAAAAAAALADEAAQAAAAAAAAAMADEAAQAAAAAAAAANADEAAQAAAAAAAAAOADEAAQAAAAAAAAAPADEAAQAAAAAAAAAQADEAAQAAAAAAAAARADEAAQAAAAAAAAASADEAAQAAAAAAAAATADEAAQAAAAAAAAAGAD4AAQAAAAAAAAAFAD4AAQAAAAAAAAAEAD4AAQAAAAAAAAADAD4AAQAAAAAAAAACAD4AAQAAAAAAAAABAD4AAQAAAAAAAAARADcAAQAAAAAAAAASADcAAQAAAAAAAAATADcAAQAAAAAAAAAUADcAAQAAAAAAAAAVADcAAQAAAAAAAAAhADYAAQAAAAAAAAAiADYAAQAAAAAAAAAjADYAAQAAAAAAAAAkADYAAQAAAAAAAAAlADYAAQAAAAAAAAAmADYAAQAAAAAAAAAmADcAAQAAAAEAAAAlADcAAQAAAAEAAAAkADcAAQAAAAEAAAAjADcAAQAAAAEAAAAiADcAAQAAAAEAAAAhADcAAQAAAAEAAAAiAD4AAQAAAAAAAAAjAD4AAQAAAAAAAAAkAD4AAQAAAAAAAAAlAD4AAQAAAAAAAAAmAD4AAQAAAAAAAAAlAD8AAQAAAAEAAAAkAD8AAQAAAAEAAAAiAD8AAQAAAAEAAAAjAD8AAQAAAAEAAAAmAD8AAQAAAAEAAAApAD4AAQAAAAAAAAAqAD4AAQAAAAAAAAArAD4AAQAAAAAAAAAsAD4AAQAAAAAAAAAtAD4AAQAAAAAAAAAuAD4AAQAAAAAAAAAuAD8AAQAAAAEAAAAtAD8AAQAAAAEAAAAsAD8AAQAAAAEAAAArAD8AAQAAAAEAAAAqAD8AAQAAAAEAAAApAD8AAQAAAAEAAAAyAD4AAQAAAAAAAAAzAD4AAQAAAAAAAAA0AD4AAQAAAAAAAAA1AD4AAQAAAAAAAAA2AD4AAQAAAAAAAAA4AD4AAQAAAAAAAAA5AD4AAQAAAAAAAAA6AD4AAQAAAAAAAAA7AD4AAQAAAAAAAAA8AD4AAQAAAAAAAAA9AD4AAQAAAAAAAAA+AD4AAQAAAAAAAAA4AD8AAQAAAAEAAAA5AD8AAQAAAAEAAAA6AD8AAQAAAAEAAAA7AD8AAQAAAAEAAAA8AD8AAQAAAAEAAAA9AD8AAQAAAAEAAAA+AD8AAQAAAAEAAAA4AEAAAQAAAAEAAAA5AEAAAQAAAAEAAAA6AEAAAQAAAAEAAAA7AEAAAQAAAAEAAAA8AEAAAQAAAAEAAAA9AEAAAQAAAAEAAAA+AEAAAQAAAAEAAAA2AD8AAQAAAAEAAAA1AD8AAQAAAAEAAAA0AD8AAQAAAAEAAAAzAD8AAQAAAAEAAAAyAD8AAQAAAAEAAAAyAEAAAQAAAAEAAAAzAEAAAQAAAAEAAAA0AEAAAQAAAAEAAAA1AEAAAQAAAAEAAAA2AEAAAQAAAAEAAAAzAC4AAQAAAAAAAAA0AC4AAQAAAAAAAAA1AC4AAQAAAAAAAAA2AC4AAQAAAAAAAAAEAA4AAQAAAAAAAAAFAA4AAQAAAAAAAAAGAA4AAQAAAAAAAAAMAA4AAQAAAAAAAAALAA4AAQAAAAAAAAAKAA4AAQAAAAAAAAAJAA4AAQAAAAAAAAAIAA4AAQAAAAAAAAAHAA4AAQAAAAAAAAAKAP7/AQAAAAAAAAAJAP7/AQAAAAAAAAAIAP7/AQAAAAAAAAANAPr/AQAAAAAAAAANAPv/AQAAAAEAAAAOAPr/AQAAAAAAAAANAPz/AQAAAAEAAAAxABgAAQAAAAAAAAAxAB4AAQAAAAAAAAAyAB4AAQAAAAAAAAAzAB4AAQAAAAAAAAA0AB4AAQAAAAAAAAA1AB4AAQAAAAAAAAA2AB4AAQAAAAAAAAAuACYAAQAAAAAAAAAlACYAAQAAAAAAAAAkACYAAQAAAAAAAAAjACYAAQAAAAAAAAAiACYAAQAAAAAAAAABABwAAgAAAAAAAAACABwAAgAAAAAAAAADABwAAgAAAAAAAAAEABwAAgAAAAAAAAAFABwAAgAAAAAAAAAGABwAAgAAAAAAAAAGAB0AAgAAAAEAAAAFAB0AAgAAAAEAAAAEAB0AAgAAAAEAAAADAB0AAgAAAAEAAAACAB0AAgAAAAEAAAABAB0AAgAAAAEAAAAmABwAAgAAAAAAAAAlABwAAgAAAAAAAAAkABwAAgAAAAAAAAAjABwAAgAAAAAAAAAiABwAAgAAAAAAAAAhABwAAgAAAAAAAAAxAA0AAgAAAAAAAAAyAA0AAgAAAAAAAAAzAA0AAgAAAAAAAAAxAA4AAgAAAAEAAAAyAA4AAgAAAAEAAAAzAA4AAgAAAAEAAAA0AA4AAgAAAAEAAAAuAC0AAgAAAAAAAAAsAC0AAgAAAAAAAAArAC0AAgAAAAAAAAAqAC0AAgAAAAAAAAAtAC4AAgAAAAEAAAArAC4AAgAAAAEAAAAqAC4AAgAAAAEAAAAqAC8AAgAAAAEAAAArAC8AAgAAAAEAAAAsAC8AAgAAAAEAAAAtAC8AAgAAAAEAAAANAP3/AQAAAAEAAAAtAC0AAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_d2t1y")
 script = ExtResource("38_b1qrp")
 
