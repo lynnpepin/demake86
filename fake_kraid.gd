@@ -49,7 +49,8 @@ func explode():
     if global_position.distance_to(tracking.global_position) <= 24.0:
         # Only explode if the player is close enough to see!
         print("KRAID-BLAM!")
-        $CollisionShape2D_up.set_deferred("disabled", true)
+        if fallen:
+            $CollisionShape2D_up.set_deferred("disabled", true)
         $CPUParticles2D_FakeKraidSmoke.emitting = true
     $sfx_fall.play()
     

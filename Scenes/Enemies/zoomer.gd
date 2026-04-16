@@ -39,7 +39,8 @@ func spin_ccw():
 
 
 func _debugcolor(color=Color.WHITE):
-    $AnimatedSprite2D.modulate = color
+    pass
+    #$AnimatedSprite2D.modulate = color
 
 func _physics_process(delta: float) -> void:
     # need readytimer; things work weird without it
@@ -96,12 +97,6 @@ func _physics_process(delta: float) -> void:
                 pass
         
         var collision = move_and_collide(delta * Vector2(speed , 0).rotated(angle))
-
-func _process(delta):
-    _draw()
-
-func _draw():
-    pass
 
 func _old_physics_process(delta: float) -> void:
     rotate_timer = clamp(rotate_timer - delta, 0.0, 1.0)
