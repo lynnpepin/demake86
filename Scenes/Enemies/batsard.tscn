@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://067hjqq38m48"]
+
+[ext_resource type="PackedScene" uid="uid://be6esv11x3s5t" path="res://Classes/EnemyClass.tscn" id="1_os2en"]
+[ext_resource type="Script" uid="uid://cc0ypma3tpd5t" path="res://Scenes/Enemies/batsard.gd" id="2_6qbga"]
+[ext_resource type="SpriteFrames" uid="uid://bklekxwd3pm8" path="res://resources/batsard.tres" id="2_fdx4m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rw02v"]
+size = Vector2(6, 8)
+
+[sub_resource type="Gradient" id="Gradient_gq4he"]
+offsets = PackedFloat32Array(0.432836, 0.730099, 0.843284, 0.955224, 1)
+colors = PackedColorArray(0.37749, 0.463932, 1, 0, 0, 0.571862, 0.923215, 1, 0.246865, 0.837284, 1, 1, 0.856143, 0.968919, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fdx4m"]
+gradient = SubResource("Gradient_gq4he")
+width = 10
+height = 12
+fill = 1
+fill_from = Vector2(0.517094, 1)
+fill_to = Vector2(0.495726, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdx4m"]
+size = Vector2(10, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qbga"]
+size = Vector2(6, 12)
+
+[node name="Batsard" unique_id=1981089262 instance=ExtResource("1_os2en")]
+script = ExtResource("2_6qbga")
+
+[node name="CollisionPlatforming" parent="." index="0" unique_id=1771735465]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_rw02v")
+
+[node name="Sprite2D_freeze_box" parent="." index="1" unique_id=840567474]
+visible = false
+position = Vector2(0, 5)
+texture = SubResource("GradientTexture2D_fdx4m")
+
+[node name="CollisionShape2D" parent="StaticBody2D_Frozen" parent_id_path=PackedInt32Array(84451283) index="0" unique_id=1883882091]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_fdx4m")
+
+[node name="AreaHitbox" parent="." index="3" unique_id=114516459]
+position = Vector2(0, 5)
+
+[node name="CollisionShape2D" parent="AreaHitbox" index="0" unique_id=56055242]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_6qbga")
+
+[node name="AnimatedSprite2D" parent="." index="4" unique_id=787643559]
+position = Vector2(0, 9)
+sprite_frames = ExtResource("2_fdx4m")
+animation = &"open"
+
+[node name="DeathExplosion" parent="." index="9" unique_id=1149512892]
+position = Vector2(0, 4)
+amount = 128
+direction = Vector2(0, -1)
+spread = 30.0
+gravity = Vector2(0, 72)
+initial_velocity_min = 24.0
+initial_velocity_max = 72.0
+scale_amount_max = 3.0
+
+[node name="RayCast2D_see_left" type="RayCast2D" parent="." index="10" unique_id=1241106576]
+position = Vector2(-24, 0)
+target_position = Vector2(0, 64)
+collision_mask = 19
+collide_with_areas = true
+
+[node name="RayCast2D_see_right" type="RayCast2D" parent="." index="11" unique_id=1436258999]
+position = Vector2(24, 0)
+target_position = Vector2(0, 64)
+collision_mask = 19
+collide_with_areas = true
+
+[node name="RayCast2D_attack_left" type="RayCast2D" parent="." index="12" unique_id=1085028170]
+position = Vector2(-8, 0)
+target_position = Vector2(0, 64)
+collision_mask = 19
+collide_with_areas = true
+
+[node name="RayCast2D_attack_right" type="RayCast2D" parent="." index="13" unique_id=858124282]
+position = Vector2(8, 0)
+target_position = Vector2(0, 64)
+collision_mask = 19
+collide_with_areas = true

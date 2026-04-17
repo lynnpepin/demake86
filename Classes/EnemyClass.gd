@@ -11,7 +11,7 @@ extends CharacterBody2D
 @export var speed = 24
 
 ## The amount of damage this can take
-@export var health: int = 1_000_000
+@export var health: int = 3
 
 ## The amount of damage the Ripper deals to players on collision
 @export var damage_to_deal: int = 1
