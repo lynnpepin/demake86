@@ -1,9 +1,18 @@
+
+#@tool
 extends EnemyClass
 
 var direction: int = 1
 
 @export var start_hp := 2  # new default
 @export var zoomer_speed := 12
+
+
+@export var sprite: SpriteFrames:
+    set(value):
+        sprite = value
+        if $AnimatedSprite2D:
+            $AnimatedSprite2D.sprite_frames = value
 
 var angle = 0; # make sure this is 
 var rotate_timer = 0.25; # todo delete
@@ -24,9 +33,12 @@ var r_col = false
 var f_col = false
 
 func _ready():
+    if sprite:
+        $AnimatedSprite2D.sprite_frames = sprite
     health = start_hp
     speed = zoomer_speed
     angle = transform.get_rotation()
+    $AnimatedSprite2D.frame = randi_range(0, 3)
     super()
 
 func spin_cw():

@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cb6ybv8dd5d5"]
+
+[ext_resource type="Texture2D" uid="uid://36sdgcv2jw1b" path="res://art/zoomer_D-0.png" id="1_72jr5"]
+[ext_resource type="Texture2D" uid="uid://b5ng8ud3cwrac" path="res://art/zoomer_D-1.png" id="2_48qvu"]
+[ext_resource type="Texture2D" uid="uid://dr66q1xmmoje5" path="res://art/zoomer_D-2.png" id="3_2bm26"]
+[ext_resource type="Texture2D" uid="uid://do66dcgm6xqqg" path="res://art/zoomer_D-3.png" id="4_u44sj"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_72jr5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_48qvu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2bm26")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_u44sj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
