@@ -47,7 +47,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"drill",
-"speed": 24.0
+"speed": 36.0
 }, {
 "frames": [{
 "duration": 1.0,

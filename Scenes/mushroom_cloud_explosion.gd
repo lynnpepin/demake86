@@ -9,6 +9,7 @@ var ring_on = false
 var hurt_off_after = .875
 
 func _ready():
+    $AudioStreamPlayer2D.play()
     $Particles_Cloud.emitting = true
     
 func _process(delta):

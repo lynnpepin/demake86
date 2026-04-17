@@ -3,6 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://be6esv11x3s5t" path="res://Classes/EnemyClass.tscn" id="1_os2en"]
 [ext_resource type="Script" uid="uid://cc0ypma3tpd5t" path="res://Scenes/Enemies/batsard.gd" id="2_6qbga"]
 [ext_resource type="SpriteFrames" uid="uid://bklekxwd3pm8" path="res://resources/batsard.tres" id="2_fdx4m"]
+[ext_resource type="AudioStream" uid="uid://1ygdcflws88g" path="res://resources/zoomer_hurt_1.wav" id="4_noa4y"]
+[ext_resource type="AudioStream" uid="uid://64nmaxlslvaf" path="res://resources/zoomer_hurt_2.wav" id="5_mfstc"]
+[ext_resource type="AudioStream" uid="uid://dtm1d7e88a47h" path="res://resources/zoomer_hurt_3.wav" id="6_6cctv"]
+[ext_resource type="AudioStream" uid="uid://d23h341e1qpnn" path="res://resources/zoomer_dead.wav" id="7_53iet"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rw02v"]
 size = Vector2(6, 8)
@@ -53,6 +57,21 @@ position = Vector2(0, 9)
 sprite_frames = ExtResource("2_fdx4m")
 animation = &"open"
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="HitSounds" parent_id_path=PackedInt32Array(2050774207) index="0" unique_id=793395863]
+stream = ExtResource("4_noa4y")
+volume_db = -10.0
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="HitSounds" parent_id_path=PackedInt32Array(2050774207) index="1" unique_id=536410566]
+stream = ExtResource("5_mfstc")
+volume_db = -10.0
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="HitSounds" parent_id_path=PackedInt32Array(2050774207) index="2" unique_id=113664878]
+stream = ExtResource("6_6cctv")
+volume_db = -10.0
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="DeathSounds" parent_id_path=PackedInt32Array(1411267192) index="0" unique_id=569113972]
+stream = ExtResource("7_53iet")
+
 [node name="DeathExplosion" parent="." index="9" unique_id=1149512892]
 position = Vector2(0, 4)
 amount = 128
@@ -64,25 +83,25 @@ initial_velocity_max = 72.0
 scale_amount_max = 3.0
 
 [node name="RayCast2D_see_left" type="RayCast2D" parent="." index="10" unique_id=1241106576]
-position = Vector2(-24, 0)
+position = Vector2(-16, 0)
 target_position = Vector2(0, 64)
-collision_mask = 19
+collision_mask = 16
 collide_with_areas = true
 
 [node name="RayCast2D_see_right" type="RayCast2D" parent="." index="11" unique_id=1436258999]
-position = Vector2(24, 0)
+position = Vector2(16, 0)
 target_position = Vector2(0, 64)
-collision_mask = 19
+collision_mask = 16
 collide_with_areas = true
 
 [node name="RayCast2D_attack_left" type="RayCast2D" parent="." index="12" unique_id=1085028170]
 position = Vector2(-8, 0)
 target_position = Vector2(0, 64)
-collision_mask = 19
+collision_mask = 16
 collide_with_areas = true
 
 [node name="RayCast2D_attack_right" type="RayCast2D" parent="." index="13" unique_id=858124282]
 position = Vector2(8, 0)
 target_position = Vector2(0, 64)
-collision_mask = 19
+collision_mask = 16
 collide_with_areas = true

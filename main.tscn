@@ -292,21 +292,10 @@ sources/2 = SubResource("TileSetAtlasSource_come4")
 [node name="Root" type="Node2D" unique_id=1570894400]
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
-position = Vector2(96, 128)
+position = Vector2(96, 148)
 HAS_ALL_ITEMS = false
 
 [node name="PointLight2D" type="PointLight2D" parent="Relan" unique_id=31498320]
-visible = false
-position = Vector2(0, 1)
-scale = Vector2(0.578125, 0.484375)
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_p8m5k")
-
-[node name="Relan2" parent="." unique_id=1720302912 instance=ExtResource("8_trcrg")]
-position = Vector2(96, 128)
-HAS_ALL_ITEMS = false
-
-[node name="PointLight2D" type="PointLight2D" parent="Relan2" unique_id=1752307683]
 visible = false
 position = Vector2(0, 1)
 scale = Vector2(0.578125, 0.484375)
@@ -815,12 +804,12 @@ position = Vector2(20, 368)
 position = Vector2(44, 384)
 
 [node name="Zoomer" parent="Enemies" unique_id=743314971 instance=ExtResource("26_lswn8")]
-position = Vector2(80, 144)
+position = Vector2(80, 160)
 rotation = -1.57079
 sprite = ExtResource("33_come4")
 
 [node name="Zoomer18" parent="Enemies" unique_id=1007610357 instance=ExtResource("26_lswn8")]
-position = Vector2(104, 160)
+position = Vector2(104, 144)
 rotation = -1.57079
 sprite = ExtResource("33_come4")
 speed = 12
@@ -1210,6 +1199,36 @@ script = ExtResource("38_b1qrp")
 
 [node name="Batsard" parent="." unique_id=1981089262 instance=ExtResource("43_d2t1y")]
 position = Vector2(140, 136)
+
+[node name="Batsard3" parent="." unique_id=2147314002 instance=ExtResource("43_d2t1y")]
+position = Vector2(204, 192)
+
+[node name="Batsard4" parent="." unique_id=1401787872 instance=ExtResource("43_d2t1y")]
+position = Vector2(236, 192)
+
+[node name="Batsard5" parent="." unique_id=2047911543 instance=ExtResource("43_d2t1y")]
+position = Vector2(220, 264)
+
+[node name="Batsard6" parent="." unique_id=2090663027 instance=ExtResource("43_d2t1y")]
+position = Vector2(236, 264)
+
+[node name="Batsard7" parent="." unique_id=1852810526 instance=ExtResource("43_d2t1y")]
+position = Vector2(116, 208)
+
+[node name="Batsard8" parent="." unique_id=964774903 instance=ExtResource("43_d2t1y")]
+position = Vector2(108, 280)
+
+[node name="Batsard9" parent="." unique_id=1409628818 instance=ExtResource("43_d2t1y")]
+position = Vector2(164, 400)
+
+[node name="Batsard11" parent="." unique_id=1600160238 instance=ExtResource("43_d2t1y")]
+position = Vector2(180, 456)
+
+[node name="Batsard12" parent="." unique_id=1002540263 instance=ExtResource("43_d2t1y")]
+position = Vector2(156, 456)
+
+[node name="Batsard10" parent="." unique_id=568715617 instance=ExtResource("43_d2t1y")]
+position = Vector2(148, 400)
 
 [connection signal="area_entered" from="BOSSES/FakeKraid" to="BOSSES/FakeKraid" method="_on_area_entered"]
 [connection signal="body_entered" from="BOSSES/FakeKraid" to="BOSSES/FakeKraid" method="_on_body_entered"]
