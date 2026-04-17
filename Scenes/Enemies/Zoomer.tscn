@@ -107,35 +107,30 @@ randomness = 1.0
 lifetime_randomness = 0.75
 scale_amount_max = 2.5
 
-[node name="RayCast2D_just_off" type="RayCast2D" parent="." index="10" unique_id=865102498]
+[node name="RayCast2D_just_off" type="RayCast2D" parent="." index="10" unique_id=865102498 groups=["enemies"]]
 position = Vector2(-4, 0)
 target_position = Vector2(0, 1)
 collision_mask = 2
 hit_from_inside = true
-collide_with_areas = true
 
 [node name="RayCast2D_left" type="RayCast2D" parent="." index="11" unique_id=1977852644]
 position = Vector2(-3, 0)
 target_position = Vector2(0, 1)
 collision_mask = 2
 hit_from_inside = true
-collide_with_areas = true
 
 [node name="RayCast2D_ground" type="RayCast2D" parent="." index="12" unique_id=1171514914]
 target_position = Vector2(0, 1)
 collision_mask = 2
-collide_with_areas = true
 
 [node name="RayCast2D_right" type="RayCast2D" parent="." index="13" unique_id=1611313076]
 position = Vector2(3, 0)
 target_position = Vector2(0, 1)
 collision_mask = 2
 hit_from_inside = true
-collide_with_areas = true
 
 [node name="RayCast2D_forward" type="RayCast2D" parent="." index="14" unique_id=399262337]
 position = Vector2(0, -1)
 target_position = Vector2(4, 0)
 collision_mask = 2
 hit_from_inside = true
-collide_with_areas = true

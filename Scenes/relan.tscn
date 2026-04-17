@@ -1027,6 +1027,7 @@ z_index = -100
 position = Vector2(0, 10)
 
 [node name="TimeTyper" parent="." unique_id=73354578 instance=ExtResource("30_72vhv")]
+visible = false
 
 [node name="ball_trail" type="Node2D" parent="." unique_id=769611890]
 
