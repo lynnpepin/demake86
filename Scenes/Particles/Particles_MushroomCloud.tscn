@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c1yolrkh6pg8"]
+
+[sub_resource type="Curve" id="Curve_mchyp"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.16860461), 0.0, 0.0, 0, 0, Vector2(0.4905303, 0.6104651), 0.0, 0.0, 0, 0, Vector2(0.5511364, 1), 0.0, 0.0, 0, 0, Vector2(0.998106, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_mchyp"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.16666667, 0.41666666, 0.6666667, 0.75, 0.8333333, 0.9166667, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.90588236, 0.21568628, 0.8784314, 0.9647059, 0.56078434, 0.21568628, 0.8156863, 0.6784314, 0.30588236, 0.101960786, 0.7529412, 0.8784314, 0.23529412, 0.15686275, 0.6901961, 0.68235296, 0.42352942, 0.21568628, 0.5019608, 0.3764706, 0.1882353, 0.1254902, 0.1254902, 0, 0, 0, 0.2509804)
+metadata/_snap_enabled = true
+metadata/_snap_count = 12
+
+[node name="CPUParticles2D_DustRing" type="CPUParticles2D" unique_id=1582928063]
+amount = 480
+lifetime = 4.0
+explosiveness = 0.88
+randomness = 0.25
+lifetime_randomness = 0.5
+fract_delta = false
+draw_order = 1
+emission_shape = 3
+emission_rect_extents = Vector2(2, 0)
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, 36)
+initial_velocity_min = 40.0
+initial_velocity_max = 60.0
+orbit_velocity_min = -0.12
+orbit_velocity_max = 0.12
+orbit_velocity_curve = SubResource("Curve_mchyp")
+damping_min = 60.0
+damping_max = 60.0
+scale_amount_min = 0.0
+scale_amount_max = 4.0
+color_ramp = SubResource("Gradient_mchyp")
