@@ -12,10 +12,10 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 0.90588236, 0.21568628, 0.8784314, 0.96
 metadata/_snap_enabled = true
 metadata/_snap_count = 12
 
-[node name="CPUParticles2D_DustRing" type="CPUParticles2D" unique_id=1582928063]
-amount = 480
-lifetime = 4.0
-explosiveness = 0.88
+[node name="MushroomCloud" type="CPUParticles2D" unique_id=1582928063]
+amount = 240
+lifetime = 3.0
+explosiveness = 0.75
 randomness = 0.25
 lifetime_randomness = 0.5
 fract_delta = false
@@ -25,13 +25,15 @@ emission_rect_extents = Vector2(2, 0)
 direction = Vector2(0, -1)
 spread = 0.0
 gravity = Vector2(0, 36)
-initial_velocity_min = 40.0
+initial_velocity_min = 50.0
 initial_velocity_max = 60.0
+angular_velocity_max = 4.0
 orbit_velocity_min = -0.12
 orbit_velocity_max = 0.12
 orbit_velocity_curve = SubResource("Curve_mchyp")
 damping_min = 60.0
 damping_max = 60.0
+angle_max = 45.0
 scale_amount_min = 0.0
 scale_amount_max = 4.0
 color_ramp = SubResource("Gradient_mchyp")

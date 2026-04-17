@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://erufnamo3y5v"]
+
+[ext_resource type="PackedScene" uid="uid://cw4ru6lu7qqdo" path="res://Scenes/Particles/Particles_DustRing.tscn" id="1_7boi8"]
+[ext_resource type="Script" uid="uid://uytkw81eufev" path="res://Scenes/mushroom_cloud_explosion.gd" id="1_ab4n3"]
+[ext_resource type="PackedScene" uid="uid://c1yolrkh6pg8" path="res://Scenes/Particles/Particles_MushroomCloud.tscn" id="2_ab4n3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ab4n3"]
+size = Vector2(6, 16)
+
+[node name="MushroomCloudExplosion" type="Node2D" unique_id=1847167447]
+script = ExtResource("1_ab4n3")
+
+[node name="Particles_Ring" parent="." unique_id=1582928063 instance=ExtResource("1_7boi8")]
+position = Vector2(0, -4)
+emitting = false
+lifetime = 4.0
+one_shot = true
+
+[node name="Particles_Cloud" parent="." unique_id=229452179 instance=ExtResource("2_ab4n3")]
+emitting = false
+one_shot = true
+
+[node name="hurtbox" type="Area2D" parent="." unique_id=776851219 groups=["water"]]
+position = Vector2(0, -8)
+collision_layer = 4
+collision_mask = 16
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=765762929 groups=["water"]]
+shape = SubResource("RectangleShape2D_ab4n3")
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_area_entered"]
