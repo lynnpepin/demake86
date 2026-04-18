@@ -4,7 +4,7 @@ extends EnemyClass
 
 var direction: int = 1
 
-@export var start_hp := 2  # new default
+@export var start_hp := 4  # new default
 @export var zoomer_speed := 12
 
 

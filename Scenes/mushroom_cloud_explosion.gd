@@ -31,6 +31,6 @@ func _process(delta):
 func _on_area_entered(area: Area2D) -> void:
     if area.is_in_group("player"):
         area.get_parent().hurt(
-            1.0,
-            .25
+            2.0,
+            .5
         )

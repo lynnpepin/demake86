@@ -426,7 +426,6 @@ func add_energy(count: int) -> void:
 func die():
     state = States.Dead
     var blam = BiggerExplosion.instantiate()
-    $sprite_boots.visible = true
     blam.position = Vector2(0,0)#global_position
     add_child(blam)
     $body_sprite.visible = false
@@ -439,6 +438,21 @@ func die():
     $Cannon.visible = false
     $smoke_boots.emitting = true
     $ball_trail.visible = false
+    
+    # Death sprite
+    var p = randf()
+    if p < .05:
+        $DeathSprites/sprite_fgdp.visible = true
+    elif p < .10:
+        $DeathSprites/sprite_ghost.visible = true
+    else:
+        $DeathSprites/sprite_boots.visible = true
+    # TODO:
+    # Family Guy death pose
+    # MegaMan / Celeste explosion
+    # It Is A Mystery ghost
+    # Ghouls and Goblins death
+    # Mario style 
     
     pass
 #endregion

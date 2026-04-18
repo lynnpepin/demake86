@@ -294,8 +294,7 @@ sources/2 = SubResource("TileSetAtlasSource_come4")
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
 position = Vector2(96, 148)
 HAS_ALL_ITEMS = false
-START_MISSILES = 4
-START_ENERGY = 7
+START_ENERGY = 2
 
 [node name="PointLight2D" type="PointLight2D" parent="Relan" unique_id=31498320]
 visible = false
@@ -809,11 +808,13 @@ position = Vector2(44, 384)
 [node name="Zoomer" parent="Enemies" unique_id=743314971 instance=ExtResource("26_lswn8")]
 position = Vector2(80, 160)
 rotation = -1.57079
+start_hp = 4
 sprite = ExtResource("33_come4")
 
 [node name="Zoomer18" parent="Enemies" unique_id=1007610357 instance=ExtResource("26_lswn8")]
 position = Vector2(104, 144)
 rotation = -1.57079
+start_hp = 4
 sprite = ExtResource("33_come4")
 speed = 12
 health = 2
@@ -821,63 +822,78 @@ health = 2
 [node name="Zoomer65" parent="Enemies" unique_id=100344623 instance=ExtResource("26_lswn8")]
 position = Vector2(-232, 148)
 rotation = -1.57079
+start_hp = 4
 sprite = ExtResource("33_come4")
 speed = 12
 health = 2
 
 [node name="Zoomer19" parent="Enemies" unique_id=1801570524 instance=ExtResource("26_lswn8")]
 position = Vector2(224, 128)
+start_hp = 4
 sprite = ExtResource("33_come4")
 
 [node name="Zoomer64" parent="Enemies" unique_id=1039936731 instance=ExtResource("26_lswn8")]
 position = Vector2(228, 72)
+start_hp = 4
 sprite = ExtResource("33_come4")
 
 [node name="Zoomer20" parent="Enemies" unique_id=2110982592 instance=ExtResource("26_lswn8")]
 position = Vector2(288, 88)
+start_hp = 4
 sprite = ExtResource("34_h8e4i")
 
 [node name="Zoomer21" parent="Enemies" unique_id=1533409799 instance=ExtResource("26_lswn8")]
 position = Vector2(288, 120)
+start_hp = 4
 sprite = ExtResource("34_h8e4i")
 
 [node name="Zoomer66" parent="Enemies" unique_id=689841984 instance=ExtResource("26_lswn8")]
 position = Vector2(-232, 132)
 rotation = -1.5707941
+start_hp = 4
 sprite = ExtResource("34_h8e4i")
 
 [node name="Zoomer22" parent="Enemies" unique_id=1235552202 instance=ExtResource("26_lswn8")]
 position = Vector2(480, 200)
+start_hp = 4
 
 [node name="Zoomer23" parent="Enemies" unique_id=281428271 instance=ExtResource("26_lswn8")]
 position = Vector2(348, 400)
+start_hp = 4
 sprite = ExtResource("35_0cp0l")
 
 [node name="Zoomer69" parent="Enemies" unique_id=1467766941 instance=ExtResource("26_lswn8")]
 position = Vector2(-276, 160)
+start_hp = 4
 sprite = ExtResource("35_0cp0l")
 
 [node name="Zoomer24" parent="Enemies" unique_id=2125112689 instance=ExtResource("26_lswn8")]
 position = Vector2(300, 392)
+start_hp = 4
 sprite = ExtResource("35_0cp0l")
 
 [node name="Zoomer25" parent="Enemies" unique_id=922307947 instance=ExtResource("26_lswn8")]
 position = Vector2(300, 280)
+start_hp = 4
 
 [node name="Zoomer26" parent="Enemies" unique_id=160894359 instance=ExtResource("26_lswn8")]
 position = Vector2(164, 256)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer67" parent="Enemies" unique_id=768323943 instance=ExtResource("26_lswn8")]
 position = Vector2(-244, 160)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer68" parent="Enemies" unique_id=122713074 instance=ExtResource("26_lswn8")]
 position = Vector2(-260, 160)
+start_hp = 4
 
 [node name="Zoomer70" parent="Enemies" unique_id=568898485 instance=ExtResource("26_lswn8")]
 position = Vector2(-280, 124.0003)
 rotation = 1.5707941
+start_hp = 4
 sprite = ExtResource("33_come4")
 speed = 12
 health = 2
@@ -885,162 +901,203 @@ health = 2
 [node name="Zoomer71" parent="Enemies" unique_id=923578528 instance=ExtResource("26_lswn8")]
 position = Vector2(-279.99988, 140.0002)
 rotation = 1.5707941
+start_hp = 4
 sprite = ExtResource("34_h8e4i")
 
 [node name="Zoomer72" parent="Enemies" unique_id=165680698 instance=ExtResource("26_lswn8")]
 position = Vector2(-236.00002, 112)
 rotation = 3.1415882
+start_hp = 4
 sprite = ExtResource("35_0cp0l")
 
 [node name="Zoomer73" parent="Enemies" unique_id=1249382343 instance=ExtResource("26_lswn8")]
 position = Vector2(-268.00003, 112.000145)
 rotation = 3.1415882
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer74" parent="Enemies" unique_id=1506326089 instance=ExtResource("26_lswn8")]
 position = Vector2(-252.00002, 112.00008)
 rotation = 3.1415882
+start_hp = 4
 
 [node name="Zoomer27" parent="Enemies" unique_id=1929801363 instance=ExtResource("26_lswn8")]
 position = Vector2(156, 256)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer28" parent="Enemies" unique_id=1177597580 instance=ExtResource("26_lswn8")]
 position = Vector2(244, 216)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer29" parent="Enemies" unique_id=1306639300 instance=ExtResource("26_lswn8")]
 position = Vector2(236, 224)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer30" parent="Enemies" unique_id=653978154 instance=ExtResource("26_lswn8")]
 position = Vector2(236, 232)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer31" parent="Enemies" unique_id=912259668 instance=ExtResource("26_lswn8")]
 position = Vector2(236, 240)
+start_hp = 4
 
 [node name="Zoomer32" parent="Enemies" unique_id=1202142549 instance=ExtResource("26_lswn8")]
 position = Vector2(236, 248)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer33" parent="Enemies" unique_id=401690992 instance=ExtResource("26_lswn8")]
 position = Vector2(228, 232)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer34" parent="Enemies" unique_id=1086385172 instance=ExtResource("26_lswn8")]
 position = Vector2(220, 240)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer35" parent="Enemies" unique_id=685658905 instance=ExtResource("26_lswn8")]
 position = Vector2(220, 248)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer36" parent="Enemies" unique_id=1138539945 instance=ExtResource("26_lswn8")]
 position = Vector2(212, 248)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer37" parent="Enemies" unique_id=262221890 instance=ExtResource("26_lswn8")]
 position = Vector2(108, 272)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer38" parent="Enemies" unique_id=1326812630 instance=ExtResource("26_lswn8")]
 position = Vector2(92, 360)
+start_hp = 4
 
 [node name="Zoomer39" parent="Enemies" unique_id=357201980 instance=ExtResource("26_lswn8")]
 position = Vector2(108, 384)
+start_hp = 4
 
 [node name="Zoomer40" parent="Enemies" unique_id=1897984229 instance=ExtResource("26_lswn8")]
 position = Vector2(76, 384)
+start_hp = 4
 
 [node name="Zoomer41" parent="Enemies" unique_id=1255324372 instance=ExtResource("26_lswn8")]
 position = Vector2(220, 368)
+start_hp = 4
 
 [node name="Zoomer42" parent="Enemies" unique_id=604270216 instance=ExtResource("26_lswn8")]
 position = Vector2(100, 232)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer43" parent="Enemies" unique_id=1012078943 instance=ExtResource("26_lswn8")]
 position = Vector2(220, 304)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer44" parent="Enemies" unique_id=1074030477 instance=ExtResource("26_lswn8")]
 position = Vector2(236, 320)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer45" parent="Enemies" unique_id=55175767 instance=ExtResource("26_lswn8")]
 position = Vector2(228, 320)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer46" parent="Enemies" unique_id=412377717 instance=ExtResource("26_lswn8")]
 position = Vector2(220, 320)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer47" parent="Enemies" unique_id=2039141567 instance=ExtResource("26_lswn8")]
 position = Vector2(212, 320)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer48" parent="Enemies" unique_id=1513415418 instance=ExtResource("26_lswn8")]
 position = Vector2(236, 304)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer49" parent="Enemies" unique_id=1867858114 instance=ExtResource("26_lswn8")]
 position = Vector2(236, 288)
+start_hp = 4
 
 [node name="Zoomer50" parent="Enemies" unique_id=1984111372 instance=ExtResource("26_lswn8")]
 position = Vector2(236, 288)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer51" parent="Enemies" unique_id=503268937 instance=ExtResource("26_lswn8")]
 position = Vector2(236, 280)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer52" parent="Enemies" unique_id=1917192143 instance=ExtResource("26_lswn8")]
 position = Vector2(252, 296)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer53" parent="Enemies" unique_id=860744470 instance=ExtResource("26_lswn8")]
 position = Vector2(252, 304)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer54" parent="Enemies" unique_id=734263137 instance=ExtResource("26_lswn8")]
 position = Vector2(252, 312)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer55" parent="Enemies" unique_id=1703848500 instance=ExtResource("26_lswn8")]
 position = Vector2(252, 320)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer56" parent="Enemies" unique_id=1681198511 instance=ExtResource("26_lswn8")]
 position = Vector2(252, 336)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer57" parent="Enemies" unique_id=485976152 instance=ExtResource("26_lswn8")]
 position = Vector2(244, 336)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer58" parent="Enemies" unique_id=1247488816 instance=ExtResource("26_lswn8")]
 position = Vector2(236, 336)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer59" parent="Enemies" unique_id=1326085743 instance=ExtResource("26_lswn8")]
 position = Vector2(228, 336)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer60" parent="Enemies" unique_id=382348347 instance=ExtResource("26_lswn8")]
 position = Vector2(220, 336)
+start_hp = 4
 
 [node name="Zoomer61" parent="Enemies" unique_id=1195469312 instance=ExtResource("26_lswn8")]
 position = Vector2(220, 336)
+start_hp = 4
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer62" parent="Enemies" unique_id=1133896219 instance=ExtResource("26_lswn8")]
 position = Vector2(244, 272)
+start_hp = 4
 zoomer_speed = -12
 sprite = ExtResource("35_4lmeg")
 
 [node name="Zoomer63" parent="Enemies" unique_id=1792394096 instance=ExtResource("26_lswn8")]
 position = Vector2(20, -168)
+start_hp = 4
 zoomer_speed = -12
 
 [node name="Misc" type="Node2D" parent="." unique_id=1313501230]
