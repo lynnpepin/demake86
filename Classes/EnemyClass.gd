@@ -22,6 +22,7 @@ extends CharacterBody2D
 ## The name of the guy :3
 @export var nickname: String = "Some Guy"
 
+var frozen: bool
 var hit_sounds: Array
 var death_sounds: Array
 var freeze_timer: float = 0.0
@@ -108,6 +109,7 @@ func die() -> void:
     death_timer = -6.0
 
 func freeze(timer: float) -> void:
+    frozen = true
     if health > 0:
         $FreezeSound.play()
         freeze_timer = timer
@@ -120,6 +122,7 @@ func freeze(timer: float) -> void:
         $StaticBody2D_Frozen/CollisionShape2D.set_deferred("disabled", false)
 
 func unfreeze() -> void:
+    frozen = false
     $AnimatedSprite2D.modulate = Color.WHITE
     $Sprite2D_freeze_box.visible = false
     $CollisionPlatforming.set_deferred("disabled", false) 

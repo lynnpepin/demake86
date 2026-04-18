@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
     col_attack_left  = ray_attack_left.get_collider()
     col_attack_right = ray_attack_right.get_collider()
     
-    if !opened and !falling and !drilling:
+    if !opened and !falling and !drilling and !frozen:
         if col_see_left != null:
             if col_see_left.is_in_group("player"):
                 opened = true
@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
                 $AnimatedSprite2D.play("open")
                 $HitSounds/AudioStreamPlayer2D3.play()
                  
-    if !falling and !drilling:
+    if !falling and !drilling and !frozen:
         if col_attack_left != null:
             if col_attack_left.is_in_group("player"):
                 falling = true
@@ -53,7 +53,7 @@ func _process(delta: float) -> void:
                 $AnimatedSprite2D.play("drill")
                 $HitSounds/AudioStreamPlayer2D.play()
                 
-    if drilling:
+    if drilling and !frozen:
         drill_timer += delta
     
         if drill_timer >= drill_max:
@@ -70,7 +70,7 @@ func _process(delta: float) -> void:
     
 func _physics_process(delta: float) -> void:
     super(delta)
-    if falling:
+    if falling and !frozen:
         var col = move_and_collide(Vector2(0,1)*delta*128)
         if col:
             move_and_collide(Vector2(0,0))
