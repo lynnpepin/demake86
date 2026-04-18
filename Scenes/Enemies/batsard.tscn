@@ -27,7 +27,7 @@ fill_to = Vector2(0.495726, 0)
 size = Vector2(10, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qbga"]
-size = Vector2(6, 12)
+size = Vector2(4, 6)
 
 [node name="Batsard" unique_id=1981089262 instance=ExtResource("1_os2en")]
 script = ExtResource("2_6qbga")
