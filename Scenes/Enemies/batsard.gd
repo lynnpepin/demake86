@@ -16,6 +16,8 @@ var drilling = false
 var drill_timer = 0.0
 var drill_max = 1.0
 
+var dead = false
+
 var MushroomExplosion = preload("res://Scenes/MushroomCloudExplosion.tscn")
 
 func _process(delta: float) -> void:
@@ -26,7 +28,7 @@ func _process(delta: float) -> void:
     col_attack_left  = ray_attack_left.get_collider()
     col_attack_right = ray_attack_right.get_collider()
     
-    if !opened and !falling and !drilling and !frozen:
+    if !opened and !falling and !drilling and !frozen and !dead:
         if col_see_left != null:
             if col_see_left.is_in_group("player"):
                 opened = true
@@ -40,7 +42,7 @@ func _process(delta: float) -> void:
                 $AnimatedSprite2D.play("open")
                 $HitSounds/AudioStreamPlayer2D3.play()
                  
-    if !falling and !drilling and !frozen:
+    if !falling and !drilling and !frozen and !dead:
         if col_attack_left != null:
             if col_attack_left.is_in_group("player"):
                 falling = true
@@ -53,7 +55,7 @@ func _process(delta: float) -> void:
                 $AnimatedSprite2D.play("drill")
                 $HitSounds/AudioStreamPlayer2D.play()
                 
-    if drilling and !frozen:
+    if drilling and !frozen and !dead:
         drill_timer += delta
     
         if drill_timer >= drill_max:
@@ -78,4 +80,5 @@ func _physics_process(delta: float) -> void:
             drilling = true
 
 func die():
+    dead = true
     super()
