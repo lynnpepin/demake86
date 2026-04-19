@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://burro5wpa66hf"]
+
+[ext_resource type="PackedScene" uid="uid://dvmfspjjw6lrx" path="res://Classes/PickupClass.tscn" id="1_2cs55"]
+[ext_resource type="Texture2D" uid="uid://dxbitc5ps6key" path="res://art/eastereggs/milk.png" id="2_h55pm"]
+
+[node name="Milk" unique_id=1167656059 instance=ExtResource("1_2cs55")]
+pickup_name = "milk"
+pickup_message = "god im thirsty\\ni know its like 2am\\nthank you"
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1" unique_id=840860599]
+texture = ExtResource("2_h55pm")

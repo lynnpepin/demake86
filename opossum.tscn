@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bnhvg0pa3b4mt"]
+
+[ext_resource type="Texture2D" uid="uid://d1qe8ogxvc47f" path="res://art/eastereggs/opossum_totally_dead_no_need_to_check.png" id="1_3xbym"]
+[ext_resource type="Texture2D" uid="uid://be5dih2youic2" path="res://art/eastereggs/opossum_totally_still_dead_why_are_you_still_here.png" id="2_i5bjm"]
+[ext_resource type="Texture2D" uid="uid://dvyaa7ulayc5j" path="res://art/eastereggs/opossum_2.png" id="3_q1jwu"]
+[ext_resource type="Texture2D" uid="uid://b88b4asrku5la" path="res://art/eastereggs/opossum_1.png" id="4_ft7pu"]
+[ext_resource type="Script" uid="uid://cham62k3bosqs" path="res://opossum.gd" id="5_b5qag"]
+[ext_resource type="PackedScene" uid="uid://burro5wpa66hf" path="res://Scenes/Pickups/Milk.tscn" id="6_xgvlc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hrvbo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3xbym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_i5bjm")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 0.25
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_q1jwu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ft7pu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q1jwu")
+}],
+"loop": true,
+"name": &"panic",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnkbs"]
+size = Vector2(48, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6a44"]
+size = Vector2(24, 24)
+
+[node name="Opossum" type="AnimatedSprite2D" unique_id=1972449451]
+sprite_frames = SubResource("SpriteFrames_hrvbo")
+frame_progress = 0.7446099
+script = ExtResource("5_b5qag")
+
+[node name="Area2D_player_near" type="Area2D" parent="." unique_id=1812444478]
+visible = false
+collision_layer = 17
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_player_near" unique_id=1971672253]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_wnkbs")
+
+[node name="Area2D_player_too_near" type="Area2D" parent="." unique_id=834066589]
+visible = false
+collision_layer = 17
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_player_too_near" unique_id=729680320]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_f6a44")
+
+[node name="Milk" parent="." unique_id=1167656059 instance=ExtResource("6_xgvlc")]
+position = Vector2(-480, 199)
+pickup_message = "god i was so\\nthirsty.......\\nthank you............"
+
+[connection signal="area_entered" from="Area2D_player_near" to="." method="_on_area_2d_player_near_area_entered"]
+[connection signal="area_entered" from="Area2D_player_too_near" to="." method="_on_area_2d_player_too_near_area_entered"]
