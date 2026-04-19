@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://1va7v8f7o67x"]
+
+[ext_resource type="PackedScene" uid="uid://be6esv11x3s5t" path="res://Classes/EnemyClass.tscn" id="1_wi8lk"]
+[ext_resource type="Texture2D" uid="uid://dr34n2lbmsaw3" path="res://art/waver/waver-0.png" id="2_3ntb3"]
+[ext_resource type="Script" uid="uid://butspgk47d5sy" path="res://Scenes/Enemies/waver.gd" id="2_nqryh"]
+[ext_resource type="Texture2D" uid="uid://g3gj5bisb1w4" path="res://art/waver/waver-1.png" id="3_nqryh"]
+[ext_resource type="Texture2D" uid="uid://bctrvvxc8oxdy" path="res://art/waver/waver-2.png" id="4_hvhw4"]
+[ext_resource type="Texture2D" uid="uid://8s2f8mcbvoqe" path="res://art/waver/waver-3.png" id="5_2t3oj"]
+[ext_resource type="Texture2D" uid="uid://ug8ypia5cupm" path="res://art/waver/waver-4.png" id="6_b6pg1"]
+[ext_resource type="Texture2D" uid="uid://ck65bd8gmhcir" path="res://art/waver/waver-5.png" id="7_g3abt"]
+[ext_resource type="Texture2D" uid="uid://dx6k3176xovvj" path="res://art/waver/waver-6.png" id="8_fonxt"]
+[ext_resource type="Texture2D" uid="uid://xnt1gjb82y57" path="res://art/waver/waver-7.png" id="9_vqbgu"]
+[ext_resource type="Texture2D" uid="uid://c8f5v6cvd5e3q" path="res://art/waver/waver-8.png" id="10_1gtew"]
+[ext_resource type="Texture2D" uid="uid://ebduxfw7c0kf" path="res://art/waver/waver-9.png" id="11_88mvt"]
+[ext_resource type="Texture2D" uid="uid://repxjdv8iugd" path="res://art/waver/waver-10.png" id="12_i60sm"]
+[ext_resource type="Texture2D" uid="uid://cqpn84h2w1080" path="res://art/waver/waver-11.png" id="13_2ka0q"]
+[ext_resource type="Texture2D" uid="uid://cj8vm3ohp3dpf" path="res://art/waver/waver-12.png" id="14_mkw0n"]
+[ext_resource type="Texture2D" uid="uid://bd4qtaf6rqcs2" path="res://art/waver/waver-13.png" id="15_dwt5x"]
+
+[sub_resource type="Gradient" id="Gradient_gq4he"]
+offsets = PackedFloat32Array(0.432836, 0.730099, 0.843284, 0.955224, 1)
+colors = PackedColorArray(0.37749, 0.463932, 1, 0, 0, 0.571862, 0.923215, 1, 0.246865, 0.837284, 1, 1, 0.856143, 0.968919, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3ntb3"]
+gradient = SubResource("Gradient_gq4he")
+width = 12
+height = 8
+fill = 1
+fill_from = Vector2(0.517094, 1)
+fill_to = Vector2(0.495726, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ntb3"]
+size = Vector2(12, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqryh"]
+size = Vector2(8, 6)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hwc76"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3ntb3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_nqryh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hvhw4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2t3oj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_b6pg1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_g3abt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fonxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vqbgu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_1gtew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_88mvt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_i60sm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2ka0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_mkw0n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_dwt5x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Waver" unique_id=1981089262 instance=ExtResource("1_wi8lk")]
+script = ExtResource("2_nqryh")
+vertical_speed = 8
+
+[node name="Sprite2D_freeze_box" parent="." index="1" unique_id=840567474]
+visible = false
+texture = SubResource("GradientTexture2D_3ntb3")
+
+[node name="StaticBody2D_Frozen" parent="." index="2" unique_id=84451283]
+visible = true
+
+[node name="CollisionShape2D" parent="StaticBody2D_Frozen" index="0" unique_id=1883882091]
+shape = SubResource("RectangleShape2D_3ntb3")
+
+[node name="CollisionShape2D" parent="AreaHitbox" parent_id_path=PackedInt32Array(114516459) index="0" unique_id=56055242]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_nqryh")
+
+[node name="AnimatedSprite2D" parent="." index="4" unique_id=787643559]
+position = Vector2(2, 3)
+sprite_frames = SubResource("SpriteFrames_hwc76")
+autoplay = "default"
+frame_progress = 0.75751966
