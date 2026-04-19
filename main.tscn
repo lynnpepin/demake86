@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://dk8unr07bj50f"]
 
 [ext_resource type="PackedScene" uid="uid://drk8exn5eh8fd" path="res://Scenes/BombableBlock.tscn" id="1_3oaw5"]
-[ext_resource type="Texture2D" uid="uid://ce2tibknbbtee" path="res://art/8px_ground.png" id="2_yoeee"]
-[ext_resource type="Texture2D" uid="uid://ox70v7php01v" path="res://art/tiles1_normal.png" id="3_ia83q"]
+[ext_resource type="Texture2D" uid="uid://ce2tibknbbtee" path="res://art/terrain/8px_ground.png" id="2_yoeee"]
+[ext_resource type="Texture2D" uid="uid://ox70v7php01v" path="res://art/terrain/tiles1_normal.png" id="3_ia83q"]
 [ext_resource type="Texture2D" uid="uid://ksg2mh188uub" path="res://art/1024_bg.png" id="4_ix4gv"]
 [ext_resource type="Texture2D" uid="uid://bu6ymrp1u6tyw" path="res://art/512_bg.png" id="4_kp1pf"]
 [ext_resource type="Texture2D" uid="uid://nmb80xmwnw1u" path="res://art/256_bg.png" id="5_xcij7"]
@@ -26,11 +26,11 @@
 [ext_resource type="Texture2D" uid="uid://dp3k1jguhfiia" path="res://art/grave_K.png" id="20_htxhm"]
 [ext_resource type="Shader" uid="uid://dtr01v74mxa3i" path="res://main.tres" id="21_8b71t"]
 [ext_resource type="Texture2D" uid="uid://c6xdwfmli6xg8" path="res://art/grave_R.png" id="21_jq2sk"]
-[ext_resource type="Texture2D" uid="uid://dr2i71jasyecm" path="res://art/tiles1_albedo.png" id="22_o8q7v"]
+[ext_resource type="Texture2D" uid="uid://dr2i71jasyecm" path="res://art/terrain/tiles1_albedo.png" id="22_o8q7v"]
 [ext_resource type="AudioStream" uid="uid://d1ei3p06a6tpg" path="res://sfx/rest_in_peace_kraid.wav" id="22_ok6jj"]
 [ext_resource type="Script" uid="uid://s362u0lrl60f" path="res://ridley_grave.gd" id="23_facbu"]
 [ext_resource type="PackedScene" uid="uid://0debg1cm1k0b" path="res://Scenes/Pickups/WaveBeamPickup.tscn" id="24_3c427"]
-[ext_resource type="Texture2D" uid="uid://duk5s41q73y87" path="res://art/8px_ramp.png" id="24_66els"]
+[ext_resource type="Texture2D" uid="uid://duk5s41q73y87" path="res://art/terrain/8px_ramp.png" id="24_66els"]
 [ext_resource type="AudioStream" uid="uid://cp1scpo5leci2" path="res://sfx/a_new_gender_neutral_shithouse_is_built.wav" id="25_facbu"]
 [ext_resource type="PackedScene" uid="uid://dfumfi7yl7mha" path="res://Scenes/Enemies/Zoomer.tscn" id="26_lswn8"]
 [ext_resource type="PackedScene" uid="uid://cgum5ifi31713" path="res://Scenes/Pickups/Electrolyzer.tscn" id="27_a6jrf"]
@@ -39,9 +39,9 @@
 [ext_resource type="SpriteFrames" uid="uid://b1iq2vu6fe8e5" path="res://resources/zoomer_B.tres" id="34_h8e4i"]
 [ext_resource type="SpriteFrames" uid="uid://bh6ix55ye3fcr" path="res://resources/zoomer_E.tres" id="35_0cp0l"]
 [ext_resource type="SpriteFrames" uid="uid://cb6ybv8dd5d5" path="res://resources/zoomer_D.tres" id="35_4lmeg"]
-[ext_resource type="Texture2D" uid="uid://o1iqyawmmba7" path="res://art/lava_anim_fake.png" id="37_b1qrp"]
+[ext_resource type="Texture2D" uid="uid://o1iqyawmmba7" path="res://art/terrain/lava_anim_fake.png" id="37_b1qrp"]
 [ext_resource type="Script" uid="uid://bgj4em5iockgr" path="res://lava_tile_map_layer.gd" id="38_b1qrp"]
-[ext_resource type="Texture2D" uid="uid://d1ju2reirlryj" path="res://art/lava_anim.png" id="39_h8e4i"]
+[ext_resource type="Texture2D" uid="uid://d1ju2reirlryj" path="res://art/terrain/lava_anim.png" id="39_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://067hjqq38m48" path="res://Scenes/Enemies/batsard.tscn" id="43_d2t1y"]
 
 [sub_resource type="Gradient" id="Gradient_43svb"]
@@ -292,9 +292,9 @@ sources/2 = SubResource("TileSetAtlasSource_come4")
 [node name="Root" type="Node2D" unique_id=1570894400]
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
-position = Vector2(96, 148)
+position = Vector2(96, 164)
 HAS_ALL_ITEMS = false
-START_ENERGY = 2
+START_ENERGY = 1
 
 [node name="PointLight2D" type="PointLight2D" parent="Relan" unique_id=31498320]
 visible = false
@@ -812,8 +812,8 @@ start_hp = 4
 sprite = ExtResource("33_come4")
 
 [node name="Zoomer18" parent="Enemies" unique_id=1007610357 instance=ExtResource("26_lswn8")]
-position = Vector2(104, 144)
-rotation = -1.57079
+position = Vector2(112, 160)
+rotation = -4.7123823
 start_hp = 4
 sprite = ExtResource("33_come4")
 speed = 12
@@ -1100,6 +1100,39 @@ position = Vector2(20, -168)
 start_hp = 4
 zoomer_speed = -12
 
+[node name="Batsard" parent="Enemies" unique_id=1981089262 instance=ExtResource("43_d2t1y")]
+position = Vector2(141, 136)
+
+[node name="Batsard3" parent="Enemies" unique_id=2147314002 instance=ExtResource("43_d2t1y")]
+position = Vector2(205, 192)
+
+[node name="Batsard4" parent="Enemies" unique_id=1401787872 instance=ExtResource("43_d2t1y")]
+position = Vector2(237, 192)
+
+[node name="Batsard5" parent="Enemies" unique_id=2047911543 instance=ExtResource("43_d2t1y")]
+position = Vector2(221, 264)
+
+[node name="Batsard6" parent="Enemies" unique_id=2090663027 instance=ExtResource("43_d2t1y")]
+position = Vector2(237, 264)
+
+[node name="Batsard7" parent="Enemies" unique_id=1852810526 instance=ExtResource("43_d2t1y")]
+position = Vector2(117, 208)
+
+[node name="Batsard8" parent="Enemies" unique_id=964774903 instance=ExtResource("43_d2t1y")]
+position = Vector2(109, 280)
+
+[node name="Batsard9" parent="Enemies" unique_id=1409628818 instance=ExtResource("43_d2t1y")]
+position = Vector2(165, 400)
+
+[node name="Batsard11" parent="Enemies" unique_id=1600160238 instance=ExtResource("43_d2t1y")]
+position = Vector2(181, 456)
+
+[node name="Batsard12" parent="Enemies" unique_id=1002540263 instance=ExtResource("43_d2t1y")]
+position = Vector2(157, 456)
+
+[node name="Batsard10" parent="Enemies" unique_id=568715617 instance=ExtResource("43_d2t1y")]
+position = Vector2(149, 400)
+
 [node name="Misc" type="Node2D" parent="." unique_id=1313501230]
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="Misc" unique_id=606263762]
@@ -1256,39 +1289,6 @@ z_index = 60
 tile_map_data = PackedByteArray("AAAvAA4AAgAAAAAAAAAuAA4AAQAAAAAAAAAtAA4AAQAAAAAAAAAsAA4AAQAAAAAAAAArAA4AAQAAAAAAAAAqAA4AAQAAAAAAAAApAA4AAQAAAAAAAAA2AA0AAQAAAAAAAAA3AA0AAQAAAAAAAAA4AA0AAQAAAAAAAAA4AA4AAQAAAAEAAAA3AA4AAQAAAAEAAAA2AA4AAQAAAAEAAAA7AA4AAQAAAAAAAAA6AA4AAQAAAAAAAAAxAAYAAQAAAAAAAAAyAAYAAQAAAAAAAAAzAAYAAQAAAAAAAAAzAAcAAQAAAAEAAAAyAAcAAQAAAAEAAAAxAAcAAQAAAAEAAAA1AAcAAQAAAAEAAAA2AAcAAQAAAAEAAAA3AAcAAQAAAAEAAAA4AAcAAQAAAAEAAAA5AAcAAQAAAAEAAAA5AAYAAQAAAAAAAAA4AAYAAQAAAAAAAAA3AAYAAQAAAAAAAAA2AAYAAQAAAAAAAAA1AAYAAQAAAAAAAAAtAAcAAQAAAAAAAAARAAcAAQAAAAEAAAASAAcAAQAAAAEAAAATAAcAAQAAAAEAAAAUAAcAAQAAAAEAAAAVAAcAAQAAAAEAAAAWAAcAAQAAAAEAAAAWAAYAAQAAAAAAAAAVAAYAAQAAAAAAAAAUAAYAAQAAAAAAAAATAAYAAQAAAAAAAAASAAYAAQAAAAAAAAARAAYAAQAAAAAAAAAKAB4AAQAAAAAAAAALAB4AAQAAAAAAAAAMAB4AAQAAAAAAAAANAB4AAQAAAAAAAAAOAB4AAQAAAAAAAAAIADEAAQAAAAAAAAAJADEAAQAAAAAAAAAKADEAAQAAAAAAAAALADEAAQAAAAAAAAAMADEAAQAAAAAAAAANADEAAQAAAAAAAAAOADEAAQAAAAAAAAAPADEAAQAAAAAAAAAQADEAAQAAAAAAAAARADEAAQAAAAAAAAASADEAAQAAAAAAAAATADEAAQAAAAAAAAAGAD4AAQAAAAAAAAAFAD4AAQAAAAAAAAAEAD4AAQAAAAAAAAADAD4AAQAAAAAAAAACAD4AAQAAAAAAAAABAD4AAQAAAAAAAAARADcAAQAAAAAAAAASADcAAQAAAAAAAAATADcAAQAAAAAAAAAUADcAAQAAAAAAAAAVADcAAQAAAAAAAAAhADYAAQAAAAAAAAAiADYAAQAAAAAAAAAjADYAAQAAAAAAAAAkADYAAQAAAAAAAAAlADYAAQAAAAAAAAAmADYAAQAAAAAAAAAmADcAAQAAAAEAAAAlADcAAQAAAAEAAAAkADcAAQAAAAEAAAAjADcAAQAAAAEAAAAiADcAAQAAAAEAAAAhADcAAQAAAAEAAAAiAD4AAQAAAAAAAAAjAD4AAQAAAAAAAAAkAD4AAQAAAAAAAAAlAD4AAQAAAAAAAAAmAD4AAQAAAAAAAAAlAD8AAQAAAAEAAAAkAD8AAQAAAAEAAAAiAD8AAQAAAAEAAAAjAD8AAQAAAAEAAAAmAD8AAQAAAAEAAAApAD4AAQAAAAAAAAAqAD4AAQAAAAAAAAArAD4AAQAAAAAAAAAsAD4AAQAAAAAAAAAtAD4AAQAAAAAAAAAuAD4AAQAAAAAAAAAuAD8AAQAAAAEAAAAtAD8AAQAAAAEAAAAsAD8AAQAAAAEAAAArAD8AAQAAAAEAAAAqAD8AAQAAAAEAAAApAD8AAQAAAAEAAAAyAD4AAQAAAAAAAAAzAD4AAQAAAAAAAAA0AD4AAQAAAAAAAAA1AD4AAQAAAAAAAAA2AD4AAQAAAAAAAAA4AD4AAQAAAAAAAAA5AD4AAQAAAAAAAAA6AD4AAQAAAAAAAAA7AD4AAQAAAAAAAAA8AD4AAQAAAAAAAAA9AD4AAQAAAAAAAAA+AD4AAQAAAAAAAAA4AD8AAQAAAAEAAAA5AD8AAQAAAAEAAAA6AD8AAQAAAAEAAAA7AD8AAQAAAAEAAAA8AD8AAQAAAAEAAAA9AD8AAQAAAAEAAAA+AD8AAQAAAAEAAAA4AEAAAQAAAAEAAAA5AEAAAQAAAAEAAAA6AEAAAQAAAAEAAAA7AEAAAQAAAAEAAAA8AEAAAQAAAAEAAAA9AEAAAQAAAAEAAAA+AEAAAQAAAAEAAAA2AD8AAQAAAAEAAAA1AD8AAQAAAAEAAAA0AD8AAQAAAAEAAAAzAD8AAQAAAAEAAAAyAD8AAQAAAAEAAAAyAEAAAQAAAAEAAAAzAEAAAQAAAAEAAAA0AEAAAQAAAAEAAAA1AEAAAQAAAAEAAAA2AEAAAQAAAAEAAAAzAC4AAQAAAAAAAAA0AC4AAQAAAAAAAAA1AC4AAQAAAAAAAAA2AC4AAQAAAAAAAAAEAA4AAQAAAAAAAAAFAA4AAQAAAAAAAAAGAA4AAQAAAAAAAAAMAA4AAQAAAAAAAAALAA4AAQAAAAAAAAAKAA4AAQAAAAAAAAAJAA4AAQAAAAAAAAAIAA4AAQAAAAAAAAAHAA4AAQAAAAAAAAAKAP7/AQAAAAAAAAAJAP7/AQAAAAAAAAAIAP7/AQAAAAAAAAANAPr/AQAAAAAAAAANAPv/AQAAAAEAAAAOAPr/AQAAAAAAAAANAPz/AQAAAAEAAAAxABgAAQAAAAAAAAAxAB4AAQAAAAAAAAAyAB4AAQAAAAAAAAAzAB4AAQAAAAAAAAA0AB4AAQAAAAAAAAA1AB4AAQAAAAAAAAA2AB4AAQAAAAAAAAAuACYAAQAAAAAAAAAlACYAAQAAAAAAAAAkACYAAQAAAAAAAAAjACYAAQAAAAAAAAAiACYAAQAAAAAAAAABABwAAgAAAAAAAAACABwAAgAAAAAAAAADABwAAgAAAAAAAAAEABwAAgAAAAAAAAAFABwAAgAAAAAAAAAGABwAAgAAAAAAAAAGAB0AAgAAAAEAAAAFAB0AAgAAAAEAAAAEAB0AAgAAAAEAAAADAB0AAgAAAAEAAAACAB0AAgAAAAEAAAABAB0AAgAAAAEAAAAmABwAAgAAAAAAAAAlABwAAgAAAAAAAAAkABwAAgAAAAAAAAAjABwAAgAAAAAAAAAiABwAAgAAAAAAAAAhABwAAgAAAAAAAAAyAA4AAgAAAAAAAAAzAA4AAgAAAAAAAAA0AA4AAgAAAAAAAAAuAC0AAgAAAAAAAAAsAC0AAgAAAAAAAAArAC0AAgAAAAAAAAAqAC0AAgAAAAAAAAAtAC4AAgAAAAEAAAArAC4AAgAAAAEAAAAqAC4AAgAAAAEAAAAqAC8AAgAAAAEAAAArAC8AAgAAAAEAAAAsAC8AAgAAAAEAAAAtAC8AAgAAAAEAAAANAP3/AQAAAAEAAAAtAC0AAgAAAAAAAAAsAC4AAgAAAAEAAAAxAA4AAgAAAAAAAAAwAA4AAgAAAAAAAAAvAA8AAgAAAAEAAAAwAA8AAgAAAAEAAAAuAA8AAgAAAAEAAAAuABAAAgAAAAEAAAAvABAAAgAAAAEAAAAwABAAAgAAAAEAAAAxABAAAgAAAAEAAAApAA8AAQAAAAEAAAAqAA8AAQAAAAEAAAArAA8AAQAAAAEAAAAsAA8AAQAAAAEAAAAtAA8AAQAAAAEAAAA=")
 tile_set = SubResource("TileSet_d2t1y")
 script = ExtResource("38_b1qrp")
-
-[node name="Batsard" parent="." unique_id=1981089262 instance=ExtResource("43_d2t1y")]
-position = Vector2(140, 136)
-
-[node name="Batsard3" parent="." unique_id=2147314002 instance=ExtResource("43_d2t1y")]
-position = Vector2(204, 192)
-
-[node name="Batsard4" parent="." unique_id=1401787872 instance=ExtResource("43_d2t1y")]
-position = Vector2(236, 192)
-
-[node name="Batsard5" parent="." unique_id=2047911543 instance=ExtResource("43_d2t1y")]
-position = Vector2(220, 264)
-
-[node name="Batsard6" parent="." unique_id=2090663027 instance=ExtResource("43_d2t1y")]
-position = Vector2(236, 264)
-
-[node name="Batsard7" parent="." unique_id=1852810526 instance=ExtResource("43_d2t1y")]
-position = Vector2(116, 208)
-
-[node name="Batsard8" parent="." unique_id=964774903 instance=ExtResource("43_d2t1y")]
-position = Vector2(108, 280)
-
-[node name="Batsard9" parent="." unique_id=1409628818 instance=ExtResource("43_d2t1y")]
-position = Vector2(164, 400)
-
-[node name="Batsard11" parent="." unique_id=1600160238 instance=ExtResource("43_d2t1y")]
-position = Vector2(180, 456)
-
-[node name="Batsard12" parent="." unique_id=1002540263 instance=ExtResource("43_d2t1y")]
-position = Vector2(156, 456)
-
-[node name="Batsard10" parent="." unique_id=568715617 instance=ExtResource("43_d2t1y")]
-position = Vector2(148, 400)
 
 [connection signal="area_entered" from="BOSSES/FakeKraid" to="BOSSES/FakeKraid" method="_on_area_entered"]
 [connection signal="body_entered" from="BOSSES/FakeKraid" to="BOSSES/FakeKraid" method="_on_body_entered"]

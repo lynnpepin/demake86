@@ -1,7 +1,7 @@
 [gd_resource type="VisualShader" format=3 uid="uid://dtr01v74mxa3i"]
 
-[ext_resource type="Texture2D" uid="uid://ox70v7php01v" path="res://art/tiles1_normal.png" id="1_2khr4"]
-[ext_resource type="Texture2D" uid="uid://dr2i71jasyecm" path="res://art/tiles1_albedo.png" id="2_euu8b"]
+[ext_resource type="Texture2D" uid="uid://ox70v7php01v" path="res://art/terrain/tiles1_normal.png" id="1_2khr4"]
+[ext_resource type="Texture2D" uid="uid://dr2i71jasyecm" path="res://art/terrain/tiles1_albedo.png" id="2_euu8b"]
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_f7bwt"]
 texture = ExtResource("1_2khr4")

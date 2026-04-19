@@ -29,7 +29,8 @@ data = PackedByteArray("BQkOEhcbICQpLTE2Oj6AgICAcwwMDAwMDAwMDAwMDAwMDAwMDBNISEhI
 radius = 8.0
 
 [node name="CPUParticles2D_BigExplosion" type="CPUParticles2D" unique_id=1409588140]
-z_index = 200
+z_index = 1024
+z_as_relative = false
 position = Vector2(0, 1)
 emitting = false
 amount = 512

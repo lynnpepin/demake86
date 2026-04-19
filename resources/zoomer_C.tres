@@ -1,9 +1,9 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://bbd37vp7a4j0e"]
 
-[ext_resource type="Texture2D" uid="uid://bo4ogwgqp1hbg" path="res://art/zoomer_C-0.png" id="1_achrh"]
-[ext_resource type="Texture2D" uid="uid://bspull2s7gf41" path="res://art/zoomer_C-1.png" id="2_lrt7x"]
-[ext_resource type="Texture2D" uid="uid://dlq4d0t8lb1rx" path="res://art/zoomer_C-2.png" id="3_08c8k"]
-[ext_resource type="Texture2D" uid="uid://b7djcrrbktlqs" path="res://art/zoomer_C-3.png" id="4_6vgy2"]
+[ext_resource type="Texture2D" uid="uid://bo4ogwgqp1hbg" path="res://art/zoomer/zoomer_C-0.png" id="1_achrh"]
+[ext_resource type="Texture2D" uid="uid://bspull2s7gf41" path="res://art/zoomer/zoomer_C-1.png" id="2_lrt7x"]
+[ext_resource type="Texture2D" uid="uid://dlq4d0t8lb1rx" path="res://art/zoomer/zoomer_C-2.png" id="3_08c8k"]
+[ext_resource type="Texture2D" uid="uid://b7djcrrbktlqs" path="res://art/zoomer/zoomer_C-3.png" id="4_6vgy2"]
 
 [resource]
 animations = [{

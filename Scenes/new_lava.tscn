@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dot1khax1tk1i"]
 
 [ext_resource type="Script" uid="uid://dufjdyew8yjfx" path="res://new_lava.gd" id="1_gyc8b"]
-[ext_resource type="Texture2D" uid="uid://cf5ceesdjdm8x" path="res://art/lavawip.png" id="2_s2qmj"]
+[ext_resource type="Texture2D" uid="uid://cf5ceesdjdm8x" path="res://art/terrain/lavawip.png" id="2_s2qmj"]
 
 [sub_resource type="Gradient" id="Gradient_xvwb8"]
 offsets = PackedFloat32Array(0, 0.532338, 1)

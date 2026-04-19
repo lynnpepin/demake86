@@ -30,7 +30,7 @@
 [ext_resource type="Script" uid="uid://ci475li2wefq" path="res://Scenes/hud.gd" id="27_7jqek"]
 [ext_resource type="AudioStream" uid="uid://dbxajgddua35c" path="res://sfx/shield_charge.wav" id="27_74dfm"]
 [ext_resource type="AudioStream" uid="uid://dw3dxdq4hnq3m" path="res://sfx/shield_beep.wav" id="27_iiqjc"]
-[ext_resource type="Texture2D" uid="uid://7fslt01fx260" path="res://art/relan_boots.png" id="28_240g0"]
+[ext_resource type="Texture2D" uid="uid://7fslt01fx260" path="res://art/relan/relan_boots.png" id="28_240g0"]
 [ext_resource type="PackedScene" uid="uid://bv7j2dij7vk4c" path="res://Scenes/MotesOfSmoke.tscn" id="29_5nb38"]
 [ext_resource type="PackedScene" uid="uid://cs0gcifpqgg8h" path="res://Scenes/Typer_Timer.tscn" id="30_72vhv"]
 [ext_resource type="Texture2D" uid="uid://wmw2830gd0cv" path="res://art/barrier_frames/outfile00000.png" id="31_nsgbk"]
@@ -70,6 +70,10 @@
 [ext_resource type="AudioStream" uid="uid://bk2s3ltjf0cwf" path="res://resources/screw.wav" id="67_j7v81"]
 [ext_resource type="Texture2D" uid="uid://bibijr5244ou2" path="res://art/relan/relan_ghost.png" id="69_dw83p"]
 [ext_resource type="Script" uid="uid://d1grk2nmbpvd4" path="res://Scenes/sprite_ghost.gd" id="70_o3kwa"]
+[ext_resource type="Texture2D" uid="uid://be7uruj8qv3sh" path="res://art/relan/relan_plumber_death.png" id="71_nni4w"]
+[ext_resource type="Script" uid="uid://ds0q0vng6dw0n" path="res://Scenes/sprite_plumber.gd" id="72_mr6aa"]
+[ext_resource type="Texture2D" uid="uid://bj36eefka6y8y" path="res://art/relan/relan_grave.png" id="73_473r1"]
+[ext_resource type="Texture2D" uid="uid://7mbodyad5dov" path="res://art/relan/relan_skeleton.png" id="74_0whd5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8s541"]
 radius = 3.0
@@ -345,6 +349,39 @@ animations = [{
 "texture": ExtResource("69_dw83p")
 }],
 "loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mr6aa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("71_nni4w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_478yo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("73_473r1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i0hd8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("74_0whd5")
+}],
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
@@ -1114,6 +1151,8 @@ autoplay = true
 metadata/_custom_type_script = "uid://iplhaktauf"
 
 [node name="DeathSprites" type="Node2D" parent="." unique_id=940232358]
+z_index = 4096
+z_as_relative = false
 
 [node name="sprite_fgdp" type="AnimatedSprite2D" parent="DeathSprites" unique_id=666160313]
 visible = false
@@ -1121,7 +1160,7 @@ z_index = 100
 z_as_relative = false
 position = Vector2(0, 2)
 rotation = 3.1415927
-scale = Vector2(1, -1)
+scale = Vector2(-1, -1)
 sprite_frames = SubResource("SpriteFrames_dw83p")
 
 [node name="sprite_boots" type="AnimatedSprite2D" parent="DeathSprites" unique_id=2094693389]
@@ -1133,15 +1172,35 @@ rotation = 3.1415927
 scale = Vector2(1, -1)
 sprite_frames = SubResource("SpriteFrames_5nb38")
 
-[node name="sprite_ghost" type="AnimatedSprite2D" parent="DeathSprites" unique_id=335828522]
+[node name="sprite_ghost" type="AnimatedSprite2D" parent="DeathSprites" unique_id=1777933108]
 visible = false
 z_index = 100
 z_as_relative = false
 position = Vector2(0, 2)
-rotation = 3.1415927
+rotation = -3.1415925
 scale = Vector2(1, -1)
 sprite_frames = SubResource("SpriteFrames_o3kwa")
 script = ExtResource("70_o3kwa")
+
+[node name="sprite_plumber" type="AnimatedSprite2D" parent="DeathSprites" unique_id=1164649146]
+visible = false
+z_index = 2048
+z_as_relative = false
+sprite_frames = SubResource("SpriteFrames_mr6aa")
+script = ExtResource("72_mr6aa")
+
+[node name="sprite_grave" type="AnimatedSprite2D" parent="DeathSprites" unique_id=495082750]
+visible = false
+z_index = 200
+position = Vector2(0, 3)
+sprite_frames = SubResource("SpriteFrames_478yo")
+
+[node name="sprite_skeleton" type="AnimatedSprite2D" parent="DeathSprites" unique_id=793924173]
+visible = false
+z_index = 2048
+z_as_relative = false
+position = Vector2(0, 2)
+sprite_frames = SubResource("SpriteFrames_i0hd8")
 
 [connection signal="area_entered" from="hurt_box" to="." method="_on_hurt_area_area_entered"]
 [connection signal="area_entered" from="Node2D_Screw_Attack/Area2D" to="Node2D_Screw_Attack/Area2D" method="_on_area_entered_to_check_for_enemies"]

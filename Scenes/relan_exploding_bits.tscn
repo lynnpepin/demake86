@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://dexcftxqq3w87"]
+
+[ext_resource type="Script" uid="uid://bbxcih33nsyy" path="res://Scenes/relan_exploding_bits.gd" id="1_a6cgf"]
+[ext_resource type="Script" uid="uid://cor71xmk8pats" path="res://Scenes/explode_bit.gd" id="1_n3d3g"]
+[ext_resource type="Texture2D" uid="uid://cj6fp78ogfy0h" path="res://art/relan/parts/relan_cannon.png" id="2_mmdlm"]
+[ext_resource type="Texture2D" uid="uid://17t2h4vga73t" path="res://art/relan/parts/relan_right_leg.png" id="3_a50a1"]
+[ext_resource type="Texture2D" uid="uid://c41sp8dcfppm3" path="res://art/relan/parts/relan_left_leg.png" id="4_ykvup"]
+[ext_resource type="Texture2D" uid="uid://21eivkyp7ve3" path="res://art/relan/parts/relan_torso.png" id="5_ythue"]
+[ext_resource type="Texture2D" uid="uid://ca75low01y7lf" path="res://art/relan/parts/relan_helmet.png" id="6_yj4lg"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mmdlm"]
+friction = 0.6
+bounce = 0.88
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmdlm"]
+size = Vector2(7, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykvup"]
+size = Vector2(3, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yj4lg"]
+size = Vector2(6, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6cgf"]
+size = Vector2(4, 4)
+
+[node name="explode_bits" type="Node2D" unique_id=1585587522]
+z_index = 4096
+z_as_relative = false
+script = ExtResource("1_a6cgf")
+
+[node name="Cannon" type="RigidBody2D" parent="." unique_id=1851649207]
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.5
+sleeping = true
+script = ExtResource("1_n3d3g")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cannon" unique_id=1451721176]
+texture = ExtResource("2_mmdlm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cannon" unique_id=1629599743]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_mmdlm")
+
+[node name="Leg_Right" type="RigidBody2D" parent="." unique_id=228652091]
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.5
+sleeping = true
+script = ExtResource("1_n3d3g")
+
+[node name="Sprite2D" type="Sprite2D" parent="Leg_Right" unique_id=1552568277]
+texture = ExtResource("3_a50a1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leg_Right" unique_id=1893755362]
+position = Vector2(-1.5, 4)
+shape = SubResource("RectangleShape2D_ykvup")
+
+[node name="Leg_Left" type="RigidBody2D" parent="." unique_id=1084079680]
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.5
+sleeping = true
+script = ExtResource("1_n3d3g")
+
+[node name="Sprite2D" type="Sprite2D" parent="Leg_Left" unique_id=1787608971]
+texture = ExtResource("4_ykvup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Leg_Left" unique_id=474645151]
+position = Vector2(1.5, 4)
+shape = SubResource("RectangleShape2D_ykvup")
+
+[node name="Torso" type="RigidBody2D" parent="." unique_id=955366843]
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.5
+sleeping = true
+script = ExtResource("1_n3d3g")
+
+[node name="Sprite2D" type="Sprite2D" parent="Torso" unique_id=848870820]
+texture = ExtResource("5_ythue")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Torso" unique_id=1156094337]
+rotation = 0.7853982
+shape = SubResource("RectangleShape2D_yj4lg")
+
+[node name="Helmet" type="RigidBody2D" parent="." unique_id=1136201230]
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.5
+sleeping = true
+script = ExtResource("1_n3d3g")
+
+[node name="Sprite2D" type="Sprite2D" parent="Helmet" unique_id=196109087]
+texture = ExtResource("6_yj4lg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Helmet" unique_id=1673599562]
+position = Vector2(0, -2)
+rotation = 0.7853982
+shape = SubResource("RectangleShape2D_a6cgf")

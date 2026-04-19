@@ -89,15 +89,12 @@ func handle_angles():
     # 321
     # 4 0
     # 567
-    
     # Make a click noise
     if (angle != prevangle) or Input.is_action_just_pressed("pad_rb"):
         [$Sounds/Click, $Sounds/Click2, $Sounds/Click3, $Sounds/Click4][randi() % 4].play()
     
     prevangle = angle
-    
     #angle = int(round((Vector2(int(right) - int(left), int(up) - int(down)).angle() / PI)))
-    
     if right:
         flip = 1
     if left:

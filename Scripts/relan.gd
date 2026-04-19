@@ -31,6 +31,7 @@ enum States { Normal, Ball, Dead }
 
 #region insantiables
 var BiggerExplosion = preload("res://Scenes/BiggerExplosion.tscn")
+var ExplodingBits = preload("res://Scenes/relan_exploding_bits.tscn")
 #endregion
 
 #region variables
@@ -425,9 +426,6 @@ func add_energy(count: int) -> void:
 #region die
 func die():
     state = States.Dead
-    var blam = BiggerExplosion.instantiate()
-    blam.position = Vector2(0,0)#global_position
-    add_child(blam)
     $body_sprite.visible = false
     $ball_sprite.visible = false
     $hurt_box/CollisionShape2D.set_deferred("disabled", true)
@@ -436,17 +434,39 @@ func die():
     #$collision_platforming_ball.set_deferred("disabled", true)
     $Cannon.process_mode = Node.PROCESS_MODE_DISABLED
     $Cannon.visible = false
-    $smoke_boots.emitting = true
     $ball_trail.visible = false
     
     # Death sprite
     var p = randf()
-    if p < .05:
+    
+    if p < 1.0:
+        # funny sprite appears out of explosion
+        # todo - change p for effects we dont want in explosion
+        var blam = BiggerExplosion.instantiate()
+        blam.position = Vector2(0,0)#global_position
+        add_child(blam)
+    
+    if  p < 0.10:
         $DeathSprites/sprite_fgdp.visible = true
-    elif p < .10:
+        $smoke_boots.emitting = true
+    elif p < 0.20:
         $DeathSprites/sprite_ghost.visible = true
-    else:
+    elif p < 0.30:
+        $DeathSprites/sprite_plumber.visible = true
+    elif p < 0.40:
+        $DeathSprites/sprite_grave.visible = true
+    elif p < 0.50:
+        $DeathSprites/sprite_skeleton.visible = true
+    elif p < 0.60:
         $DeathSprites/sprite_boots.visible = true
+        $smoke_boots.emitting = true
+    else:
+        print("EXPLODING BITS GO")
+        var bits = ExplodingBits.instantiate()
+        add_child(bits)
+        bits.position = Vector2(0,0)
+        bits.explode()
+        
     # TODO:
     # Family Guy death pose
     # MegaMan / Celeste explosion

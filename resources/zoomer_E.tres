@@ -1,11 +1,11 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://bh6ix55ye3fcr"]
 
-[ext_resource type="Texture2D" uid="uid://8pslhkx5h1lq" path="res://art/zoomer_E-0.png" id="1_ih4ub"]
-[ext_resource type="Texture2D" uid="uid://uwchxqkc34yn" path="res://art/zoomer_E-1.png" id="2_q0kh3"]
-[ext_resource type="Texture2D" uid="uid://l2p15owtv57i" path="res://art/zoomer_E-2.png" id="3_tvqac"]
-[ext_resource type="Texture2D" uid="uid://cuvjmphq747uk" path="res://art/zoomer_E-3.png" id="4_tixl6"]
-[ext_resource type="Texture2D" uid="uid://d24lust0jgkee" path="res://art/zoomer_E-4.png" id="5_rb0bu"]
-[ext_resource type="Texture2D" uid="uid://bpdbrj8g0nyfv" path="res://art/zoomer_E-5.png" id="6_t0vhh"]
+[ext_resource type="Texture2D" uid="uid://8pslhkx5h1lq" path="res://art/zoomer/zoomer_E-0.png" id="1_ih4ub"]
+[ext_resource type="Texture2D" uid="uid://uwchxqkc34yn" path="res://art/zoomer/zoomer_E-1.png" id="2_q0kh3"]
+[ext_resource type="Texture2D" uid="uid://l2p15owtv57i" path="res://art/zoomer/zoomer_E-2.png" id="3_tvqac"]
+[ext_resource type="Texture2D" uid="uid://cuvjmphq747uk" path="res://art/zoomer/zoomer_E-3.png" id="4_tixl6"]
+[ext_resource type="Texture2D" uid="uid://d24lust0jgkee" path="res://art/zoomer/zoomer_E-4.png" id="5_rb0bu"]
+[ext_resource type="Texture2D" uid="uid://bpdbrj8g0nyfv" path="res://art/zoomer/zoomer_E-5.png" id="6_t0vhh"]
 
 [resource]
 animations = [{
