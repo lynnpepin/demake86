@@ -9,8 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://ca75low01y7lf" path="res://art/relan/parts/relan_helmet.png" id="6_yj4lg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mmdlm"]
-friction = 0.6
-bounce = 0.88
+friction = 0.25
+rough = true
+bounce = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmdlm"]
 size = Vector2(7, 3)
@@ -33,7 +34,7 @@ script = ExtResource("1_a6cgf")
 collision_layer = 0
 collision_mask = 2
 physics_material_override = SubResource("PhysicsMaterial_mmdlm")
-gravity_scale = 0.5
+gravity_scale = 0.25
 sleeping = true
 script = ExtResource("1_n3d3g")
 

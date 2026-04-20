@@ -1134,7 +1134,6 @@ autoplay = "default"
 offset = Vector2(0, 4)
 
 [node name="Node2D_Screw_Attack" type="Node2D" parent="." unique_id=1145614643]
-visible = false
 position = Vector2(0, 4)
 script = ExtResource("64_fxuio")
 
@@ -1197,7 +1196,7 @@ script = ExtResource("72_mr6aa")
 
 [node name="sprite_grave" type="AnimatedSprite2D" parent="DeathSprites" unique_id=495082750]
 visible = false
-z_index = 200
+z_as_relative = false
 position = Vector2(0, 3)
 sprite_frames = SubResource("SpriteFrames_478yo")
 
