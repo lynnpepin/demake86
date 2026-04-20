@@ -282,16 +282,8 @@ sources/2 = SubResource("TileSetAtlasSource_come4")
 [node name="Root" type="Node2D" unique_id=1570894400]
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
-position = Vector2(364, 476)
+position = Vector2(96, 132)
 HAS_ALL_ITEMS = false
-START_MISSILES = 6
-START_ENERGY = 6
-has_high_jump = true
-has_morph_ball = true
-has_morph_bomb = true
-has_long_beam = true
-has_ice_beam = true
-has_varia_suit = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Relan" unique_id=31498320]
 visible = false
@@ -1026,6 +1018,30 @@ rotation = 3.1415927
 scale = Vector2(1, -1)
 health = 24
 
+[node name="hopper" parent="Enemies" unique_id=1589595784 instance=ExtResource("44_0n3wm")]
+position = Vector2(220, 304)
+health = 6
+
+[node name="hopper4" parent="Enemies" unique_id=766253773 instance=ExtResource("44_0n3wm")]
+position = Vector2(80, 348)
+health = 6
+
+[node name="hopper6" parent="Enemies" unique_id=665896909 instance=ExtResource("44_0n3wm")]
+position = Vector2(148, 432)
+health = 6
+
+[node name="hopper5" parent="Enemies" unique_id=74400960 instance=ExtResource("44_0n3wm")]
+position = Vector2(160, 384)
+health = 6
+
+[node name="hopper2" parent="Enemies" unique_id=1854449173 instance=ExtResource("44_0n3wm")]
+position = Vector2(228, 232)
+health = 6
+
+[node name="hopper3" parent="Enemies" unique_id=2098100946 instance=ExtResource("44_0n3wm")]
+position = Vector2(212, 248)
+health = 6
+
 [node name="Misc" type="Node2D" parent="." unique_id=1313501230]
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="Misc" unique_id=606263762]
@@ -1191,27 +1207,3 @@ position = Vector2(-88, 168)
 
 [node name="Opossum2" parent="." unique_id=404185294 instance=ExtResource("45_0n3wm")]
 position = Vector2(264, -424)
-
-[node name="hopper" parent="." unique_id=1589595784 instance=ExtResource("44_0n3wm")]
-position = Vector2(220, 304)
-health = 6
-
-[node name="hopper4" parent="." unique_id=766253773 instance=ExtResource("44_0n3wm")]
-position = Vector2(80, 348)
-health = 6
-
-[node name="hopper6" parent="." unique_id=665896909 instance=ExtResource("44_0n3wm")]
-position = Vector2(148, 432)
-health = 6
-
-[node name="hopper5" parent="." unique_id=74400960 instance=ExtResource("44_0n3wm")]
-position = Vector2(160, 384)
-health = 6
-
-[node name="hopper2" parent="." unique_id=1854449173 instance=ExtResource("44_0n3wm")]
-position = Vector2(228, 232)
-health = 6
-
-[node name="hopper3" parent="." unique_id=2098100946 instance=ExtResource("44_0n3wm")]
-position = Vector2(212, 248)
-health = 6

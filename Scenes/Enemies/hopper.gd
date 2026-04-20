@@ -1,9 +1,9 @@
 extends EnemyClass
 
-var PERIOD_TO_NEXT_JUMP = 1.5
+var PERIOD_TO_NEXT_JUMP = .75
 var JUMP_VELOCITY = 128
 var GRAVITY = 480
-var HZ_JUMP_SPEED = 32
+var HZ_JUMP_SPEED = 40
 
 var timer: float = 0.0
 var grounded: bool = false
