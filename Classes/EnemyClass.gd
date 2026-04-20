@@ -22,6 +22,8 @@ extends CharacterBody2D
 ## The name of the guy :3
 @export var nickname: String = "Some Guy"
 
+@export var base_speed_scale: float = 1.0
+
 var frozen: bool
 var hit_sounds: Array
 var death_sounds: Array
@@ -59,7 +61,9 @@ func _process(delta: float) -> void:
     if freeze_timer > 0 and health > 0:
         freeze_timer -= delta
         if freeze_timer <= 1:
-            $AnimatedSprite2D.speed_scale = 1.0 - freeze_timer; # bring sprite back to speed
+            # bring sprite back to speed
+            $AnimatedSprite2D.speed_scale = base_speed_scale - freeze_timer*base_speed_scale;
+            
             if not $UnfreezeSound.playing:
                 $UnfreezeSound.play()
             var freeze_vis_percent = floor((1 - freeze_timer) * 8) / 8.0
@@ -128,7 +132,7 @@ func unfreeze() -> void:
     $CollisionPlatforming.set_deferred("disabled", false) 
     $AreaHitbox/CollisionShape2D.set_deferred("disabled", false)
     $StaticBody2D_Frozen/CollisionShape2D.set_deferred("disabled", true)
-    $AnimatedSprite2D.speed_scale = 1.0
+    $AnimatedSprite2D.speed_scale = base_speed_scale
 
 func _on_area_hitbox_area_entered(area: Area2D) -> void:
     if area.is_in_group("player"):

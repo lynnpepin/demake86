@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://blsand4u7np3y"]
+
+[ext_resource type="PackedScene" uid="uid://be6esv11x3s5t" path="res://Classes/EnemyClass.tscn" id="1_qf2iw"]
+[ext_resource type="Texture2D" uid="uid://gmp21jstnpxb" path="res://art/seahorse/seahorse1.png" id="2_mhltb"]
+[ext_resource type="Script" uid="uid://bvkyagnmu2eas" path="res://Scenes/Enemies/seahorse.gd" id="2_u2ndq"]
+[ext_resource type="Texture2D" uid="uid://dxp22pqu0xv3w" path="res://art/seahorse/seahorse2.png" id="3_u2ndq"]
+[ext_resource type="Texture2D" uid="uid://dpg8m5u8rpbwj" path="res://art/seahorse/seahorse3.png" id="4_vnn4g"]
+[ext_resource type="Texture2D" uid="uid://d3okcb1glsx3o" path="res://art/seahorse/seahorse4.png" id="5_7gmx6"]
+
+[sub_resource type="Gradient" id="Gradient_gq4he"]
+offsets = PackedFloat32Array(0.432836, 0.730099, 0.843284, 0.955224, 1)
+colors = PackedColorArray(0.37749, 0.463932, 1, 0, 0, 0.571862, 0.923215, 1, 0.246865, 0.837284, 1, 1, 0.856143, 0.968919, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mhltb"]
+gradient = SubResource("Gradient_gq4he")
+width = 8
+height = 16
+fill = 1
+fill_from = Vector2(0.517094, 1)
+fill_to = Vector2(0.495726, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mhltb"]
+size = Vector2(8, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2ndq"]
+size = Vector2(6, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_406dd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mhltb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u2ndq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vnn4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7gmx6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Seahorse" unique_id=1981089262 instance=ExtResource("1_qf2iw")]
+script = ExtResource("2_u2ndq")
+
+[node name="Sprite2D_freeze_box" parent="." index="1" unique_id=840567474]
+visible = false
+position = Vector2(0, -3)
+texture = SubResource("GradientTexture2D_mhltb")
+
+[node name="StaticBody2D_Frozen" parent="." index="2" unique_id=84451283]
+visible = true
+position = Vector2(0, -2)
+
+[node name="CollisionShape2D" parent="StaticBody2D_Frozen" index="0" unique_id=1883882091]
+shape = SubResource("RectangleShape2D_mhltb")
+
+[node name="CollisionShape2D" parent="AreaHitbox" parent_id_path=PackedInt32Array(114516459) index="0" unique_id=56055242]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_u2ndq")
+
+[node name="AnimatedSprite2D" parent="." index="4" unique_id=787643559]
+sprite_frames = SubResource("SpriteFrames_406dd")
+autoplay = "default"
+frame = 2
+frame_progress = 0.115128875

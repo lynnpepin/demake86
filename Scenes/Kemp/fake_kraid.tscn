@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://db4v85whogwnq"]
+
+[ext_resource type="Script" uid="uid://c2ialk85civ4c" path="res://fake_kraid.gd" id="1_1ww5w"]
+[ext_resource type="Texture2D" uid="uid://bi8kbnspe53o3" path="res://art/fakekraid.png" id="2_agmwf"]
+[ext_resource type="Texture2D" uid="uid://csgn7b7m6j4n2" path="res://art/fakekraid_fallen.png" id="3_6fq5r"]
+[ext_resource type="AudioStream" uid="uid://cpco73c7edryx" path="res://resources/fake_kraid_fall.wav" id="4_v6e1o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq58d"]
+size = Vector2(4, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_seu75"]
+size = Vector2(16, 2)
+
+[sub_resource type="Gradient" id="Gradient_kq58d"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.0020408162, 0.06938776, 0.25714287, 0.36734694, 0.52040815, 0.8795918)
+colors = PackedColorArray(0.972549, 0.7411765, 0.25882354, 1, 0.8235294, 0.3137255, 0.1764706, 1, 0.360784, 0.223529, 0.0117647, 1, 0.192157, 0.192157, 0.192157, 1, 0.163788, 0.163788, 0.163788, 0.889421, 0, 0, 0, 0.25098)
+
+[node name="FakeKraid" type="Area2D" unique_id=1840658488]
+collision_layer = 0
+collision_mask = 9
+script = ExtResource("1_1ww5w")
+tracking_distance = 40.0
+
+[node name="Sprite2D_up" type="Sprite2D" parent="." unique_id=885299011]
+texture = ExtResource("2_agmwf")
+
+[node name="Sprite2D_fallen" type="Sprite2D" parent="." unique_id=2059876880]
+visible = false
+texture = ExtResource("3_6fq5r")
+
+[node name="CollisionShape2D_up" type="CollisionShape2D" parent="." unique_id=655277078]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_kq58d")
+
+[node name="CollisionShape2D_fallen" type="CollisionShape2D" parent="." unique_id=1107784586]
+position = Vector2(4, 7)
+shape = SubResource("RectangleShape2D_seu75")
+disabled = true
+
+[node name="CPUParticles2D_FakeKraidSmoke" type="CPUParticles2D" parent="." unique_id=1847854655]
+z_index = 50
+position = Vector2(-2, 5)
+emitting = false
+amount = 64
+lifetime = 2.0
+randomness = 1.0
+lifetime_randomness = 1.0
+fract_delta = false
+emission_shape = 3
+emission_rect_extents = Vector2(6, 3)
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, -16)
+initial_velocity_max = 16.0
+linear_accel_min = -4.0
+radial_accel_min = -2.0
+radial_accel_max = -2.0
+scale_amount_min = 0.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_kq58d")
+
+[node name="sfx_fall" type="AudioStreamPlayer" parent="." unique_id=2132828999]
+stream = ExtResource("4_v6e1o")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
