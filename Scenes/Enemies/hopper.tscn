@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://cs2vp0lm578ou"]
+
+[ext_resource type="PackedScene" uid="uid://be6esv11x3s5t" path="res://Classes/EnemyClass.tscn" id="1_3ho2r"]
+[ext_resource type="Script" uid="uid://cbnlwyny8ojw2" path="res://Scenes/Enemies/hopper.gd" id="2_84wp3"]
+[ext_resource type="Texture2D" uid="uid://bbnysoel76xn3" path="res://art/jopper/hop_high.png" id="2_ua2uw"]
+[ext_resource type="Texture2D" uid="uid://dt2p3we3v8y30" path="res://art/jopper/hop_low.png" id="3_84wp3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ua2uw"]
+size = Vector2(8, 6)
+
+[sub_resource type="Gradient" id="Gradient_gq4he"]
+offsets = PackedFloat32Array(0.432836, 0.730099, 0.843284, 0.955224, 1)
+colors = PackedColorArray(0.37749, 0.463932, 1, 0, 0, 0.571862, 0.923215, 1, 0.246865, 0.837284, 1, 1, 0.856143, 0.968919, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_84wp3"]
+gradient = SubResource("Gradient_gq4he")
+width = 8
+height = 8
+fill = 1
+fill_from = Vector2(0.517094, 1)
+fill_to = Vector2(0.495726, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4pcc"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84wp3"]
+size = Vector2(6, 4)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h4pcc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ua2uw")
+}],
+"loop": true,
+"name": &"high",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_84wp3")
+}],
+"loop": true,
+"name": &"low",
+"speed": 5.0
+}]
+
+[node name="hopper" unique_id=1981089262 instance=ExtResource("1_3ho2r")]
+script = ExtResource("2_84wp3")
+
+[node name="CollisionPlatforming" parent="." index="0" unique_id=1771735465]
+visible = false
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_ua2uw")
+
+[node name="Sprite2D_freeze_box" parent="." index="1" unique_id=840567474]
+visible = false
+position = Vector2(0, -4)
+texture = SubResource("GradientTexture2D_84wp3")
+
+[node name="CollisionShape2D" parent="StaticBody2D_Frozen" parent_id_path=PackedInt32Array(84451283) index="0" unique_id=1883882091]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_h4pcc")
+
+[node name="AreaHitbox" parent="." index="3" unique_id=114516459]
+visible = false
+
+[node name="CollisionShape2D" parent="AreaHitbox" index="0" unique_id=56055242]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_84wp3")
+
+[node name="AnimatedSprite2D" parent="." index="4" unique_id=787643559]
+sprite_frames = SubResource("SpriteFrames_h4pcc")
+animation = &"low"
+offset = Vector2(0, -4)

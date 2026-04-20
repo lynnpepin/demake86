@@ -81,7 +81,7 @@ var steps: float = 0
 
 # Called when the node enters the scene tree for the first time.
 
-#region _ready _process and _whatnot
+#region _ready _process _physics_process
 func _ready():
     show_message(" ")
     add_to_group("player")
@@ -102,6 +102,7 @@ func _ready():
         has_screw_attack = true
         
     pass # Replace with function body.
+
 
 func _physics_process(delta: float) -> void:
     # Set max speed, jump speed
@@ -171,6 +172,7 @@ func _physics_process(delta: float) -> void:
             if (state == States.Normal):
                 play_landing_sound()
     else:
+        # coyote time
         grounded = max(0, grounded - delta * GROUND_DECAY_RATE)
         
     # Check again
@@ -269,6 +271,7 @@ func _draw():
 
 #endregion
 
+#region apply_impulse and check_water
 func apply_impulse(impulse: Vector2):
     # Bad name-- this function is used for bomb.gd explosion physics
     impulse_applied = true
@@ -286,7 +289,9 @@ func check_water():
             is_in_water = true
             # todo - cheap hack
             hurt(area.hurt_value, 3.0)
+#endregion
 
+#region ball transitions
 func _transition_normal_to_ball():
     if has_morph_ball:
         $Sounds/ToBall.play()
@@ -338,7 +343,9 @@ func _transition_ball_to_normal():
         # Orbs to ponder should be in the appropriate location
         $Sprite2D_barrier_feature.offset.y = 4.0
         $Node2D_Screw_Attack.position.y = 4.0
+#endregion
 
+#region play sounds
 func play_landing_sound():
     [$Sounds/Land, $Sounds/Land2, $Sounds/Land3, $Sounds/Land4][randi() % 4].play()
 
@@ -354,7 +361,9 @@ func play_screech_sound():
             $Sounds/ChangeDirection.stop()
     else:
         $Sounds/ChangeDirection.stop()
+#endregion
 
+#region hp-and-barrier
 func hurt(damage: int, cooldown: float) -> void:
     # todo  whether damage should take off last bit of health
     $body_sprite.modulate = Color.RED
@@ -369,6 +378,7 @@ func hurt(damage: int, cooldown: float) -> void:
     if energy == 0:
         die()
         #print("OH NOOOO")
+
 
 func remove_barrier():
     print("BUH BYE BARRIER")
@@ -385,6 +395,7 @@ func regain_barrier():
         $Sprite2D_barrier_feature.modulate = Color(1,1,1, .5)
         $Sounds/ShieldRegain.play()
         $Sounds/ShieldBeep.stop()
+#endregion
 
 func show_message(message):
     $Typer.start(message)
