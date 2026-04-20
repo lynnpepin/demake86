@@ -375,7 +375,9 @@ func hurt(damage: int, cooldown: float) -> void:
             barrier_timer = 0
             $Sounds/Hurt1.play()
             add_energy(-damage)
-    if energy == 0:
+    if energy <= 2 and not $Sounds/LowEnergy.playing:
+        $Sounds/LowEnergy.play()
+    if energy <= 0:
         die()
         #print("OH NOOOO")
 
@@ -387,6 +389,8 @@ func remove_barrier():
     $Sprite2D_barrier_feature.modulate = Color(1, 1, 1, 0)
     $Sounds/ShieldHurt.play()
     $Sounds/ShieldBeep.play(0)
+    if energy <= 2 and not $Sounds/LowEnergy.playing:
+        $Sounds/LowEnergy.play()
 
 func regain_barrier():
     if !barrier:
@@ -395,6 +399,7 @@ func regain_barrier():
         $Sprite2D_barrier_feature.modulate = Color(1,1,1, .5)
         $Sounds/ShieldRegain.play()
         $Sounds/ShieldBeep.stop()
+        $Sounds/LowEnergy.stop()
 #endregion
 
 func show_message(message):
@@ -432,10 +437,13 @@ func add_energy(count: int) -> void:
         for ei in range(_from, _to):
             $HUD.ecounter_sprites[ei].visible = (count > 0)
         energy = _set_to
+    if energy > 2:
+        $Sounds/LowEnergy.stop()
 #endregion
 
 #region die
 func die():
+    $Sounds/LowEnergy.stop()
     state = States.Dead
     $body_sprite.visible = false
     $ball_sprite.visible = false

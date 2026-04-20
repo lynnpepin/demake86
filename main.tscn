@@ -980,43 +980,43 @@ position = Vector2(408, 92)
 
 [node name="Seahorse" parent="Enemies" unique_id=2136230631 instance=ExtResource("43_gngh3")]
 position = Vector2(300, 500)
-health = 24
+health = 10
 
 [node name="Seahorse3" parent="Enemies" unique_id=969924969 instance=ExtResource("43_gngh3")]
 position = Vector2(308, 500)
-health = 24
+health = 10
 
 [node name="Seahorse5" parent="Enemies" unique_id=1409228635 instance=ExtResource("43_gngh3")]
 position = Vector2(436, 500)
-health = 24
+health = 10
 
 [node name="Seahorse6" parent="Enemies" unique_id=1319623288 instance=ExtResource("43_gngh3")]
 position = Vector2(284, 500)
-health = 24
+health = 10
 
 [node name="Seahorse2" parent="Enemies" unique_id=568044717 instance=ExtResource("43_gngh3")]
 position = Vector2(276, 500)
 rotation = 3.1415927
 scale = Vector2(1, -1)
-health = 24
+health = 10
 
 [node name="Seahorse7" parent="Enemies" unique_id=273335266 instance=ExtResource("43_gngh3")]
 position = Vector2(292, 500)
 rotation = 3.1415927
 scale = Vector2(1, -1)
-health = 24
+health = 10
 
 [node name="Seahorse8" parent="Enemies" unique_id=1055031879 instance=ExtResource("43_gngh3")]
 position = Vector2(420, 372)
 rotation = 3.1415927
 scale = Vector2(1, -1)
-health = 24
+health = 10
 
 [node name="Seahorse4" parent="Enemies" unique_id=933206295 instance=ExtResource("43_gngh3")]
 position = Vector2(404, 500)
 rotation = 3.1415927
 scale = Vector2(1, -1)
-health = 24
+health = 10
 
 [node name="hopper" parent="Enemies" unique_id=1589595784 instance=ExtResource("44_0n3wm")]
 position = Vector2(220, 304)

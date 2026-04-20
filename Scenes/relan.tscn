@@ -31,6 +31,7 @@
 [ext_resource type="AudioStream" uid="uid://dbxajgddua35c" path="res://sfx/shield_charge.wav" id="27_74dfm"]
 [ext_resource type="AudioStream" uid="uid://dw3dxdq4hnq3m" path="res://sfx/shield_beep.wav" id="27_iiqjc"]
 [ext_resource type="Texture2D" uid="uid://7fslt01fx260" path="res://art/relan/relan_boots.png" id="28_240g0"]
+[ext_resource type="AudioStream" uid="uid://bcsxh73cwaw6h" path="res://sfx/low_energy_2.wav" id="29_0whd5"]
 [ext_resource type="PackedScene" uid="uid://bv7j2dij7vk4c" path="res://Scenes/MotesOfSmoke.tscn" id="29_5nb38"]
 [ext_resource type="PackedScene" uid="uid://cs0gcifpqgg8h" path="res://Scenes/Typer_Timer.tscn" id="30_72vhv"]
 [ext_resource type="Texture2D" uid="uid://wmw2830gd0cv" path="res://art/barrier_frames/outfile00000.png" id="31_nsgbk"]
@@ -1064,6 +1065,9 @@ low_pass_filter/cutoff_sweep = 0.0
 low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.0
 high_pass_filter/cutoff_sweep = 0.0
+
+[node name="LowEnergy" type="AudioStreamPlayer2D" parent="Sounds" unique_id=372169707]
+stream = ExtResource("29_0whd5")
 
 [node name="RayCast2D_TuckChecker" type="RayCast2D" parent="." unique_id=1003190590]
 position = Vector2(0, 6)
