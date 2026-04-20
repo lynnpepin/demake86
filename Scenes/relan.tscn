@@ -392,13 +392,14 @@ collision_mask = 2
 floor_max_angle = 0.872665
 safe_margin = 0.25
 script = ExtResource("1_hqtwd")
-HAS_ALL_ITEMS = true
 
 [node name="collision_platforming" type="CollisionShape2D" parent="." unique_id=730730959]
+visible = false
 position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_8s541")
 
 [node name="collision_platforming_ball" type="CollisionShape2D" parent="." unique_id=822246069]
+visible = false
 position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_8m2xg")
 disabled = true
@@ -414,6 +415,7 @@ shape = SubResource("RectangleShape2D_l4cb7")
 [node name="CollisionShape2D_ball" type="CollisionShape2D" parent="hurt_box" unique_id=725690682 groups=["player"]]
 position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_db8h2")
+debug_color = Color(0.7, 0.24500002, 0, 0.41960785)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=558517496]
 position_smoothing_speed = 96.0
@@ -1132,6 +1134,7 @@ autoplay = "default"
 offset = Vector2(0, 4)
 
 [node name="Node2D_Screw_Attack" type="Node2D" parent="." unique_id=1145614643]
+visible = false
 position = Vector2(0, 4)
 script = ExtResource("64_fxuio")
 

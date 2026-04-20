@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://hbtmsnuxw54t"]
+
+[ext_resource type="Texture2D" uid="uid://u4rdwk1gfkfe" path="res://art/swoopers/swoopers-9.png" id="1_3sc0o"]
+[ext_resource type="Texture2D" uid="uid://y8vc70ndtbq8" path="res://art/swoopers/swoopers-10.png" id="2_vn1ff"]
+[ext_resource type="Texture2D" uid="uid://dnekrlj7kde3l" path="res://art/swoopers/swoopers-11.png" id="3_fv8k8"]
+[ext_resource type="Texture2D" uid="uid://cnp26o2tfdq8i" path="res://art/swoopers/swoopers-12.png" id="4_ye7yp"]
+[ext_resource type="Texture2D" uid="uid://dogxynw8f35pw" path="res://art/swoopers/swoopers-13.png" id="5_sq3he"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3sc0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vn1ff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fv8k8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ye7yp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sq3he")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]

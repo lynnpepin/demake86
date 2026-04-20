@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://o4lsklv8lbvj"]
+
+[ext_resource type="PackedScene" uid="uid://be6esv11x3s5t" path="res://Classes/EnemyClass.tscn" id="1_86ysb"]
+[ext_resource type="Script" uid="uid://slb8t5cslwd4" path="res://Scenes/Enemies/swooper.gd" id="2_86ysb"]
+[ext_resource type="SpriteFrames" uid="uid://ckcdn40ilc7hn" path="res://resources/swooper_C.tres" id="3_12lux"]
+[ext_resource type="AudioStream" uid="uid://1ygdcflws88g" path="res://resources/zoomer_hurt_1.wav" id="4_6syrg"]
+[ext_resource type="AudioStream" uid="uid://64nmaxlslvaf" path="res://resources/zoomer_hurt_2.wav" id="5_bbhao"]
+[ext_resource type="AudioStream" uid="uid://dtm1d7e88a47h" path="res://resources/zoomer_hurt_3.wav" id="6_dgt6q"]
+[ext_resource type="AudioStream" uid="uid://d23h341e1qpnn" path="res://resources/zoomer_dead.wav" id="7_7evp4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwctv"]
+size = Vector2(6, 6)
+
+[sub_resource type="Gradient" id="Gradient_gq4he"]
+offsets = PackedFloat32Array(0.432836, 0.730099, 0.843284, 0.955224, 1)
+colors = PackedColorArray(0.37749, 0.463932, 1, 0, 0, 0.571862, 0.923215, 1, 0.246865, 0.837284, 1, 1, 0.856143, 0.968919, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_86ysb"]
+gradient = SubResource("Gradient_gq4he")
+width = 8
+height = 8
+fill = 1
+fill_from = Vector2(0.517094, 1)
+fill_to = Vector2(0.495726, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86ysb"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qbga"]
+size = Vector2(4, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12lux"]
+size = Vector2(60, 42)
+
+[node name="Swooper" unique_id=1981089262 instance=ExtResource("1_86ysb")]
+script = ExtResource("2_86ysb")
+hspeed = 12
+swoop_speed = 96
+return_speed = 96
+return_accel = 384
+swoop_period = 2.0
+
+[node name="CollisionPlatforming" parent="." index="0" unique_id=1771735465]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_cwctv")
+
+[node name="Sprite2D_freeze_box" parent="." index="1" unique_id=840567474]
+visible = false
+texture = SubResource("GradientTexture2D_86ysb")
+
+[node name="CollisionShape2D" parent="StaticBody2D_Frozen" parent_id_path=PackedInt32Array(84451283) index="0" unique_id=1883882091]
+shape = SubResource("RectangleShape2D_86ysb")
+
+[node name="AreaHitbox" parent="." index="3" unique_id=114516459]
+visible = false
+
+[node name="CollisionShape2D" parent="AreaHitbox" index="0" unique_id=56055242]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_6qbga")
+
+[node name="AnimatedSprite2D" parent="." index="4" unique_id=787643559]
+sprite_frames = ExtResource("3_12lux")
+autoplay = "default"
+frame_progress = 0.19558816
+offset = Vector2(0, 0)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="HitSounds" parent_id_path=PackedInt32Array(2050774207) index="0" unique_id=793395863]
+stream = ExtResource("4_6syrg")
+volume_db = -10.0
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="HitSounds" parent_id_path=PackedInt32Array(2050774207) index="1" unique_id=536410566]
+stream = ExtResource("5_bbhao")
+volume_db = -10.0
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="HitSounds" parent_id_path=PackedInt32Array(2050774207) index="2" unique_id=113664878]
+stream = ExtResource("6_dgt6q")
+volume_db = -10.0
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="DeathSounds" parent_id_path=PackedInt32Array(1411267192) index="0" unique_id=569113972]
+stream = ExtResource("7_7evp4")
+
+[node name="DeathExplosion" parent="." index="9" unique_id=1149512892]
+position = Vector2(0, 4)
+amount = 128
+direction = Vector2(0, -1)
+spread = 30.0
+gravity = Vector2(0, 72)
+initial_velocity_min = 24.0
+initial_velocity_max = 72.0
+scale_amount_max = 3.0
+
+[node name="SwoopingArea" type="Area2D" parent="." index="10" unique_id=1535174995]
+position = Vector2(0, 12)
+collision_layer = 4
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwoopingArea" index="0" unique_id=1285844456]
+shape = SubResource("RectangleShape2D_12lux")
+debug_color = Color(0.093333244, 0.7, 0, 0.41960785)
+
+[connection signal="area_entered" from="SwoopingArea" to="." method="_on_swooping_area_area_entered"]
+[connection signal="area_exited" from="SwoopingArea" to="." method="_on_swooping_area_area_exited"]

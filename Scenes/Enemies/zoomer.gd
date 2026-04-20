@@ -35,10 +35,10 @@ var f_col = false
 func _ready():
     if sprite:
         $AnimatedSprite2D.sprite_frames = sprite
+    $AnimatedSprite2D.frame = randi_range(0, 3)
     health = start_hp
     speed = zoomer_speed
     angle = transform.get_rotation()
-    $AnimatedSprite2D.frame = randi_range(0, 3)
     super()
 
 func spin_cw():

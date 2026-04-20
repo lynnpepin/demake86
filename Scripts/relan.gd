@@ -81,7 +81,7 @@ var steps: float = 0
 
 # Called when the node enters the scene tree for the first time.
 
-#region _ready _process _physics_process
+#region _ready _process _physics_process _draw
 func _ready():
     show_message(" ")
     add_to_group("player")

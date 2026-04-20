@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://ckcdn40ilc7hn"]
+
+[ext_resource type="Texture2D" uid="uid://ckv4c14xfch28" path="res://art/swoopers/swoopers-8.png" id="1_iavc5"]
+[ext_resource type="Texture2D" uid="uid://qfmodumsarjq" path="res://art/swoopers/swoopers-5.png" id="2_lmpit"]
+[ext_resource type="Texture2D" uid="uid://csla50vcq6pqy" path="res://art/swoopers/swoopers-6.png" id="3_ojxhr"]
+[ext_resource type="Texture2D" uid="uid://cacbath6ri1u2" path="res://art/swoopers/swoopers-7.png" id="4_w3trv"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_iavc5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lmpit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ojxhr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w3trv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_iavc5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_iavc5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w3trv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ojxhr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lmpit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_iavc5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
