@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
         if body.is_in_group("level"):
             pass
         if body.is_in_group("enemies"):
-            body.hurt(1, 0.5)
+            body.hurt(4, 0.5)
         # todo - this won't work if there are no iframes or tracking
 
     for body in $upbox.get_overlapping_bodies():
