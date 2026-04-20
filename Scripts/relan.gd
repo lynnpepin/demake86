@@ -377,6 +377,7 @@ func hurt(damage: int, cooldown: float) -> void:
             add_energy(-damage)
     if energy <= 2 and not $Sounds/LowEnergy.playing:
         $Sounds/LowEnergy.play()
+        $smoke_boots.emitting = true
     if energy <= 0:
         die()
         #print("OH NOOOO")
@@ -391,6 +392,7 @@ func remove_barrier():
     $Sounds/ShieldBeep.play(0)
     if energy <= 2 and not $Sounds/LowEnergy.playing:
         $Sounds/LowEnergy.play()
+        $smoke_boots.emitting = true
 
 func regain_barrier():
     if !barrier:
@@ -400,6 +402,7 @@ func regain_barrier():
         $Sounds/ShieldRegain.play()
         $Sounds/ShieldBeep.stop()
         $Sounds/LowEnergy.stop()
+        $smoke_boots.emitting = false
 #endregion
 
 func show_message(message):
@@ -439,6 +442,7 @@ func add_energy(count: int) -> void:
         energy = _set_to
     if energy > 2:
         $Sounds/LowEnergy.stop()
+        $smoke_boots.emitting = false
 #endregion
 
 #region die
