@@ -1,0 +1,242 @@
+<link
+    rel="stylesheet"
+    href="./98.css"
+>
+
+<style>
+:root {
+    --teal: #00604B;
+    --aqua: #0A98AC;
+    --lightgrey: #D7D7D7;
+
+}
+a {
+    color: var(--aqua);
+    text-shadow: 0px 1px var(--lightgrey);
+}
+p {
+    text-shadow: 0px 1px var(--lightgrey);
+}
+/* these don't work */
+a:active {
+}
+a:visited {
+}
+a:focus {
+}
+a:hover {
+}
+body {
+    background: var(--teal);
+    padding: 16px;
+    image-rendering: pixelated;
+    /* BLISS BG
+    background-image: url("./bliss_style.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+    /* TILING BG */
+    background-image: url("./background.png");
+    /* rest of da background*/
+}
+#wrap {
+    display:         flex;
+    gap:             16px;
+    align-items:     flex-start;
+    image-rendering: pixelated;
+}
+.window { flex: 1; }
+@media (max-width: 600px) {
+    #wrap {
+        width: 50%;
+        /*zoom: 2;*/
+        image-rendering: pixelated;
+        flex-direction: column;
+    }
+}
+</style>
+
+<body>
+    <div id="wrap">
+
+        <div class="window">
+            <div class="title-bar">
+                <div class="title-bar-text">ⓘ What is DEMAKE86??</div>
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div
+                    class="status-field-border"
+                    style="padding: 8px; display: flex; justify-content: center; align-items: center; background-color: black;"
+                >
+                    <img src="logo.png" style="justify-self: center;">
+                </div>
+            </div>
+            <hr>
+            <div style="padding: 8px">
+            <p>
+                <strong>Demake86</strong>, or the <strong>Legally Distinct Action Adventure Platforming Game set on a Meteoroid</strong>, is an homage to the genre-defining <a href="https://en.wikipedia.org/wiki/Metroid_(video_game)">the 1986/8/6 release</a>. But Demake86 is a <em>legally distinct and totally original</em> game.
+            </p>
+            <p>Demake86 is a tiny adventure you can play in your browser when it releases August 6th, 2026!</p>
+            <hr>
+            <p><strong>THE MISSION:</strong></p>
+            <p>You are <strong>Relan Gras</strong>, the legendary protector and sole inheritor of the ancient armaments of the now-extinct mysterious <strong>Corvus species</strong>. Your purpose is to create a true peace in space. Many believe you are a myth.</p>
+
+            <p>You were raised on <strong>Planet Zenith</strong>, a natural fortress planet blanketed in meteoroids. You travel the galaxy at light-speed, dedicating your life to ending intergalactic threats as they arise.</p>
+
+            <p>You've just received a <strong>emergency transmission</strong>: The intergalactic paramilitary bandit ring known as the <strong>Neolegion</strong> have unearthed the ancient parasitic life-form known as <strong>SETONA</strong>, discovered in the labyrinthine fortress-ruins of the largest Meteoroid in the orbit of Zenith.</p>
+
+            <p>The transmission suggests the Neolegion base is hosted by their ringleader, the mechanical life-vein known as the <strong>Margaret Baroness</strong>. She is joined by the corpulent cave-dwelling monster <strong>Kemp</strong> and Relan's personal nemesis, the plasma-breathing dragon and genocidier <strong>Reagan</strong>.</p>
+
+            <p>If they were to tame the Setona, the shadow of the imperial rule of the Neolegion would engulf all intergalactic life. You never expected to return to your homeworld, let alone to quell the sins of your ancestors.</p>
+
+            </div>
+        </div>
+
+        <div class="window">
+            <div class="title-bar">
+                <div class="title-bar-text">𖥸 collect my pages</div>
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <ul class="tree-view">
+                    <li><strong>play demake86 (<em>soon</em>)</strong>
+                        <ul>
+                            <li>
+                                <a href="https://opossumcarrion.itch.io/demake86">
+                                    <img src="itchio-textless-black.svg" width=32>
+                                    opossumcarrion.itch.io/demake86
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <em>newgrounds soon...</em>
+                                </a>
+                            </li>
+                        </ul>
+                    <li>
+                    <hr>
+                    <li>
+                        <strong>follow me</strong>:
+                        <ul>
+                            <li>
+                                <a href="https://bsky.app/profile/carrion.0xpossum.dev">
+                                    <img src="bluesky.svg" width=32px>
+                                    @carrion.0xpossum.dev
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://opossumcarrion.itch.io">
+                                    <img src="itchio-textless-black.svg" width=32>
+                                    opossumcarrion.itch.io
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.tumblr.com/opossumcarrion">
+                                    <img src="tumblr.png" width=32px>
+                                    tumblr.com/opossumcarrion
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://cara.app/opossumcarrion">
+                                    <img src="cara.svg" width=32px>
+                                     cara.app/opossumcarrion
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <hr>
+                    <li><strong>join the community:</strong>
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <img src="Discord-Symbol-Blurple.svg" width=32>
+                                    <em>Discord soon</em>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://opossumcarrion.itch.io/demake86">
+                                    <em>codeberg coming after release</em>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://forum.metroidconstruction.com/index.php/topic,6208.new.html">
+                                    MetroidConstruction.com forum thread
+                                </a>
+                            </li>
+                        </ul>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="window">
+            <div class="title-bar">
+                <div class="title-bar-text">ⴵ PROGRESS??</div>
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <p><em>.. as of 2026-Apr-21!!</em></p>
+                <hr>
+                <p>Demake86 has been developed by Opossumcarrion (me!) since late 2024 in the <a href="https://godotengine.org/">Godot</a> engine and will be <strong>open source on release</strong>. Demake86 is developed with <strong>no AI used</strong> at any point for any part of development, including supplemental materials (like this site!)</p>
+                <p>Demake86 is not affiliated in any way with Nintendo.</p>
+                <hr>
+                <p>PLAYER:
+                <div class="progress-indicator segmented">
+                    <span class="progress-indicator-bar" style="width: 95%;" />
+                </div></p>
+                </p>
+                <p>LEVEL DESIGN:
+                <div class="progress-indicator segmented">
+                    <span class="progress-indicator-bar" style="width: 88%;" />
+                </div></p>
+                <p>LEVEL ART:
+                <div class="progress-indicator segmented">
+                    <span class="progress-indicator-bar" style="width: 5%;" />
+                </div></p>
+                <p>VISUAL AND AUDITORY FLAIR:
+                <div class="progress-indicator segmented">
+                    <span class="progress-indicator-bar" style="width: 75%;" />
+                </div></p>
+                <p>BOSSES:
+                <div class="progress-indicator segmented">
+                    <span class="progress-indicator-bar" style="width: 5%;" />
+                </div></p>
+                <p>MUSIC:
+                <div class="progress-indicator segmented">
+                    <span class="progress-indicator-bar" style="width: 20%;" />
+                </div></p>
+                <p>ENEMIES:
+                <div class="progress-indicator segmented">
+                    <span class="progress-indicator-bar" style="width: 82%;" />
+                </div></p>
+                <p>MENUS:
+                <div class="progress-indicator segmented">
+                    <span class="progress-indicator-bar" style="width: 5%;" />
+                </div></p>
+                <p>TIE-IN MEDIA (like this site!)
+                <div class="progress-indicator segmented">
+                    <span class="progress-indicator-bar" style="width: 75%;" />
+                </div></p>
+                <p>The last 20% that takes 80% of the time:
+                <div class="progress-indicator segmented">
+                    <span class="progress-indicator-bar" style="width: 0%;" />
+                </div></p>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
