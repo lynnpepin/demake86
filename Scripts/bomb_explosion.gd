@@ -28,46 +28,56 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:	
     
-    $hurtbox/CollisionShape2D.shape.radius = 4 + time * (1.0/lifespan) * 6 # start at 4px, grow +4px radius = 16px radius bomb!
-    for body in $hurtbox.get_overlapping_bodies():
-        if body.is_in_group("hatch"):
-            body.get_parent().open()
-        if body.is_in_group("level"):
-            pass
-        if body.is_in_group("enemies"):
-            body.hurt(4, 0.5)
-        # todo - this won't work if there are no iframes or tracking
+    if time < lifespan:
+        $hurtbox/CollisionShape2D.shape.radius = 4 + time * (1.0/lifespan) * 6 # start at 4px, grow +4px radius = 16px radius bomb!
+        for body in $hurtbox.get_overlapping_bodies():
+            if body.is_in_group("hatch"):
+                body.get_parent().open()
+            if body.is_in_group("level"):
+                pass
+            if body.is_in_group("enemies"):
+                body.hurt(4, 0.5)
+            # todo - this won't work if there are no iframes or tracking
 
-    for body in $upbox.get_overlapping_bodies():
-        if body.is_in_group("player") and blasted_player < 2:
-            print("player entered upbox")
-            blasted_player = 1
-            # todo - should handle lava appropriately
-            body.apply_impulse(Vector2(0, -128))
-            # todo
-    for body in $leftbox.get_overlapping_bodies():
-        if body.is_in_group("player") and blasted_player < 2:
-            print("player entered leftbox")
-            blasted_player = 1
-            body.apply_impulse(Vector2(-72, 0))
-            # todo
-    for body in $rightbox.get_overlapping_bodies():
-        if body.is_in_group("player") and blasted_player < 2:
-            print("player entered rightbox")
-            body.apply_impulse(Vector2(72, 0))
-            blasted_player = 1
-            # todo
-    if blasted_player == 1:
-        blasted_player = 2
-            
-
-    if time >= lifespan:
+        for body in $upbox.get_overlapping_bodies():
+            if body.is_in_group("player") and blasted_player < 2:
+                print("player entered upbox")
+                blasted_player = 1
+                # todo - should handle lava appropriately
+                body.apply_impulse(Vector2(0, -128))
+                # todo
+        for body in $leftbox.get_overlapping_bodies():
+            if body.is_in_group("player") and blasted_player < 2:
+                print("player entered leftbox")
+                blasted_player = 1
+                body.apply_impulse(Vector2(-72, 0))
+                # todo
+        for body in $rightbox.get_overlapping_bodies():
+            if body.is_in_group("player") and blasted_player < 2:
+                print("player entered rightbox")
+                body.apply_impulse(Vector2(72, 0))
+                blasted_player = 1
+                # todo
+        if blasted_player == 1:
+            blasted_player = 2
+                
+    else:
+        $leftbox.set_deferred("monitoring", false)
+        $rightbox.set_deferred("monitoring", false)
+        $upbox.set_deferred("monitoring", false)
+        $hurtbox.set_deferred("monitoring", false)
+        $leftbox.set_deferred("monitorable", false)
+        $rightbox.set_deferred("monitorable", false)
+        $upbox.set_deferred("monitorable", false)
+        $hurtbox.set_deferred("monitorable", false)
         #print("... The bomb explosion is done, bye!")
+    if time >= 3.0:
         queue_free()
     time += delta
 
 func _exit_tree() -> void:
-    print("... Bomb explosion gone after ", time, " secs")
+    pass
+    #print("... Bomb explosion gone after ", time, " secs")
 
 #func _on_hurtbox_area_entered(area: Area2D) -> void:
     #if area.is_in_group("enemies"):
