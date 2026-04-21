@@ -61,7 +61,7 @@ func _ready() -> void:
         $Sprite2D.modulate = Color(152.0/255.0, 220.0/255.0, 255.0/255.0)
         $Trail_Icebeam.emitting = true
     else:
-        $Trail_Beam.emitting = true
+        $CPUParticles2D_Trail.emitting = true
         print("none")
 
 
@@ -105,11 +105,12 @@ func die():
     $AreaToCheckForEnemy.set_deferred("monitorable", false)
     $AreaToCheckForEnemy/CollisionShape2D.set_deferred("disabled", true)
     $Sprite2D.visible = false
-    $Trail_Beam.emitting = false
-    $Trail_Longbeam.emitting = false
-    $Trail_Icebeam.emitting = false
-    $Trail_Wavebeam.emitting = false
-    $Trail_Waveicebeam.emitting = false
+    $CPUParticles2D_Trail.emitting = false
+    if $Trail_Longbeam:
+        $Trail_Longbeam.emitting = false
+        $Trail_Icebeam.emitting = false
+        $Trail_Wavebeam.emitting = false
+        $Trail_Waveicebeam.emitting = false
     # todo - this is the wrong way to do it; sound player stops on destruction
     # maybe different things have a sound to play when a beam hits it
     if CreateOnDie != null:

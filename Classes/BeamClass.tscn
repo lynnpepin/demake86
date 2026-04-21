@@ -285,7 +285,7 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.0
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="Trail_Beam" type="CPUParticles2D" parent="." unique_id=1053764215]
+[node name="CPUParticles2D_Trail" type="CPUParticles2D" parent="." unique_id=1053764215]
 z_as_relative = false
 emitting = false
 amount = 240
