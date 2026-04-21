@@ -54,6 +54,10 @@ interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.0501253, 0.09428285, 0.23069207, 0.43129387, 0.8214644)
 colors = PackedColorArray(1, 1, 1, 1, 0.7411765, 1, 0.7921569, 1, 0.35686275, 0.65882355, 1, 1, 0.007843138, 0.2901961, 0.7921569, 0.6901961, 0, 0.516667, 1, 0.501961, 0, 0.09019608, 0.49019608, 0.2509804)
 
+[sub_resource type="Gradient" id="Gradient_0o66p"]
+offsets = PackedFloat32Array(0, 0.0501253, 0.13540623, 0.30792376, 0.43129387, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.99607843, 0.7882353, 0.92941177, 1, 0.8862745, 0.7882353, 1, 1, 0.6509804, 0.45882353, 0.99607843, 0.6901961, 0.23921569, 0.20392157, 0.64705884, 0.5019608, 0.23921569, 0.20392157, 0.64705884, 0.2509804)
+
 [sub_resource type="Gradient" id="Gradient_0kude"]
 offsets = PackedFloat32Array(0, 0.0501253, 0.09428285, 0.23069207, 0.43129387, 0.8214644)
 colors = PackedColorArray(1, 1, 1, 1, 0.59607846, 0.8627451, 1, 1, 0.8862745, 0.7882353, 1, 1, 0.6509804, 0.45882353, 0.99607843, 0.6901961, 0.007843138, 0.2901961, 0.7921569, 0.5019608, 0.23921569, 0.20392157, 0.64705884, 0.2509804)
@@ -343,16 +347,17 @@ color_ramp = SubResource("Gradient_hg1al")
 [node name="Trail_Wavebeam" type="CPUParticles2D" parent="." unique_id=564315226]
 z_as_relative = false
 emitting = false
-amount = 240
+amount = 360
 lifetime = 2.0
-explosiveness = 0.25
+lifetime_randomness = 0.5
 fract_delta = false
-emission_shape = 3
-emission_rect_extents = Vector2(2, 0)
+draw_order = 1
 spread = 180.0
 gravity = Vector2(0, 0)
-angle_max = 45.0
-color_ramp = SubResource("Gradient_0kude")
+initial_velocity_max = 0.25
+scale_amount_min = 1.5
+scale_amount_max = 1.5
+color_ramp = SubResource("Gradient_0o66p")
 
 [node name="Trail_Waveicebeam" type="CPUParticles2D" parent="." unique_id=579930126]
 z_as_relative = false
