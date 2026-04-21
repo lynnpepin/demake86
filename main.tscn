@@ -747,6 +747,14 @@ return_speed = 128
 sprite = ExtResource("30_wnkbs")
 health = 4
 
+[node name="Swooper22" parent="Enemies" unique_id=1304506990 instance=ExtResource("38_0n3wm")]
+position = Vector2(500, 140)
+hspeed = 16
+swoop_speed = 128
+return_speed = 128
+sprite = ExtResource("30_wnkbs")
+health = 4
+
 [node name="Swooper11" parent="Enemies" unique_id=603940628 instance=ExtResource("38_0n3wm")]
 position = Vector2(416, 324)
 hspeed = 20
@@ -869,6 +877,14 @@ health = 999
 position = Vector2(504, 56)
 health = 999
 
+[node name="Ripper18" parent="Enemies" unique_id=988636879 instance=ExtResource("17_3k0f5")]
+position = Vector2(492, 328)
+health = 999
+
+[node name="Ripper19" parent="Enemies" unique_id=2066203048 instance=ExtResource("17_3k0f5")]
+position = Vector2(500, 360)
+health = 999
+
 [node name="Ripper3" parent="Enemies" unique_id=1482083627 instance=ExtResource("17_3k0f5")]
 position = Vector2(20, 232)
 health = 999
@@ -976,6 +992,11 @@ sprite = ExtResource("34_h8e4i")
 
 [node name="Zoomer22" parent="Enemies" unique_id=1235552202 instance=ExtResource("26_lswn8")]
 position = Vector2(480, 200)
+start_hp = 4
+
+[node name="Zoomer29" parent="Enemies" unique_id=1678556994 instance=ExtResource("26_lswn8")]
+position = Vector2(480, 216)
+rotation = -3.1415882
 start_hp = 4
 
 [node name="Zoomer23" parent="Enemies" unique_id=281428271 instance=ExtResource("26_lswn8")]
@@ -1228,6 +1249,18 @@ health = 6
 
 [node name="hopper13" parent="Enemies" unique_id=1266369535 instance=ExtResource("44_0n3wm")]
 position = Vector2(340, 256)
+health = 6
+
+[node name="hopper14" parent="Enemies" unique_id=799369849 instance=ExtResource("44_0n3wm")]
+position = Vector2(400, 248)
+health = 6
+
+[node name="hopper15" parent="Enemies" unique_id=93052883 instance=ExtResource("44_0n3wm")]
+position = Vector2(428, 248)
+health = 6
+
+[node name="hopper16" parent="Enemies" unique_id=810784793 instance=ExtResource("44_0n3wm")]
+position = Vector2(472, 240)
 health = 6
 
 [node name="hopper7" parent="Enemies" unique_id=1578391603 instance=ExtResource("44_0n3wm")]
