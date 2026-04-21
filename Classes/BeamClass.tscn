@@ -40,8 +40,23 @@ data = PackedByteArray("BQwTGiEoLjM4PUFERkhJSUlHRUI/OzYxKyUeFxAJAfny6uPd1tDLxsK+
 data = PackedByteArray("CBUhLDY+REhJSEU/Ny4jFgr77uLWzMS9ube3ur/H0Nrm8wEOGycxOkFGSUlHQjszKB0QA/Xo3NHIwLu4t7m9w8vV4O36CBUhLDY+REhJSEU/Ny4jFgr77uLWzMS9ube3ur/H0Nrm8wEOGycxOkFGSUlHQjszKB0QA/Xo3NHIwLu4t7m9w8vV4O36CBUhLDY+REhJSEU/Ny4jFgr77uLWzMS9ube3ur/H0Nrm8wEOGycxOkFGSUlHQjszKB0PAvTn29DHwLq3t7m9xMzW4u77ChcjLjc/RUhJSEQ+NiwgFAf57N/UysK8uLe4u8HJ0t3p9gUSHio0PENHSUhGQDgvJBgM/vHl2tDIwr27vL7DytLc5/P/DBciKzM5PT8/PTkzLCMZDgP37ePa0szIxsXHytDW3ufx+wYQGSIpLjM1NjUyLScgGA8G/PPq49zX09DP0NLW2+Hp8PkCChIZHyQoKywrKSYiHBYPCP/48evl4N3a2drb3uHm6/H4/gYMEhcbHiAiIiAeGxcTDQgC/Pbx7enm5OPj5Obp7PD0+f0DCAwQExUXGBgXFhQRDgoGA/769/Tx7+7t7e7v8PP1+Pv9AQQHCQsMDQ4ODQ0LCggGBAL//fz6+fj39/f3+Pn6+/z9/gECAgMEBAQEBAQDAwICAQEBAf//AQ==")
 
 [sub_resource type="Gradient" id="Gradient_ijmsq"]
-offsets = PackedFloat32Array(0, 0.0501253, 0.119048, 0.192982, 0.616541, 0.998747)
-colors = PackedColorArray(1, 1, 1, 1, 0.741176, 1, 0.792157, 1, 1, 0.905882, 0.215686, 1, 0.878431, 0.235294, 0.156863, 1, 0, 0.516667, 1, 0.501961, 0.357105, 0.0969, 0.57, 0.25098)
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.0501253, 0.13941826, 0.33099297, 0.8214644)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.90588236, 0.21568628, 1, 0.878431, 0.235294, 0.156863, 1, 0, 0.516667, 1, 0.501961, 0, 0.09019608, 0.49019608, 0.2509804)
+
+[sub_resource type="Gradient" id="Gradient_qn8nq"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.0501253, 0.09428285, 0.23069207, 0.43129387, 0.8214644)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.90588236, 0.21568628, 1, 0.9647059, 0.56078434, 0.21568628, 1, 0.878431, 0.235294, 0.156863, 1, 0, 0.516667, 1, 0.501961, 0, 0.09019608, 0.49019608, 0.2509804)
+
+[sub_resource type="Gradient" id="Gradient_hg1al"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.0501253, 0.09428285, 0.23069207, 0.43129387, 0.8214644)
+colors = PackedColorArray(1, 1, 1, 1, 0.7411765, 1, 0.7921569, 1, 0.35686275, 0.65882355, 1, 1, 0.007843138, 0.2901961, 0.7921569, 0.6901961, 0, 0.516667, 1, 0.501961, 0, 0.09019608, 0.49019608, 0.2509804)
+
+[sub_resource type="Gradient" id="Gradient_0kude"]
+offsets = PackedFloat32Array(0, 0.0501253, 0.09428285, 0.23069207, 0.43129387, 0.8214644)
+colors = PackedColorArray(1, 1, 1, 1, 0.59607846, 0.8627451, 1, 1, 0.8862745, 0.7882353, 1, 1, 0.6509804, 0.45882353, 0.99607843, 0.6901961, 0.007843138, 0.2901961, 0.7921569, 0.5019608, 0.23921569, 0.20392157, 0.64705884, 0.2509804)
 
 [node name="BeamClass" type="AnimatableBody2D" unique_id=1509572076]
 collision_layer = 8
@@ -60,6 +75,7 @@ collision_mask = 4
 shape = SubResource("RectangleShape2D_wp4uf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=236031895]
+visible = false
 texture = SubResource("GradientTexture2D_m4cwr")
 
 [node name="CreateSounds" type="Node" parent="." unique_id=197500556]
@@ -269,17 +285,90 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.0
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="CPUParticles2D_Trail" type="CPUParticles2D" parent="." unique_id=1053764215]
-z_index = 50
-position = Vector2(3, 0)
-amount = 64
-lifetime = 0.25
+[node name="Trail_Beam" type="CPUParticles2D" parent="." unique_id=1053764215]
+z_as_relative = false
+emitting = false
+amount = 240
+lifetime = 0.75
+explosiveness = 0.13
+randomness = 0.25
+lifetime_randomness = 0.13
 fract_delta = false
+emission_shape = 3
+emission_rect_extents = Vector2(4, 1)
 spread = 180.0
-gravity = Vector2(1, 0)
-initial_velocity_max = 32.0
-scale_amount_min = 0.0
+gravity = Vector2(0, -48)
+angle_max = 45.0
+scale_amount_max = 2.0
 color_ramp = SubResource("Gradient_ijmsq")
+
+[node name="Trail_Longbeam" type="CPUParticles2D" parent="." unique_id=369948792]
+z_as_relative = false
+emitting = false
+amount = 240
+lifetime = 0.75
+explosiveness = 0.13
+randomness = 0.25
+lifetime_randomness = 0.13
+fract_delta = false
+emission_shape = 3
+emission_rect_extents = Vector2(4, 1)
+spread = 180.0
+gravity = Vector2(0, -48)
+angle_max = 45.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_qn8nq")
+
+[node name="Trail_Icebeam" type="CPUParticles2D" parent="." unique_id=2106347291]
+z_as_relative = false
+emitting = false
+amount = 240
+lifetime = 0.75
+explosiveness = 0.13
+lifetime_randomness = 0.75
+fract_delta = false
+emission_shape = 3
+emission_rect_extents = Vector2(4, 1)
+spread = 180.0
+gravity = Vector2(0, -48)
+initial_velocity_max = 36.0
+angular_velocity_max = 8.0
+damping_min = 48.0
+damping_max = 96.0
+angle_max = 45.0
+scale_amount_min = 0.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_hg1al")
+
+[node name="Trail_Wavebeam" type="CPUParticles2D" parent="." unique_id=564315226]
+z_as_relative = false
+emitting = false
+amount = 240
+explosiveness = 0.25
+fract_delta = false
+emission_shape = 3
+emission_rect_extents = Vector2(2, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+angle_max = 45.0
+color_ramp = SubResource("Gradient_0kude")
+
+[node name="Trail_Waveicebeam" type="CPUParticles2D" parent="." unique_id=579930126]
+z_as_relative = false
+emitting = false
+amount = 240
+explosiveness = 0.25
+fract_delta = false
+emission_shape = 3
+emission_rect_extents = Vector2(2, 0)
+spread = 180.0
+gravity = Vector2(0, -24)
+initial_velocity_max = 24.0
+damping_max = 256.0
+angle_max = 45.0
+scale_amount_min = 0.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_0kude")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=648649500]
 
