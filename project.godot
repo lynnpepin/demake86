@@ -55,6 +55,7 @@ beam=""
 hatch=""
 bomb="Morph ball bomb"
 water=""
+shootable_block=""
 
 [input]
 

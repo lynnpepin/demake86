@@ -86,6 +86,9 @@ func _physics_process(delta: float) -> void:
             hit_sounds.pick_random().play()
         if collision.get_collider().is_in_group("hatch"):
             collision.get_collider().get_parent().open()
+        if collision.get_collider().is_in_group("shootable_block"):
+            print("shot a shootable block")
+            collision.get_collider().shot()
         die()
 
     

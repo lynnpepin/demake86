@@ -272,8 +272,7 @@ high_pass_filter/cutoff_sweep = 0.0
 [node name="CPUParticles2D_Trail" type="CPUParticles2D" parent="." unique_id=1053764215]
 z_index = 50
 position = Vector2(3, 0)
-emitting = false
-amount = 1
+amount = 64
 lifetime = 0.25
 fract_delta = false
 spread = 180.0

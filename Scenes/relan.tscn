@@ -1143,6 +1143,8 @@ z_index = 100
 [node name="Area2D" type="Area2D" parent="Node2D_Screw_Attack" unique_id=669550649 groups=["beam"]]
 collision_layer = 8
 collision_mask = 4
+monitoring = false
+monitorable = false
 script = ExtResource("65_5vuaf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D_Screw_Attack/Area2D" unique_id=1610714370]

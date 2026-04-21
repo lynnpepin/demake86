@@ -1,4 +1,6 @@
 # TODO - This is a clone of beam_shot.gd. I don't know how to do inheritance properly yet lol
+
+# DEPRECATED!!
 extends AnimatableBody2D
 
 var LIFESPAN: float = 1.0 / 12.0;
@@ -24,8 +26,12 @@ func _physics_process(delta: float) -> void:
     lifetime += delta
     var collision = move_and_collide(velocity * delta)
     if collision != null:
+        print("beam collision")
         if collision.get_collider().is_in_group("hatch"):
             collision.get_collider().get_parent().open()
+        if collision.get_collider().is_in_group("shootable_block"):
+            print("shot a shootable block")
+            collision.get_collider().get_parent().shot()
         die()
     # https://stackoverflow.com/questions/69728827/how-do-i-detect-collisions-in-godot#69731270
     
@@ -41,6 +47,10 @@ func die():
     # todo - this is the wrong way to do it; sound player stops on destruction
     # maybe different things have a sound to play when a beam hits it
     #$Sounds/Hit.play()
+    print('beam die')
+    $AreaToCheckForEnemy.set_deferred("monitoring", false)
+    $AreaToCheckForEnemy.set_deferred("monitorable", false)
+    disable_mode = CollisionObject2D.DISABLE_MODE_REMOVE
     queue_free()
 
 
