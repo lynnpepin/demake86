@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://flc6aufkkyam"]
 
+[ext_resource type="Script" uid="uid://byryv27o0psaf" path="res://Scenes/hitmarker.gd" id="1_wm0k0"]
+
 [sub_resource type="Gradient" id="Gradient_wm0k0"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.22768305, 0.4002006, 0.7693079)
 colors = PackedColorArray(1, 1, 1, 1, 1, 0.90588236, 0.21568628, 1, 0.8784314, 0.23529412, 0.15686275, 1, 0.8784314, 0.23529412, 0.15686275, 0.5019608)
 
 [node name="Hitmarker" type="Node2D" unique_id=787707414]
+script = ExtResource("1_wm0k0")
 
 [node name="Pew" type="CPUParticles2D" parent="." unique_id=37558237]
 emitting = false
