@@ -292,17 +292,13 @@ high_pass_filter/cutoff_sweep = 0.0
 [node name="CPUParticles2D_Trail" type="CPUParticles2D" parent="." unique_id=1053764215]
 z_as_relative = false
 emitting = false
-amount = 480
-lifetime = 2.0
-explosiveness = 0.13
-randomness = 0.25
-lifetime_randomness = 0.13
+amount = 360
 fract_delta = false
 emission_shape = 3
-emission_rect_extents = Vector2(4, 1)
+emission_rect_extents = Vector2(2, 1)
 spread = 180.0
 gravity = Vector2(0, -48)
-angle_max = 45.0
+initial_velocity_max = 2.0
 scale_amount_max = 2.0
 color_ramp = SubResource("Gradient_ijmsq")
 
