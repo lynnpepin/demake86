@@ -8,6 +8,8 @@ var collision_lifespan = .25
 func _ready() -> void:
     emitting = true
     [$Explode1, $Explode2, $Explode3, $Explode4][randi() % 4].play()
+    # HORRIBLE hack, should not do...
+    get_parent().get_parent().shake_player_camera(Vector2(4.0, 1.0))
     pass # Replace with function body.
 
 

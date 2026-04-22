@@ -25,7 +25,6 @@ radius = 8.0
 
 [node name="CPUParticles2D_BigExplosion" type="CPUParticles2D" unique_id=1354750708]
 z_index = 100
-position = Vector2(0, 1)
 emitting = false
 amount = 1024
 lifetime = 0.75
