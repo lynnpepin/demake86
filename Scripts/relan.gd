@@ -474,7 +474,6 @@ func add_energy(count: int) -> void:
 
 #region die
 func die():
-    $Camera2D.set_shake(Vector2(1,32))
     $Sounds/LowEnergy.stop()
     state = States.Dead
     $body_sprite.visible = false
@@ -521,6 +520,7 @@ func die():
         bits.position = Vector2(0,0)
         bits.explode()
         
+    $Camera2D.set_shake(Vector2(randf_range(-24.0, 24.0), 24), [4.0, 4.0], [6.0, 8.0])
     # TODO:
     # Family Guy death pose
     # MegaMan / Celeste explosion
