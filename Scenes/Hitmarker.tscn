@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://flc6aufkkyam"]
+
+[sub_resource type="Gradient" id="Gradient_wm0k0"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.22768305, 0.4002006, 0.7693079)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.90588236, 0.21568628, 1, 0.8784314, 0.23529412, 0.15686275, 1, 0.8784314, 0.23529412, 0.15686275, 0.5019608)
+
+[node name="Hitmarker" type="Node2D" unique_id=787707414]
+
+[node name="Pew" type="CPUParticles2D" parent="." unique_id=37558237]
+emitting = false
+amount = 12
+lifetime = 0.19
+one_shot = true
+explosiveness = 0.75
+lifetime_randomness = 0.5
+direction = Vector2(1, 1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 12.0
+initial_velocity_max = 96.0
+damping_min = 24.0
+damping_max = 256.0
+angle_max = 45.0
+scale_amount_min = 0.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_wm0k0")
+
+[node name="Pew2" type="CPUParticles2D" parent="." unique_id=1851566510]
+emitting = false
+amount = 12
+lifetime = 0.19
+one_shot = true
+explosiveness = 0.75
+lifetime_randomness = 0.5
+direction = Vector2(-1, 1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 12.0
+initial_velocity_max = 96.0
+damping_min = 24.0
+damping_max = 256.0
+angle_max = 45.0
+scale_amount_min = 0.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_wm0k0")
+
+[node name="Pew3" type="CPUParticles2D" parent="." unique_id=274054101]
+emitting = false
+amount = 12
+lifetime = 0.19
+one_shot = true
+explosiveness = 0.75
+lifetime_randomness = 0.5
+direction = Vector2(-1, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 12.0
+initial_velocity_max = 96.0
+damping_min = 24.0
+damping_max = 256.0
+angle_max = 45.0
+scale_amount_min = 0.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_wm0k0")
+
+[node name="Pew4" type="CPUParticles2D" parent="." unique_id=1178937983]
+emitting = false
+amount = 12
+lifetime = 0.19
+one_shot = true
+explosiveness = 0.75
+lifetime_randomness = 0.5
+direction = Vector2(1, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 12.0
+initial_velocity_max = 96.0
+damping_min = 24.0
+damping_max = 256.0
+angle_max = 45.0
+scale_amount_min = 0.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_wm0k0")

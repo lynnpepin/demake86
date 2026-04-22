@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://c2mskaloj1bfr"]
+
+[ext_resource type="Script" uid="uid://byryv27o0psaf" path="res://Scenes/hitmarker.gd" id="1_tmnek"]
+
+[sub_resource type="Gradient" id="Gradient_wm0k0"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.23570712, 0.5366098, 0.7693079)
+colors = PackedColorArray(1, 1, 1, 1, 0.59607846, 0.8627451, 1, 1, 0, 0.5176471, 1, 0.5019608, 0, 0.32156864, 0.5019608, 0.2509804)
+
+[node name="Hitmarker_Ice" type="Node2D" unique_id=787707414]
+script = ExtResource("1_tmnek")
+
+[node name="Pew" type="CPUParticles2D" parent="." unique_id=37558237]
+emitting = false
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.5
+lifetime_randomness = 0.13
+emission_shape = 2
+emission_sphere_radius = 2.0
+direction = Vector2(1, 1)
+spread = 17.4
+gravity = Vector2(0, 0)
+initial_velocity_min = 16.0
+initial_velocity_max = 48.0
+angular_velocity_max = 45.0
+damping_max = 256.0
+angle_max = 45.0
+scale_amount_min = 0.0
+scale_amount_max = 4.0
+color_ramp = SubResource("Gradient_wm0k0")
+
+[node name="Pew2" type="CPUParticles2D" parent="." unique_id=1851566510]
+emitting = false
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.5
+lifetime_randomness = 0.13
+emission_shape = 2
+emission_sphere_radius = 2.0
+direction = Vector2(-1, 1)
+spread = 17.4
+gravity = Vector2(0, 0)
+initial_velocity_min = 16.0
+initial_velocity_max = 48.0
+angular_velocity_max = 45.0
+damping_max = 256.0
+angle_max = 45.0
+scale_amount_min = 0.0
+scale_amount_max = 4.0
+color_ramp = SubResource("Gradient_wm0k0")
+
+[node name="Pew3" type="CPUParticles2D" parent="." unique_id=274054101]
+emitting = false
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.5
+lifetime_randomness = 0.13
+emission_shape = 2
+emission_sphere_radius = 2.0
+direction = Vector2(-1, -1)
+spread = 17.4
+gravity = Vector2(0, 0)
+initial_velocity_min = 16.0
+initial_velocity_max = 48.0
+angular_velocity_max = 45.0
+damping_max = 256.0
+angle_max = 45.0
+scale_amount_min = 0.0
+scale_amount_max = 4.0
+color_ramp = SubResource("Gradient_wm0k0")
+
+[node name="Pew4" type="CPUParticles2D" parent="." unique_id=1178937983]
+emitting = false
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.5
+lifetime_randomness = 0.13
+emission_shape = 2
+emission_sphere_radius = 2.0
+direction = Vector2(1, -1)
+spread = 17.4
+gravity = Vector2(0, 0)
+initial_velocity_min = 16.0
+initial_velocity_max = 48.0
+angular_velocity_max = 45.0
+damping_max = 256.0
+angle_max = 45.0
+scale_amount_min = 0.0
+scale_amount_max = 4.0
+color_ramp = SubResource("Gradient_wm0k0")

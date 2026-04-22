@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://c77s2yfpdif55"]
+
+[ext_resource type="Script" uid="uid://byryv27o0psaf" path="res://Scenes/hitmarker.gd" id="1_jp727"]
+
+[sub_resource type="Gradient" id="Gradient_wm0k0"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.23570712, 0.5366098, 0.7693079)
+colors = PackedColorArray(1, 1, 1, 1, 0.8862745, 0.7882353, 1, 1, 0.6509804, 0.45882353, 0.99607843, 1, 0.6509804, 0.45882353, 0.99607843, 0.5019608)
+
+[node name="Hitmarker_Wave" type="Node2D" unique_id=787707414]
+script = ExtResource("1_jp727")
+
+[node name="Pew" type="CPUParticles2D" parent="." unique_id=37558237]
+emitting = false
+amount = 24
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.5
+direction = Vector2(1, 1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 12.0
+initial_velocity_max = 72.0
+orbit_velocity_min = -8.0
+orbit_velocity_max = 8.0
+damping_max = 256.0
+angle_max = 45.0
+color_ramp = SubResource("Gradient_wm0k0")
+
+[node name="Pew2" type="CPUParticles2D" parent="." unique_id=1851566510]
+emitting = false
+amount = 24
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.5
+direction = Vector2(-1, 1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 12.0
+initial_velocity_max = 72.0
+orbit_velocity_min = -8.0
+orbit_velocity_max = 8.0
+damping_max = 256.0
+angle_max = 45.0
+color_ramp = SubResource("Gradient_wm0k0")
+
+[node name="Pew3" type="CPUParticles2D" parent="." unique_id=274054101]
+emitting = false
+amount = 24
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.5
+direction = Vector2(-1, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 12.0
+initial_velocity_max = 72.0
+orbit_velocity_min = -8.0
+orbit_velocity_max = 8.0
+damping_max = 256.0
+angle_max = 45.0
+color_ramp = SubResource("Gradient_wm0k0")
+
+[node name="Pew4" type="CPUParticles2D" parent="." unique_id=1178937983]
+emitting = false
+amount = 24
+lifetime = 0.25
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.5
+direction = Vector2(1, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 12.0
+initial_velocity_max = 72.0
+orbit_velocity_min = -8.0
+orbit_velocity_max = 8.0
+damping_max = 256.0
+angle_max = 45.0
+color_ramp = SubResource("Gradient_wm0k0")

@@ -151,6 +151,9 @@ func shoot_missile(delta):
         $Sounds/Click4.play()
         
 func shoot_beam(delta: float) -> void:
+    $BlastParticles.restart()
+    $BlastParticles.emitting = true
+    $BlastParticles.position = get_shoot_xy(angle) #+ global_position
     # Create first beam
     var b = BeamShot.instantiate()
     b.ice = owner.has_ice_beam

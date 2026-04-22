@@ -10,12 +10,12 @@ size = Vector2(4, 1)
 size = Vector2(8, 4)
 
 [sub_resource type="Gradient" id="Gradient_08k8t"]
-offsets = PackedFloat32Array(0, 0.413876, 0.77512, 1)
+offsets = PackedFloat32Array(0, 0.07477567, 0.118644066, 0.8444666)
 colors = PackedColorArray(0.231373, 0, 0.498039, 1, 1, 0.635294, 0.235294, 1, 1, 0.87451, 0.584314, 1, 1, 0.92549, 0.843137, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_m4cwr"]
 gradient = SubResource("Gradient_08k8t")
-width = 8
+width = 2
 height = 2
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_wldcn"]
@@ -55,11 +55,11 @@ offsets = PackedFloat32Array(0, 0.0501253, 0.09428285, 0.23069207, 0.43129387, 0
 colors = PackedColorArray(1, 1, 1, 1, 0.7411765, 1, 0.7921569, 1, 0.35686275, 0.65882355, 1, 1, 0.007843138, 0.2901961, 0.7921569, 0.6901961, 0, 0.516667, 1, 0.501961, 0, 0.09019608, 0.49019608, 0.2509804)
 
 [sub_resource type="Gradient" id="Gradient_0o66p"]
-offsets = PackedFloat32Array(0, 0.0501253, 0.13540623, 0.30792376, 0.43129387, 1)
+offsets = PackedFloat32Array(0, 0.0501253, 0.13540623, 0.5787362, 0.81945837, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.99607843, 0.7882353, 0.92941177, 1, 0.8862745, 0.7882353, 1, 1, 0.6509804, 0.45882353, 0.99607843, 0.6901961, 0.23921569, 0.20392157, 0.64705884, 0.5019608, 0.23921569, 0.20392157, 0.64705884, 0.2509804)
 
 [sub_resource type="Gradient" id="Gradient_0kude"]
-offsets = PackedFloat32Array(0, 0.0501253, 0.09428285, 0.23069207, 0.43129387, 0.8214644)
+offsets = PackedFloat32Array(0, 0.0501253, 0.09428285, 0.4222668, 0.6870612, 0.8996991)
 colors = PackedColorArray(1, 1, 1, 1, 0.59607846, 0.8627451, 1, 1, 0.8862745, 0.7882353, 1, 1, 0.6509804, 0.45882353, 0.99607843, 0.6901961, 0.007843138, 0.2901961, 0.7921569, 0.5019608, 0.23921569, 0.20392157, 0.64705884, 0.2509804)
 
 [node name="BeamClass" type="AnimatableBody2D" unique_id=1509572076]
@@ -79,7 +79,6 @@ collision_mask = 4
 shape = SubResource("RectangleShape2D_wp4uf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=236031895]
-visible = false
 texture = SubResource("GradientTexture2D_m4cwr")
 
 [node name="CreateSounds" type="Node" parent="." unique_id=197500556]

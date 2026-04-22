@@ -101,6 +101,11 @@ data = PackedByteArray("9/z5+fz+//////////////////////////////////////8KCQgNBgMC
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_7ol50"]
 data = PackedByteArray("/////////////////////////////////////////////wEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQECBQUFBwYEAwIBAQEBAQEBAf/8+/v5+vz9/v//////////AQYGBgkIBgQDAgEBAQEBAQH/+vj59fb5+/3+/////////wEGBwcKCgcFAwIBAQEBAQEB//38/fv7/f7+/////////////////v7///////////////8CBAMFBQQDAgEBAQEBAQEBAf/9/f38/f7+//////////////39/Pz9/v7//////////////////////////////////wEBAQICAgEBAQEBAQEBAQEBAQEBAQICAQEBAQEBAQEBAQH//f38+/z9/v///////////wEGCAkMCgcFAwIBAQEBAQEBAf37+/j5+/3+//////////////7+/f3+/v////////////8CAwMFBQMCAgEBAQEBAQEBAQIEBAYFBAMCAQEBAQEBAQEB/vv7+Pj6/P3+//////////8BAwMFBQQDAgEBAQEBAQEBAf/7+vj4+vz9/v//////////AQYHCQoHBQMCAQEBAQEBAQH/+/r49/n7/f7//////////wEFBwgKCAYEAgIBAQEBAQEBAf///v7+////////////////AQICAgICAQEBAQEBAQEBAQH+/Pv5+vz9/v/////////////+/f39/v7///////////////////////////////////8CBggLCQcEAwIBAQEBAQEBAf/6+fb3+fv9/v//////////AQQGCAgGBAMCAQEBAQEBAQH//Pv5+fv8/v7//////////wEFBwoKBwUDAgEBAQEBAQEBAfv49PP3+vz9/v//////////BAgLDAkGBAMCAQEBAQEBAQH+/Pv6+/3+/////////////////v7+////////////////AQQFBgUDAgIBAQEBAQEBAQH//fz7/P3+///////////////9/Pv8/f7///////////////////////////////////8BAQICAgIBAQEBAQEBAQEBAQEBAgICAQEBAQEBAQEBAQEBAf78+vv8/f7/////////////BAkODQkGBAMCAQEBAQEBAQH++vf3+vz9/v/////////////9/Pz9/v//////////////AQMFBgQDAgEBAQEBAQEBAQEBBAcHBQQCAgEBAQEBAQEBAf/79/f5+/3+////////////AQMFBgUDAgEBAQEBAQEBAQH/+/f2+Pr8/v7//////////wEFCgwJBwQDAgEBAQEBAQEBAfz39ff5/P3+////////////BAkMCgcFAwIBAQEBAQEBAQH//v7+/v///////////////wECAwICAQEBAQEBAQEBAQEB/vv4+fv9/v///////////////vz9/v7/////////////////////////////////////AQYLCgcFAwIBAQEBAQEBAQH//v39/v7//////////////wEBAQEBAQEBAQEBAQEBAQEB//36+fv8/v7/////////////AwkJBwUDAgEBAQEBAQEBAQH99/X4+vz+/v///////////wMICggFAwIBAQEBAQEBAQEB//z8/P3+/////////////////////////////////////wEDBAQDAgEBAQEBAQEBAQEB//79/f7//////////////////v39/v//////////////////////////////////////AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH//f3+/////////////////wIGBQQDAgEBAQEBAQEBAQEB//39/f7///////////////////7//////////////////wECAgIBAQEBAQEBAQEBAQEBAQICAgEBAQEBAQEBAQEBAQH//v7+/////////////////wEBAQEBAQEBAQEBAQEBAQEB///+//////////////////8BAQEBAQEBAQEBAQEBAQEBAf///////////////////////wEBAQEBAQE=")
 
+[sub_resource type="Gradient" id="Gradient_0whd5"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.18254764, 0.41624874, 0.64493483, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.9098039, 0.21960784, 1, 0.9647059, 0.56078434, 0.21568628, 0.5019608, 0.8784314, 0.23529412, 0.15686275, 0.2509804, 1, 1, 1, 1)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_1gacd"]
 animations = [{
 "frames": [{
@@ -562,6 +567,22 @@ low_pass_filter/cutoff_sweep = 0.019647
 low_pass_filter/resonance = -0.0175363
 high_pass_filter/cutoff_frequency = 0.969822
 high_pass_filter/cutoff_sweep = 0.0
+
+[node name="BlastParticles" type="CPUParticles2D" parent="Cannon" unique_id=1352452091]
+emitting = false
+amount = 120
+lifetime = 0.13
+one_shot = true
+explosiveness = 0.75
+emission_shape = 6
+emission_ring_inner_radius = 1.0
+emission_ring_radius = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 36.0
+initial_velocity_max = 36.0
+color = Color(1, 0.90588236, 0.21568628, 1)
+color_ramp = SubResource("Gradient_0whd5")
 
 [node name="body_sprite" type="AnimatedSprite2D" parent="." unique_id=1263854999]
 z_index = 10
@@ -1095,7 +1116,8 @@ visible = false
 texture_filter = 1
 position = Vector2(0, 6)
 emitting = false
-amount = 30
+amount = 90
+lifetime = 0.75
 fract_delta = false
 direction = Vector2(0, 0)
 spread = 0.0
@@ -1107,8 +1129,7 @@ color_ramp = SubResource("Gradient_72vhv")
 [node name="CPUParticles2D_top" type="CPUParticles2D" parent="ball_trail" unique_id=965554664]
 position = Vector2(0, 3.5)
 emitting = false
-amount = 60
-lifetime = 0.5
+amount = 120
 direction = Vector2(0, 0)
 spread = 0.0
 gravity = Vector2(0, 0)
@@ -1118,8 +1139,7 @@ color_ramp = SubResource("Gradient_q4257")
 [node name="CPUParticles2D_bot" type="CPUParticles2D" parent="ball_trail" unique_id=580789851]
 position = Vector2(0, 8.5)
 emitting = false
-amount = 60
-lifetime = 0.5
+amount = 120
 direction = Vector2(0, 0)
 spread = 0.0
 gravity = Vector2(0, 0)

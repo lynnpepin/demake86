@@ -25,7 +25,10 @@ var hit_sounds: Array;
 var active: bool = true;
 
 ## Explosion (or other) node to create once this one explodes and dies
-@export var CreateOnDie: PackedScene = null; #preload("res://Scenes/BigExplosion.tscn")
+@export var CreateOnDie: PackedScene = preload("res://Scenes/Hitmarker.tscn"); #preload("res://Scenes/BigExplosion.tscn")
+var WaveHitmarker: PackedScene = preload("res://Scenes/Hitmarker_Wave.tscn");
+var IceHitmarker: PackedScene = preload("res://Scenes/Hitmarker_Ice.tscn");
+
 var preloaded_CreateOnDie: Node2D = null;
 
 # Total height to move up in a sinusoidal pattern
@@ -99,25 +102,36 @@ func _physics_process(delta: float) -> void:
 
     
 func die():
-    active = false
-    $AreaToCheckForEnemy.set_deferred("disabled", true)
-    $AreaToCheckForEnemy.set_deferred("monitoring", false)
-    $AreaToCheckForEnemy.set_deferred("monitorable", false)
-    $AreaToCheckForEnemy/CollisionShape2D.set_deferred("disabled", true)
-    $Sprite2D.visible = false
-    $CPUParticles2D_Trail.emitting = false
-    if $Trail_Longbeam:
-        $Trail_Longbeam.emitting = false
-        $Trail_Icebeam.emitting = false
-        $Trail_Wavebeam.emitting = false
-        $Trail_Waveicebeam.emitting = false
-    # todo - this is the wrong way to do it; sound player stops on destruction
-    # maybe different things have a sound to play when a beam hits it
-    if CreateOnDie != null:
-        print("Creating scene!")
-        var blam = CreateOnDie.instantiate()
-        blam.position = Vector2(0,0)#global_position
-        add_child(blam)
+    if active:
+        active = false
+        $AreaToCheckForEnemy.set_deferred("disabled", true)
+        $AreaToCheckForEnemy.set_deferred("monitoring", false)
+        $AreaToCheckForEnemy.set_deferred("monitorable", false)
+        $AreaToCheckForEnemy/CollisionShape2D.set_deferred("disabled", true)
+        $Sprite2D.visible = false
+        $CPUParticles2D_Trail.emitting = false
+        if $Trail_Longbeam:
+            $Trail_Longbeam.emitting = false
+            $Trail_Icebeam.emitting = false
+            $Trail_Wavebeam.emitting = false
+            $Trail_Waveicebeam.emitting = false
+        # todo - this is the wrong way to do it; sound player stops on destruction
+        # maybe different things have a sound to play when a beam hits it
+        
+        # create on die
+        if wave:
+            var blam = WaveHitmarker.instantiate()
+            blam.position = Vector2(0,0)#global_position
+            add_child(blam)
+        if ice:
+            var blam = IceHitmarker.instantiate()
+            blam.position = Vector2(0,0)#global_position
+            add_child(blam)
+        if !wave and !ice and CreateOnDie != null:
+            print("Creating scene!")
+            var blam = CreateOnDie.instantiate()
+            blam.position = Vector2(0,0)#global_position
+            add_child(blam)
 
 
 func _on_area_to_check_for_enemy_area_entered(area: Area2D) -> void:
