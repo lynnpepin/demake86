@@ -12,7 +12,6 @@ func on():
     $Area2D.monitorable = true
     $SfxrStreamPlayer.playing = true
 
-
 func off():
     active = false
     $Sprite2D.visible = false

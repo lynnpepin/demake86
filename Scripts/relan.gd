@@ -64,7 +64,7 @@ var bombs: float = BOMB_PERIOD * MAX_BOMBS
 var barrier = false
 var barrier_timer = 0
 
-var has_screw_attack = false
+@export var has_screw_attack = false
 
 # input
 var left: bool
@@ -100,6 +100,9 @@ func _ready():
         has_ice_beam = true
         has_varia_suit = true
         has_screw_attack = true
+    
+    if has_varia_suit:
+        regain_barrier()
         
     pass # Replace with function body.
 
@@ -123,7 +126,9 @@ func _physics_process(delta: float) -> void:
     
     if grounded == 0:
         # Enable srew attack if we're off the ground...
-        if has_screw_attack and state == States.Normal: $Node2D_Screw_Attack.on()
+        if has_screw_attack and state == States.Normal:
+            $Node2D_Screw_Attack.on()
+            
     
     check_water()
     if is_in_water:
@@ -159,6 +164,9 @@ func _physics_process(delta: float) -> void:
     if is_on_floor():
         if vv.y > 32:
             play_landing_sound() # If landing, play sound
+            Input.start_joy_vibration(
+                0, 0.125, 0.125, .0625
+            )
         # Get grounded
         grounded = 1.0
         if not impulse_applied:
@@ -171,6 +179,9 @@ func _physics_process(delta: float) -> void:
             steps = 0
             if (state == States.Normal):
                 play_landing_sound()
+                Input.start_joy_vibration(
+                    0, 0.125, 0.0, .0625
+                )
     else:
         # coyote time
         grounded = max(0, grounded - delta * GROUND_DECAY_RATE)
@@ -277,6 +288,9 @@ func apply_impulse(impulse: Vector2):
     impulse_applied = true
     grounded = 0
     vv.x += impulse.x
+    Input.start_joy_vibration(
+        0, 0.125, min(impulse.length()/4096.0, 0.5), .125
+    )
     if impulse.y < 0:
         vv.y = min(impulse.y, vv.y)
     elif impulse.y > 0:
@@ -373,10 +387,13 @@ func hurt(damage: int, cooldown: float) -> void:
         if barrier_timer >= BARRIER_RECHARGE_PERIOD:
             remove_barrier()
         else:
-            $Camera2D.vshake(4.0)
+            $Camera2D.vshake(4.0 * damage)
             barrier_timer = 0
             $Sounds/Hurt1.play()
             add_energy(-damage)
+            Input.start_joy_vibration(
+                0, 0.125 * damage, 0.25 * damage, .125 * damage
+            )
     if energy <= 2 and not $Sounds/LowEnergy.playing:
         $Sounds/LowEnergy.play()
         $smoke_boots.emitting = true
@@ -387,6 +404,10 @@ func hurt(damage: int, cooldown: float) -> void:
 
 func remove_barrier():
     print("BUH BYE BARRIER")
+    Input.start_joy_vibration(
+        0, 0.125, 0.125, .125
+    )
+    
     barrier_timer = 0
     barrier = false
     $Sprite2D_barrier_feature.modulate = Color(1, 1, 1, 0)
@@ -397,6 +418,7 @@ func remove_barrier():
         $smoke_boots.emitting = true
 
 func regain_barrier():
+    barrier_timer = BARRIER_RECHARGE_PERIOD
     if !barrier:
         print("BARRIER ACTIVE")
         barrier = true
@@ -405,6 +427,9 @@ func regain_barrier():
         $Sounds/ShieldBeep.stop()
         $Sounds/LowEnergy.stop()
         $smoke_boots.emitting = false
+        Input.start_joy_vibration(
+            0, 0.125, 0.0, .25
+        )
 #endregion
 
 func show_message(message):
@@ -461,6 +486,9 @@ func die():
     $Cannon.process_mode = Node.PROCESS_MODE_DISABLED
     $Cannon.visible = false
     $ball_trail.visible = false
+    Input.start_joy_vibration(
+        0, 1.0, 1.0, 1.0
+    )
     
     # Death sprite
     var p = randf()

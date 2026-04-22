@@ -1,5 +1,5 @@
 
-#@tool
+#@tool #<-- do not enable unless you want these guys crawling around your editor
 extends EnemyClass
 
 var direction: int = 1
@@ -48,7 +48,6 @@ func spin_cw():
 func spin_ccw():
     rotate(-PI/2.0)
     angle = fmod(angle - PI / 2.0, PI * 2.0)
-
 
 func _debugcolor(color=Color.WHITE):
     pass
@@ -104,7 +103,7 @@ func _physics_process(delta: float) -> void:
                 # todo; move down along ray by 1 pixel
             _:
                 # this should not be possible
-                print("This should never happen")
+                print("Zoomer says this should never happen")
                 _debugcolor(Color(1, 0, 1, .75))
                 pass
         
@@ -122,24 +121,18 @@ func _old_physics_process(delta: float) -> void:
             # if neither or both, move downward until collision; todo
             if left_coll == null and right_coll != null:
                 rotate(-PI / 2.0)
-                #print("... Zoomer should rotate CCW!")
                 angle = fmod(angle - PI / 2.0, PI * 2.0)
-                #print("Zoomer rotated; angle=", angle/PI)
                 rotate_timer = 0.5
             elif left_coll != null and right_coll == null:
                 rotate(PI / 2.0)
-                #print("... Zoomer should rotate CW!")
                 angle = fmod(angle + PI / 2.0, PI * 2.0)
                 #print("Zoomer rotated; angle=", angle/PI)
                 rotate_timer = 0.5
             else:
                 # todo; 'fall' downward and dont rotate
                 pass
-            
-        #var collision = move_and_collide(delta * Vector2(-speed , 0))
+
         var collision = move_and_collide(delta * Vector2(speed , 0).rotated(angle))
-        #if collision:
-        #	direction *= -1
     
     
         
