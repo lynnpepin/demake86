@@ -47,6 +47,10 @@ movie_writer/mjpeg_quality=0.9
 
 enabled=PackedStringArray("res://addons/godot_sfxr/plugin.cfg", "res://addons/levelshot/plugin.cfg", "res://addons/sceneshot/plugin.cfg", "res://addons/vertex_painter/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
 [global_group]
 
 player=""

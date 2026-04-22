@@ -292,7 +292,7 @@ high_pass_filter/cutoff_sweep = 0.0
 [node name="CPUParticles2D_Trail" type="CPUParticles2D" parent="." unique_id=1053764215]
 z_as_relative = false
 emitting = false
-amount = 240
+amount = 480
 lifetime = 2.0
 explosiveness = 0.13
 randomness = 0.25

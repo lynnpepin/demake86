@@ -8,6 +8,7 @@
     --teal: #00604B;
     --aqua: #0A98AC;
     --lightgrey: #D7D7D7;
+    --darkgrey: #A8A8A8;
 
 }
 a {
@@ -31,12 +32,14 @@ body {
     padding: 16px;
     image-rendering: pixelated;
     /* BLISS BG
-    background-image: url("./bliss_style.png");
+    */
+    background-image: url("./bliss_style_512.png");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat; */
-    /* TILING BG */
+    background-repeat: no-repeat;
+    /* TILING BG
     background-image: url("./background.png");
+    */
     /* rest of da background*/
 }
 #wrap {
@@ -75,25 +78,37 @@ body {
                 >
                     <img src="logo.png" style="justify-self: center;">
                 </div>
-            </div>
-            <hr>
-            <div style="padding: 8px">
-            <p>
-                <strong>Demake86</strong>, or the <strong>Legally Distinct Action Adventure Platforming Game set on a Meteoroid</strong>, is an homage to the genre-defining <a href="https://en.wikipedia.org/wiki/Metroid_(video_game)">the 1986/8/6 release</a>. But Demake86 is a <em>legally distinct and totally original</em> game.
-            </p>
-            <p>Demake86 is a tiny adventure you can play in your browser when it releases August 6th, 2026!</p>
-            <hr>
-            <p><strong>THE MISSION:</strong></p>
-            <p>You are <strong>Relan Gras</strong>, the legendary protector and sole inheritor of the ancient armaments of the now-extinct mysterious <strong>Corvus species</strong>. Your purpose is to create a true peace in space. Many believe you are a myth.</p>
 
-            <p>You were raised on <strong>Planet Zenith</strong>, a natural fortress planet blanketed in meteoroids. You travel the galaxy at light-speed, dedicating your life to ending intergalactic threats as they arise.</p>
+                <p>
+                <strong>Demake86</strong>, or the <strong>Legally Distinct Action Adventure Platforming Game set on a Meteoroid</strong>, is a tiny Metroidvania which takes place in a 8<sup>6</sup> pixel meteoroid: 8×8 pixels per tile, 8×8 tiles per room, 8×8 rooms in the whole meteoroid. <strong>Can you beat it in 86 seconds?</strong>
+                </p>
+                <p>While Demake86 is an <em>homage</em> to the genre-defining <a href="https://en.wikipedia.org/wiki/Metroid_(video_game)">the 1986/8/6 release</a>, Demake86 is a <em>legally distinct and totally original</em> game.
+                </p>
+                <p>Demake86 releases for free <strong>August 6th, 2026</strong>!</p>
+                <hr>
+                <div
+                    class="status-field-border"
+                    style="padding: 8px; display: flex; justify-content: center; align-items: center; background-color: black;"
+                >
+                    <img src="screenshot_wip_5.png" width=196px style="justify-self: center;">
+                </div>
+                <div
+                    class="status-field-border"
+                    style="padding: 8px; display: flex; justify-content: center; align-items: center; background-color: black;"
+                >
+                    <img src="screenshot_wip_4.png" width=196px style="justify-self: center;">
+                </div>
+                <hr>
+                <p><strong>THE MISSION:</strong></p>
+                <p>You are <strong>Relan Gras</strong>, the legendary protector and sole inheritor of the now-extinct mysterious ancient <strong>Corvus species</strong>. Your purpose is to create a true peace in space. Many believe you to be a myth.</p>
 
-            <p>You've just received a <strong>emergency transmission</strong>: The intergalactic paramilitary bandit ring known as the <strong>Neolegion</strong> have unearthed the ancient parasitic life-form known as <strong>SETONA</strong>, discovered in the labyrinthine fortress-ruins of the largest Meteoroid in the orbit of Zenith.</p>
+                <p>You were raised on <strong>Planet Zenith</strong>, a natural fortress planet blanketed in meteoroids. You travel the galaxy at light-speed, dedicating your life to ending intergalactic threats as they arise.</p>
 
-            <p>The transmission suggests the Neolegion base is hosted by their ringleader, the mechanical life-vein known as the <strong>Margaret Baroness</strong>. She is joined by the corpulent cave-dwelling monster <strong>Kemp</strong> and Relan's personal nemesis, the plasma-breathing dragon and genocidier <strong>Reagan</strong>.</p>
+                <p>You've just received a <strong>emergency transmission</strong>: The intergalactic paramilitary bandit ring known as the <strong>Neolegion</strong> have unearthed the ancient parasitic life-form known as <strong>SETONA</strong>, discovered in the labyrinthine fortress-ruins of the largest Meteoroid in the orbit of Zenith.</p>
 
-            <p>If they were to tame the Setona, the shadow of the imperial rule of the Neolegion would engulf all intergalactic life. You never expected to return to your homeworld, let alone to quell the sins of your ancestors.</p>
+                <p>The transmission suggests the Neolegion base is hosted by their ringleader, the mechanical life-vein known as the <strong>Margaret Baroness</strong>. She is joined by the corpulent cave-dwelling monster <strong>Kemp</strong> and Relan's personal nemesis, the plasma-breathing dragon and genocidier <strong>Reagan</strong>.</p>
 
+                <p>If the Neolegion were to tame the Setona, the shadow of their imperial rule would cover all of intergalactic society. You never expected to return to the world of your upbringing to quell an evil which waits above the surface.</p>
             </div>
         </div>
 
@@ -118,6 +133,7 @@ body {
                             </li>
                             <li>
                                 <a href="">
+                                    <img src="newgrounds.svg" width=32>
                                     <em>newgrounds soon...</em>
                                 </a>
                             </li>
@@ -125,7 +141,7 @@ body {
                     <li>
                     <hr>
                     <li>
-                        <strong>follow me</strong>:
+                        <strong>follow the dev (opossumcarrion, that's me!)</strong>
                         <ul>
                             <li>
                                 <a href="https://bsky.app/profile/carrion.0xpossum.dev">
@@ -164,12 +180,14 @@ body {
                             </li>
                             <li>
                                 <a href="https://opossumcarrion.itch.io/demake86">
-                                    <em>codeberg coming after release</em>
+                                    <img src="codeberg.svg" width=32>
+                                    <em>Codeberg git repo - after release</em>
                                 </a>
                             </li>
                             <li>
                                 <a href="https://forum.metroidconstruction.com/index.php/topic,6208.new.html">
-                                    MetroidConstruction.com forum thread
+                                    <img src="smf.png" width=32>
+                                    MetroidConstruction thread
                                 </a>
                             </li>
                         </ul>
@@ -188,9 +206,9 @@ body {
                 </div>
             </div>
             <div class="window-body">
-                <p><em>.. as of 2026-Apr-21!!</em></p>
+                <p><em>Updated 2026 Apr 21st</em></p>
                 <hr>
-                <p>Demake86 has been developed by Opossumcarrion (me!) since late 2024 in the <a href="https://godotengine.org/">Godot</a> engine and will be <strong>open source on release</strong>. Demake86 is developed with <strong>no AI used</strong> at any point for any part of development, including supplemental materials (like this site!)</p>
+                <p>Demake86 has been developed by Opossumcarrion (me!) since late 2024 in the <a href="https://godotengine.org/">Godot</a> engine and will be <strong>open source on release</strong>, running in your browser. Demake86 is developed using <strong>absolutely no AI</strong> at any point for any part of development, including supplemental materials (like this site!)</p>
                 <p>Demake86 is not affiliated in any way with Nintendo.</p>
                 <hr>
                 <p>PLAYER:
