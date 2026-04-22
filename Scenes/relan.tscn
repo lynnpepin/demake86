@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bv0aynt6jkni2"]
 
 [ext_resource type="Script" uid="uid://c6htj1uosbs8w" path="res://Scripts/relan.gd" id="1_hqtwd"]
+[ext_resource type="Script" uid="uid://c7cc38gtpjjvx" path="res://Scenes/camera_2d.gd" id="2_i0hd8"]
 [ext_resource type="Script" uid="uid://disyh5u23s0go" path="res://Scripts/cannon.gd" id="2_slkt1"]
 [ext_resource type="Texture2D" uid="uid://x1ncr4x48wv1" path="res://art/relan/cannon_right_u.png" id="3_lgw80"]
 [ext_resource type="Texture2D" uid="uid://cpfbmxeij0x8a" path="res://art/relan/cannon_right_uf.png" id="4_o6qhq"]
@@ -424,6 +425,7 @@ debug_color = Color(0.7, 0.24500002, 0, 0.41960785)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=558517496]
 position_smoothing_speed = 96.0
+script = ExtResource("2_i0hd8")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Camera2D" unique_id=981408164]
 
