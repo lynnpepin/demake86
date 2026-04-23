@@ -9,6 +9,7 @@
 size = Vector2(6, 16)
 
 [node name="MushroomCloudExplosion" type="Node2D" unique_id=1847167447]
+position = Vector2(0, 2)
 script = ExtResource("1_ab4n3")
 
 [node name="Particles_Ring" parent="." unique_id=1582928063 instance=ExtResource("1_7boi8")]
@@ -20,6 +21,7 @@ one_shot = true
 [node name="Particles_Cloud" parent="." unique_id=229452179 instance=ExtResource("2_ab4n3")]
 emitting = false
 one_shot = true
+emission_rect_extents = Vector2(1, 0)
 
 [node name="hurtbox" type="Area2D" parent="." unique_id=776851219 groups=["water"]]
 position = Vector2(0, -8)

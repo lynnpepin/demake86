@@ -714,6 +714,7 @@ texture = ExtResource("4_kp1pf")
 
 [node name="Swooper" parent="Enemies" unique_id=693798281 instance=ExtResource("38_0n3wm")]
 position = Vector2(176, 140)
+swoop_speed = 48
 sprite = ExtResource("29_qnost")
 health = 1
 
@@ -839,31 +840,37 @@ health = 4
 
 [node name="Swooper2" parent="Enemies" unique_id=1834329187 instance=ExtResource("38_0n3wm")]
 position = Vector2(180, 92)
+swoop_speed = 48
 sprite = ExtResource("29_qnost")
 health = 2
 
 [node name="Swooper3" parent="Enemies" unique_id=753871456 instance=ExtResource("38_0n3wm")]
 position = Vector2(200, 20)
+swoop_speed = 48
 sprite = ExtResource("29_qnost")
 health = 4
 
 [node name="Swooper4" parent="Enemies" unique_id=90316349 instance=ExtResource("38_0n3wm")]
 position = Vector2(308, 156)
+swoop_speed = 48
 sprite = ExtResource("29_qnost")
 health = 2
 
 [node name="Swooper5" parent="Enemies" unique_id=778527642 instance=ExtResource("38_0n3wm")]
 position = Vector2(472, 64)
+swoop_speed = 48
 sprite = ExtResource("29_qnost")
 health = 2
 
 [node name="Swooper6" parent="Enemies" unique_id=1912442110 instance=ExtResource("38_0n3wm")]
 position = Vector2(444, 12)
+swoop_speed = 48
 sprite = ExtResource("29_qnost")
 health = 2
 
 [node name="Swooper7" parent="Enemies" unique_id=1987610602 instance=ExtResource("38_0n3wm")]
 position = Vector2(328, 32)
+swoop_speed = 48
 sprite = ExtResource("29_qnost")
 health = 2
 
