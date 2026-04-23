@@ -725,7 +725,7 @@ health = 4
 [node name="Swooper9" parent="Enemies" unique_id=770514709 instance=ExtResource("38_0n3wm")]
 position = Vector2(412, 204)
 hspeed = 16
-swoop_speed = 128
+swoop_speed = 64
 return_speed = 128
 sprite = ExtResource("30_wnkbs")
 health = 4
@@ -741,7 +741,7 @@ health = 4
 [node name="Swooper10" parent="Enemies" unique_id=8830867 instance=ExtResource("38_0n3wm")]
 position = Vector2(460, 140)
 hspeed = 16
-swoop_speed = 128
+swoop_speed = 64
 return_speed = 128
 sprite = ExtResource("30_wnkbs")
 health = 4
@@ -749,14 +749,14 @@ health = 4
 [node name="Swooper22" parent="Enemies" unique_id=1304506990 instance=ExtResource("38_0n3wm")]
 position = Vector2(500, 140)
 hspeed = 16
-swoop_speed = 128
+swoop_speed = 64
 return_speed = 128
 sprite = ExtResource("30_wnkbs")
 health = 4
 
 [node name="Swooper11" parent="Enemies" unique_id=603940628 instance=ExtResource("38_0n3wm")]
 position = Vector2(416, 324)
-hspeed = 20
+hspeed = 16
 swoop_speed = 196
 return_speed = 128
 sprite = ExtResource("31_f6a44")
@@ -764,72 +764,72 @@ health = 4
 
 [node name="Swooper13" parent="Enemies" unique_id=533887930 instance=ExtResource("38_0n3wm")]
 position = Vector2(428, 388)
-hspeed = 20
-swoop_speed = 196
-return_speed = 128
+hspeed = 16
+swoop_speed = 72
+return_speed = 64
 sprite = ExtResource("31_f6a44")
 health = 4
 
 [node name="Swooper14" parent="Enemies" unique_id=2089065543 instance=ExtResource("38_0n3wm")]
 position = Vector2(404, 428)
-hspeed = 20
-swoop_speed = 196
-return_speed = 128
+hspeed = 16
+swoop_speed = 72
+return_speed = 64
 sprite = ExtResource("31_f6a44")
 health = 4
 
 [node name="Swooper15" parent="Enemies" unique_id=1442709742 instance=ExtResource("38_0n3wm")]
 position = Vector2(404, 460)
-hspeed = 20
-swoop_speed = 196
-return_speed = 128
+hspeed = 16
+swoop_speed = 72
+return_speed = 64
 sprite = ExtResource("31_f6a44")
 health = 4
 
 [node name="Swooper16" parent="Enemies" unique_id=239046190 instance=ExtResource("38_0n3wm")]
 position = Vector2(428, 460)
-hspeed = 20
-swoop_speed = 196
-return_speed = 128
+hspeed = 16
+swoop_speed = 72
+return_speed = 64
 sprite = ExtResource("31_f6a44")
 health = 4
 
 [node name="Swooper17" parent="Enemies" unique_id=770143862 instance=ExtResource("38_0n3wm")]
 position = Vector2(420, 468)
-hspeed = 20
-swoop_speed = 196
-return_speed = 128
+hspeed = 16
+swoop_speed = 72
+return_speed = 64
 sprite = ExtResource("31_f6a44")
 health = 4
 
 [node name="Swooper18" parent="Enemies" unique_id=683703624 instance=ExtResource("38_0n3wm")]
 position = Vector2(316, 236)
-hspeed = 20
-swoop_speed = 196
+hspeed = 16
+swoop_speed = 64
 return_speed = 128
 sprite = ExtResource("31_f6a44")
 health = 4
 
 [node name="Swooper19" parent="Enemies" unique_id=1197261845 instance=ExtResource("38_0n3wm")]
 position = Vector2(332, 236)
-hspeed = 20
-swoop_speed = 196
+hspeed = 16
+swoop_speed = 64
 return_speed = 128
 sprite = ExtResource("31_f6a44")
 health = 4
 
 [node name="Swooper20" parent="Enemies" unique_id=1490238707 instance=ExtResource("38_0n3wm")]
 position = Vector2(348, 236)
-hspeed = 20
-swoop_speed = 196
+hspeed = 16
+swoop_speed = 64
 return_speed = 128
 sprite = ExtResource("31_f6a44")
 health = 4
 
 [node name="Swooper21" parent="Enemies" unique_id=104985874 instance=ExtResource("38_0n3wm")]
 position = Vector2(364, 236)
-hspeed = 20
-swoop_speed = 196
+hspeed = 16
+swoop_speed = 64
 return_speed = 128
 sprite = ExtResource("31_f6a44")
 health = 4
