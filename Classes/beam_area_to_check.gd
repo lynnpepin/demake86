@@ -15,5 +15,5 @@ func _physics_process(delta):
         timer += delta
     elif !already_set:
         already_set = true
-        print("DISABLED")
+        print("DISABLED") 
         $CollisionShape_Start.set_deferred("disabled", true)

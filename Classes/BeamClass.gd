@@ -142,5 +142,5 @@ func _on_area_to_check_for_enemy_area_entered(area: Area2D) -> void:
         var is_frozen = enemy.freeze_timer > 0
         enemy.hurt(damage, .125)
         if ice and not is_frozen:
-            enemy.freeze(12)
+            enemy.freeze(6)
         die()
