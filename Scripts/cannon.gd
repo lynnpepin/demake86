@@ -111,7 +111,6 @@ func handle_angles():
     
     # Set the angle according to our X-Y components
     angle = posmod(int((aimvec.angle() / PI) * 4),8)
-    #print(flip, angle)
     
     # If lb is pressed, use this to map (angle, previous_angle) to an angle
     if diag:
@@ -137,7 +136,6 @@ func shoot(delta):
     
 func shoot_missile(delta):
     var _count_missiles = get_parent().missiles
-    print("Shooting missle ", _count_missiles)
     if _count_missiles > 0:
         get_parent().add_missiles(-1)
         
@@ -158,7 +156,7 @@ func shoot_beam(delta: float) -> void:
     var b = BeamShot.instantiate()
     b.ice = owner.has_ice_beam
     b.wave = owner.has_wave_beam
-    b.damage = int(owner.has_ice_beam) + 2*int(owner.has_wave_beam) + int(owner.has_long_beam) + 1
+    b.damage = int(owner.has_ice_beam) + 3*int(owner.has_wave_beam) + int(owner.has_long_beam) + 2
     var rawangle = -angle * PI / 4
     b.angle = rawangle
     b.velocity = Vector2(speed, 0).rotated(rawangle)
@@ -175,7 +173,7 @@ func shoot_beam(delta: float) -> void:
         b = BeamShot.instantiate()
         b.ice = owner.has_ice_beam
         b.wave = owner.has_wave_beam
-        b.damage = int(owner.has_ice_beam) + int(owner.has_wave_beam) + int(owner.has_long_beam) + 1
+        b.damage = int(owner.has_ice_beam) + 3*int(owner.has_wave_beam) + int(owner.has_long_beam) + 2
         
         b.angle = rawangle
         b.velocity = Vector2(speed/2, 0).rotated(rawangle)
@@ -192,7 +190,7 @@ func shoot_beam(delta: float) -> void:
         b = BeamShot.instantiate()
         b.ice = owner.has_ice_beam
         b.wave = owner.has_wave_beam
-        b.damage = int(owner.has_ice_beam) + int(owner.has_wave_beam) + int(owner.has_long_beam) + 1
+        b.damage = int(owner.has_ice_beam) + 3*int(owner.has_wave_beam) + int(owner.has_long_beam) + 2
         b.angle = rawangle
         b.velocity = Vector2(speed/2, 0).rotated(rawangle)
         b.position = get_shoot_xy(angle) + global_position# + get_shoot_xy(angle)
@@ -206,13 +204,25 @@ func shoot_beam(delta: float) -> void:
         
 
 func get_shoot_xy(angle):
-    return Vector2(
+    # Eight directions encoded as an int
+    # 321
+    # 4 0
+    # 567
+    
+    # Original
+    var shoot_xy = Vector2(
         # Aiming coordinates based on angle
         [4,  4, flip, -4, -4, -3, 0, 3][angle],
         [4, 0, -4, 0,  4, 6, 8, 6][angle]
+    ) + Vector2( # Offset to make it closer to the body
+        #0    1   2   3  4  5  6    7
+        [-2, -2,  0,  2, 2, 2, 0, -2][angle],
+        [0,  2, 2, 2, 0, -2, -2,  -2][angle]
     )
-
-
+    print(shoot_xy)
+    return shoot_xy
+    
+    
 func _highlight_cannon(color):
     draw_circle(
         get_shoot_xy(angle),

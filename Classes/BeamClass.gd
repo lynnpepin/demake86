@@ -7,7 +7,7 @@ extends AnimatableBody2D
 
 
 ## Time in seconds for this beam to exist
-@export var LIFESPAN: float = 1.0 / 12.0;
+@export var LIFESPAN: float = 1.0 / 8.0;
 
 var lifetime: float = 0.0;
 
@@ -50,22 +50,18 @@ func _ready() -> void:
     add_to_group("beam")
     
     if ice and wave:
-        print("wave + ice")
         $Sprite2D.modulate = Color(255.0/255.0, 128.0/255.0, 512.0/255.0)
         $Trail_Waveicebeam.emitting = true
         #$Trail_Wavebeam.emitting = true
         #$Trail_Icebeam.emitting = true
     elif wave:
-        print("wave")
         $Trail_Wavebeam.emitting = true
         $Sprite2D.modulate = Color(255.0/255.0, 64.0/255.0, 255.0/255.0)
     elif ice:
-        print("ice")
         $Sprite2D.modulate = Color(152.0/255.0, 220.0/255.0, 255.0/255.0)
         $Trail_Icebeam.emitting = true
     else:
         $CPUParticles2D_Trail.emitting = true
-        print("none")
 
 
 func _process(delta: float) -> void:
@@ -96,7 +92,6 @@ func _physics_process(delta: float) -> void:
         if collision.get_collider().is_in_group("hatch"):
             collision.get_collider().get_parent().open()
         if collision.get_collider().is_in_group("shootable_block"):
-            print("shot a shootable block")
             collision.get_collider().shot()
         die()
 
@@ -128,7 +123,6 @@ func die():
             blam.position = Vector2(0,0)#global_position
             add_child(blam)
         if !wave and !ice and CreateOnDie != null:
-            print("Creating scene!")
             var blam = CreateOnDie.instantiate()
             blam.position = Vector2(0,0)#global_position
             add_child(blam)

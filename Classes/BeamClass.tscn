@@ -78,6 +78,7 @@ shape = SubResource("RectangleShape2D_lk8bw")
 [node name="AreaToCheckForEnemy" type="Area2D" parent="." unique_id=359814071 groups=["beam"]]
 collision_layer = 8
 collision_mask = 4
+collision_priority = 100.0
 script = ExtResource("2_hg1al")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaToCheckForEnemy" unique_id=758571397 groups=["beam"]]
