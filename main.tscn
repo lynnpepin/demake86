@@ -870,10 +870,6 @@ sprite = ExtResource("29_qnost")
 position = Vector2(224, 144)
 health = 999
 
-[node name="Ripper9" parent="Enemies" unique_id=1242176067 instance=ExtResource("17_3k0f5")]
-position = Vector2(272, 52)
-health = 999
-
 [node name="Ripper17" parent="Enemies" unique_id=861230443 instance=ExtResource("17_3k0f5")]
 position = Vector2(500, 64)
 health = 999
