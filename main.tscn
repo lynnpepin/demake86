@@ -616,10 +616,6 @@ position = Vector2(392, 96)
 position = Vector2(100, 480)
 tracking = NodePath("../../Relan")
 
-[node name="FakeKemp2" parent="BOSSES" unique_id=1063683544 node_paths=PackedStringArray("tracking") instance=ExtResource("14_0cp0l")]
-position = Vector2(100, 424)
-tracking = NodePath("../../Relan")
-
 [node name="KraidGrave" type="StaticBody2D" parent="BOSSES" unique_id=1100725062]
 position = Vector2(172, 52)
 collision_layer = 2
