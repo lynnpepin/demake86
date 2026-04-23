@@ -39,6 +39,7 @@ swoop_speed = 96
 return_speed = 96
 return_accel = 384
 swoop_period = 2.0
+sprite = null
 
 [node name="CollisionPlatforming" parent="." index="0" unique_id=1771735465]
 position = Vector2(0, 0)
@@ -90,6 +91,7 @@ initial_velocity_max = 72.0
 scale_amount_max = 3.0
 
 [node name="SwoopingArea" type="Area2D" parent="." index="10" unique_id=1535174995]
+visible = false
 position = Vector2(0, 12)
 collision_layer = 4
 collision_mask = 16
