@@ -24,6 +24,8 @@ func open():
         tracking_another.unveil()
     if tracking_third:
         tracking_third.unveil()
+
+    
 # TODOs:
 # - Open
 # - Play sound on open
