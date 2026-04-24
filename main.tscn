@@ -392,7 +392,7 @@ size = Vector2(64, 64)
 script = ExtResource("1_hrvbo")
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
-position = Vector2(95, 44)
+position = Vector2(95, 152)
 START_MISSILES = 12
 START_ENERGY = 12
 has_morph_ball = true

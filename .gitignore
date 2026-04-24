@@ -1,5 +1,10 @@
 # Godot 4+ specific ignores
 .godot/
+.DS_Store
+*.import
+.import
+*.import*
+macos_is_hot_shitty_garbage
 addons/
 export/
 z_*

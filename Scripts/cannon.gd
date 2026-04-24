@@ -110,7 +110,11 @@ func handle_angles():
         aimvec.x = flip
     
     # Set the angle according to our X-Y components
-    angle = posmod(int((aimvec.angle() / PI) * 4),8)
+    angle = posmod(int((
+        aimvec.angle() / PI) * 4 #+ .001
+        #+ 0.001 * int(flip == -1.0)
+        # TODO - MACOS FLOATING POINT FUCKERY????
+        ),8)
     
     # If lb is pressed, use this to map (angle, previous_angle) to an angle
     if diag:
@@ -124,6 +128,9 @@ func handle_angles():
             [7, 7, 5, 5, 5, 5, 6 + flip, 7 ][prevangle], # down
             7
         ][angle]
+    
+    if angle != prevangle:
+        print("handle angles said: ", angle, "from ", prevangle)
 
 func shoot(delta):
     if Input.is_action_pressed("pad_x"):

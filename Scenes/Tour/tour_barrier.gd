@@ -3,6 +3,30 @@ extends StaticBody2D
 var shattered: bool = false
 var destroyed: bool = false
 
+var hp: float = 20.0
+var hurt_cooldown: float = 0.0
+
+func _process(delta) -> void:
+    hurt_cooldown = max(hurt_cooldown - delta, 0.0)
+
+func hurt(damage, timer):
+    #print("zeb blasted:", damage,",", timer)
+    if hurt_cooldown <= 0.0:
+        print("zeb hurt, new hp:", hp)
+        hurt_cooldown = timer
+        hp -= damage
+        
+        if !shattered or !destroyed:
+            if hp <= 0.0:
+                hp = 20.0
+                if !shattered:
+                    shatter()
+                elif !destroyed:
+                    destroy()
+        else:
+            stop_its_already_dead()
+        
+
 func shatter():
     shattered = true
     $AnimatedSprite2D_Glass.play("broken")
