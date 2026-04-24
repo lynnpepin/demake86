@@ -219,7 +219,7 @@ func get_shoot_xy(angle):
         [-2, -2,  0,  2, 2, 2, 0, -2][angle],
         [0,  2, 2, 2, 0, -2, -2,  -2][angle]
     )
-    print(shoot_xy)
+    #print(shoot_xy)
     return shoot_xy
     
     

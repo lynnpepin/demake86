@@ -45,7 +45,6 @@ func _process(delta):
             position = Vector2(0,0)
             shaking_timer = 0.0
         else:
-            print("SHAKE:", AAs, VVs, position)
             shaking_timer += delta
 
 
@@ -72,5 +71,4 @@ func set_shake(
     VVs[1] = -strength.rotated(PI)/2.0
     KKs[1] = KK[1]
     DDs[1] = DD[1]
-    print("SET SHAKE:", AAs, VVs, position,)
     
