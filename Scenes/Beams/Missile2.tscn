@@ -32,7 +32,7 @@ data = PackedByteArray("CQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkMDg4ODg4ODg4ODg4ODg4ODg4O
 
 [node name="Missile" type="AnimatableBody2D" unique_id=1423770095 groups=["beam"]]
 collision_layer = 8
-collision_mask = 2
+collision_mask = 34
 sync_to_physics = false
 script = ExtResource("1_5oxwn")
 LIFESPAN = 8.0
@@ -44,7 +44,7 @@ shape = SubResource("RectangleShape2D_fq56s")
 
 [node name="AreaToCheckForEnemy" type="Area2D" parent="." unique_id=1912178074 groups=["beam"]]
 collision_layer = 8
-collision_mask = 4
+collision_mask = 36
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaToCheckForEnemy" unique_id=358912967 groups=["beam"]]
 shape = SubResource("RectangleShape2D_l31wo")
@@ -142,4 +142,5 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.0
 high_pass_filter/cutoff_sweep = 0.0
 
+[connection signal="area_entered" from="AreaToCheckForEnemy" to="." method="_on_area_entered"]
 [connection signal="area_entered" from="AreaToCheckForEnemy" to="." method="_on_area_to_check_for_enemy_area_entered"]

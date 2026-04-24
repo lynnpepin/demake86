@@ -60,6 +60,7 @@ hatch=""
 bomb="Morph ball bomb"
 water=""
 shootable_block=""
+ventilated_area="Clears smoke from missiles much faster, so you can see juicy effects"
 
 [input]
 
@@ -277,6 +278,7 @@ pad_rs={
 2d_physics/layer_3="Enemies"
 2d_physics/layer_4="Beam"
 2d_physics/layer_5="Player_Hurtbox"
+2d_physics/layer_6="Effect Areas"
 
 [physics]
 

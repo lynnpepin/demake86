@@ -1,3 +1,4 @@
+# DEPRECATED i think
 extends AnimatableBody2D
 
 var LIFESPAN: float = 4.0;
