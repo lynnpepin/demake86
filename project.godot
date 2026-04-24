@@ -287,5 +287,5 @@ common/physics_ticks_per_second=120
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.3764706, 0.4392157, 0.5019608, 1)
+environment/defaults/default_clear_color=Color(0.1056, 0.11256, 0.12, 1)
 viewport/transparent_background=true

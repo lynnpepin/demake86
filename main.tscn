@@ -358,7 +358,13 @@ specular_color = Color(0, 0, 0, 1)
 script = ExtResource("1_hrvbo")
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
-position = Vector2(96, 160)
+position = Vector2(119, 20)
+START_MISSILES = 12
+START_ENERGY = 12
+has_morph_ball = true
+has_morph_bomb = true
+has_long_beam = true
+has_varia_suit = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Relan" unique_id=31498320]
 visible = false
@@ -368,6 +374,7 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_p8m5k")
 
 [node name="HatchShadows" type="Node2D" parent="." unique_id=634801033]
+visible = false
 
 [node name="shadow_brin_shadow_1" type="TileMapLayer" parent="HatchShadows" unique_id=1981081113]
 visible = false
@@ -1209,14 +1216,196 @@ z_index = -30
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_512" unique_id=331792555]
 texture = ExtResource("4_kp1pf")
 
-[node name="Enemies" type="Node2D" parent="." unique_id=1802172158]
+[node name="Critters" type="Node2D" parent="." unique_id=1802172158]
 
-[node name="Swooper" parent="Enemies" unique_id=693798281 instance=ExtResource("38_0n3wm")]
+[node name="Hoppers" type="Node2D" parent="Critters" unique_id=1284641056]
+
+[node name="hopper" parent="Critters/Hoppers" unique_id=1589595784 instance=ExtResource("44_0n3wm")]
+position = Vector2(220, 304)
+health = 8
+
+[node name="hopper4" parent="Critters/Hoppers" unique_id=766253773 instance=ExtResource("44_0n3wm")]
+position = Vector2(80, 360)
+health = 8
+
+[node name="hopper6" parent="Critters/Hoppers" unique_id=665896909 instance=ExtResource("44_0n3wm")]
+position = Vector2(148, 432)
+health = 8
+
+[node name="hopper5" parent="Critters/Hoppers" unique_id=74400960 instance=ExtResource("44_0n3wm")]
+position = Vector2(160, 384)
+health = 8
+
+[node name="hopper2" parent="Critters/Hoppers" unique_id=1854449173 instance=ExtResource("44_0n3wm")]
+position = Vector2(228, 232)
+health = 8
+
+[node name="hopper10" parent="Critters/Hoppers" unique_id=561676007 instance=ExtResource("44_0n3wm")]
+position = Vector2(316, 247)
+health = 8
+
+[node name="hopper11" parent="Critters/Hoppers" unique_id=832960662 instance=ExtResource("44_0n3wm")]
+position = Vector2(333, 255)
+health = 8
+
+[node name="hopper12" parent="Critters/Hoppers" unique_id=1142515020 instance=ExtResource("44_0n3wm")]
+position = Vector2(347, 255)
+health = 8
+
+[node name="hopper14" parent="Critters/Hoppers" unique_id=799369849 instance=ExtResource("44_0n3wm")]
+position = Vector2(400, 248)
+health = 8
+
+[node name="hopper15" parent="Critters/Hoppers" unique_id=93052883 instance=ExtResource("44_0n3wm")]
+position = Vector2(428, 248)
+health = 8
+
+[node name="hopper16" parent="Critters/Hoppers" unique_id=810784793 instance=ExtResource("44_0n3wm")]
+position = Vector2(472, 240)
+health = 8
+
+[node name="hopper7" parent="Critters/Hoppers" unique_id=1578391603 instance=ExtResource("44_0n3wm")]
+position = Vector2(300, 360)
+health = 8
+
+[node name="hopper8" parent="Critters/Hoppers" unique_id=978286344 instance=ExtResource("44_0n3wm")]
+position = Vector2(276, 376)
+health = 8
+
+[node name="hopper9" parent="Critters/Hoppers" unique_id=1387212468 instance=ExtResource("44_0n3wm")]
+position = Vector2(412, 432)
+health = 8
+
+[node name="hopper3" parent="Critters/Hoppers" unique_id=2098100946 instance=ExtResource("44_0n3wm")]
+position = Vector2(212, 248)
+health = 8
+
+[node name="Seahornses" type="Node2D" parent="Critters" unique_id=869767790]
+
+[node name="Seahorse" parent="Critters/Seahornses" unique_id=2136230631 instance=ExtResource("43_gngh3")]
+position = Vector2(300, 500)
+health = 24
+
+[node name="Seahorse3" parent="Critters/Seahornses" unique_id=969924969 instance=ExtResource("43_gngh3")]
+position = Vector2(308, 500)
+health = 24
+
+[node name="Seahorse5" parent="Critters/Seahornses" unique_id=1409228635 instance=ExtResource("43_gngh3")]
+position = Vector2(436, 500)
+health = 24
+
+[node name="Seahorse6" parent="Critters/Seahornses" unique_id=1319623288 instance=ExtResource("43_gngh3")]
+position = Vector2(284, 500)
+health = 24
+
+[node name="Seahorse2" parent="Critters/Seahornses" unique_id=568044717 instance=ExtResource("43_gngh3")]
+position = Vector2(276, 500)
+rotation = -3.1415925
+scale = Vector2(1, -1)
+health = 24
+
+[node name="Seahorse7" parent="Critters/Seahornses" unique_id=273335266 instance=ExtResource("43_gngh3")]
+position = Vector2(292, 500)
+rotation = -3.1415925
+scale = Vector2(1, -1)
+health = 24
+
+[node name="Seahorse8" parent="Critters/Seahornses" unique_id=1055031879 instance=ExtResource("43_gngh3")]
+position = Vector2(420, 372)
+rotation = -3.1415925
+scale = Vector2(1, -1)
+health = 24
+
+[node name="Seahorse9" parent="Critters/Seahornses" unique_id=1884389300 instance=ExtResource("43_gngh3")]
+position = Vector2(276, 308)
+rotation = -3.1415925
+scale = Vector2(1, -1)
+health = 24
+
+[node name="Seahorse10" parent="Critters/Seahornses" unique_id=1933782660 instance=ExtResource("43_gngh3")]
+position = Vector2(292, 308)
+health = 24
+
+[node name="Seahorse4" parent="Critters/Seahornses" unique_id=933206295 instance=ExtResource("43_gngh3")]
+position = Vector2(404, 500)
+rotation = -3.1415925
+scale = Vector2(1, -1)
+health = 24
+
+[node name="Batsards" type="Node2D" parent="Critters" unique_id=1927745269]
+
+[node name="Batsard" parent="Critters/Batsards" unique_id=1175102047 instance=ExtResource("43_d2t1y")]
+position = Vector2(141, 136)
+health = 4
+
+[node name="Batsard2" parent="Critters/Batsards" unique_id=1533963521 instance=ExtResource("43_d2t1y")]
+position = Vector2(300, 128)
+health = 4
+
+[node name="Batsard16" parent="Critters/Batsards" unique_id=455229715 instance=ExtResource("43_d2t1y")]
+position = Vector2(276, 128)
+health = 4
+
+[node name="Batsard3" parent="Critters/Batsards" unique_id=2147314002 instance=ExtResource("43_d2t1y")]
+position = Vector2(205, 192)
+health = 4
+
+[node name="Batsard14" parent="Critters/Batsards" unique_id=1436647730 instance=ExtResource("43_d2t1y")]
+position = Vector2(220, 192)
+health = 4
+
+[node name="Batsard4" parent="Critters/Batsards" unique_id=1401787872 instance=ExtResource("43_d2t1y")]
+position = Vector2(237, 192)
+health = 4
+
+[node name="Batsard13" parent="Critters/Batsards" unique_id=959624919 instance=ExtResource("43_d2t1y")]
+position = Vector2(252, 192)
+health = 4
+
+[node name="Batsard5" parent="Critters/Batsards" unique_id=2047911543 instance=ExtResource("43_d2t1y")]
+position = Vector2(212, 264)
+health = 4
+
+[node name="Batsard15" parent="Critters/Batsards" unique_id=1408682809 instance=ExtResource("43_d2t1y")]
+position = Vector2(204, 264)
+health = 4
+
+[node name="Batsard6" parent="Critters/Batsards" unique_id=2090663027 instance=ExtResource("43_d2t1y")]
+position = Vector2(252, 264)
+health = 4
+
+[node name="Batsard7" parent="Critters/Batsards" unique_id=1852810526 instance=ExtResource("43_d2t1y")]
+position = Vector2(117, 208)
+health = 4
+
+[node name="Batsard8" parent="Critters/Batsards" unique_id=964774903 instance=ExtResource("43_d2t1y")]
+position = Vector2(109, 280)
+health = 4
+
+[node name="Batsard9" parent="Critters/Batsards" unique_id=1409628818 instance=ExtResource("43_d2t1y")]
+position = Vector2(165, 400)
+health = 4
+
+[node name="Batsard11" parent="Critters/Batsards" unique_id=1600160238 instance=ExtResource("43_d2t1y")]
+position = Vector2(181, 456)
+health = 4
+
+[node name="Batsard12" parent="Critters/Batsards" unique_id=1002540263 instance=ExtResource("43_d2t1y")]
+position = Vector2(157, 456)
+health = 4
+
+[node name="Batsard10" parent="Critters/Batsards" unique_id=568715617 instance=ExtResource("43_d2t1y")]
+position = Vector2(149, 400)
+health = 4
+
+[node name="Swoopers" type="Node2D" parent="Critters" unique_id=591489011]
+
+[node name="Swooper" parent="Critters/Swoopers" unique_id=693798281 instance=ExtResource("38_0n3wm")]
 position = Vector2(176, 140)
 swoop_speed = 48
 sprite = ExtResource("29_qnost")
 
-[node name="Swooper8" parent="Enemies" unique_id=1981089262 instance=ExtResource("38_0n3wm")]
+[node name="Swooper8" parent="Critters/Swoopers" unique_id=1981089262 instance=ExtResource("38_0n3wm")]
 position = Vector2(340, 180)
 hspeed = 16
 swoop_speed = 128
@@ -1224,7 +1413,7 @@ return_speed = 128
 sprite = ExtResource("30_wnkbs")
 health = 6
 
-[node name="Swooper9" parent="Enemies" unique_id=770514709 instance=ExtResource("38_0n3wm")]
+[node name="Swooper9" parent="Critters/Swoopers" unique_id=770514709 instance=ExtResource("38_0n3wm")]
 position = Vector2(412, 204)
 hspeed = 16
 swoop_speed = 64
@@ -1232,7 +1421,7 @@ return_speed = 128
 sprite = ExtResource("30_wnkbs")
 health = 6
 
-[node name="Swooper12" parent="Enemies" unique_id=1113439640 instance=ExtResource("38_0n3wm")]
+[node name="Swooper12" parent="Critters/Swoopers" unique_id=1113439640 instance=ExtResource("38_0n3wm")]
 position = Vector2(460, 332)
 hspeed = 16
 swoop_speed = 128
@@ -1240,7 +1429,7 @@ return_speed = 128
 sprite = ExtResource("30_wnkbs")
 health = 6
 
-[node name="Swooper10" parent="Enemies" unique_id=8830867 instance=ExtResource("38_0n3wm")]
+[node name="Swooper10" parent="Critters/Swoopers" unique_id=8830867 instance=ExtResource("38_0n3wm")]
 position = Vector2(460, 140)
 hspeed = 16
 swoop_speed = 64
@@ -1248,7 +1437,7 @@ return_speed = 128
 sprite = ExtResource("30_wnkbs")
 health = 6
 
-[node name="Swooper22" parent="Enemies" unique_id=1304506990 instance=ExtResource("38_0n3wm")]
+[node name="Swooper22" parent="Critters/Swoopers" unique_id=1304506990 instance=ExtResource("38_0n3wm")]
 position = Vector2(500, 140)
 hspeed = 16
 swoop_speed = 64
@@ -1256,7 +1445,7 @@ return_speed = 128
 sprite = ExtResource("30_wnkbs")
 health = 6
 
-[node name="Swooper11" parent="Enemies" unique_id=603940628 instance=ExtResource("38_0n3wm")]
+[node name="Swooper11" parent="Critters/Swoopers" unique_id=603940628 instance=ExtResource("38_0n3wm")]
 position = Vector2(416, 324)
 hspeed = 16
 swoop_speed = 196
@@ -1264,7 +1453,7 @@ return_speed = 128
 sprite = ExtResource("31_f6a44")
 health = 6
 
-[node name="Swooper13" parent="Enemies" unique_id=533887930 instance=ExtResource("38_0n3wm")]
+[node name="Swooper13" parent="Critters/Swoopers" unique_id=533887930 instance=ExtResource("38_0n3wm")]
 position = Vector2(428, 388)
 hspeed = 16
 swoop_speed = 72
@@ -1272,7 +1461,7 @@ return_speed = 64
 sprite = ExtResource("31_f6a44")
 health = 6
 
-[node name="Swooper14" parent="Enemies" unique_id=2089065543 instance=ExtResource("38_0n3wm")]
+[node name="Swooper14" parent="Critters/Swoopers" unique_id=2089065543 instance=ExtResource("38_0n3wm")]
 position = Vector2(404, 428)
 hspeed = 16
 swoop_speed = 72
@@ -1280,7 +1469,7 @@ return_speed = 64
 sprite = ExtResource("31_f6a44")
 health = 6
 
-[node name="Swooper15" parent="Enemies" unique_id=1442709742 instance=ExtResource("38_0n3wm")]
+[node name="Swooper15" parent="Critters/Swoopers" unique_id=1442709742 instance=ExtResource("38_0n3wm")]
 position = Vector2(404, 460)
 hspeed = 16
 swoop_speed = 72
@@ -1288,7 +1477,7 @@ return_speed = 64
 sprite = ExtResource("31_f6a44")
 health = 6
 
-[node name="Swooper16" parent="Enemies" unique_id=239046190 instance=ExtResource("38_0n3wm")]
+[node name="Swooper16" parent="Critters/Swoopers" unique_id=239046190 instance=ExtResource("38_0n3wm")]
 position = Vector2(428, 460)
 hspeed = 16
 swoop_speed = 72
@@ -1296,7 +1485,7 @@ return_speed = 64
 sprite = ExtResource("31_f6a44")
 health = 6
 
-[node name="Swooper17" parent="Enemies" unique_id=770143862 instance=ExtResource("38_0n3wm")]
+[node name="Swooper17" parent="Critters/Swoopers" unique_id=770143862 instance=ExtResource("38_0n3wm")]
 position = Vector2(420, 468)
 hspeed = 16
 swoop_speed = 72
@@ -1304,7 +1493,7 @@ return_speed = 64
 sprite = ExtResource("31_f6a44")
 health = 6
 
-[node name="Swooper18" parent="Enemies" unique_id=683703624 instance=ExtResource("38_0n3wm")]
+[node name="Swooper18" parent="Critters/Swoopers" unique_id=683703624 instance=ExtResource("38_0n3wm")]
 position = Vector2(316, 236)
 hspeed = 16
 swoop_speed = 64
@@ -1312,7 +1501,7 @@ return_speed = 128
 sprite = ExtResource("31_f6a44")
 health = 6
 
-[node name="Swooper19" parent="Enemies" unique_id=1197261845 instance=ExtResource("38_0n3wm")]
+[node name="Swooper19" parent="Critters/Swoopers" unique_id=1197261845 instance=ExtResource("38_0n3wm")]
 position = Vector2(332, 236)
 hspeed = 16
 swoop_speed = 64
@@ -1320,7 +1509,7 @@ return_speed = 128
 sprite = ExtResource("31_f6a44")
 health = 6
 
-[node name="Swooper20" parent="Enemies" unique_id=1490238707 instance=ExtResource("38_0n3wm")]
+[node name="Swooper20" parent="Critters/Swoopers" unique_id=1490238707 instance=ExtResource("38_0n3wm")]
 position = Vector2(348, 236)
 hspeed = 16
 swoop_speed = 64
@@ -1328,7 +1517,7 @@ return_speed = 128
 sprite = ExtResource("31_f6a44")
 health = 6
 
-[node name="Swooper21" parent="Enemies" unique_id=104985874 instance=ExtResource("38_0n3wm")]
+[node name="Swooper21" parent="Critters/Swoopers" unique_id=104985874 instance=ExtResource("38_0n3wm")]
 position = Vector2(364, 236)
 hspeed = 16
 swoop_speed = 64
@@ -1336,119 +1525,123 @@ return_speed = 128
 sprite = ExtResource("31_f6a44")
 health = 6
 
-[node name="Swooper2" parent="Enemies" unique_id=1834329187 instance=ExtResource("38_0n3wm")]
+[node name="Swooper2" parent="Critters/Swoopers" unique_id=1834329187 instance=ExtResource("38_0n3wm")]
 position = Vector2(180, 92)
 swoop_speed = 48
 sprite = ExtResource("29_qnost")
 
-[node name="Swooper3" parent="Enemies" unique_id=753871456 instance=ExtResource("38_0n3wm")]
+[node name="Swooper3" parent="Critters/Swoopers" unique_id=753871456 instance=ExtResource("38_0n3wm")]
 position = Vector2(200, 20)
 swoop_speed = 48
 sprite = ExtResource("29_qnost")
 health = 4
 
-[node name="Swooper4" parent="Enemies" unique_id=90316349 instance=ExtResource("38_0n3wm")]
+[node name="Swooper4" parent="Critters/Swoopers" unique_id=90316349 instance=ExtResource("38_0n3wm")]
 position = Vector2(308, 156)
 swoop_speed = 48
 sprite = ExtResource("29_qnost")
 
-[node name="Swooper5" parent="Enemies" unique_id=778527642 instance=ExtResource("38_0n3wm")]
+[node name="Swooper5" parent="Critters/Swoopers" unique_id=778527642 instance=ExtResource("38_0n3wm")]
 position = Vector2(472, 64)
 swoop_speed = 48
 sprite = ExtResource("29_qnost")
 health = 2
 
-[node name="Swooper6" parent="Enemies" unique_id=1912442110 instance=ExtResource("38_0n3wm")]
+[node name="Swooper6" parent="Critters/Swoopers" unique_id=1912442110 instance=ExtResource("38_0n3wm")]
 position = Vector2(444, 12)
 swoop_speed = 48
 sprite = ExtResource("29_qnost")
 health = 2
 
-[node name="Swooper7" parent="Enemies" unique_id=1987610602 instance=ExtResource("38_0n3wm")]
+[node name="Swooper7" parent="Critters/Swoopers" unique_id=1987610602 instance=ExtResource("38_0n3wm")]
 position = Vector2(328, 32)
 swoop_speed = 48
 sprite = ExtResource("29_qnost")
 
-[node name="Ripper2" parent="Enemies" unique_id=475420944 instance=ExtResource("17_3k0f5")]
+[node name="Rippers" type="Node2D" parent="Critters" unique_id=1853844794]
+
+[node name="Ripper2" parent="Critters/Rippers" unique_id=475420944 instance=ExtResource("17_3k0f5")]
 position = Vector2(224, 144)
 health = 999
 
-[node name="Ripper17" parent="Enemies" unique_id=861230443 instance=ExtResource("17_3k0f5")]
+[node name="Ripper17" parent="Critters/Rippers" unique_id=861230443 instance=ExtResource("17_3k0f5")]
 position = Vector2(500, 64)
 health = 999
 
-[node name="Ripper19" parent="Enemies" unique_id=2066203048 instance=ExtResource("17_3k0f5")]
+[node name="Ripper19" parent="Critters/Rippers" unique_id=2066203048 instance=ExtResource("17_3k0f5")]
 position = Vector2(480, 308)
 health = 999
 
-[node name="Ripper3" parent="Enemies" unique_id=1482083627 instance=ExtResource("17_3k0f5")]
+[node name="Ripper3" parent="Critters/Rippers" unique_id=1482083627 instance=ExtResource("17_3k0f5")]
 position = Vector2(20, 232)
 health = 999
 
-[node name="Ripper4" parent="Enemies" unique_id=886134945 instance=ExtResource("17_3k0f5")]
+[node name="Ripper4" parent="Critters/Rippers" unique_id=886134945 instance=ExtResource("17_3k0f5")]
 position = Vector2(44, 256)
 health = 999
 
-[node name="Ripper8" parent="Enemies" unique_id=1224009045 instance=ExtResource("17_3k0f5")]
+[node name="Ripper8" parent="Critters/Rippers" unique_id=1224009045 instance=ExtResource("17_3k0f5")]
 position = Vector2(52, 244)
 health = 999
 
-[node name="Ripper5" parent="Enemies" unique_id=982555160 instance=ExtResource("17_3k0f5")]
+[node name="Ripper5" parent="Critters/Rippers" unique_id=982555160 instance=ExtResource("17_3k0f5")]
 position = Vector2(12, 272)
 health = 999
 
-[node name="Ripper6" parent="Enemies" unique_id=2113592930 instance=ExtResource("17_3k0f5")]
+[node name="Ripper6" parent="Critters/Rippers" unique_id=2113592930 instance=ExtResource("17_3k0f5")]
 position = Vector2(52, 288)
 health = 999
 
-[node name="Ripper7" parent="Enemies" unique_id=1145757047 instance=ExtResource("17_3k0f5")]
+[node name="Ripper7" parent="Critters/Rippers" unique_id=1145757047 instance=ExtResource("17_3k0f5")]
 position = Vector2(20, 304)
 health = 999
 
-[node name="Ripper10" parent="Enemies" unique_id=1830762709 instance=ExtResource("17_3k0f5")]
+[node name="Ripper10" parent="Critters/Rippers" unique_id=1830762709 instance=ExtResource("17_3k0f5")]
 position = Vector2(44, 320)
 health = 999
 
-[node name="Ripper15" parent="Enemies" unique_id=2010587051 instance=ExtResource("17_3k0f5")]
+[node name="Ripper15" parent="Critters/Rippers" unique_id=2010587051 instance=ExtResource("17_3k0f5")]
 position = Vector2(92, 324)
 health = 999
 
-[node name="Ripper16" parent="Enemies" unique_id=889077938 instance=ExtResource("17_3k0f5")]
+[node name="Ripper16" parent="Critters/Rippers" unique_id=889077938 instance=ExtResource("17_3k0f5")]
 position = Vector2(92, 304)
 health = 999
 
-[node name="Ripper11" parent="Enemies" unique_id=672326222 instance=ExtResource("17_3k0f5")]
+[node name="Ripper11" parent="Critters/Rippers" unique_id=672326222 instance=ExtResource("17_3k0f5")]
 position = Vector2(12, 336)
 health = 999
 
-[node name="Ripper12" parent="Enemies" unique_id=1116461694 instance=ExtResource("17_3k0f5")]
+[node name="Ripper12" parent="Critters/Rippers" unique_id=1116461694 instance=ExtResource("17_3k0f5")]
 position = Vector2(52, 352)
 health = 999
 
-[node name="Ripper13" parent="Enemies" unique_id=775745008 instance=ExtResource("17_3k0f5")]
+[node name="Ripper13" parent="Critters/Rippers" unique_id=775745008 instance=ExtResource("17_3k0f5")]
 position = Vector2(20, 368)
 health = 999
 
-[node name="Ripper14" parent="Enemies" unique_id=464789937 instance=ExtResource("17_3k0f5")]
+[node name="Ripper14" parent="Critters/Rippers" unique_id=464789937 instance=ExtResource("17_3k0f5")]
 position = Vector2(44, 384)
 health = 999
 
-[node name="Zoomer" parent="Enemies" unique_id=743314971 instance=ExtResource("26_lswn8")]
+[node name="Zoomers" type="Node2D" parent="Critters" unique_id=177349455]
+
+[node name="Zoomer" parent="Critters/Zoomers" unique_id=743314971 instance=ExtResource("26_lswn8")]
 position = Vector2(80, 160)
 rotation = -1.57079
 start_hp = 7
 sprite = ExtResource("33_come4")
 health = 7
 
-[node name="Zoomer18" parent="Enemies" unique_id=1007610357 instance=ExtResource("26_lswn8")]
+[node name="Zoomer18" parent="Critters/Zoomers" unique_id=1007610357 instance=ExtResource("26_lswn8")]
 position = Vector2(112, 160)
-rotation = -4.7123823
+rotation = 1.5708029
 start_hp = 7
 sprite = ExtResource("33_come4")
 speed = 12
 health = 7
 
-[node name="Zoomer65" parent="Enemies" unique_id=100344623 instance=ExtResource("26_lswn8")]
+[node name="Zoomer65" parent="Critters/Zoomers" unique_id=100344623 instance=ExtResource("26_lswn8")]
 position = Vector2(-232, 148)
 rotation = -1.57079
 start_hp = 7
@@ -1456,95 +1649,95 @@ sprite = ExtResource("33_come4")
 speed = 12
 health = 7
 
-[node name="Zoomer19" parent="Enemies" unique_id=1801570524 instance=ExtResource("26_lswn8")]
+[node name="Zoomer19" parent="Critters/Zoomers" unique_id=1801570524 instance=ExtResource("26_lswn8")]
 position = Vector2(224, 128)
 start_hp = 7
 sprite = ExtResource("33_come4")
 health = 7
 
-[node name="Zoomer64" parent="Enemies" unique_id=1039936731 instance=ExtResource("26_lswn8")]
+[node name="Zoomer64" parent="Critters/Zoomers" unique_id=1039936731 instance=ExtResource("26_lswn8")]
 position = Vector2(228, 72)
 start_hp = 7
 sprite = ExtResource("33_come4")
 health = 7
 
-[node name="Zoomer20" parent="Enemies" unique_id=2110982592 instance=ExtResource("26_lswn8")]
+[node name="Zoomer20" parent="Critters/Zoomers" unique_id=2110982592 instance=ExtResource("26_lswn8")]
 position = Vector2(288, 88)
 start_hp = 7
 sprite = ExtResource("34_h8e4i")
 health = 7
 
-[node name="Zoomer28" parent="Enemies" unique_id=1131554460 instance=ExtResource("26_lswn8")]
+[node name="Zoomer28" parent="Critters/Zoomers" unique_id=1131554460 instance=ExtResource("26_lswn8")]
 position = Vector2(280, 48)
 start_hp = 7
 sprite = ExtResource("34_h8e4i")
 health = 7
 
-[node name="Zoomer21" parent="Enemies" unique_id=1533409799 instance=ExtResource("26_lswn8")]
+[node name="Zoomer21" parent="Critters/Zoomers" unique_id=1533409799 instance=ExtResource("26_lswn8")]
 position = Vector2(288, 120)
 start_hp = 7
 sprite = ExtResource("34_h8e4i")
 health = 7
 
-[node name="Zoomer66" parent="Enemies" unique_id=689841984 instance=ExtResource("26_lswn8")]
+[node name="Zoomer66" parent="Critters/Zoomers" unique_id=689841984 instance=ExtResource("26_lswn8")]
 position = Vector2(-232, 132)
 rotation = -1.5707941
 start_hp = 7
 sprite = ExtResource("34_h8e4i")
 health = 7
 
-[node name="Zoomer22" parent="Enemies" unique_id=1235552202 instance=ExtResource("26_lswn8")]
+[node name="Zoomer22" parent="Critters/Zoomers" unique_id=1235552202 instance=ExtResource("26_lswn8")]
 position = Vector2(480, 200)
 start_hp = 7
 health = 7
 
-[node name="Zoomer29" parent="Enemies" unique_id=1678556994 instance=ExtResource("26_lswn8")]
+[node name="Zoomer29" parent="Critters/Zoomers" unique_id=1678556994 instance=ExtResource("26_lswn8")]
 position = Vector2(480, 216)
 rotation = -3.1415882
 start_hp = 7
 health = 7
 
-[node name="Zoomer23" parent="Enemies" unique_id=281428271 instance=ExtResource("26_lswn8")]
+[node name="Zoomer23" parent="Critters/Zoomers" unique_id=281428271 instance=ExtResource("26_lswn8")]
 position = Vector2(348, 400)
 start_hp = 7
 sprite = ExtResource("35_0cp0l")
 health = 7
 
-[node name="Zoomer69" parent="Enemies" unique_id=1467766941 instance=ExtResource("26_lswn8")]
+[node name="Zoomer69" parent="Critters/Zoomers" unique_id=1467766941 instance=ExtResource("26_lswn8")]
 position = Vector2(-276, 160)
 start_hp = 7
 sprite = ExtResource("35_0cp0l")
 health = 7
 
-[node name="Zoomer24" parent="Enemies" unique_id=2125112689 instance=ExtResource("26_lswn8")]
+[node name="Zoomer24" parent="Critters/Zoomers" unique_id=2125112689 instance=ExtResource("26_lswn8")]
 position = Vector2(300, 392)
 start_hp = 7
 sprite = ExtResource("35_0cp0l")
 health = 7
 
-[node name="Zoomer25" parent="Enemies" unique_id=922307947 instance=ExtResource("26_lswn8")]
+[node name="Zoomer25" parent="Critters/Zoomers" unique_id=922307947 instance=ExtResource("26_lswn8")]
 position = Vector2(300, 280)
 start_hp = 7
 health = 7
 
-[node name="Zoomer26" parent="Enemies" unique_id=160894359 instance=ExtResource("26_lswn8")]
+[node name="Zoomer26" parent="Critters/Zoomers" unique_id=160894359 instance=ExtResource("26_lswn8")]
 position = Vector2(164, 256)
 start_hp = 7
 sprite = ExtResource("35_4lmeg")
 health = 7
 
-[node name="Zoomer67" parent="Enemies" unique_id=768323943 instance=ExtResource("26_lswn8")]
+[node name="Zoomer67" parent="Critters/Zoomers" unique_id=768323943 instance=ExtResource("26_lswn8")]
 position = Vector2(-244, 160)
 start_hp = 7
 sprite = ExtResource("35_4lmeg")
 health = 7
 
-[node name="Zoomer68" parent="Enemies" unique_id=122713074 instance=ExtResource("26_lswn8")]
+[node name="Zoomer68" parent="Critters/Zoomers" unique_id=122713074 instance=ExtResource("26_lswn8")]
 position = Vector2(-260, 160)
 start_hp = 7
 health = 7
 
-[node name="Zoomer70" parent="Enemies" unique_id=568898485 instance=ExtResource("26_lswn8")]
+[node name="Zoomer70" parent="Critters/Zoomers" unique_id=568898485 instance=ExtResource("26_lswn8")]
 position = Vector2(-280, 124.0003)
 rotation = 1.5707941
 start_hp = 7
@@ -1552,280 +1745,106 @@ sprite = ExtResource("33_come4")
 speed = 12
 health = 7
 
-[node name="Zoomer71" parent="Enemies" unique_id=923578528 instance=ExtResource("26_lswn8")]
+[node name="Zoomer71" parent="Critters/Zoomers" unique_id=923578528 instance=ExtResource("26_lswn8")]
 position = Vector2(-279.99988, 140.0002)
 rotation = 1.5707941
 start_hp = 7
 sprite = ExtResource("34_h8e4i")
 health = 7
 
-[node name="Zoomer72" parent="Enemies" unique_id=165680698 instance=ExtResource("26_lswn8")]
+[node name="Zoomer72" parent="Critters/Zoomers" unique_id=165680698 instance=ExtResource("26_lswn8")]
 position = Vector2(-236.00002, 112)
 rotation = 3.1415882
 start_hp = 7
 sprite = ExtResource("35_0cp0l")
 health = 7
 
-[node name="Zoomer73" parent="Enemies" unique_id=1249382343 instance=ExtResource("26_lswn8")]
+[node name="Zoomer73" parent="Critters/Zoomers" unique_id=1249382343 instance=ExtResource("26_lswn8")]
 position = Vector2(-268.00003, 112.000145)
 rotation = 3.1415882
 start_hp = 7
 sprite = ExtResource("35_4lmeg")
 health = 7
 
-[node name="Zoomer74" parent="Enemies" unique_id=1506326089 instance=ExtResource("26_lswn8")]
+[node name="Zoomer74" parent="Critters/Zoomers" unique_id=1506326089 instance=ExtResource("26_lswn8")]
 position = Vector2(-252.00002, 112.00008)
 rotation = 3.1415882
 start_hp = 7
 health = 7
 
-[node name="Zoomer27" parent="Enemies" unique_id=1929801363 instance=ExtResource("26_lswn8")]
+[node name="Zoomer27" parent="Critters/Zoomers" unique_id=1929801363 instance=ExtResource("26_lswn8")]
 position = Vector2(156, 256)
 start_hp = 7
 sprite = ExtResource("35_4lmeg")
 health = 7
 
-[node name="Zoomer37" parent="Enemies" unique_id=262221890 instance=ExtResource("26_lswn8")]
+[node name="Zoomer37" parent="Critters/Zoomers" unique_id=262221890 instance=ExtResource("26_lswn8")]
 position = Vector2(108, 272)
 start_hp = 7
 sprite = ExtResource("35_4lmeg")
 health = 7
 
-[node name="Zoomer38" parent="Enemies" unique_id=1326812630 instance=ExtResource("26_lswn8")]
+[node name="Zoomer38" parent="Critters/Zoomers" unique_id=1326812630 instance=ExtResource("26_lswn8")]
 position = Vector2(92, 360)
 start_hp = 7
 health = 7
 
-[node name="Zoomer39" parent="Enemies" unique_id=357201980 instance=ExtResource("26_lswn8")]
+[node name="Zoomer39" parent="Critters/Zoomers" unique_id=357201980 instance=ExtResource("26_lswn8")]
 position = Vector2(108, 384)
 start_hp = 7
 health = 7
 
-[node name="Zoomer40" parent="Enemies" unique_id=1897984229 instance=ExtResource("26_lswn8")]
+[node name="Zoomer40" parent="Critters/Zoomers" unique_id=1897984229 instance=ExtResource("26_lswn8")]
 position = Vector2(76, 384)
 start_hp = 7
 health = 7
 
-[node name="Zoomer41" parent="Enemies" unique_id=1255324372 instance=ExtResource("26_lswn8")]
+[node name="Zoomer41" parent="Critters/Zoomers" unique_id=1255324372 instance=ExtResource("26_lswn8")]
 position = Vector2(220, 368)
 start_hp = 7
 sprite = ExtResource("35_4lmeg")
 health = 7
 
-[node name="Zoomer75" parent="Enemies" unique_id=1723380948 instance=ExtResource("26_lswn8")]
+[node name="Zoomer75" parent="Critters/Zoomers" unique_id=1723380948 instance=ExtResource("26_lswn8")]
 position = Vector2(212, 488)
 start_hp = 7
 sprite = ExtResource("35_4lmeg")
 health = 7
 
-[node name="Zoomer42" parent="Enemies" unique_id=604270216 instance=ExtResource("26_lswn8")]
+[node name="Zoomer42" parent="Critters/Zoomers" unique_id=604270216 instance=ExtResource("26_lswn8")]
 position = Vector2(100, 232)
 start_hp = 7
 sprite = ExtResource("35_4lmeg")
 health = 7
 
-[node name="Zoomer60" parent="Enemies" unique_id=382348347 instance=ExtResource("26_lswn8")]
+[node name="Zoomer60" parent="Critters/Zoomers" unique_id=382348347 instance=ExtResource("26_lswn8")]
 position = Vector2(220, 336)
 start_hp = 7
 health = 7
 
-[node name="Zoomer63" parent="Enemies" unique_id=1792394096 instance=ExtResource("26_lswn8")]
+[node name="Zoomer63" parent="Critters/Zoomers" unique_id=1792394096 instance=ExtResource("26_lswn8")]
 position = Vector2(20, -168)
 start_hp = 7
 zoomer_speed = -12
 health = 7
 
-[node name="Batsard" parent="Enemies" unique_id=1175102047 instance=ExtResource("43_d2t1y")]
-position = Vector2(141, 136)
-health = 4
+[node name="Wavers" type="Node2D" parent="Critters" unique_id=1499187513]
 
-[node name="Batsard2" parent="Enemies" unique_id=1533963521 instance=ExtResource("43_d2t1y")]
-position = Vector2(300, 128)
-health = 4
-
-[node name="Batsard16" parent="Enemies" unique_id=455229715 instance=ExtResource("43_d2t1y")]
-position = Vector2(276, 128)
-health = 4
-
-[node name="Batsard3" parent="Enemies" unique_id=2147314002 instance=ExtResource("43_d2t1y")]
-position = Vector2(205, 192)
-health = 4
-
-[node name="Batsard14" parent="Enemies" unique_id=1436647730 instance=ExtResource("43_d2t1y")]
-position = Vector2(220, 192)
-health = 4
-
-[node name="Batsard4" parent="Enemies" unique_id=1401787872 instance=ExtResource("43_d2t1y")]
-position = Vector2(237, 192)
-health = 4
-
-[node name="Batsard13" parent="Enemies" unique_id=959624919 instance=ExtResource("43_d2t1y")]
-position = Vector2(252, 192)
-health = 4
-
-[node name="Batsard5" parent="Enemies" unique_id=2047911543 instance=ExtResource("43_d2t1y")]
-position = Vector2(212, 264)
-health = 4
-
-[node name="Batsard15" parent="Enemies" unique_id=1408682809 instance=ExtResource("43_d2t1y")]
-position = Vector2(204, 264)
-health = 4
-
-[node name="Batsard6" parent="Enemies" unique_id=2090663027 instance=ExtResource("43_d2t1y")]
-position = Vector2(252, 264)
-health = 4
-
-[node name="Batsard7" parent="Enemies" unique_id=1852810526 instance=ExtResource("43_d2t1y")]
-position = Vector2(117, 208)
-health = 4
-
-[node name="Batsard8" parent="Enemies" unique_id=964774903 instance=ExtResource("43_d2t1y")]
-position = Vector2(109, 280)
-health = 4
-
-[node name="Batsard9" parent="Enemies" unique_id=1409628818 instance=ExtResource("43_d2t1y")]
-position = Vector2(165, 400)
-health = 4
-
-[node name="Batsard11" parent="Enemies" unique_id=1600160238 instance=ExtResource("43_d2t1y")]
-position = Vector2(181, 456)
-health = 4
-
-[node name="Batsard12" parent="Enemies" unique_id=1002540263 instance=ExtResource("43_d2t1y")]
-position = Vector2(157, 456)
-health = 4
-
-[node name="Batsard10" parent="Enemies" unique_id=568715617 instance=ExtResource("43_d2t1y")]
-position = Vector2(149, 400)
-health = 4
-
-[node name="Waver2" parent="Enemies" unique_id=1770548863 instance=ExtResource("44_gngh3")]
+[node name="Waver2" parent="Critters/Wavers" unique_id=1770548863 instance=ExtResource("44_gngh3")]
 position = Vector2(400, 32)
 health = 4
 
-[node name="Waver4" parent="Enemies" unique_id=1866969441 instance=ExtResource("44_gngh3")]
+[node name="Waver4" parent="Critters/Wavers" unique_id=1866969441 instance=ExtResource("44_gngh3")]
 position = Vector2(408, 92)
 health = 4
 
-[node name="Waver5" parent="Enemies" unique_id=1661779751 instance=ExtResource("44_gngh3")]
+[node name="Waver5" parent="Critters/Wavers" unique_id=1661779751 instance=ExtResource("44_gngh3")]
 position = Vector2(80, 208)
 health = 4
 
-[node name="Waver6" parent="Enemies" unique_id=1633892453 instance=ExtResource("44_gngh3")]
+[node name="Waver6" parent="Critters/Wavers" unique_id=1633892453 instance=ExtResource("44_gngh3")]
 position = Vector2(76, 288)
 health = 4
-
-[node name="Seahorse" parent="Enemies" unique_id=2136230631 instance=ExtResource("43_gngh3")]
-position = Vector2(300, 500)
-health = 24
-
-[node name="Seahorse3" parent="Enemies" unique_id=969924969 instance=ExtResource("43_gngh3")]
-position = Vector2(308, 500)
-health = 24
-
-[node name="Seahorse5" parent="Enemies" unique_id=1409228635 instance=ExtResource("43_gngh3")]
-position = Vector2(436, 500)
-health = 24
-
-[node name="Seahorse6" parent="Enemies" unique_id=1319623288 instance=ExtResource("43_gngh3")]
-position = Vector2(284, 500)
-health = 24
-
-[node name="Seahorse2" parent="Enemies" unique_id=568044717 instance=ExtResource("43_gngh3")]
-position = Vector2(276, 500)
-rotation = 3.1415927
-scale = Vector2(1, -1)
-health = 24
-
-[node name="Seahorse7" parent="Enemies" unique_id=273335266 instance=ExtResource("43_gngh3")]
-position = Vector2(292, 500)
-rotation = 3.1415927
-scale = Vector2(1, -1)
-health = 24
-
-[node name="Seahorse8" parent="Enemies" unique_id=1055031879 instance=ExtResource("43_gngh3")]
-position = Vector2(420, 372)
-rotation = 3.1415927
-scale = Vector2(1, -1)
-health = 24
-
-[node name="Seahorse9" parent="Enemies" unique_id=1884389300 instance=ExtResource("43_gngh3")]
-position = Vector2(276, 308)
-rotation = 3.1415927
-scale = Vector2(1, -1)
-health = 24
-
-[node name="Seahorse10" parent="Enemies" unique_id=1933782660 instance=ExtResource("43_gngh3")]
-position = Vector2(292, 308)
-rotation = 3.1415927
-scale = Vector2(-1, -1)
-health = 24
-
-[node name="Seahorse4" parent="Enemies" unique_id=933206295 instance=ExtResource("43_gngh3")]
-position = Vector2(404, 500)
-rotation = 3.1415927
-scale = Vector2(1, -1)
-health = 24
-
-[node name="hopper" parent="Enemies" unique_id=1589595784 instance=ExtResource("44_0n3wm")]
-position = Vector2(220, 304)
-health = 8
-
-[node name="hopper4" parent="Enemies" unique_id=766253773 instance=ExtResource("44_0n3wm")]
-position = Vector2(80, 360)
-health = 8
-
-[node name="hopper6" parent="Enemies" unique_id=665896909 instance=ExtResource("44_0n3wm")]
-position = Vector2(148, 432)
-health = 8
-
-[node name="hopper5" parent="Enemies" unique_id=74400960 instance=ExtResource("44_0n3wm")]
-position = Vector2(160, 384)
-health = 8
-
-[node name="hopper2" parent="Enemies" unique_id=1854449173 instance=ExtResource("44_0n3wm")]
-position = Vector2(228, 232)
-health = 8
-
-[node name="hopper10" parent="Enemies" unique_id=561676007 instance=ExtResource("44_0n3wm")]
-position = Vector2(316, 247)
-health = 8
-
-[node name="hopper11" parent="Enemies" unique_id=832960662 instance=ExtResource("44_0n3wm")]
-position = Vector2(333, 255)
-health = 8
-
-[node name="hopper12" parent="Enemies" unique_id=1142515020 instance=ExtResource("44_0n3wm")]
-position = Vector2(347, 255)
-health = 8
-
-[node name="hopper14" parent="Enemies" unique_id=799369849 instance=ExtResource("44_0n3wm")]
-position = Vector2(400, 248)
-health = 8
-
-[node name="hopper15" parent="Enemies" unique_id=93052883 instance=ExtResource("44_0n3wm")]
-position = Vector2(428, 248)
-health = 8
-
-[node name="hopper16" parent="Enemies" unique_id=810784793 instance=ExtResource("44_0n3wm")]
-position = Vector2(472, 240)
-health = 8
-
-[node name="hopper7" parent="Enemies" unique_id=1578391603 instance=ExtResource("44_0n3wm")]
-position = Vector2(300, 360)
-health = 8
-
-[node name="hopper8" parent="Enemies" unique_id=978286344 instance=ExtResource("44_0n3wm")]
-position = Vector2(276, 376)
-health = 8
-
-[node name="hopper9" parent="Enemies" unique_id=1387212468 instance=ExtResource("44_0n3wm")]
-position = Vector2(412, 432)
-health = 8
-
-[node name="hopper3" parent="Enemies" unique_id=2098100946 instance=ExtResource("44_0n3wm")]
-position = Vector2(212, 248)
-health = 8
 
 [node name="Misc" type="Node2D" parent="." unique_id=1313501230]
 
@@ -1984,3 +2003,5 @@ texture = SubResource("CanvasTexture_e01uv")
 visible = false
 position = Vector2(80, 208)
 texture = SubResource("CanvasTexture_e01uv")
+
+[node name="TourianSpecificFuckery" type="Node2D" parent="." unique_id=391866625]
