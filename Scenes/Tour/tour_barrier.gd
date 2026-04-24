@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 var shattered: bool = false
+var destroyed: bool = false
 
 func shatter():
     shattered = true
@@ -17,6 +18,7 @@ func shatter():
     #$GlassShatter.play()
 
 func destroy():
+    destroyed = true
     $BlastLavaParticles_Left.restart()
     $BlastLavaParticles_Right.restart()
     $BlastLavaParticles_Left.emitting = true
@@ -29,9 +31,18 @@ func destroy():
     $BlastBodyParticles_Teal.emitting = true
     $SmokeParticles.emitting = true
 
+func stop_its_already_dead():
+    $BlastLavaParticles_Left.restart()
+    $BlastLavaParticles_Right.restart()
+    $BlastLavaParticles_Left.emitting = true
+    $BlastLavaParticles_Right.emitting = true
+    
+
 func _on_area_to_check_for_missiles_area_entered(area: Area2D) -> void:
     if area.is_in_group("missile"):
         if !shattered:
             shatter()
-        else:
+        elif !destroyed:
             destroy()
+        else:
+            stop_its_already_dead()
