@@ -61,6 +61,7 @@ bomb="Morph ball bomb"
 water=""
 shootable_block=""
 ventilated_area="Clears smoke from missiles much faster, so you can see juicy effects"
+missile="Anything that is a missile that Relan shoots"
 
 [input]
 

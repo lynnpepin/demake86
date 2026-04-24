@@ -140,6 +140,7 @@ func shoot_missile(delta):
         get_parent().add_missiles(-1)
         
         var b = MissileShot.instantiate()
+        b.add_to_group("missile")
         var rawangle = -angle * PI / 4
         b.velocity = Vector2(128.0, 0).rotated(rawangle)
         b.position = global_position + get_shoot_xy(angle)#global_position + get_shoot_xy(angle)
