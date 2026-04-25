@@ -74,6 +74,7 @@ var Bomb = preload("res://Scenes/bomb.tscn")
 
 # children
 #var Sounds: Node2D = $Sounds
+@onready var Typer = $Typer
 
 # Steps counter for step sounds
 var steps: float = 0
@@ -201,7 +202,6 @@ func _physics_process(delta: float) -> void:
             vv.y /= 2
     
     if grounded > 0 and Input.is_action_just_pressed("pad_a") and state == States.Normal:
-        print(grounded)
         vv.y = -CURRENT_JUMP_SPEED
         
         grounded = 0.0
@@ -215,6 +215,11 @@ func _physics_process(delta: float) -> void:
     # Disable screw attack otherwise
     if grounded != 0.0:
         $Node2D_Screw_Attack.off()
+
+func escape_time_set(time):
+    $EscapeTimeTyper.target_text = str(
+        str(snapped(time, 0.01)).pad_decimals(2)
+    )
 
 func _process(delta):
     # timer
@@ -387,7 +392,7 @@ func hurt(damage: int, cooldown: float) -> void:
         if barrier_timer >= BARRIER_RECHARGE_PERIOD:
             remove_barrier()
         else:
-            $Camera2D.vshake(4.0 * damage)
+            $CameraAnchor/Camera2D.vshake(4.0 * damage)
             barrier_timer = 0
             $Sounds/Hurt1.play()
             add_energy(-damage)
@@ -399,11 +404,9 @@ func hurt(damage: int, cooldown: float) -> void:
         $smoke_boots.emitting = true
     if energy <= 0:
         die()
-        #print("OH NOOOO")
 
 
 func remove_barrier():
-    print("BUH BYE BARRIER")
     Input.start_joy_vibration(
         0, 0.125, 0.125, .125
     )
@@ -420,7 +423,6 @@ func remove_barrier():
 func regain_barrier():
     barrier_timer = BARRIER_RECHARGE_PERIOD
     if !barrier:
-        print("BARRIER ACTIVE")
         barrier = true
         $Sprite2D_barrier_feature.modulate = Color(1,1,1, .5)
         $Sounds/ShieldRegain.play()
@@ -514,13 +516,12 @@ func die():
         $DeathSprites/sprite_boots.visible = true
         $smoke_boots.emitting = true
     else:
-        print("EXPLODING BITS GO")
         var bits = ExplodingBits.instantiate()
         add_child(bits)
         bits.position = Vector2(0,0)
         bits.explode()
         
-    $Camera2D.set_shake(Vector2(randf_range(-24.0, 24.0), randf_range(-24.0, 24.0)), [4.0, 4.0], [6.0, 8.0])
+    $CameraAnchor/Camera2D.set_shake(Vector2(randf_range(-24.0, 24.0), randf_range(-24.0, 24.0)), [4.0, 4.0], [6.0, 8.0])
     # TODO:
     # Family Guy death pose
     # MegaMan / Celeste explosion
@@ -530,3 +531,18 @@ func die():
     
     pass
 #endregion
+
+
+
+func _on_camera_area_area_shape_entered(
+    area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int
+) -> void:
+    print("camera area entered")
+    #$CameraAnchor.global_position = area.global_position
+    #$CameraAnchor.global_position = $Camera2D.global_position
+
+func _on_camera_area_area_shape_exited(
+    area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int
+) -> void:
+
+    print("camera area exited")

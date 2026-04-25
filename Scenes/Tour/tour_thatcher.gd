@@ -94,7 +94,7 @@ func destroy():
     $CollisionShape2D_back.set_deferred("disabled", true)
     
     # todo - sound effect, timer
-    get_parent().tourian_activate_escape_layout()
+    get_parent().start_escape()
 
 func get_hit_by_missile():
     print("debug, thatch hit by missle", cracked, shatter)

@@ -1,7 +1,7 @@
 #extends Node2D
 extends CanvasLayer
 
-var target_text;
+var target_text = "";
 var texts
 
 # Called when the node enters the scene tree for the first time.

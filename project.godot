@@ -64,6 +64,7 @@ ventilated_area="Clears smoke from missiles much faster, so you can see juicy ef
 missile="Anything that is a missile that Relan shoots"
 explosion="An explosion caused by Relan"
 tourian_barrier="Hacky setup so these can get hit by missiles. Wish collisions gave a signal"
+camera_area="Area the camera should move to when overlaps"
 
 [input]
 
@@ -282,6 +283,7 @@ pad_rs={
 2d_physics/layer_4="Beam"
 2d_physics/layer_5="Player_Hurtbox"
 2d_physics/layer_6="Effect Areas"
+2d_physics/layer_7="Camera Areas"
 
 [physics]
 

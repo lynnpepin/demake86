@@ -397,6 +397,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bm3d7"]
+size = Vector2(8, 16)
+
 [node name="Relan" type="CharacterBody2D" unique_id=1720302912 groups=["player"]]
 collision_mask = 2
 floor_max_angle = 0.872665
@@ -427,11 +430,14 @@ position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_db8h2")
 debug_color = Color(0.7, 0.24500002, 0, 0.41960785)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=558517496]
+[node name="CameraAnchor" type="Node2D" parent="." unique_id=250916154]
+
+[node name="Camera2D" type="Camera2D" parent="CameraAnchor" unique_id=558517496]
+position = Vector2(0, 1)
 position_smoothing_speed = 96.0
 script = ExtResource("2_i0hd8")
 
-[node name="AudioListener2D" type="AudioListener2D" parent="Camera2D" unique_id=981408164]
+[node name="AudioListener2D" type="AudioListener2D" parent="CameraAnchor/Camera2D" unique_id=981408164]
 
 [node name="Cannon" type="Node2D" parent="." unique_id=1669016483]
 z_index = 20
@@ -1115,6 +1121,16 @@ position = Vector2(0, 10)
 
 [node name="TimeTyper" parent="." unique_id=73354578 instance=ExtResource("30_72vhv")]
 
+[node name="EscapeTimeTyper" parent="." unique_id=233549705 instance=ExtResource("30_72vhv")]
+offset = Vector2(32, 86)
+transform = Transform2D(1, 0, 0, 1, 32, 86)
+
+[node name="Typer" parent="EscapeTimeTyper" index="0"]
+theme_override_colors/default_color = Color(0.8784314, 0.23529412, 0.15686275, 1)
+
+[node name="Shadow" parent="EscapeTimeTyper" index="1"]
+theme_override_colors/default_color = Color(0, 0, 0, 0.8156863)
+
 [node name="ball_trail" type="Node2D" parent="." unique_id=769611890]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="ball_trail" unique_id=1876662182]
@@ -1236,5 +1252,17 @@ z_as_relative = false
 position = Vector2(0, 2)
 sprite_frames = SubResource("SpriteFrames_i0hd8")
 
+[node name="camera_area" type="Area2D" parent="." unique_id=1718648001 groups=["camera_area"]]
+position = Vector2(0, 1)
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="camera_area" unique_id=425983631]
+shape = SubResource("RectangleShape2D_bm3d7")
+
 [connection signal="area_entered" from="hurt_box" to="." method="_on_hurt_area_area_entered"]
 [connection signal="area_entered" from="Node2D_Screw_Attack/Area2D" to="Node2D_Screw_Attack/Area2D" method="_on_area_entered_to_check_for_enemies"]
+[connection signal="area_shape_entered" from="camera_area" to="." method="_on_camera_area_area_shape_entered"]
+[connection signal="area_shape_exited" from="camera_area" to="." method="_on_camera_area_area_shape_exited"]
+
+[editable path="EscapeTimeTyper"]

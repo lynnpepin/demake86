@@ -387,6 +387,9 @@ specular_color = Color(0, 0, 0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6iyjs"]
 size = Vector2(128, 128)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vke2r"]
+size = Vector2(64, 64)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4w656"]
 size = Vector2(64, 64)
 
@@ -2031,8 +2034,9 @@ visible = false
 position = Vector2(80, 208)
 texture = SubResource("CanvasTexture_e01uv")
 
-[node name="Tourian" type="Node2D" parent="." unique_id=391866625]
+[node name="Tourian" type="Node2D" parent="." unique_id=391866625 node_paths=PackedStringArray("player")]
 script = ExtResource("57_vke2r")
+player = NodePath("../Relan")
 
 [node name="TileMapLayer_Tourian_Base" type="TileMapLayer" parent="Tourian" unique_id=1770264641]
 scale = Vector2(1, 0.999731)
@@ -2068,6 +2072,14 @@ position = Vector2(64, 88)
 
 [node name="TourThatcher" parent="Tourian" unique_id=209634660 instance=ExtResource("7_rnkwl")]
 position = Vector2(20, 92)
+
+[node name="camera_zone" type="Area2D" parent="Tourian" unique_id=684816434 groups=["camera_area"]]
+position = Vector2(32, 96)
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tourian/camera_zone" unique_id=398155042]
+shape = SubResource("RectangleShape2D_vke2r")
 
 [node name="KempsLair" type="Node2D" parent="." unique_id=863085050]
 
