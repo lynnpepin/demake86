@@ -39,19 +39,19 @@ LIFESPAN = 8.0
 damage = 6
 CreateOnDie = ExtResource("2_i2i1b")
 
-[node name="ColliderWall" type="CollisionShape2D" parent="." unique_id=1531176293 groups=["beam"]]
+[node name="ColliderWall" type="CollisionShape2D" parent="." unique_id=1531176293 groups=["beam", "missile"]]
 shape = SubResource("RectangleShape2D_fq56s")
 
-[node name="AreaToCheckForEnemy" type="Area2D" parent="." unique_id=1912178074 groups=["beam"]]
+[node name="AreaToCheckForEnemy" type="Area2D" parent="." unique_id=1912178074 groups=["beam", "missile"]]
 collision_layer = 8
 collision_mask = 36
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaToCheckForEnemy" unique_id=358912967 groups=["beam"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaToCheckForEnemy" unique_id=358912967 groups=["beam", "missile"]]
 shape = SubResource("RectangleShape2D_l31wo")
 
-[node name="CreateSounds" type="Node" parent="." unique_id=723317298]
+[node name="CreateSounds" type="Node" parent="." unique_id=723317298 groups=["beam", "missile"]]
 
-[node name="Create5" type="AudioStreamPlayer2D" parent="CreateSounds" unique_id=1476703565]
+[node name="Create5" type="AudioStreamPlayer2D" parent="CreateSounds" unique_id=1476703565 groups=["beam", "missile"]]
 stream = SubResource("AudioStreamWAV_26ckg")
 script = ExtResource("2_05lwi")
 wave/type = 3
@@ -80,10 +80,10 @@ low_pass_filter/resonance = 0.0
 high_pass_filter/cutoff_frequency = 0.0
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1324028927]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1324028927 groups=["beam", "missile"]]
 texture = SubResource("GradientTexture2D_8v2wk")
 
-[node name="CPUParticles2D_Trail" type="CPUParticles2D" parent="." unique_id=115228394]
+[node name="CPUParticles2D_Trail" type="CPUParticles2D" parent="." unique_id=115228394 groups=["beam", "missile"]]
 z_index = 50
 amount = 2048
 lifetime = 12.0
@@ -111,9 +111,9 @@ scale_amount_min = 1.5
 scale_amount_max = 3.5
 color_ramp = SubResource("Gradient_jjo5x")
 
-[node name="HitSounds" type="Node" parent="." unique_id=800122925]
+[node name="HitSounds" type="Node" parent="." unique_id=800122925 groups=["beam", "missile"]]
 
-[node name="HitSound" type="AudioStreamPlayer2D" parent="HitSounds" unique_id=759624247]
+[node name="HitSound" type="AudioStreamPlayer2D" parent="HitSounds" unique_id=759624247 groups=["beam", "missile"]]
 stream = SubResource("AudioStreamWAV_oifcy")
 script = ExtResource("2_05lwi")
 wave/type = 3

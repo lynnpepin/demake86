@@ -21,8 +21,8 @@ size = Vector2(639.99994, 0)
 texture = SubResource("CurveTexture_x6c1i")
 
 [sub_resource type="Curve" id="Curve_x6c1i"]
-_data = [Vector2(0, 0), 0.0, 82.60233, 0, 1, Vector2(0.012106195, 1), 0.0, 0.0, 0, 0, Vector2(0.3164333, 0), 0.0, 0.0, 0, 0, Vector2(0.5491539, 0), 0.0, 0.0, 0, 0, Vector2(0.54916394, 1), -1.2846955, -1.2846955, 0, 0, Vector2(0.62076044, 1), 0.0, 0.0, 0, 0, Vector2(0.65656364, 0.12826633), 0.0, 0.0, 0, 0, Vector2(0.83557975, 0), 0.0, 0.0, 0, 0, Vector2(0.99669397, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 151.23874, 0.0, 1, 0]
-point_count = 10
+_data = [Vector2(0, 0), 0.0, 82.60233, 0, 1, Vector2(0.012106195, 1), 0.0, 0.0, 0, 0, Vector2(0.25546288, 1), 0.0, 0.0, 0, 0, Vector2(0.2676901, 0), 0.0, 0.0, 0, 0, Vector2(0.5491539, 0), 0.0, 0.0, 0, 0, Vector2(0.54916394, 1), -1.2846955, -1.2846955, 0, 0, Vector2(0.62076044, 1), 0.0, 0.0, 0, 0, Vector2(0.6467279, 0), 0.0, 0.0, 0, 0, Vector2(0.83557975, 0), 0.0, 0.0, 0, 0, Vector2(0.99669397, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 151.23874, 0.0, 1, 0]
+point_count = 11
 
 [sub_resource type="CurveTexture" id="CurveTexture_7kodk"]
 curve = SubResource("Curve_x6c1i")
@@ -102,7 +102,7 @@ texture = SubResource("CurveTexture_udeno")
 input_name = "uv"
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_eqgq1"]
-frequency = 0.0625
+frequency = 0.0313
 fractal_octaves = 4
 
 [sub_resource type="NoiseTexture3D" id="NoiseTexture3D_x6c1i"]

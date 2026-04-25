@@ -48,6 +48,7 @@ func destroy():
     $BlastLavaParticles_Left.emitting = true
     $BlastLavaParticles_Right.emitting = true
     $Area_to_check_for_missiles.set_deferred("monitorable", false)
+    $Area_to_check_for_missiles.set_deferred("monitoring", false)
     $CollisionShape2D.set_deferred("disabled", true)
     $AnimatedSprite2D_Body.pause()
     $AnimatedSprite2D_Body.visible = false
@@ -60,13 +61,22 @@ func stop_its_already_dead():
     $BlastLavaParticles_Right.restart()
     $BlastLavaParticles_Left.emitting = true
     $BlastLavaParticles_Right.emitting = true
-    
 
-func _on_area_to_check_for_missiles_area_entered(area: Area2D) -> void:
-    if area.is_in_group("missile"):
-        if !shattered:
-            shatter()
-        elif !destroyed:
-            destroy()
-        else:
-            stop_its_already_dead()
+func get_hit_by_missile():
+    print("debug, hit by missle")
+    if !shattered:
+        shatter()
+    elif !destroyed:
+        destroy()
+    else:
+        stop_its_already_dead()
+
+#func _on_area_to_check_for_missiles_area_entered(area: Area2D) -> void:
+#    print("bam", area.get_groups())
+#    if area.is_in_group("missile"):
+#        if !shattered:
+#            shatter()
+#        elif !destroyed:
+#            destroy()
+#        else:
+#            stop_its_already_dead()

@@ -193,9 +193,9 @@ colors = PackedColorArray(1, 0.90588236, 0.21568628, 1, 1, 0.73333335, 0.1921568
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bmq3"]
 size = Vector2(8, 16)
 
-[node name="TourBarrier" type="StaticBody2D" unique_id=209634660 groups=["enemies"]]
-collision_layer = 6
-collision_mask = 8
+[node name="TourBarrier" type="StaticBody2D" unique_id=209634660 groups=["enemies", "tourian_barrier"]]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_put0s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=325907560]

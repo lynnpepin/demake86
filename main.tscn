@@ -393,7 +393,13 @@ size = Vector2(64, 64)
 script = ExtResource("1_hrvbo")
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
-position = Vector2(97, 163)
+position = Vector2(92, 45)
+START_MISSILES = 12
+START_ENERGY = 24
+has_high_jump = true
+has_morph_ball = true
+has_morph_bomb = true
+has_long_beam = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Relan" unique_id=31498320]
 visible = false
@@ -849,7 +855,7 @@ tracking = NodePath("../../HatchShadows/shadow_kemp_under_main")
 tracking_another = NodePath("../../HatchShadows/shadow_kemp_inner_tower_bottom")
 
 [node name="TourBarrier" parent="Hatches/hatch_kemp_main_left_3" unique_id=209634660 instance=ExtResource("7_rnkwl")]
-position = Vector2(-104, -298)
+position = Vector2(-108, -286)
 
 [node name="hatch_kemp_horizontal" parent="Hatches" unique_id=1906803574 node_paths=PackedStringArray("tracking", "tracking_another") instance=ExtResource("30_1unny")]
 position = Vector2(80, 336)

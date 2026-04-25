@@ -129,8 +129,6 @@ func handle_angles():
             7
         ][angle]
     
-    if angle != prevangle:
-        print("handle angles said: ", angle, "from ", prevangle)
 
 func shoot(delta):
     if Input.is_action_pressed("pad_x"):

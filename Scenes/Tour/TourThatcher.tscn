@@ -1,21 +1,65 @@
 [gd_scene format=3 uid="uid://b836iv2r7c8rw"]
 
 [ext_resource type="Script" uid="uid://btcg2k0audxlw" path="res://Scenes/Tour/tour_thatcher.gd" id="1_fkss1"]
-[ext_resource type="Texture2D" uid="uid://dux3jowp858of" path="res://art/tour/thatcher-12.png" id="2_3uesh"]
-[ext_resource type="Texture2D" uid="uid://cfmlsgjuhk1bq" path="res://art/tour/thatcher-11.png" id="2_umhy2"]
-[ext_resource type="Texture2D" uid="uid://4g4u03d1t6jl" path="res://art/tour/thatcher-10.png" id="3_65c0o"]
-[ext_resource type="Texture2D" uid="uid://cbjkgwpedh8q5" path="res://art/tour/thatcher-9.png" id="4_3uesh"]
-[ext_resource type="Texture2D" uid="uid://dj5hiegjiyimi" path="res://art/tour/thatcher-13.png" id="4_4bdd7"]
-[ext_resource type="Texture2D" uid="uid://jb4qj3qmhu1b" path="res://art/tour/thatcher-1.png" id="4_6w4db"]
-[ext_resource type="Texture2D" uid="uid://b17v7i0xli5fi" path="res://art/tour/thatcher-2.png" id="5_iji4g"]
-[ext_resource type="Texture2D" uid="uid://cmh10cvcxsyds" path="res://art/tour/thatcher-3.png" id="6_t85qh"]
-[ext_resource type="Texture2D" uid="uid://sfgykti06iq0" path="res://art/tour/thatcher-4.png" id="7_rsde2"]
+[ext_resource type="Texture2D" uid="uid://c0du6jfe1mhhg" path="res://art/tour/thatcher-6.png" id="2_umhy2"]
+[ext_resource type="Texture2D" uid="uid://kg8hbhn2y3at" path="res://art/tour/thatcher-5.png" id="3_4bdd7"]
+[ext_resource type="Texture2D" uid="uid://bqxqill0o5btu" path="res://art/tour/thatcher-1.png" id="4_6w4db"]
+[ext_resource type="Texture2D" uid="uid://bl73sqf3ay0qc" path="res://art/tour/thatcher-8.png" id="4_a1pjv"]
+[ext_resource type="Texture2D" uid="uid://154ngs1ox35m" path="res://art/tour/thatcher-2.png" id="5_iji4g"]
+[ext_resource type="Texture2D" uid="uid://dkrjrncwlq70c" path="res://art/tour/thatcher-7.png" id="5_kk7qf"]
+[ext_resource type="Texture2D" uid="uid://7qh32gn4lm4v" path="res://art/tour/thatcher-3.png" id="6_t85qh"]
+[ext_resource type="Texture2D" uid="uid://b7h1dmpxkovxf" path="res://art/tour/thatcher-0.png" id="7_4bdd7"]
+[ext_resource type="Texture2D" uid="uid://csyjbmnljr0gh" path="res://art/tour/thatcher-4.png" id="7_rsde2"]
+[ext_resource type="Gradient" uid="uid://cui0y8j5mi34a" path="res://resources/gooradient.tres" id="13_a1pjv"]
 [ext_resource type="PackedScene" uid="uid://bdrhfhftvg8lb" path="res://Scenes/VfxElectric.tscn" id="25_v0ni8"]
 [ext_resource type="Shader" uid="uid://drer86crb8tlu" path="res://resources/thatcher_milk_shader.tres" id="26_pkly5"]
 [ext_resource type="PackedScene" uid="uid://bv7j2dij7vk4c" path="res://Scenes/MotesOfSmoke.tscn" id="36_eyw4p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mo4b"]
-size = Vector2(6, 14)
+size = Vector2(24, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1n70j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_rsde2")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_4bdd7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6w4db")
+}],
+"loop": true,
+"name": &"hurt_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_iji4g")
+}],
+"loop": true,
+"name": &"hurt_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_t85qh")
+}],
+"loop": true,
+"name": &"hurt_3",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_put0s"]
 animations = [{
@@ -29,7 +73,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_65c0o")
+"texture": ExtResource("3_4bdd7")
 }],
 "loop": true,
 "name": &"default",
@@ -37,7 +81,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_4bdd7")
+"texture": ExtResource("4_a1pjv")
 }],
 "loop": true,
 "name": &"destroyed",
@@ -45,165 +89,152 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_3uesh")
+"texture": ExtResource("5_kk7qf")
 }],
 "loop": true,
 "name": &"shattered",
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_1n70j"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_3uesh")
-}],
-"loop": true,
-"name": &"dead",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_6w4db")
-}],
-"loop": true,
-"name": &"default",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_iji4g")
-}],
-"loop": true,
-"name": &"hurt_1",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_t85qh")
-}],
-"loop": true,
-"name": &"hurt_2",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_rsde2")
-}],
-"loop": true,
-"name": &"hurt_3",
-"speed": 5.0
-}]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c68lv"]
 shader = ExtResource("26_pkly5")
 
-[sub_resource type="Gradient" id="Gradient_umhy2"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.66800404, 0.7843531, 0.888666)
-colors = PackedColorArray(1, 1, 1, 1, 1, 0.90588236, 0.21568628, 1, 1, 0.73333335, 0.19215687, 1, 0.8, 0.56078434, 0.08235294, 1)
+[sub_resource type="Gradient" id="Gradient_8mo4b"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4bdd7"]
+gradient = SubResource("Gradient_8mo4b")
+width = 1
+height = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bmq3"]
-size = Vector2(8, 16)
+size = Vector2(26, 26)
 
-[node name="TourBarrier" type="StaticBody2D" unique_id=209634660 groups=["enemies"]]
+[node name="TourBarrier" type="StaticBody2D" unique_id=209634660 groups=["enemies", "tourian_barrier"]]
 collision_layer = 6
 collision_mask = 8
 script = ExtResource("1_fkss1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=325907560]
+[node name="CollisionShape2D_top" type="CollisionShape2D" parent="." unique_id=325907560]
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_8mo4b")
 
-[node name="AnimatedSprite2D_Glass" type="AnimatedSprite2D" parent="." unique_id=226007319]
-z_index = 64
-sprite_frames = SubResource("SpriteFrames_put0s")
-animation = &"shattered"
-autoplay = "default"
+[node name="CollisionShape2D_bottom" type="CollisionShape2D" parent="." unique_id=532615722]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_8mo4b")
+
+[node name="CollisionShape2D_mid" type="CollisionShape2D" parent="." unique_id=1412173676]
+shape = SubResource("RectangleShape2D_8mo4b")
 
 [node name="AnimatedSprite2D_Body" type="AnimatedSprite2D" parent="." unique_id=411711151]
 sprite_frames = SubResource("SpriteFrames_1n70j")
-animation = &"hurt_2"
-autoplay = "hurt_2"
+autoplay = "default"
 
-[node name="Sprite2D_Lava_Shader" parent="." unique_id=678579505 instance=ExtResource("25_v0ni8")]
-visible = false
+[node name="AnimatedSprite2D_Glass" type="AnimatedSprite2D" parent="." unique_id=226007319]
+z_index = 256
+sprite_frames = SubResource("SpriteFrames_put0s")
+autoplay = "default"
+
+[node name="Sprite2D_Lava_Shader" parent="." unique_id=678579505 groups=["enemies"] instance=ExtResource("25_v0ni8")]
+modulate = Color(1, 1, 1, 0.9411765)
 z_index = 100
 material = SubResource("ShaderMaterial_c68lv")
 
-[node name="DripParticles" type="CPUParticles2D" parent="." unique_id=1961881552]
-position = Vector2(0, 6)
-emitting = false
-lifetime = 2.0
-explosiveness = 0.13
-randomness = 0.88
-lifetime_randomness = 1.0
-fract_delta = false
-emission_shape = 3
-emission_rect_extents = Vector2(4, 1)
-direction = Vector2(0, -1)
-spread = 180.0
-gravity = Vector2(0, 128)
-color = Color(0.54901963, 0.8392157, 0.07058824, 1)
-
 [node name="BlastGooParticles_Right" type="CPUParticles2D" parent="." unique_id=1279485376]
-visible = false
-position = Vector2(22, 0)
+position = Vector2(10, 0)
 emitting = false
 amount = 120
-lifetime = 4.0
 one_shot = true
 explosiveness = 1.0
 lifetime_randomness = 1.0
 fract_delta = false
 emission_shape = 3
-emission_rect_extents = Vector2(4, 12)
+emission_rect_extents = Vector2(2, 6)
 spread = 90.0
 gravity = Vector2(0, 196)
 initial_velocity_min = 48.0
 initial_velocity_max = 64.0
-angle_max = 45.0
-scale_amount_max = 2.0
-color = Color(1, 0.90588236, 0.21568628, 1)
+color = Color(1.353256, 1.2317855, 0.312081, 1)
+color_ramp = ExtResource("13_a1pjv")
 
-[node name="DripGooParticles_Cracked_1" type="CPUParticles2D" parent="." unique_id=264050604]
-visible = false
-position = Vector2(20, 12)
+[node name="BlastGlassParticles_Right" type="CPUParticles2D" parent="." unique_id=1563107332]
+position = Vector2(10, 0)
+emitting = false
+amount = 24
+texture = SubResource("GradientTexture2D_4bdd7")
+lifetime = 4.0
+one_shot = true
+explosiveness = 1.0
+fract_delta = false
+emission_shape = 3
+emission_rect_extents = Vector2(2, 10)
+spread = 60.0
+gravity = Vector2(0, 64)
+initial_velocity_min = 12.0
+initial_velocity_max = 96.0
+angular_velocity_min = -60.0
+angular_velocity_max = 60.0
+orbit_velocity_max = 0.13
+damping_max = 8.0
+angle_min = -15.0
+angle_max = 15.0
+
+[node name="DripGooParticles_Cracked" type="CPUParticles2D" parent="." unique_id=264050604]
+position = Vector2(9, -0.5)
+emitting = false
 amount = 120
+lifetime = 0.5
 explosiveness = 0.13
 randomness = 1.0
 lifetime_randomness = 0.5
 fract_delta = false
 emission_shape = 3
-emission_rect_extents = Vector2(4, 0)
+emission_rect_extents = Vector2(2, 0)
 spread = 15.0
 gravity = Vector2(0, 196)
-initial_velocity_min = 8.0
-initial_velocity_max = 64.0
+initial_velocity_min = 4.0
+initial_velocity_max = 36.0
 angle_max = 45.0
-scale_amount_max = 2.0
-color_ramp = SubResource("Gradient_umhy2")
+color_ramp = ExtResource("13_a1pjv")
 
-[node name="DripGooParticles_Shattered" type="CPUParticles2D" parent="." unique_id=320999944]
-position = Vector2(4, 24)
+[node name="DripGooParticles_Shattered" type="CPUParticles2D" parent="." unique_id=1996749690]
+visible = false
+position = Vector2(9, 5.5)
+amount = 120
+lifetime = 0.5
+explosiveness = 0.13
+randomness = 1.0
+lifetime_randomness = 0.5
+fract_delta = false
+emission_shape = 3
+emission_rect_extents = Vector2(2, 0)
+spread = 15.0
+gravity = Vector2(0, 196)
+initial_velocity_min = 4.0
+initial_velocity_max = 36.0
+angle_max = 45.0
+color_ramp = ExtResource("13_a1pjv")
+
+[node name="DripGooParticles_Destroyed" type="CPUParticles2D" parent="." unique_id=320999944]
+visible = false
+position = Vector2(0, 9.5)
 amount = 90
 explosiveness = 0.13
 randomness = 1.0
 lifetime_randomness = 0.5
 fract_delta = false
 emission_shape = 3
-emission_rect_extents = Vector2(16, 0)
+emission_rect_extents = Vector2(10, 0)
 spread = 15.0
-gravity = Vector2(0, 196)
-angle_max = 45.0
-scale_amount_max = 2.0
-color_ramp = SubResource("Gradient_umhy2")
+gravity = Vector2(0, 64)
+color_ramp = ExtResource("13_a1pjv")
 
-[node name="Area_to_check_for_missiles" type="Area2D" parent="." unique_id=1602453521]
-visible = false
+[node name="Area_to_check_for_bombs" type="Area2D" parent="." unique_id=1602453521]
 collision_layer = 4
 collision_mask = 8
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area_to_check_for_missiles" unique_id=78837199]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area_to_check_for_bombs" unique_id=78837199]
 shape = SubResource("RectangleShape2D_1bmq3")
 
 [node name="SmokeParticles" parent="." unique_id=1955906494 instance=ExtResource("36_eyw4p")]
@@ -212,4 +243,4 @@ position = Vector2(0, 7)
 amount = 64
 emission_rect_extents = Vector2(3, 0)
 
-[connection signal="area_entered" from="Area_to_check_for_missiles" to="." method="_on_area_to_check_for_missiles_area_entered"]
+[connection signal="area_entered" from="Area_to_check_for_bombs" to="." method="_on_area_to_check_for_bombs_area_entered"]

@@ -28,7 +28,7 @@ data = PackedByteArray("BQkOEhcbICQpLTE2Oj6AgICAcwwMDAwMDAwMDAwMDAwMDAwMDBNISEhI
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xwx4"]
 radius = 8.0
 
-[node name="CPUParticles2D_BigExplosion" type="CPUParticles2D" unique_id=1409588140]
+[node name="CPUParticles2D_BigExplosion" type="CPUParticles2D" unique_id=1409588140 groups=["explosion"]]
 z_index = 1024
 z_as_relative = false
 position = Vector2(0, 1)

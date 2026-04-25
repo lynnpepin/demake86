@@ -20,6 +20,7 @@ var velocity: Vector2
 
 ## Amount of damage for this beam to deal
 @export var damage: int = 1;
+@export var damage_cooldown: float = .125;
 var create_sounds: Array;
 var hit_sounds: Array;
 var active: bool = true;
@@ -89,6 +90,10 @@ func _physics_process(delta: float) -> void:
     if collision != null and active:
         if len(hit_sounds) > 0:
             hit_sounds.pick_random().play()
+        # bad hacks here
+        if is_in_group("missile"):
+            if collision.get_collider().is_in_group("tourian_barrier"):
+                collision.get_collider().get_hit_by_missile()
         if collision.get_collider().is_in_group("hatch"):
             collision.get_collider().get_parent().open()
         if collision.get_collider().is_in_group("shootable_block"):
@@ -103,6 +108,13 @@ func die():
         $AreaToCheckForEnemy.set_deferred("monitoring", false)
         $AreaToCheckForEnemy.set_deferred("monitorable", false)
         $AreaToCheckForEnemy/CollisionShape2D.set_deferred("disabled", true)
+        if $AreaToCheckForEnemy/CollisionShape_Start:
+            $AreaToCheckForEnemy/CollisionShape_Start.set_deferred("disabled", true)
+    
+        $ColliderWall.set_deferred("monitoring", false)
+        $ColliderWall.set_deferred("monitorable", false)
+        $ColliderWall.set_deferred("disabled", false)
+            
         $Sprite2D.visible = false
         $CPUParticles2D_Trail.emitting = false
         if $Trail_Longbeam:
@@ -129,12 +141,13 @@ func die():
 
 
 func _on_area_to_check_for_enemy_area_entered(area: Area2D) -> void:
-    if area.is_in_group("enemies"):
-        if len(hit_sounds) > 0:
-            hit_sounds.pick_random().play()
-        var enemy = area.get_parent()
-        var is_frozen = enemy.freeze_timer > 0
-        enemy.hurt(damage, .125)
-        if ice and not is_frozen:
-            enemy.freeze(6)
-        die()
+    if active:
+        if area.is_in_group("enemies"):
+            if len(hit_sounds) > 0:
+                hit_sounds.pick_random().play()
+            var enemy = area.get_parent()
+            var is_frozen = enemy.freeze_timer > 0
+            enemy.hurt(damage, damage_cooldown)
+            if ice and not is_frozen:
+                enemy.freeze(6)
+            die()

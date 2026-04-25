@@ -6,6 +6,6 @@ colors = PackedColorArray(1, 1, 1, 1)
 
 [resource]
 gradient = SubResource("Gradient_k7wvb")
-width = 47
-height = 47
+width = 22
+height = 22
 use_hdr = true

@@ -6,7 +6,7 @@ extends Area2D
 
 var timer: float = 0.0
 
-var max_time_for_start: float = .125
+var max_time_for_start: float = .0625
 
 var already_set = false
 
