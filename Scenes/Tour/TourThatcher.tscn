@@ -18,6 +18,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mo4b"]
 size = Vector2(24, 8)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1pjv"]
+size = Vector2(8, 8)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_1n70j"]
 animations = [{
 "frames": [{
@@ -111,7 +114,10 @@ height = 3
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bmq3"]
 size = Vector2(26, 26)
 
-[node name="TourBarrier" type="StaticBody2D" unique_id=209634660 groups=["enemies", "tourian_barrier"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bdd7"]
+size = Vector2(14, 14)
+
+[node name="TourThatcher" type="StaticBody2D" unique_id=209634660 groups=["enemies", "tourian_barrier"]]
 collision_layer = 6
 collision_mask = 8
 script = ExtResource("1_fkss1")
@@ -119,6 +125,10 @@ script = ExtResource("1_fkss1")
 [node name="CollisionShape2D_top" type="CollisionShape2D" parent="." unique_id=325907560]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_8mo4b")
+
+[node name="CollisionShape2D_back" type="CollisionShape2D" parent="." unique_id=2006660086]
+position = Vector2(-8, 0)
+shape = SubResource("RectangleShape2D_a1pjv")
 
 [node name="CollisionShape2D_bottom" type="CollisionShape2D" parent="." unique_id=532615722]
 position = Vector2(0, 8)
@@ -129,6 +139,7 @@ shape = SubResource("RectangleShape2D_8mo4b")
 
 [node name="AnimatedSprite2D_Body" type="AnimatedSprite2D" parent="." unique_id=411711151]
 sprite_frames = SubResource("SpriteFrames_1n70j")
+animation = &"hurt_3"
 autoplay = "default"
 
 [node name="AnimatedSprite2D_Glass" type="AnimatedSprite2D" parent="." unique_id=226007319]
@@ -199,8 +210,8 @@ angle_max = 45.0
 color_ramp = ExtResource("13_a1pjv")
 
 [node name="DripGooParticles_Shattered" type="CPUParticles2D" parent="." unique_id=1996749690]
-visible = false
 position = Vector2(9, 5.5)
+emitting = false
 amount = 120
 lifetime = 0.5
 explosiveness = 0.13
@@ -217,15 +228,15 @@ angle_max = 45.0
 color_ramp = ExtResource("13_a1pjv")
 
 [node name="DripGooParticles_Destroyed" type="CPUParticles2D" parent="." unique_id=320999944]
-visible = false
 position = Vector2(0, 9.5)
+emitting = false
 amount = 90
 explosiveness = 0.13
 randomness = 1.0
 lifetime_randomness = 0.5
 fract_delta = false
 emission_shape = 3
-emission_rect_extents = Vector2(10, 0)
+emission_rect_extents = Vector2(10, 2)
 spread = 15.0
 gravity = Vector2(0, 64)
 color_ramp = ExtResource("13_a1pjv")
@@ -243,4 +254,12 @@ position = Vector2(0, 7)
 amount = 64
 emission_rect_extents = Vector2(3, 0)
 
+[node name="Area2D_to_hit_Thatcher" type="Area2D" parent="." unique_id=972938050]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_to_hit_Thatcher" unique_id=5901469]
+shape = SubResource("RectangleShape2D_4bdd7")
+
 [connection signal="area_entered" from="Area_to_check_for_bombs" to="." method="_on_area_to_check_for_bombs_area_entered"]
+[connection signal="body_entered" from="Area2D_to_hit_Thatcher" to="." method="_on_area_2d_to_hit_thatcher_body_entered"]

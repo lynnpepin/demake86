@@ -76,7 +76,6 @@ func _physics_process(delta: float) -> void:
         die()
     
     lifetime += delta
-    # not sure why this isn't working :(
      
     # TODO - Figure out raw rotations
     velocity += Vector2(
@@ -94,6 +93,7 @@ func _physics_process(delta: float) -> void:
         if is_in_group("missile"):
             if collision.get_collider().is_in_group("tourian_barrier"):
                 collision.get_collider().get_hit_by_missile()
+                die()
         if collision.get_collider().is_in_group("hatch"):
             collision.get_collider().get_parent().open()
         if collision.get_collider().is_in_group("shootable_block"):
@@ -104,17 +104,19 @@ func _physics_process(delta: float) -> void:
 func die():
     if active:
         active = false
+        disable_mode = CollisionObject2D.DISABLE_MODE_REMOVE
         $AreaToCheckForEnemy.set_deferred("disabled", true)
         $AreaToCheckForEnemy.set_deferred("monitoring", false)
         $AreaToCheckForEnemy.set_deferred("monitorable", false)
         $AreaToCheckForEnemy/CollisionShape2D.set_deferred("disabled", true)
         if $AreaToCheckForEnemy/CollisionShape_Start:
             $AreaToCheckForEnemy/CollisionShape_Start.set_deferred("disabled", true)
+        $AreaToCheckForEnemy.queue_free()
     
         $ColliderWall.set_deferred("monitoring", false)
         $ColliderWall.set_deferred("monitorable", false)
         $ColliderWall.set_deferred("disabled", false)
-            
+        $ColliderWall.queue_free()
         $Sprite2D.visible = false
         $CPUParticles2D_Trail.emitting = false
         if $Trail_Longbeam:
