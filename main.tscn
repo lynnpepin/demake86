@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://nmb80xmwnw1u" path="res://art/256_bg.png" id="5_xcij7"]
 [ext_resource type="PackedScene" uid="uid://7inx7nnea1o3" path="res://Scenes/Pickups/LongBeamPickup.tscn" id="6_7xndq"]
 [ext_resource type="Texture2D" uid="uid://b3y2iji6hrwtn" path="res://art/128_bg.png" id="6_lsn6u"]
+[ext_resource type="PackedScene" uid="uid://b836iv2r7c8rw" path="res://Scenes/Tour/TourThatcher.tscn" id="7_rnkwl"]
 [ext_resource type="Texture2D" uid="uid://xgn8x5qcmkic" path="res://art/64_bg.png" id="7_s1bfu"]
 [ext_resource type="PackedScene" uid="uid://cacny0hjo4im5" path="res://Scenes/Pickups/BombPickup.tscn" id="8_bdj8y"]
 [ext_resource type="PackedScene" uid="uid://bv0aynt6jkni2" path="res://Scenes/relan.tscn" id="8_trcrg"]
@@ -846,6 +847,9 @@ tracking_another = NodePath("../../HatchShadows/shadow_brin_shadow_1")
 position = Vector2(128, 378)
 tracking = NodePath("../../HatchShadows/shadow_kemp_under_main")
 tracking_another = NodePath("../../HatchShadows/shadow_kemp_inner_tower_bottom")
+
+[node name="TourBarrier" parent="Hatches/hatch_kemp_main_left_3" unique_id=209634660 instance=ExtResource("7_rnkwl")]
+position = Vector2(-116.80947, -291.55188)
 
 [node name="hatch_kemp_horizontal" parent="Hatches" unique_id=1906803574 node_paths=PackedStringArray("tracking", "tracking_another") instance=ExtResource("30_1unny")]
 position = Vector2(80, 336)
@@ -2052,7 +2056,7 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tourian/Area2D_ventilation_for_smoke" unique_id=1943147392]
 shape = SubResource("RectangleShape2D_6iyjs")
 
-[node name="TourBarrier" parent="Tourian" unique_id=209634660 instance=ExtResource("56_e71vb")]
+[node name="TourBarrier" parent="Tourian" unique_id=1691590251 instance=ExtResource("56_e71vb")]
 position = Vector2(56, 88)
 
 [node name="TourBarrier2" parent="Tourian" unique_id=1588836071 instance=ExtResource("56_e71vb")]
