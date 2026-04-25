@@ -849,7 +849,7 @@ tracking = NodePath("../../HatchShadows/shadow_kemp_under_main")
 tracking_another = NodePath("../../HatchShadows/shadow_kemp_inner_tower_bottom")
 
 [node name="TourBarrier" parent="Hatches/hatch_kemp_main_left_3" unique_id=209634660 instance=ExtResource("7_rnkwl")]
-position = Vector2(-116.80947, -291.55188)
+position = Vector2(-104, -298)
 
 [node name="hatch_kemp_horizontal" parent="Hatches" unique_id=1906803574 node_paths=PackedStringArray("tracking", "tracking_another") instance=ExtResource("30_1unny")]
 position = Vector2(80, 336)

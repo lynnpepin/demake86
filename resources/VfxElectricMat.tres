@@ -21,8 +21,8 @@ size = Vector2(639.99994, 0)
 texture = SubResource("CurveTexture_x6c1i")
 
 [sub_resource type="Curve" id="Curve_x6c1i"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.47832718, 0), -0.17962909, -0.17962909, 0, 0, Vector2(0.54145765, 0), 0.0, 0.0, 0, 0, Vector2(0.99999, 1), 0.0, 0.0, 0, 0]
-point_count = 4
+_data = [Vector2(0, 0), 0.0, 82.60233, 0, 1, Vector2(0.012106195, 1), 0.0, 0.0, 0, 0, Vector2(0.3164333, 0), 0.0, 0.0, 0, 0, Vector2(0.5491539, 0), 0.0, 0.0, 0, 0, Vector2(0.54916394, 1), -1.2846955, -1.2846955, 0, 0, Vector2(0.62076044, 1), 0.0, 0.0, 0, 0, Vector2(0.65656364, 0.12826633), 0.0, 0.0, 0, 0, Vector2(0.83557975, 0), 0.0, 0.0, 0, 0, Vector2(0.99669397, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 151.23874, 0.0, 1, 0]
+point_count = 10
 
 [sub_resource type="CurveTexture" id="CurveTexture_7kodk"]
 curve = SubResource("Curve_x6c1i")
@@ -101,21 +101,16 @@ texture = SubResource("CurveTexture_udeno")
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_7kodk"]
 input_name = "uv"
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ht3vd"]
-seed = 11
-frequency = 0.008
-fractal_gain = 0.545
-domain_warp_enabled = true
-domain_warp_type = 1
-domain_warp_amplitude = 15.0
-domain_warp_frequency = 0.01
-domain_warp_fractal_octaves = 1
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_eqgq1"]
+frequency = 0.0625
+fractal_octaves = 4
 
 [sub_resource type="NoiseTexture3D" id="NoiseTexture3D_x6c1i"]
 width = 48
 height = 48
-depth = 60
-noise = SubResource("FastNoiseLite_ht3vd")
+depth = 120
+noise = SubResource("FastNoiseLite_eqgq1")
+seamless = true
 
 [sub_resource type="VisualShaderNodeTexture3D" id="VisualShaderNodeTexture3D_7kodk"]
 texture = SubResource("NoiseTexture3D_x6c1i")
@@ -144,7 +139,7 @@ nodes/fragment/0/position = Vector2(2053.3333, 293.33334)
 nodes/fragment/3/node = SubResource("VisualShaderNodeInput_7kodk")
 nodes/fragment/3/position = Vector2(-1133.3334, -120)
 nodes/fragment/4/node = SubResource("VisualShaderNodeTexture3D_7kodk")
-nodes/fragment/4/position = Vector2(-53.333332, -226.66667)
+nodes/fragment/4/position = Vector2(-40, -226.66667)
 nodes/fragment/5/node = SubResource("VisualShaderNodeInput_do8aq")
 nodes/fragment/5/position = Vector2(-1080, 80)
 nodes/fragment/6/node = SubResource("VisualShaderNodeVectorDecompose_8j23w")
@@ -166,7 +161,7 @@ nodes/fragment/13/position = Vector2(240, -453.33334)
 nodes/fragment/14/node = SubResource("VisualShaderNodeColorOp_ht3vd")
 nodes/fragment/14/position = Vector2(906.6667, 13.333333)
 nodes/fragment/15/node = SubResource("VisualShaderNodeExpression_ht3vd")
-nodes/fragment/15/position = Vector2(80, 40)
+nodes/fragment/15/position = Vector2(40, 520)
 nodes/fragment/15/size = Vector2(1020, 1280)
 nodes/fragment/15/input_ports = "0,0,time;"
 nodes/fragment/15/output_ports = "0,4,color;"

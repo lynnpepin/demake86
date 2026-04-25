@@ -69,6 +69,7 @@
 [ext_resource type="PackedScene" uid="uid://bdrhfhftvg8lb" path="res://Scenes/VfxElectric.tscn" id="64_vhaco"]
 [ext_resource type="Script" uid="uid://qr2nn5y5e1q" path="res://Scenes/screw_attack_area2d_script.gd" id="65_5vuaf"]
 [ext_resource type="Texture2D" uid="uid://b27jj6lbe7ynw" path="res://art/relan/relan_fgdp.png" id="67_bh2oj"]
+[ext_resource type="Shader" uid="uid://dgo80kujk4qkj" path="res://resources/VfxElectricMat (copy).tres" id="67_bm3d7"]
 [ext_resource type="AudioStream" uid="uid://bk2s3ltjf0cwf" path="res://resources/screw.wav" id="67_j7v81"]
 [ext_resource type="Texture2D" uid="uid://bibijr5244ou2" path="res://art/relan/relan_ghost.png" id="69_dw83p"]
 [ext_resource type="Script" uid="uid://d1grk2nmbpvd4" path="res://Scenes/sprite_ghost.gd" id="70_o3kwa"]
@@ -323,6 +324,9 @@ animations = [{
 "name": &"default",
 "speed": 12.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yy1tg"]
+shader = ExtResource("67_bm3d7")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vhaco"]
 radius = 7.0
@@ -1161,6 +1165,7 @@ script = ExtResource("64_fxuio")
 
 [node name="Sprite2D" parent="Node2D_Screw_Attack" unique_id=678579505 instance=ExtResource("64_vhaco")]
 z_index = 100
+material = SubResource("ShaderMaterial_yy1tg")
 
 [node name="Area2D" type="Area2D" parent="Node2D_Screw_Attack" unique_id=669550649 groups=["beam"]]
 collision_layer = 8
