@@ -13,6 +13,10 @@ var lose_lava_period = 2.0
 
 func _process(delta) -> void:
     hurt_cooldown = clamp(hurt_cooldown - delta, 0.0, 64.0)
+    $AnimatedSprite2D_Body.modulate = Color(
+        1.0, .5 + hp / (2.0 * maxhp) - hurt_cooldown, .5 + hp / (2.0 * maxhp) - hurt_cooldown
+    )
+    $AnimatedSprite2D_Body.offset.x = (hurt_cooldown / .06125) * sin(hurt_cooldown*PI*12.0)
     if cracked and !shattered:
         var perc = lose_lava_timer / lose_lava_period
         lose_lava_timer = min(lose_lava_timer + delta, lose_lava_period)
@@ -40,11 +44,12 @@ func hurt(damage, timer):
                     shatter()
                     hp = 100.0
         if cracked and shattered and !destroyed:
-            $AnimatedSprite2D_Body.modulate = Color(
-                1.0, .5 + hp / (2.0 * maxhp), .5 + hp / (2.0 * maxhp)
-            )
-            if hp <= 60.0:
+            if hp <= 20.0:
                 $AnimatedSprite2D_Body.play("hurt_3")
+            elif hp <= 40.0:
+                $AnimatedSprite2D_Body.play("hurt_2")
+            elif hp <= 90.0:
+                $AnimatedSprite2D_Body.play("hurt_1")
             if hp <= 0.0:
                 destroy()
 
@@ -52,7 +57,6 @@ func crack():
     print("CRACKED THATCHER")
     cracked = true
     #$CollisionShape2D_mid.set_deferred("disabled", true)
-    $AnimatedSprite2D_Body.play("hurt_1")
     $AnimatedSprite2D_Glass.play("cracked")
     $Sprite2D_Lava_Shader.modulate = Color(1.0, 1.0, 1.0, .75)
     $BlastGooParticles_Right.emitting = true
@@ -65,7 +69,6 @@ func shatter():
     print("SHATTERED THATCHER")
     shattered = true
     $Sprite2D_Lava_Shader.modulate = Color(1.0, 1.0, 1.0, 0.0)
-    $AnimatedSprite2D_Body.play("hurt_2")
     $AnimatedSprite2D_Glass.play("shattered")
     $BlastGooParticles_Right.emitting = true
     $BlastGlassParticles_Right.emitting = true

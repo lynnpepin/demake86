@@ -385,9 +385,8 @@ func play_screech_sound():
 #region hp-and-barrier
 func hurt(damage: int, cooldown: float) -> void:
     # todo  whether damage should take off last bit of health
-    #$Camera2D.set_shake(Vector2(2,4))
     $body_sprite.modulate = Color.RED
-    if hurt_timer <= 0:
+    if hurt_timer <= 0 and damage > 0:
         hurt_timer = cooldown
         if barrier_timer >= BARRIER_RECHARGE_PERIOD:
             remove_barrier()
