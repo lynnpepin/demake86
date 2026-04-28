@@ -129,7 +129,7 @@ size = Vector2(14, 14)
 
 [sub_resource type="Gradient" id="Gradient_n8ru2"]
 interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.003009027, 0.06720161, 0.099297896, 0.28385156, 0.4322969, 0.7051153, 0.8054162, 0.9177533, 1)
+offsets = PackedFloat32Array(0, 0.003009027, 0.023069208, 0.06720161, 0.18756269, 0.2678034, 0.7051153, 0.8054162, 0.9177533, 1)
 colors = PackedColorArray(0.05, 0.047125, 0.0385, 0.25098, 0.8862745, 0.84313726, 0.70980394, 1, 1, 0.90588236, 0.21568628, 1, 0.2901961, 0.105882354, 0.03529412, 1, 0.8117647, 0.23529412, 0.44313726, 1, 0.49411765, 0.15686275, 0.27058825, 1, 0.49, 0.1568, 0.2678667, 0.8117647, 0.49, 0.1568, 0.2678667, 0.5372549, 0.49, 0.1568, 0.2678667, 0.2627451, 0.05, 0.047125, 0.0385, 0.25098)
 
 [node name="TourThatcher" type="StaticBody2D" unique_id=209634660 groups=["enemies", "tourian_barrier"]]
@@ -306,8 +306,10 @@ stream = ExtResource("22_adclb")
 visible = false
 
 [node name="BrainsplodeParticles" parent="." unique_id=1149512892 instance=ExtResource("24_n8ru2")]
+z_index = 64
+z_as_relative = false
 amount = 2048
-lifetime = 6.0
+lifetime = 8.6
 explosiveness = 0.75
 randomness = 1.0
 lifetime_randomness = 0.75
@@ -315,13 +317,13 @@ fract_delta = false
 emission_shape = 3
 emission_rect_extents = Vector2(6, 12)
 direction = Vector2(1, -1)
-spread = 90.0
+spread = 150.0
 initial_velocity_min = 32.0
-initial_velocity_max = 72.0
+initial_velocity_max = 196.0
 angular_velocity_min = -240.0
 angular_velocity_max = 240.0
-damping_min = 32.0
-damping_max = 196.0
+damping_min = 64.0
+damping_max = 256.0
 angle_max = 45.0
 scale_amount_min = 0.5
 scale_amount_max = 3.0

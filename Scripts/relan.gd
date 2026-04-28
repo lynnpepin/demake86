@@ -216,7 +216,7 @@ func _physics_process(delta: float) -> void:
     if grounded != 0.0:
         $Node2D_Screw_Attack.off()
 
-func escape_time_set(time):
+func escape_time_set(time: float = 19.86):
     $EscapeTimeTyper.target_text = str(
         str(snapped(time, 0.01)).pad_decimals(2)
     )
@@ -433,7 +433,7 @@ func regain_barrier():
         )
 #endregion
 
-func show_message(message):
+func show_message(message: String):
     $Typer.start(message)
 #######
 # Handle missiles and energy
