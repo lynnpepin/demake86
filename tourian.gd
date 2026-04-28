@@ -25,5 +25,18 @@ func start_escape():
 
 func _process(delta):
     if escape_started:
-        escape_time -= delta
+        var adjdelta = delta
+        if escape_time < .1:
+            adjdelta = delta / 100
+        if escape_time < .5:
+            adjdelta = delta / 10
+        elif escape_time < 1:
+            adjdelta = delta / 8
+        elif escape_time < 2:
+            adjdelta = delta / 6
+        elif escape_time < 3:
+            adjdelta = delta / 4
+        elif escape_time < 6:
+            adjdelta = delta / 2
+        escape_time -= adjdelta
         player.escape_time_set(min(escape_time, 19.86))

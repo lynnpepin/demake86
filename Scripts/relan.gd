@@ -218,7 +218,7 @@ func _physics_process(delta: float) -> void:
 
 func escape_time_set(time: float = 19.86):
     $EscapeTimeTyper.target_text = str(
-        str(snapped(time, 0.01)).pad_decimals(2)
+        str(snapped(max(time, 0.0), 0.01)).pad_decimals(2)
     )
 
 func _process(delta):
