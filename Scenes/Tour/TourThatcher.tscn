@@ -11,6 +11,16 @@
 [ext_resource type="Texture2D" uid="uid://b7h1dmpxkovxf" path="res://art/tour/thatcher-0.png" id="7_4bdd7"]
 [ext_resource type="Texture2D" uid="uid://csyjbmnljr0gh" path="res://art/tour/thatcher-4.png" id="7_rsde2"]
 [ext_resource type="Gradient" uid="uid://cui0y8j5mi34a" path="res://resources/gooradient.tres" id="13_a1pjv"]
+[ext_resource type="AudioStream" uid="uid://b1tlxb5y4vn8h" path="res://sfx/Tour/thatcher_hurt_1.wav" id="15_a1pjv"]
+[ext_resource type="AudioStream" uid="uid://bhlmo5o3tgsx2" path="res://sfx/Tour/thatcher_hurt_2.wav" id="16_nyunv"]
+[ext_resource type="AudioStream" uid="uid://dqd5xqvjmcgj" path="res://sfx/Tour/thatcher_hurt_4.wav" id="16_uylq2"]
+[ext_resource type="AudioStream" uid="uid://caxoe0yn7glg4" path="res://sfx/Tour/thatcher_hurt_3.wav" id="17_5ojab"]
+[ext_resource type="AudioStream" uid="uid://ch7wkt0mpslqm" path="res://sfx/Tour/thatcher_hurt_desparate.wav" id="17_gpj5r"]
+[ext_resource type="AudioStream" uid="uid://jnhwkb1nk7gw" path="res://sfx/Tour/thatcher_defeat.wav" id="20_5ojab"]
+[ext_resource type="AudioStream" uid="uid://nwb1ux0rp18o" path="res://sfx/Tour/thatcher_crack_glass.wav" id="21_v30j4"]
+[ext_resource type="AudioStream" uid="uid://cjtkvcjdyv25j" path="res://sfx/Tour/thatcher_break_glass.wav" id="22_adclb"]
+[ext_resource type="PackedScene" uid="uid://bu67q6bmjtnm" path="res://Scenes/thatcher_exploding_bits.tscn" id="23_adclb"]
+[ext_resource type="PackedScene" uid="uid://b0y874xsfexd1" path="res://Classes/death_explosion.tscn" id="24_n8ru2"]
 [ext_resource type="PackedScene" uid="uid://bdrhfhftvg8lb" path="res://Scenes/VfxElectric.tscn" id="25_v0ni8"]
 [ext_resource type="Shader" uid="uid://drer86crb8tlu" path="res://resources/thatcher_milk_shader.tres" id="26_pkly5"]
 [ext_resource type="PackedScene" uid="uid://bv7j2dij7vk4c" path="res://Scenes/MotesOfSmoke.tscn" id="36_eyw4p"]
@@ -116,6 +126,11 @@ size = Vector2(26, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4bdd7"]
 size = Vector2(14, 14)
+
+[sub_resource type="Gradient" id="Gradient_n8ru2"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.003009027, 0.06720161, 0.099297896, 0.28385156, 0.4322969, 0.7051153, 0.8054162, 0.9177533, 1)
+colors = PackedColorArray(0.05, 0.047125, 0.0385, 0.25098, 0.8862745, 0.84313726, 0.70980394, 1, 1, 0.90588236, 0.21568628, 1, 0.2901961, 0.105882354, 0.03529412, 1, 0.8117647, 0.23529412, 0.44313726, 1, 0.49411765, 0.15686275, 0.27058825, 1, 0.49, 0.1568, 0.2678667, 0.8117647, 0.49, 0.1568, 0.2678667, 0.5372549, 0.49, 0.1568, 0.2678667, 0.2627451, 0.05, 0.047125, 0.0385, 0.25098)
 
 [node name="TourThatcher" type="StaticBody2D" unique_id=209634660 groups=["enemies", "tourian_barrier"]]
 collision_layer = 6
@@ -260,6 +275,57 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_to_hit_Thatcher" unique_id=5901469]
 shape = SubResource("RectangleShape2D_4bdd7")
+
+[node name="Sfx" type="Node" parent="." unique_id=1707841697]
+
+[node name="Hurt1" type="AudioStreamPlayer2D" parent="Sfx" unique_id=2047139738]
+stream = ExtResource("15_a1pjv")
+
+[node name="Hurt2" type="AudioStreamPlayer2D" parent="Sfx" unique_id=1227772331]
+stream = ExtResource("16_nyunv")
+
+[node name="Hurt3" type="AudioStreamPlayer2D" parent="Sfx" unique_id=1644278821]
+stream = ExtResource("17_5ojab")
+
+[node name="Hurt4" type="AudioStreamPlayer2D" parent="Sfx" unique_id=1162190518]
+stream = ExtResource("16_uylq2")
+
+[node name="HurtDesp" type="AudioStreamPlayer2D" parent="Sfx" unique_id=944687913]
+stream = ExtResource("17_gpj5r")
+
+[node name="Kill" type="AudioStreamPlayer2D" parent="Sfx" unique_id=86795661]
+stream = ExtResource("20_5ojab")
+
+[node name="Crack" type="AudioStreamPlayer2D" parent="Sfx" unique_id=1357066349]
+stream = ExtResource("21_v30j4")
+
+[node name="Break" type="AudioStreamPlayer2D" parent="Sfx" unique_id=1858227300]
+stream = ExtResource("22_adclb")
+
+[node name="thatcher_explode_bits" parent="." unique_id=1585587522 instance=ExtResource("23_adclb")]
+visible = false
+
+[node name="BrainsplodeParticles" parent="." unique_id=1149512892 instance=ExtResource("24_n8ru2")]
+amount = 2048
+lifetime = 6.0
+explosiveness = 0.75
+randomness = 1.0
+lifetime_randomness = 0.75
+fract_delta = false
+emission_shape = 3
+emission_rect_extents = Vector2(6, 12)
+direction = Vector2(1, -1)
+spread = 90.0
+initial_velocity_min = 32.0
+initial_velocity_max = 72.0
+angular_velocity_min = -240.0
+angular_velocity_max = 240.0
+damping_min = 32.0
+damping_max = 196.0
+angle_max = 45.0
+scale_amount_min = 0.5
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_n8ru2")
 
 [connection signal="area_entered" from="Area_to_check_for_bombs" to="." method="_on_area_to_check_for_bombs_area_entered"]
 [connection signal="body_entered" from="Area2D_to_hit_Thatcher" to="." method="_on_area_2d_to_hit_thatcher_body_entered"]

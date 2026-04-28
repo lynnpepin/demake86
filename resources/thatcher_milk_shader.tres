@@ -1,5 +1,7 @@
 [gd_resource type="VisualShader" format=3 uid="uid://drer86crb8tlu"]
 
+[ext_resource type="FastNoiseLite" uid="uid://chv2p82m1ttty" path="res://thatcher_lava.tres" id="1_tbf15"]
+
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_eqgq1"]
 output_port_for_preview = 0
 default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(0.5, 0.5, 0)]
@@ -92,15 +94,11 @@ output_port_for_preview = 0
 default_input_values = [0, Vector3(1, 0.905, 0.214)]
 function = 5
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_eqgq1"]
-frequency = 0.0313
-fractal_octaves = 4
-
 [sub_resource type="NoiseTexture3D" id="NoiseTexture3D_x6c1i"]
 width = 48
 height = 48
 depth = 120
-noise = SubResource("FastNoiseLite_eqgq1")
+noise = ExtResource("1_tbf15")
 seamless = true
 
 [sub_resource type="VisualShaderNodeTexture3D" id="VisualShaderNodeTexture3D_0gq0y"]

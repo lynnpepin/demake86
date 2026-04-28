@@ -433,7 +433,10 @@ debug_color = Color(0.7, 0.24500002, 0, 0.41960785)
 [node name="CameraAnchor" type="Node2D" parent="." unique_id=250916154]
 
 [node name="Camera2D" type="Camera2D" parent="CameraAnchor" unique_id=558517496]
-position = Vector2(0, 1)
+position = Vector2(0, -1)
+offset = Vector2(0, 1)
+ignore_rotation = false
+limit_enabled = false
 position_smoothing_speed = 96.0
 script = ExtResource("2_i0hd8")
 

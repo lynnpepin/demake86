@@ -1,9 +1,9 @@
 extends RigidBody2D
 
 @onready var exploded = false
-var force = 86.19
+var setforce = 86.19
 
-func explode():
+func explode(force=setforce):
     if not exploded:
         print("BLAM")
         exploded = true

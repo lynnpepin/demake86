@@ -20,13 +20,7 @@ func _process(delta) -> void:
     if cracked and !shattered:
         var perc = lose_lava_timer / lose_lava_period
         lose_lava_timer = min(lose_lava_timer + delta, lose_lava_period)
-        $Sprite2D_Lava_Shader.texture.height = 22 - round(10 * perc)
-        $Sprite2D_Lava_Shader.position.y = 0 + round(5.5 * perc)
-    
-    elif shattered and !destroyed:
-        var perc = lose_lava_timer / lose_lava_period
-        lose_lava_timer = min(lose_lava_timer + delta, lose_lava_period)
-        $Sprite2D_Lava_Shader.texture.height = 22 - round(10 * perc)
+        $Sprite2D_Lava_Shader.scale.y = (22 - round(10 * perc))/22.0
         $Sprite2D_Lava_Shader.position.y = 0 + round(5.5 * perc)
 
 func hurt(damage, timer):
@@ -45,11 +39,16 @@ func hurt(damage, timer):
                     hp = 100.0
         if cracked and shattered and !destroyed:
             if hp <= 20.0:
+                $Sfx/HurtDesp.play()
                 $AnimatedSprite2D_Body.play("hurt_3")
             elif hp <= 40.0:
+                [$Sfx/Hurt3, $Sfx/Hurt4][randi_range(0,1)].play()
                 $AnimatedSprite2D_Body.play("hurt_2")
             elif hp <= 90.0:
+                [$Sfx/Hurt2, $Sfx/Hurt3][randi_range(0,1)].play()
                 $AnimatedSprite2D_Body.play("hurt_1")
+            elif hp <= 100.0:
+                $Sfx/Hurt1.play()
             if hp <= 0.0:
                 destroy()
 
@@ -63,12 +62,13 @@ func crack():
     $BlastGlassParticles_Right.emitting = true
     $DripGooParticles_Cracked.emitting = true
     $DripGooParticles_Cracked.preprocess = 1.0
+    $Sfx/Crack.play()
     pass
 
 func shatter():
     print("SHATTERED THATCHER")
     shattered = true
-    $Sprite2D_Lava_Shader.modulate = Color(1.0, 1.0, 1.0, 0.0)
+    $Sprite2D_Lava_Shader.modulate = Color(1.0, 1.0, 1.0, 0.5)
     $AnimatedSprite2D_Glass.play("shattered")
     $BlastGooParticles_Right.emitting = true
     $BlastGlassParticles_Right.emitting = true
@@ -78,9 +78,13 @@ func shatter():
     $CollisionShape2D_mid.set_deferred("disabled", true)
     $Area_to_check_for_bombs.set_deferred("monitoring", false)
     hp = 100.0
+    $Sprite2D_Lava_Shader.scale.y = 7/22.0
+    $Sprite2D_Lava_Shader.position.y = 7.5
     # once shattered, she can be urt with beams
+    $Sfx/Break.play()
 
 func destroy():
+    $Sfx/Kill.play()
     print("DESTROYED THATCHER")
     destroyed = true
     $AnimatedSprite2D_Body.play("dead")
@@ -95,6 +99,10 @@ func destroy():
     $CollisionShape2D_top.set_deferred("disabled", true)
     $CollisionShape2D_bottom.set_deferred("disabled", true)
     $CollisionShape2D_back.set_deferred("disabled", true)
+    $Sprite2D_Lava_Shader.modulate = Color(1.0, 1.0, 1.0, 0.0)
+    $thatcher_explode_bits.visible = true
+    $thatcher_explode_bits.explode()
+    $BrainsplodeParticles.emitting = true
     
     # todo - sound effect, timer
     get_parent().start_escape()

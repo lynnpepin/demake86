@@ -1,0 +1,818 @@
+[gd_scene format=3 uid="uid://bu67q6bmjtnm"]
+
+[ext_resource type="Script" uid="uid://csys04ifitng0" path="res://Scenes/thatcher_exploding_bits.gd" id="1_j5mk5"]
+[ext_resource type="Script" uid="uid://cor71xmk8pats" path="res://Scenes/explode_bit.gd" id="2_o17h6"]
+[ext_resource type="Texture2D" uid="uid://s64f4y737n5e" path="res://art/tour/thatcher_bit_2.png" id="3_mbgyv"]
+[ext_resource type="Texture2D" uid="uid://xu2cyhujqcwa" path="res://art/tour/thatcher_bit_1.png" id="3_s1kvo"]
+[ext_resource type="Texture2D" uid="uid://c2wwhm2h87gv6" path="res://art/tour/thatcher_bit_3.png" id="4_wxwel"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mmdlm"]
+rough = true
+bounce = 0.13
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbgyv"]
+size = Vector2(2, 2)
+
+[node name="thatcher_explode_bits" type="Node2D" unique_id=1585587522]
+z_index = 4096
+z_as_relative = false
+script = ExtResource("1_j5mk5")
+
+[node name="Bit1" type="RigidBody2D" parent="." unique_id=244493340]
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.25
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit1" unique_id=1328100827]
+texture = ExtResource("3_mbgyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit1" unique_id=676916454]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit2" type="RigidBody2D" parent="." unique_id=961682969]
+position = Vector2(4, 0)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit2" unique_id=683453965]
+texture = ExtResource("4_wxwel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit2" unique_id=2085633775]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit3" type="RigidBody2D" parent="." unique_id=1399858154]
+position = Vector2(8, 0)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit3" unique_id=1626029665]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit3" unique_id=1905140421]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit4" type="RigidBody2D" parent="." unique_id=1449544907]
+position = Vector2(-4, 0)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit4" unique_id=1272579442]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit4" unique_id=2109977433]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit5" type="RigidBody2D" parent="." unique_id=1538499450]
+position = Vector2(-8, 0)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit5" unique_id=1064653451]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit5" unique_id=1699753008]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit6" type="RigidBody2D" parent="." unique_id=380995457]
+position = Vector2(0, -3)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit6" unique_id=1712766949]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit6" unique_id=108795216]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit7" type="RigidBody2D" parent="." unique_id=459491282]
+position = Vector2(4, -3)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit7" unique_id=761216979]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit7" unique_id=251258910]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit8" type="RigidBody2D" parent="." unique_id=1454803788]
+position = Vector2(8, -3)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit8" unique_id=2005486812]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit8" unique_id=758685473]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit9" type="RigidBody2D" parent="." unique_id=913245279]
+position = Vector2(-4, -3)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit9" unique_id=218282719]
+texture = ExtResource("3_mbgyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit9" unique_id=1183749300]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit10" type="RigidBody2D" parent="." unique_id=1748442438]
+position = Vector2(-8, -3)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit10" unique_id=344395641]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit10" unique_id=1175794803]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit11" type="RigidBody2D" parent="." unique_id=2101378351]
+position = Vector2(0, -6)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit11" unique_id=1788881617]
+texture = ExtResource("3_mbgyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit11" unique_id=1818944756]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit12" type="RigidBody2D" parent="." unique_id=1170150733]
+position = Vector2(4, -6)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit12" unique_id=1122320409]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit12" unique_id=1451885499]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit13" type="RigidBody2D" parent="." unique_id=91981204]
+position = Vector2(8, -6)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit13" unique_id=9183848]
+texture = ExtResource("4_wxwel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit13" unique_id=1431693084]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit14" type="RigidBody2D" parent="." unique_id=1954424852]
+position = Vector2(-4, -6)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit14" unique_id=176651169]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit14" unique_id=1894802240]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit15" type="RigidBody2D" parent="." unique_id=403310570]
+position = Vector2(-8, -6)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit15" unique_id=1929962474]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit15" unique_id=1093415406]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit16" type="RigidBody2D" parent="." unique_id=434236955]
+position = Vector2(0, 4)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit16" unique_id=573513578]
+texture = ExtResource("3_mbgyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit16" unique_id=1917124993]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit17" type="RigidBody2D" parent="." unique_id=521022937]
+position = Vector2(4, 4)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit17" unique_id=86868577]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit17" unique_id=1349956082]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit18" type="RigidBody2D" parent="." unique_id=270400836]
+position = Vector2(8, 4)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit18" unique_id=1290387650]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit18" unique_id=109485492]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit19" type="RigidBody2D" parent="." unique_id=1008995203]
+position = Vector2(-4, 4)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit19" unique_id=1322520445]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit19" unique_id=29116127]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit20" type="RigidBody2D" parent="." unique_id=1846140794]
+position = Vector2(-8, 4)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit20" unique_id=1630908661]
+texture = ExtResource("4_wxwel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit20" unique_id=239125508]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit21" type="RigidBody2D" parent="." unique_id=1281380545]
+position = Vector2(0, 8)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit21" unique_id=593505935]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit21" unique_id=106129191]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit22" type="RigidBody2D" parent="." unique_id=1832307947]
+position = Vector2(4, 8)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit22" unique_id=1537990134]
+texture = ExtResource("4_wxwel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit22" unique_id=507344198]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit23" type="RigidBody2D" parent="." unique_id=1121462133]
+position = Vector2(8, 8)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit23" unique_id=1724733233]
+texture = ExtResource("3_mbgyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit23" unique_id=1352094050]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit24" type="RigidBody2D" parent="." unique_id=1692805365]
+position = Vector2(-4, 8)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit24" unique_id=1972409529]
+texture = ExtResource("4_wxwel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit24" unique_id=597323801]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit25" type="RigidBody2D" parent="." unique_id=502275971]
+position = Vector2(-8, 8)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.125
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit25" unique_id=475120148]
+texture = ExtResource("3_mbgyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit25" unique_id=582917424]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit26" type="RigidBody2D" parent="." unique_id=1448351019]
+position = Vector2(2, -1)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit26" unique_id=944289934]
+texture = ExtResource("3_mbgyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit26" unique_id=913209758]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit27" type="RigidBody2D" parent="." unique_id=230302934]
+position = Vector2(6, -1)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit27" unique_id=944745523]
+texture = ExtResource("4_wxwel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit27" unique_id=1176551192]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit28" type="RigidBody2D" parent="." unique_id=261597921]
+position = Vector2(10, -1)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit28" unique_id=1087011462]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit28" unique_id=467289277]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit29" type="RigidBody2D" parent="." unique_id=437990607]
+position = Vector2(-2, -1)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.5
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit29" unique_id=1332125226]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit29" unique_id=1538829930]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit30" type="RigidBody2D" parent="." unique_id=545847203]
+position = Vector2(-6, -1)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit30" unique_id=1367405666]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit30" unique_id=1550262427]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit31" type="RigidBody2D" parent="." unique_id=1980442616]
+position = Vector2(2, -4)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit31" unique_id=1157912629]
+texture = ExtResource("3_mbgyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit31" unique_id=1597097359]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit32" type="RigidBody2D" parent="." unique_id=886577000]
+position = Vector2(6, -4)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit32" unique_id=1574071180]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit32" unique_id=1209687179]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit33" type="RigidBody2D" parent="." unique_id=452906156]
+position = Vector2(10, -4)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit33" unique_id=400283715]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit33" unique_id=438014924]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit34" type="RigidBody2D" parent="." unique_id=1621829647]
+position = Vector2(-2, -4)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit34" unique_id=1778878863]
+texture = ExtResource("3_mbgyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit34" unique_id=1566033391]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit35" type="RigidBody2D" parent="." unique_id=1798262046]
+position = Vector2(-6, -4)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit35" unique_id=703616627]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit35" unique_id=45062274]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit36" type="RigidBody2D" parent="." unique_id=93874498]
+position = Vector2(2, -7)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit36" unique_id=1129918421]
+texture = ExtResource("3_mbgyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit36" unique_id=1755097490]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit37" type="RigidBody2D" parent="." unique_id=466041291]
+position = Vector2(6, -7)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit37" unique_id=1987535148]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit37" unique_id=1248101574]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit38" type="RigidBody2D" parent="." unique_id=635651997]
+position = Vector2(10, -7)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit38" unique_id=577135871]
+texture = ExtResource("4_wxwel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit38" unique_id=351430212]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit39" type="RigidBody2D" parent="." unique_id=710552178]
+position = Vector2(-2, -7)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit39" unique_id=15870677]
+texture = ExtResource("3_mbgyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit39" unique_id=504096930]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit40" type="RigidBody2D" parent="." unique_id=1798998468]
+position = Vector2(-6, -7)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit40" unique_id=1015122773]
+texture = ExtResource("3_mbgyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit40" unique_id=577522865]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit41" type="RigidBody2D" parent="." unique_id=1184912783]
+position = Vector2(2, 3)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit41" unique_id=978754703]
+texture = ExtResource("3_mbgyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit41" unique_id=1893372742]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit42" type="RigidBody2D" parent="." unique_id=1772262168]
+position = Vector2(6, 3)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit42" unique_id=834994674]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit42" unique_id=1392700742]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit43" type="RigidBody2D" parent="." unique_id=1133560418]
+position = Vector2(10, 3)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit43" unique_id=2096011601]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit43" unique_id=213637919]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit44" type="RigidBody2D" parent="." unique_id=1623846127]
+position = Vector2(-2, 3)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit44" unique_id=694939157]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit44" unique_id=1235609386]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit45" type="RigidBody2D" parent="." unique_id=236181344]
+position = Vector2(-6, 3)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit45" unique_id=466040187]
+texture = ExtResource("4_wxwel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit45" unique_id=1712183850]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit46" type="RigidBody2D" parent="." unique_id=314834270]
+position = Vector2(2, 7)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit46" unique_id=101950971]
+texture = ExtResource("3_s1kvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit46" unique_id=1396166525]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit47" type="RigidBody2D" parent="." unique_id=368264547]
+position = Vector2(6, 7)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit47" unique_id=512052706]
+texture = ExtResource("4_wxwel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit47" unique_id=1553917114]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit48" type="RigidBody2D" parent="." unique_id=1777593145]
+position = Vector2(10, 7)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit48" unique_id=278812711]
+texture = ExtResource("3_mbgyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit48" unique_id=431086941]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit49" type="RigidBody2D" parent="." unique_id=2045318571]
+position = Vector2(-2, 7)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit49" unique_id=1046850449]
+texture = ExtResource("4_wxwel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit49" unique_id=1251816610]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")
+
+[node name="Bit50" type="RigidBody2D" parent="." unique_id=1465678023]
+position = Vector2(-6, 7)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_mmdlm")
+gravity_scale = 0.375
+sleeping = true
+script = ExtResource("2_o17h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bit50" unique_id=921379949]
+texture = ExtResource("3_mbgyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bit50" unique_id=1732364579]
+rotation = 0.2617994
+shape = SubResource("RectangleShape2D_mbgyv")

@@ -16,7 +16,7 @@ func tourian_activate_escape_layout():
     $TileMapLayer_Tourian_Escape.enabled = true
 
 func start_escape():
-    tourian_activate_escape_layout()
+    $StartEscape.play("StartEscape")
     # HACKY HACKY
     player.Typer.start("TIMEBOMB SET\nGET OUT FAST")
     escape_started = true

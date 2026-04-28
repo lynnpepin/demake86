@@ -40,6 +40,8 @@ func shatter():
     $AnimatedSprite2D_Body.speed_scale += 1.0
     #$GlassParticles.emitting = true
     #$GlassShatter.play()
+    $Sfx/Shatter.play()
+
 
 func destroy():
     destroyed = true
@@ -55,6 +57,7 @@ func destroy():
     $BlastBodyParticles_Gold.emitting = true
     $BlastBodyParticles_Teal.emitting = true
     $SmokeParticles.emitting = true
+    $Sfx/Destroy.play()
 
 func stop_its_already_dead():
     $BlastLavaParticles_Left.restart()

@@ -36,6 +36,8 @@
 [ext_resource type="Texture2D" uid="uid://ddrcmiryyleig" path="res://art/tour/tourbarrier-16.png" id="33_jvxwy"]
 [ext_resource type="Texture2D" uid="uid://b8w5vvb5cc52h" path="res://art/tour/tourbarrier-17.png" id="34_8mo4b"]
 [ext_resource type="PackedScene" uid="uid://bv7j2dij7vk4c" path="res://Scenes/MotesOfSmoke.tscn" id="36_1bmq3"]
+[ext_resource type="AudioStream" uid="uid://b58ax05jv7fev" path="res://sfx/Tour/barrier_destroy.wav" id="37_ft56m"]
+[ext_resource type="AudioStream" uid="uid://tcekp72kk56" path="res://sfx/Tour/barrier_break_glass.wav" id="38_e0ve6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mo4b"]
 size = Vector2(6, 14)
@@ -362,5 +364,13 @@ z_index = -100
 position = Vector2(0, 7)
 amount = 64
 emission_rect_extents = Vector2(3, 0)
+
+[node name="Sfx" type="Node" parent="." unique_id=1432759801]
+
+[node name="Destroy" type="AudioStreamPlayer" parent="Sfx" unique_id=1344048016]
+stream = ExtResource("37_ft56m")
+
+[node name="Shatter" type="AudioStreamPlayer" parent="Sfx" unique_id=640109245]
+stream = ExtResource("38_e0ve6")
 
 [connection signal="area_entered" from="Area_to_check_for_missiles" to="." method="_on_area_to_check_for_missiles_area_entered"]
