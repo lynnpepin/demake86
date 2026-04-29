@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://7r054hw760ku"]
+
+[ext_resource type="PackedScene" uid="uid://be6esv11x3s5t" path="res://Classes/EnemyClass.tscn" id="1_3slqs"]
+[ext_resource type="Texture2D" uid="uid://c6tufm4ggxvc7" path="res://art/SETONA/SETONA-4.png" id="2_imn7e"]
+[ext_resource type="Texture2D" uid="uid://b7tkofvaklemi" path="res://art/SETONA/SETONA-5.png" id="3_ntaxx"]
+[ext_resource type="Texture2D" uid="uid://ekqe4u8tnfw2" path="res://art/SETONA/SETONA-6.png" id="4_cqgfd"]
+[ext_resource type="Texture2D" uid="uid://b66lfx2c4bkdn" path="res://art/SETONA/SETONA-8.png" id="5_yrj2r"]
+[ext_resource type="Texture2D" uid="uid://cqn0hsl82e2ho" path="res://art/SETONA/SETONA-9.png" id="6_ytpi5"]
+[ext_resource type="Texture2D" uid="uid://bp1is6pfr4ywq" path="res://resources/GradientTexture2D_White36px.tres" id="8_cqgfd"]
+[ext_resource type="Shader" uid="uid://bqf1f87mlllnt" path="res://Scenes/Enemies/SETONA_gradient.tres" id="8_yrj2r"]
+[ext_resource type="Script" uid="uid://nkhdraadwf8q" path="res://Scenes/Enemies/setona_gradient.gd" id="9_yrj2r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_471fi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_imn7e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ntaxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cqgfd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yrj2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ytpi5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ytpi5"]
+shader = ExtResource("8_yrj2r")
+
+[node name="Setona" unique_id=1981089262 instance=ExtResource("1_3slqs")]
+position = Vector2(32, 32)
+
+[node name="Sprite2D_bg_white" type="Sprite2D" parent="." index="0" unique_id=1548837251 groups=["enemies"]]
+z_index = -256
+z_as_relative = false
+texture = ExtResource("8_cqgfd")
+script = ExtResource("9_yrj2r")
+
+[node name="Sprite2D_freeze_box" parent="." index="2" unique_id=840567474]
+visible = false
+
+[node name="AnimatedSprite2D" parent="." index="5" unique_id=787643559]
+sprite_frames = SubResource("SpriteFrames_471fi")
+offset = Vector2(0, 0)
+
+[node name="DeathExplosion" parent="." index="10" unique_id=1149512892]
+position = Vector2(0, 0)
+
+[node name="Sprite2D_gradient" type="Sprite2D" parent="." index="11" unique_id=678579505 groups=["enemies"]]
+z_index = 100
+material = SubResource("ShaderMaterial_ytpi5")
+texture = ExtResource("8_cqgfd")
+script = ExtResource("9_yrj2r")
