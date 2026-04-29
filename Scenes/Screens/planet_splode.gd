@@ -4,3 +4,4 @@ extends Node2D
 
 func _ready() -> void:
     $Meteoroid/RelanEscape.emitting = relan_escape
+    $Meteoroid/RelanEscape.visible = relan_escape

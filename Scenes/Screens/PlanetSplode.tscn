@@ -189,7 +189,6 @@ viewport_path = NodePath("Subviewport")
 
 [node name="PlanetSplode" type="Node2D" unique_id=1203875906]
 script = ExtResource("1_es06x")
-relan_escape = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1762264189]
 ignore_rotation = false
