@@ -24,6 +24,10 @@ func start_escape():
     # todo play music
 
 func _process(delta):
+    if escape_time <= 0.5:
+        $fade_to_white.modulate = Color(1.0, 1.0, 1.0, (.5 - escape_time) / .5);
+    if escape_time <= 0:
+        get_parent().planet_splode(false)
     if escape_started:
         var adjdelta = delta
         if escape_time < .1:

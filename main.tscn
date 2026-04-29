@@ -496,6 +496,14 @@ _data = {
 &"StartEscape": SubResource("Animation_uit24")
 }
 
+[sub_resource type="Gradient" id="Gradient_ruth0"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rm4vd"]
+gradient = SubResource("Gradient_ruth0")
+width = 1
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4w656"]
 size = Vector2(64, 64)
 
@@ -503,7 +511,12 @@ size = Vector2(64, 64)
 script = ExtResource("1_hrvbo")
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
-position = Vector2(96, 164)
+position = Vector2(88, 81)
+START_MISSILES = 12
+START_ENERGY = 12
+has_morph_ball = true
+has_morph_bomb = true
+has_long_beam = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Relan" unique_id=31498320]
 visible = false
@@ -2225,6 +2238,12 @@ stream = ExtResource("60_ruth0")
 
 [node name="StartEscape" type="AnimationPlayer" parent="Tourian" unique_id=977032521]
 libraries/ = SubResource("AnimationLibrary_ruth0")
+
+[node name="fade_to_white" type="Sprite2D" parent="Tourian" unique_id=1760802607]
+modulate = Color(1, 1, 1, 0)
+z_index = 2048
+scale = Vector2(4096, 4096)
+texture = SubResource("GradientTexture1D_rm4vd")
 
 [node name="KempsLair" type="Node2D" parent="." unique_id=863085050]
 
