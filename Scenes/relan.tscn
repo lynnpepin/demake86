@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dr7jr7h3ic6e2" path="res://art/relan/cannon_right_f.png" id="5_d634i"]
 [ext_resource type="Texture2D" uid="uid://oip1i5o2irt1" path="res://art/relan/cannon_right_df.png" id="6_ws1if"]
 [ext_resource type="Texture2D" uid="uid://c28g3cl6svxb0" path="res://art/relan/cannon_right_d.png" id="7_stq8y"]
-[ext_resource type="Script" uid="uid://bc0paoyr8p4u" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="8_87bux"]
+[ext_resource type="Script" uid="uid://3ml16p1dm6hj" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="8_87bux"]
 [ext_resource type="Texture2D" uid="uid://oeqnwixh6b5m" path="res://art/relan/relan_ball_1.png" id="9_1nb6e"]
 [ext_resource type="Texture2D" uid="uid://b6ckyjdjddifx" path="res://art/relan/relan_right.png" id="9_8n4ka"]
 [ext_resource type="Texture2D" uid="uid://bqjbrci3cvg3g" path="res://art/relan/relan_run_3.png" id="10_ao4rs"]
@@ -327,6 +327,16 @@ animations = [{
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yy1tg"]
 shader = ExtResource("67_bm3d7")
+
+[sub_resource type="Gradient" id="Gradient_bm3d7"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yy1tg"]
+gradient = SubResource("Gradient_bm3d7")
+width = 24
+height = 24
+use_hdr = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vhaco"]
 radius = 7.0
@@ -1185,6 +1195,7 @@ script = ExtResource("64_fxuio")
 [node name="Sprite2D" parent="Node2D_Screw_Attack" unique_id=678579505 instance=ExtResource("64_vhaco")]
 z_index = 100
 material = SubResource("ShaderMaterial_yy1tg")
+texture = SubResource("GradientTexture2D_yy1tg")
 
 [node name="Area2D" type="Area2D" parent="Node2D_Screw_Attack" unique_id=669550649 groups=["beam"]]
 collision_layer = 8

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c0du6jfe1mhhg" path="res://art/tour/thatcher-6.png" id="2_umhy2"]
 [ext_resource type="Texture2D" uid="uid://kg8hbhn2y3at" path="res://art/tour/thatcher-5.png" id="3_4bdd7"]
 [ext_resource type="Texture2D" uid="uid://bqxqill0o5btu" path="res://art/tour/thatcher-1.png" id="4_6w4db"]
-[ext_resource type="Texture2D" uid="uid://bl73sqf3ay0qc" path="res://art/tour/thatcher-8.png" id="4_a1pjv"]
+[ext_resource type="Texture2D" uid="uid://twam1v1gjmdb" path="res://art/tour/thatcher-8.png" id="4_a1pjv"]
 [ext_resource type="Texture2D" uid="uid://154ngs1ox35m" path="res://art/tour/thatcher-2.png" id="5_iji4g"]
 [ext_resource type="Texture2D" uid="uid://dkrjrncwlq70c" path="res://art/tour/thatcher-7.png" id="5_kk7qf"]
 [ext_resource type="Texture2D" uid="uid://7qh32gn4lm4v" path="res://art/tour/thatcher-3.png" id="6_t85qh"]
@@ -112,6 +112,16 @@ animations = [{
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c68lv"]
 shader = ExtResource("26_pkly5")
 
+[sub_resource type="Gradient" id="Gradient_k7wvb"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n8ru2"]
+gradient = SubResource("Gradient_k7wvb")
+width = 22
+height = 22
+use_hdr = true
+
 [sub_resource type="Gradient" id="Gradient_8mo4b"]
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(1, 1, 1, 1)
@@ -166,6 +176,7 @@ autoplay = "default"
 modulate = Color(1, 1, 1, 0.9411765)
 z_index = 100
 material = SubResource("ShaderMaterial_c68lv")
+texture = SubResource("GradientTexture2D_n8ru2")
 
 [node name="BlastGooParticles_Right" type="CPUParticles2D" parent="." unique_id=1279485376]
 position = Vector2(10, 0)

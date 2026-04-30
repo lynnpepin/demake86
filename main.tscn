@@ -512,7 +512,13 @@ size = Vector2(64, 64)
 script = ExtResource("1_hrvbo")
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
-position = Vector2(97, 160)
+position = Vector2(94, 45)
+START_MISSILES = 7
+START_ENERGY = 7
+has_high_jump = true
+has_morph_ball = true
+has_morph_bomb = true
+has_long_beam = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Relan" unique_id=31498320]
 visible = false
