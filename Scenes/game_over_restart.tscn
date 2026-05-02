@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://bh38alhkvjsde"]
+
+[ext_resource type="Texture2D" uid="uid://bv3opl8hwfj1r" path="res://art/game_over_restart_2.png" id="1_n73ov"]
+[ext_resource type="Script" uid="uid://d01tmlw6eei0a" path="res://Scenes/game_over_restart.gd" id="1_u0sj8"]
+[ext_resource type="Texture2D" uid="uid://b7skyw5ocv2hb" path="res://art/game_over_restart_1.png" id="2_64m0v"]
+[ext_resource type="AudioStream" uid="uid://wjj5w4owa7ix" path="res://sfx/gasp.wav" id="3_64m0v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u0sj8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_n73ov")
+}],
+"loop": true,
+"name": &"awake",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_64m0v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_u0sj8"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_hndrm"]
+resource_name = "new_animation"
+length = 4.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2, 2, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.29333335, 0, 0, 0, 0, -0.013333341, 0, 0, 0, 0, -0.026666662, 0, 0, 0, 0, -0.033333343, 0, 0, 0),
+"times": PackedFloat32Array(0, 1.76, 1.84, 2, 2.1666667)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.29333335, 0, 0, 0, -2, -0.013333341, 0.33333334, 0, 0, 2, -0.026666662, -0.6666667, 0, 0, 0, -0.033333343, 0.33333337, 0, 0),
+"times": PackedFloat32Array(0, 1.76, 1.84, 1.9666667, 2.0666666)
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.6333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.7666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"awake", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"restart"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7qfyy"]
+_data = {
+&"RESET": SubResource("Animation_u0sj8"),
+&"new_animation": SubResource("Animation_hndrm")
+}
+
+[node name="GameOverRestart" type="Node2D" unique_id=614761685]
+script = ExtResource("1_u0sj8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1696795513]
+sprite_frames = SubResource("SpriteFrames_u0sj8")
+centered = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1524842298]
+stream = ExtResource("3_64m0v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=62981221]
+libraries/ = SubResource("AnimationLibrary_7qfyy")
+autoplay = &"new_animation"

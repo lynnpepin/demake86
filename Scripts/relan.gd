@@ -64,6 +64,10 @@ var bombs: float = BOMB_PERIOD * MAX_BOMBS
 var barrier = false
 var barrier_timer = 0
 
+# When you die, spend this much time before restarting
+var after_death_timer = 0.0
+var after_death_timer_period = 4.3
+
 @export var has_screw_attack = false
 
 # input
@@ -225,6 +229,10 @@ func escape_time_set(time: float = 19.86):
     )
 
 func _process(delta):
+    if state == States.Dead:
+        after_death_timer += delta
+        if after_death_timer >= after_death_timer_period:
+            get_tree().change_scene_to_file("res://Scenes/game_over_restart.tscn")
     # timer
     time += delta
     $TimeTyper.target_text = str(snapped(time, 0.1))

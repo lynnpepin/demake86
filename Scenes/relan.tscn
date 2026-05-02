@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dr7jr7h3ic6e2" path="res://art/relan/cannon_right_f.png" id="5_d634i"]
 [ext_resource type="Texture2D" uid="uid://oip1i5o2irt1" path="res://art/relan/cannon_right_df.png" id="6_ws1if"]
 [ext_resource type="Texture2D" uid="uid://c28g3cl6svxb0" path="res://art/relan/cannon_right_d.png" id="7_stq8y"]
-[ext_resource type="Script" uid="uid://3ml16p1dm6hj" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="8_87bux"]
+[ext_resource type="Script" uid="uid://bc0paoyr8p4u" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="8_87bux"]
 [ext_resource type="Texture2D" uid="uid://oeqnwixh6b5m" path="res://art/relan/relan_ball_1.png" id="9_1nb6e"]
 [ext_resource type="Texture2D" uid="uid://b6ckyjdjddifx" path="res://art/relan/relan_right.png" id="9_8n4ka"]
 [ext_resource type="Texture2D" uid="uid://bqjbrci3cvg3g" path="res://art/relan/relan_run_3.png" id="10_ao4rs"]
