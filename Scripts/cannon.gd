@@ -112,7 +112,7 @@ func handle_angles():
     # Set the angle according to our X-Y components
     angle = posmod(int((
         aimvec.angle() / PI) * 4 #+ .001
-        + 0.001 * int(flip == -1.0)
+        #+ 0.001 * int(flip == -1.0)
         # TODO - MACOS FLOATING POINT FUCKERY????
         ),8)
     
