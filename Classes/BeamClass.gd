@@ -7,7 +7,7 @@ extends AnimatableBody2D
 
 
 ## Time in seconds for this beam to exist
-@export var LIFESPAN: float = 1.0 / 8.0;
+@export var LIFESPAN: float = 1.0 / 9.0;
 
 var lifetime: float = 0.0;
 
