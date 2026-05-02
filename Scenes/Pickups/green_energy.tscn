@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://cw5txjgwf8kq"]
+
+[ext_resource type="Script" uid="uid://c0f2ygqu7igub" path="res://Scenes/Pickups/green_energy.gd" id="1_aev8d"]
+[ext_resource type="Texture2D" uid="uid://2btvr5nyb8gd" path="res://art/green_energy/crystal-0.png" id="1_h1o3a"]
+[ext_resource type="Texture2D" uid="uid://b07w6s0hg2qim" path="res://art/green_energy/crystal-1.png" id="2_plkpo"]
+[ext_resource type="Texture2D" uid="uid://ornsgkotawdo" path="res://art/green_energy/crystal-2.png" id="3_aev8d"]
+[ext_resource type="Texture2D" uid="uid://dceeowm0mpwl3" path="res://art/green_energy/crystal-3.png" id="4_hcpb5"]
+[ext_resource type="Texture2D" uid="uid://dys6rmr4snoks" path="res://art/green_energy/crystal-4.png" id="5_rssoc"]
+[ext_resource type="Texture2D" uid="uid://cwb6odrmpouh4" path="res://art/green_energy/crystal-5.png" id="6_mnasg"]
+[ext_resource type="Texture2D" uid="uid://ob06mph8p5dv" path="res://art/green_energy/crystal-6.png" id="7_cgj0x"]
+[ext_resource type="Texture2D" uid="uid://bjucs11r06x6f" path="res://art/green_energy/crystal-7.png" id="8_4anvx"]
+[ext_resource type="Script" uid="uid://crxt61p6bifb3" path="res://Scenes/Pickups/sway.gd" id="9_plkpo"]
+[ext_resource type="AudioStream" uid="uid://dc1iehhkif7wk" path="res://sfx/crystal_blip_55.wav" id="11_73frh"]
+[ext_resource type="AudioStream" uid="uid://k6hf3utkust" path="res://sfx/crystal_blip_110.wav" id="12_6uc0l"]
+[ext_resource type="AudioStream" uid="uid://c0uej18rvn0pq" path="res://sfx/crystal_blip_165.wav" id="13_g61x1"]
+[ext_resource type="AudioStream" uid="uid://rbyhgp6nshod" path="res://sfx/crystal_blip_220.wav" id="14_lnmc4"]
+[ext_resource type="AudioStream" uid="uid://cpe2a8tgioau5" path="res://sfx/crystal_blip_330.wav" id="15_esfeg"]
+[ext_resource type="AudioStream" uid="uid://r65gerfeg8cw" path="res://sfx/crystal_blip_440.wav" id="16_iaavo"]
+[ext_resource type="AudioStream" uid="uid://2hdti75lchiy" path="res://sfx/crystal_blip_660.wav" id="17_frxj8"]
+[ext_resource type="AudioStream" uid="uid://cvr5f1i8xpk8i" path="res://sfx/crystal_blip_880.wav" id="18_3vnea"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_suhn3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_h1o3a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_plkpo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_aev8d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hcpb5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rssoc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mnasg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cgj0x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4anvx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_plkpo"]
+offsets = PackedFloat32Array(0.07522567, 0.36008024, 0.5366098, 0.8254764, 1)
+colors = PackedColorArray(0.58683336, 1, 0.32999998, 1, 0.47058824, 0.8, 0.2627451, 1, 0.32156864, 0.6862745, 0.40392157, 1, 0.14117648, 0.3647059, 0.29803923, 1, 0, 0, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_plkpo"]
+radius = 2.0
+
+[node name="GreenEnergy" type="Node2D" unique_id=1886153877]
+script = ExtResource("1_aev8d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1977886671]
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_suhn3")
+autoplay = "default"
+frame_progress = 0.61069286
+script = ExtResource("9_plkpo")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=909977719]
+emitting = false
+amount = 24
+one_shot = true
+explosiveness = 0.88
+randomness = 0.75
+lifetime_randomness = 0.75
+spread = 180.0
+gravity = Vector2(0, -16)
+initial_velocity_min = 3.0
+initial_velocity_max = 8.0
+angle_max = 45.0
+color_ramp = SubResource("Gradient_plkpo")
+
+[node name="Sfx" type="Node2D" parent="." unique_id=914526866]
+
+[node name="CrystalBlip55" type="AudioStreamPlayer2D" parent="Sfx" unique_id=18026611]
+stream = ExtResource("11_73frh")
+volume_db = -5.0
+
+[node name="CrystalBlip110" type="AudioStreamPlayer2D" parent="Sfx" unique_id=987135567]
+stream = ExtResource("12_6uc0l")
+volume_db = -5.0
+
+[node name="CrystalBlip165" type="AudioStreamPlayer2D" parent="Sfx" unique_id=1576193944]
+stream = ExtResource("13_g61x1")
+volume_db = -5.0
+
+[node name="CrystalBlip220" type="AudioStreamPlayer2D" parent="Sfx" unique_id=833063853]
+stream = ExtResource("14_lnmc4")
+volume_db = -5.0
+
+[node name="CrystalBlip330" type="AudioStreamPlayer2D" parent="Sfx" unique_id=1919952879]
+stream = ExtResource("15_esfeg")
+volume_db = -5.0
+
+[node name="CrystalBlip440" type="AudioStreamPlayer2D" parent="Sfx" unique_id=386115220]
+stream = ExtResource("16_iaavo")
+volume_db = -5.0
+
+[node name="CrystalBlip660" type="AudioStreamPlayer2D" parent="Sfx" unique_id=1114660670]
+stream = ExtResource("17_frxj8")
+volume_db = -5.0
+
+[node name="CrystalBlip880" type="AudioStreamPlayer2D" parent="Sfx" unique_id=2087831528]
+stream = ExtResource("18_3vnea")
+volume_db = -5.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1525090775]
+collision_layer = 3
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=32443571]
+shape = SubResource("CircleShape2D_plkpo")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
