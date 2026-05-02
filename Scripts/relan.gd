@@ -69,6 +69,7 @@ var barrier_timer = 0
 # input
 var left: bool
 var right: bool
+var _ls_hz: float
 
 var Bomb = preload("res://Scenes/bomb.tscn")
 
@@ -140,13 +141,15 @@ func _physics_process(delta: float) -> void:
         #CURRENT_JUMP_SPEED = JUMP_SPEED * .75
     
     # Get left/right direction
-    left  = Input.is_action_pressed("pad_left")
-    right = Input.is_action_pressed("pad_right")
+    _ls_hz = Input.get_axis("pad_lstick_left", "pad_lstick_right")
+    left  = Input.is_action_pressed("pad_left") or (_ls_hz < -.5)
+    right = Input.is_action_pressed("pad_right") or (_ls_hz > .5)
     
     if (left or right) and not (state == States.Dead):
         vv.x = clamp(#        (1 - (1 - grounded)*.5) reduces air movement to 1/2; careful for momentum!
             vv.x + ax*delta * (1 - (1 - grounded)*.5) * (int(right) - int(left)),
-            -SPEED, SPEED)
+            -SPEED, SPEED
+        )
     else:
         # Friction moves toward zero; .75 as fast if player gives no input
         if vv.x < 0:
@@ -248,14 +251,15 @@ func _process(delta):
         elif (state== States.Ball):
             _transition_ball_to_normal()
             
-    if Input.is_action_just_pressed("pad_left"):
+    if Input.is_action_just_pressed("pad_left") or _ls_hz < -.5:
         $body_sprite.flip_h = 1
         $ball_sprite.flip_h = 1
         #$Node2D_cannon.flip_h = 1
-    if Input.is_action_just_pressed("pad_right"):
+    if Input.is_action_just_pressed("pad_right") or _ls_hz > .5:
         $body_sprite.flip_h = 0
         $ball_sprite.flip_h = 0
         #$Node2D_cannon.flip_h = 0
+        
     for input_key in ["pad_left", "pad_right", "pad_up", "pad_down", "pad_a", "pad_b", "pad_x", "pad_y", "pad_lb", "pad_rb"]:
         if Input.is_action_just_pressed(input_key):
             print(input_key, " pressed")

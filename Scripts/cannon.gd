@@ -44,12 +44,16 @@ func _process(delta: float) -> void:
     ########
     # Handle aiming
     ########
-    up = Input.is_action_pressed("pad_up")
-    left = Input.is_action_pressed("pad_left")
-    down = Input.is_action_pressed("pad_down")
-    right = Input.is_action_pressed("pad_right")
+    
+    var _ls_hz = Input.get_axis("pad_lstick_left", "pad_lstick_right")
+    var _ls_vz = Input.get_axis("pad_lstick_up", "pad_lstick_down")
+    
+    up = Input.is_action_pressed("pad_up") or (_ls_vz < -.5)
+    left = Input.is_action_pressed("pad_left")  or (_ls_hz < -.5)
+    down = Input.is_action_pressed("pad_down")  or (_ls_vz > .5)
+    right = Input.is_action_pressed("pad_right") or (_ls_hz > .5)
     diag = Input.is_action_pressed("pad_lb")
-        
+    
     handle_angles()
     
     # For some reason, we need to define this here, not above
