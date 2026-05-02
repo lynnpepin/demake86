@@ -1138,10 +1138,10 @@ position = Vector2(0, 10)
 offset = Vector2(32, 86)
 transform = Transform2D(1, 0, 0, 1, 32, 86)
 
-[node name="Typer" parent="EscapeTimeTyper" index="0"]
+[node name="Typer" parent="EscapeTimeTyper" index="0" unique_id=1182078658]
 theme_override_colors/default_color = Color(0.8784314, 0.23529412, 0.15686275, 1)
 
-[node name="Shadow" parent="EscapeTimeTyper" index="1"]
+[node name="Shadow" parent="EscapeTimeTyper" index="1" unique_id=1627273126]
 theme_override_colors/default_color = Color(0, 0, 0, 0.8156863)
 
 [node name="ball_trail" type="Node2D" parent="." unique_id=769611890]
@@ -1189,6 +1189,7 @@ autoplay = "default"
 offset = Vector2(0, 4)
 
 [node name="Node2D_Screw_Attack" type="Node2D" parent="." unique_id=1145614643]
+visible = false
 position = Vector2(0, 4)
 script = ExtResource("64_fxuio")
 
