@@ -23,6 +23,10 @@ boot_splash/use_filter=false
 boot_splash/image="uid://be203kj2wgiem"
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*uid://dcesauwuiunee"
+
 [display]
 
 window/size/viewport_width=512

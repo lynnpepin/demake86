@@ -1,7 +1,9 @@
 [gd_scene format=4 uid="uid://cjrves4o71ear"]
 
-[ext_resource type="PackedScene" uid="uid://dvmfspjjw6lrx" path="res://Classes/PickupClass.tscn" id="1_tkykk"]
 [ext_resource type="Script" uid="uid://b8hi8eyskw0va" path="res://Scenes/Pickups/ship.gd" id="2_1gsy7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gsy7"]
+size = Vector2(18, 48)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n3xe5"]
 
@@ -99,54 +101,62 @@ background_color = Color(0, 0, 0, 0)
 [sub_resource type="ViewportTexture" id="ViewportTexture_jgd5b"]
 viewport_path = NodePath("SubViewport")
 
-[node name="Ship" unique_id=1814193282 instance=ExtResource("1_tkykk")]
+[node name="Ship" type="Node2D" unique_id=1814193282]
 script = ExtResource("2_1gsy7")
 
-[node name="SubViewport" type="SubViewport" parent="." index="1" unique_id=1024581336]
+[node name="Area2D" type="Area2D" parent="." unique_id=1826170630]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1156771913]
+shape = SubResource("RectangleShape2D_1gsy7")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1024581336]
 transparent_bg = true
 canvas_item_default_texture_filter = 0
 size = Vector2i(48, 48)
 
-[node name="Node3D" type="Node3D" parent="SubViewport" index="0" unique_id=738166348]
+[node name="Node3D" type="Node3D" parent="SubViewport" unique_id=738166348]
 
-[node name="crowskull2" type="Node3D" parent="SubViewport/Node3D" index="0" unique_id=1506040752]
+[node name="crowskull2" type="Node3D" parent="SubViewport/Node3D" unique_id=1506040752]
 transform = Transform3D(-4, -3.496911e-07, -1.5285484e-14, 0, -1.7484555e-07, 4, -3.496911e-07, 4, 1.7484555e-07, -4, 0, 0)
 
-[node name="Eyes" type="MeshInstance3D" parent="SubViewport/Node3D/crowskull2" index="0" unique_id=2076090724]
+[node name="Eyes" type="MeshInstance3D" parent="SubViewport/Node3D/crowskull2" unique_id=2076090724]
 transform = Transform3D(100, 0, 0, 0, 100, -4.371139e-06, 0, 4.371139e-06, 100, 2, 0.025000175, 1.0927924e-09)
 mesh = SubResource("ArrayMesh_nion3")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_gn0qk")
 
-[node name="Skull" type="MeshInstance3D" parent="SubViewport/Node3D/crowskull2" index="1" unique_id=1405870488]
+[node name="Skull" type="MeshInstance3D" parent="SubViewport/Node3D/crowskull2" unique_id=1405870488]
 transform = Transform3D(100, 0, 0, 0, 100, -4.371139e-06, -2.7105054e-20, 4.371139e-06, 100, 2, 1.7484554e-07, 7.642743e-15)
 mesh = SubResource("ArrayMesh_w5flj")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_tkykk")
 
-[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D" index="1" unique_id=430530075]
+[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D" unique_id=430530075]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 5.72937)
 environment = SubResource("Environment_bimby")
 projection = 1
 size = 8.0
 
-[node name="PivotLight1" type="Node3D" parent="SubViewport/Node3D" index="2" unique_id=1029574441]
+[node name="PivotLight1" type="Node3D" parent="SubViewport/Node3D" unique_id=1029574441]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="0" unique_id=1358848428]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" unique_id=1358848428]
 transform = Transform3D(-0.8406575, 0.39252114, -0.37312484, -0.22525413, 0.37312365, 0.90002185, 0.4924993, 0.840658, -0.22525218, -8, 0, 0.806871)
 light_color = Color(0.869911, 0.864236, 0.839635, 1)
 
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="1" unique_id=1390260754]
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" unique_id=1390260754]
 transform = Transform3D(0.0606811, -0.9815585, 0.18127565, 0.609193, 0.18028273, 0.7722578, -0.790697, 0.06357041, 0.6088983, -7.157936, 0, 0.806871)
 
-[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" index="2" unique_id=1985425025]
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="SubViewport/Node3D/PivotLight1" unique_id=1985425025]
 transform = Transform3D(0.87031305, -0.4757175, 0.12746805, 0, -0.25881892, -0.9659259, 0.49249902, 0.8406579, -0.22525345, -8, 0, 0.806871)
 light_color = Color(0.996078, 0.792157, 0.933333, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="2" unique_id=684637167]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=684637167]
 texture = SubResource("ViewportTexture_jgd5b")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." index="3" unique_id=903650036]
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=903650036]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 1)
 visible = false
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

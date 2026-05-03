@@ -1,8 +1,8 @@
 extends Node2D
 
 @export var relan_escape: bool = false
-@export var secret_ending_minigame: bool = false
-var death = preload("res://Scenes/game_over_restart.tscn")
+var death = preload("res://Scenes/Screens/game_over_restart.tscn").instantiate()
+
 
 func _ready() -> void:
     $Meteoroid/RelanEscape.emitting = relan_escape
@@ -10,10 +10,12 @@ func _ready() -> void:
 
 func next_scene() -> void:
     if not relan_escape:
-        get_tree().change_scene_to_file("res://Scenes/game_over_restart.tscn")
-    elif secret_ending_minigame:
-        pass
-        # TODO
+        get_tree().change_scene_to_node(death)    
+        #get_tree().change_scene_to_file("res://Scenes/Screens/game_over_restart.tscn")
     else:
-        pass
-        # TODO
+        if Global.game_timer <= 86.9:
+            print("SECRET ENDING")
+            pass # TODO secret ending
+        else:
+            print("CREDITS")
+            pass # TODO credits

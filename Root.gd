@@ -1,6 +1,10 @@
 extends Node2D
 
-var planetsplode = preload("res://Scenes/Screens/PlanetSplode.tscn")
+var PlanetSplode = preload("res://Scenes/Screens/PlanetSplode.tscn")
+#var BeamShot = preload("res://Classes/BeamClass.tscn")
+
+func _ready() -> void:
+    Global.game_timer = 0.0
 
 func vshake_player_camera(strength: float, KK=8.0, DD=16.0):
     $Relan/CameraAnchor/Camera2D.vshake(strength, KK, DD)
@@ -14,7 +18,16 @@ func shake_player_camera(
 ):
     $Relan/CameraAnchor/Camera2D.set_shake(strength, KK, DD)
 
-func planet_splode(relan_escape: bool = false):
-    #get_tree().change_scene_to_node(planetsplode)
-    get_tree().change_scene_to_file("res://Scenes/Screens/PlanetSplode.tscn")
-    print("THIS SHOULD NOT HAPPEN!!!!!!!!!!!!!")
+func planet_splode(
+    relan_escape: bool = false,
+):
+    print("Root.gd:planet_splode(...)")
+
+    var planetsplode = PlanetSplode.instantiate()
+    #var b = BeamShot.instantiate()
+    #b.ice = owner.has_ice_beam
+    planetsplode.relan_escape = relan_escape
+    get_tree().change_scene_to_node(planetsplode)
+    
+func _process(delta: float) -> void:
+    Global.game_timer += delta

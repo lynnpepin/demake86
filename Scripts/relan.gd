@@ -25,7 +25,6 @@ var BOMB_PERIOD: float = 0.5
 var BARRIER_RECHARGE_PERIOD: float = 8.6 # todo change
 var MAX_BOMBS = 5
 
-var time = 0;
 enum States { Normal, Ball, Dead }
 #endregion
 
@@ -42,7 +41,8 @@ var impulse_applied = false # when true, apply impulse for a frame
 var ax = MAX_WALK_SPEED * 8
 var y_velo = 0.0
 var x_velo = 0.0
-var grounded = 1.0 # 'grounded' moves from 1.0 to 0.0 on jump and from 1.0 to 0.0 gradually over time in the air
+var grounded = 1.0
+# 'grounded' moves from 1.0 to 0.0 on jump and from 1.0 to 0.0 gradually over time in the air
 var GROUND_DECAY_RATE = 8  # i.e. set to 12, decay in 1/12th of a second
 
 var energy = 0
@@ -232,10 +232,9 @@ func _process(delta):
     if state == States.Dead:
         after_death_timer += delta
         if after_death_timer >= after_death_timer_period:
-            get_tree().change_scene_to_file("res://Scenes/game_over_restart.tscn")
+            get_tree().change_scene_to_file("res://Scenes/Screens/game_over_restart.tscn")
     # timer
-    time += delta
-    $TimeTyper.target_text = str(snapped(time, 0.1))
+    $TimeTyper.target_text = str(snapped(Global.game_timer, 0.1))
     
     if (state == States.Dead):
         return

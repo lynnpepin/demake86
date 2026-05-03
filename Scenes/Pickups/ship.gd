@@ -12,3 +12,10 @@ func _physics_process(delta: float) -> void:
     $SubViewport/Node3D/crowskull2.rotate_y(
         cos(timer * PI / 4.0 ) / 720.0
     )
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+    if body.is_in_group("player"): # Replace with function body.
+        # NOT THE WAY TO DO THIS
+        get_parent().get_parent().planet_splode(true)
+        print("ship entered")
