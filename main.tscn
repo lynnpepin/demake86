@@ -63,6 +63,7 @@
 [ext_resource type="Script" uid="uid://unv3ye6qr1dt" path="res://fade_to_white.gd" id="61_rm4vd"]
 [ext_resource type="PackedScene" uid="uid://cw5txjgwf8kq" path="res://Scenes/Pickups/green_energy.tscn" id="62_pjyto"]
 [ext_resource type="PackedScene" uid="uid://cjrves4o71ear" path="res://Scenes/Pickups/Ship.tscn" id="63_sm6fg"]
+[ext_resource type="PackedScene" uid="uid://tgaoimuwfmu" path="res://Scenes/Tour/rinko_sniper.tscn" id="64_b17eg"]
 
 [sub_resource type="Gradient" id="Gradient_43svb"]
 offsets = PackedFloat32Array(0.00497512, 0.883085, 1)
@@ -526,7 +527,8 @@ size = Vector2(64, 64)
 script = ExtResource("1_hrvbo")
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
-position = Vector2(97, 160)
+position = Vector2(136, 23)
+HAS_ENOUGH_ITEMS = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Relan" unique_id=31498320]
 visible = false
@@ -2361,7 +2363,7 @@ shape = SubResource("RectangleShape2D_vke2r")
 
 [node name="CeilExplode" type="CPUParticles2D" parent="Tourian" unique_id=1354750708 groups=["explosion"]]
 z_index = 100
-position = Vector2(32, 9)
+position = Vector2(32, -55)
 emitting = false
 amount = 2048
 lifetime = 4.0
@@ -2373,10 +2375,10 @@ fract_delta = false
 emission_shape = 3
 emission_rect_extents = Vector2(8, 24)
 direction = Vector2(0, 1)
-spread = 15.0
+spread = 7.0
 gravity = Vector2(0, -256)
-initial_velocity_min = 256.0
-initial_velocity_max = 384.0
+initial_velocity_min = 384.0
+initial_velocity_max = 512.0
 angular_velocity_min = -240.0
 angular_velocity_max = 240.0
 orbit_velocity_min = -0.01
@@ -2441,6 +2443,51 @@ color_ramp = SubResource("Gradient_rm4vd")
 
 [node name="Ship" parent="Tourian" unique_id=1814193282 instance=ExtResource("63_sm6fg")]
 position = Vector2(208, -44)
+
+[node name="RinkoSniper" parent="Tourian" unique_id=1566865944 node_paths=PackedStringArray("tracking") instance=ExtResource("64_b17eg")]
+position = Vector2(116, 68)
+tracking = NodePath("../../Relan")
+tracking_distance = 48.0
+
+[node name="RinkoSniper5" parent="Tourian" unique_id=532561566 node_paths=PackedStringArray("tracking") instance=ExtResource("64_b17eg")]
+position = Vector2(48, 84)
+tracking = NodePath("../../Relan")
+tracking_distance = 48.0
+
+[node name="RinkoSniper3" parent="Tourian" unique_id=1295816988 node_paths=PackedStringArray("tracking") instance=ExtResource("64_b17eg")]
+position = Vector2(115, 12)
+tracking = NodePath("../../Relan")
+tracking_distance = 48.0
+
+[node name="RinkoSniper4" parent="Tourian" unique_id=40114780 node_paths=PackedStringArray("tracking") instance=ExtResource("64_b17eg")]
+position = Vector2(75, 84)
+tracking = NodePath("../../Relan")
+tracking_distance = 48.0
+angle = 0.0
+
+[node name="RinkoSniper7" parent="Tourian" unique_id=836372178 node_paths=PackedStringArray("tracking") instance=ExtResource("64_b17eg")]
+position = Vector2(84, 68)
+tracking = NodePath("../../Relan")
+tracking_distance = 48.0
+angle = 0.0
+
+[node name="RinkoSniper8" parent="Tourian" unique_id=29148184 node_paths=PackedStringArray("tracking") instance=ExtResource("64_b17eg")]
+position = Vector2(100, 67)
+tracking = NodePath("../../Relan")
+tracking_distance = 48.0
+angle = 0.0
+
+[node name="RinkoSniper6" parent="Tourian" unique_id=39581442 node_paths=PackedStringArray("tracking") instance=ExtResource("64_b17eg")]
+position = Vector2(44, 84)
+tracking = NodePath("../../Relan")
+tracking_distance = 48.0
+angle = 0.0
+
+[node name="RinkoSniper2" parent="Tourian" unique_id=1135415114 node_paths=PackedStringArray("tracking") instance=ExtResource("64_b17eg")]
+position = Vector2(76, 12)
+tracking = NodePath("../../Relan")
+tracking_distance = 48.0
+angle = 0.0
 
 [node name="KempsLair" type="Node2D" parent="." unique_id=863085050]
 

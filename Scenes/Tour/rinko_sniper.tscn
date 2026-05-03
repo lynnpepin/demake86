@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://tgaoimuwfmu"]
+
+[ext_resource type="Script" uid="uid://bed46jfm15otv" path="res://rinko_sniper.gd" id="1_82jhu"]
+[ext_resource type="Texture2D" uid="uid://5ujxhqx4vq5j" path="res://art/rinko_sniper.png" id="2_32ity"]
+[ext_resource type="AudioStream" uid="uid://b8kf6sjjt62sv" path="res://sfx/cheerio_charge_3s.wav" id="3_b4h2t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ntx8l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_32ity")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="RinkoSniper" type="Node2D" unique_id=1566865944 node_paths=PackedStringArray("tracking")]
+script = ExtResource("1_82jhu")
+tracking = NodePath("")
+angle = 90.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=616544053]
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_ntx8l")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=353032711]
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_ntx8l")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1198575766]
+modulate = Color(1, 1, 1, 0.5070655)
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(0.14509805, 0.8862745, 0.8039216, 1)
+
+[node name="ChargeSfx" type="AudioStreamPlayer2D" parent="." unique_id=858108148]
+stream = ExtResource("3_b4h2t")

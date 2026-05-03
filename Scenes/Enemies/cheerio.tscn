@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bvkrymso40pp7"]
+
+[ext_resource type="Script" uid="uid://cpqv7kb51p8gi" path="res://Scenes/Enemies/cheerio.gd" id="1_3y3fg"]
+[ext_resource type="Texture2D" uid="uid://vn3dv1jk5m47" path="res://art/rinko_cheerio.png" id="1_a71mb"]
+[ext_resource type="AudioStream" uid="uid://nm1efxh38c51" path="res://sfx/cheerio_dink.wav" id="3_hvu00"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3y3fg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a71mb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_a71mb"]
+offsets = PackedFloat32Array(0, 0.91481483, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a71mb"]
+radius = 2.0
+
+[node name="Cheerio" type="RigidBody2D" unique_id=1639919802]
+collision_layer = 4
+collision_mask = 19
+gravity_scale = 0.0
+script = ExtResource("1_3y3fg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1917221075]
+sprite_frames = SubResource("SpriteFrames_3y3fg")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=539364340]
+emitting = false
+amount = 1
+texture = ExtResource("1_a71mb")
+lifetime = 4.0
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, -1)
+spread = 60.0
+gravity = Vector2(0, 120)
+initial_velocity_min = 48.0
+initial_velocity_max = 128.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+orbit_velocity_min = -0.01
+orbit_velocity_max = 0.01
+tangential_accel_max = 8.0
+angle_max = 45.0
+color_ramp = SubResource("Gradient_a71mb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=990191604]
+shape = SubResource("CircleShape2D_a71mb")
+
+[node name="CheerioDink" type="AudioStreamPlayer2D" parent="." unique_id=1935812104]
+stream = ExtResource("3_hvu00")

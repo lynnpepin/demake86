@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 
 @export var HAS_ALL_ITEMS: bool = false
+@export var HAS_ENOUGH_ITEMS: bool = false
 
 # tiles per second: we want 4, so, speed set to 32
 # (speed, jump_speed, high_jump_speed, gravity) = 28, 128, 160, 480
@@ -106,6 +107,14 @@ func _ready():
         has_ice_beam = true
         has_varia_suit = true
         has_screw_attack = true
+        add_missiles(24)
+        add_energy(24)
+    if HAS_ENOUGH_ITEMS:
+        has_morph_ball = true
+        has_morph_bomb = true
+        has_long_beam = true
+        add_missiles(12)
+        add_energy(6)
     
     if has_varia_suit:
         regain_barrier()
