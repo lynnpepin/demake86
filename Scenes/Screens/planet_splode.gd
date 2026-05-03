@@ -2,6 +2,7 @@ extends Node2D
 
 @export var relan_escape: bool = false
 var death = preload("res://Scenes/Screens/game_over_restart.tscn").instantiate()
+var credits = preload("res://Scenes/Screens/Credits.tscn").instantiate()
 
 
 func _ready() -> void:
@@ -16,6 +17,8 @@ func next_scene() -> void:
         if Global.game_timer <= 86.9:
             print("SECRET ENDING")
             pass # TODO secret ending
+            get_tree().change_scene_to_node(credits)    
         else:
             print("CREDITS")
-            pass # TODO credits
+            get_tree().change_scene_to_node(credits)    
+            
