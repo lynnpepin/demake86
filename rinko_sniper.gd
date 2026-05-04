@@ -1,6 +1,4 @@
 
-@tool 
-
 extends Node2D
 
 @export var tracking: Node2D

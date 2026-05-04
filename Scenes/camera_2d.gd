@@ -54,6 +54,12 @@ func vshake(strength: float, KK=8.0, DD=16.0):
     VVs[0] = Vector2(0,0)
     KKs[0] = KK
     DDs[0] = DD
+    VVs[1] = Vector2(0,0)
+    KKs[1] = 2.0
+    DDs[1] = 64.0
+    VVs[2] = Vector2(0,0)
+    KKs[2] = 2.0
+    DDs[2] = 64.0
     
 
 func set_shake(

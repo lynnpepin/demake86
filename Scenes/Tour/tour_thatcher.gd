@@ -63,7 +63,13 @@ func crack():
     $DripGooParticles_Cracked.emitting = true
     $DripGooParticles_Cracked.preprocess = 1.0
     $Sfx/Crack.play()
-    pass
+    Input.start_joy_vibration(
+        0, 0.5, 0.125, .25
+    )
+    # TODO - better ways to do this
+    get_parent().get_parent().vshake_player_camera(
+        4.0, 8.0, 16.0
+    )
 
 func shatter():
     print("SHATTERED THATCHER")
@@ -82,6 +88,15 @@ func shatter():
     $Sprite2D_Lava_Shader.position.y = 7.5
     # once shattered, she can be urt with beams
     $Sfx/Break.play()
+    # todo - screen shake, vibe
+    Input.start_joy_vibration(
+        0, 0.125, 0.5, .5
+    )
+    # TODO - better ways to do this
+    get_parent().get_parent().vshake_player_camera(
+        8.0, 8.0, 16.0
+    )
+    
 
 func destroy():
     $Sfx/Kill.play()
@@ -106,6 +121,14 @@ func destroy():
     
     # todo - sound effect, timer
     get_parent().start_escape()
+    Input.start_joy_vibration(
+        0, .5, 1.0, 3.0
+    )
+    # TODO - better ways to do this
+    #get_parent().get_parent().vshake_player_camera(
+    get_parent().get_parent().shake_player_camera(
+        Vector2(0, 64), [4.0, 1.0], [2.0, 1.0]
+    )
 
 func get_hit_by_missile():
     print("debug, thatch hit by missle", cracked, shatter)
