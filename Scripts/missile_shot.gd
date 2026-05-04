@@ -46,8 +46,8 @@ func die():
     # maybe different things have a sound to play when a beam hits it
     #$Sounds/Hit.play()
     var blam = BigExplosion.instantiate()
-    blam.position = Vector2(0,0)#global_position
-    add_child(blam)
+    blam.position = global_position
+    get_parent().add_child(blam)
     if lifetime > LIFESPAN:
         queue_free()
 

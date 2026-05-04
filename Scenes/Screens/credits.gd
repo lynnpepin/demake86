@@ -16,8 +16,7 @@ var credit_slides = [
     AND
     
  ABSOLUTELY
-   Z E R O
-    A I
+  ZERO  AI
 """,
 
 

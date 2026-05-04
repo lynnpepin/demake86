@@ -1,9 +1,8 @@
 extends BeamClass
 
-
-
 func _ready() -> void:
     add_to_group("missile")
+    #dietime = 12.0 # not what i need to let particles finish
     super()
     
     

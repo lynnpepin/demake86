@@ -130,16 +130,16 @@ func die():
         # create on die
         if wave:
             var blam = WaveHitmarker.instantiate()
-            blam.position = Vector2(0,0)#global_position
-            add_child(blam)
+            blam.position = global_position
+            get_parent().add_child(blam)
         if ice:
             var blam = IceHitmarker.instantiate()
-            blam.position = Vector2(0,0)#global_position
-            add_child(blam)
+            blam.position = global_position
+            get_parent().add_child(blam)
         if !wave and !ice and CreateOnDie != null:
             var blam = CreateOnDie.instantiate()
-            blam.position = Vector2(0,0)#global_position
-            add_child(blam)
+            blam.position = global_position
+            get_parent().add_child(blam)
 
 
 func _on_area_to_check_for_enemy_area_entered(area: Area2D) -> void:

@@ -36,7 +36,7 @@ collision_mask = 34
 sync_to_physics = false
 script = ExtResource("1_5oxwn")
 LIFESPAN = 8.0
-damage = 6
+damage = 8
 CreateOnDie = ExtResource("2_i2i1b")
 
 [node name="ColliderWall" type="CollisionShape2D" parent="." unique_id=1531176293 groups=["beam", "missile"]]

@@ -16,10 +16,9 @@ func _ready() -> void:
     [$Explode1, $Explode2, $Explode3, $Explode4][randi() % 4].play()
     # HORRIBLE hack, should not do...
     if get_parent():
-        if get_parent().get_parent():
-            get_parent().get_parent().shake_player_camera(
-                Vector2(randf_range(-3.0, 3.0), 2.0)
-            )
+        get_parent().shake_player_camera(
+            Vector2(randf_range(-3.0, 3.0), 2.0)
+        )
     Input.start_joy_vibration(
         0,
         0.25, 1.0, .25
