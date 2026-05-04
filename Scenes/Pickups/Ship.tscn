@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b8hi8eyskw0va" path="res://Scenes/Pickups/ship.gd" id="2_1gsy7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1gsy7"]
-size = Vector2(18, 48)
+size = Vector2(2, 48)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n3xe5"]
 
@@ -108,6 +108,7 @@ script = ExtResource("2_1gsy7")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1156771913]
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_1gsy7")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1024581336]
