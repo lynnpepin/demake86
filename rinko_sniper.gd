@@ -33,8 +33,8 @@ func _process(delta):
             if shoot_timer == 0.0:
                 $ChargeSfx.play()
             shoot_timer += delta
-            $Line2D.points[1] = tracking.global_position - global_position;
-            $Line2D.modulate = Color(1, 1, 1, shoot_timer / SHOOT_PERIOD);
+            $Line2D.points[1] = tracking.global_position - global_position + Vector2(0,2)
+            $Line2D.modulate = Color(1, 1, 1, shoot_timer / SHOOT_PERIOD)
             if shoot_timer >= SHOOT_PERIOD:
                 shoot_timer = 0.0
                 var cheerio = Cheerio.instantiate()
