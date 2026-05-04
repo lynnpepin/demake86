@@ -87,6 +87,7 @@ func _physics_process(delta: float) -> void:
     
     var collision = move_and_collide(velocity * delta)
     if collision != null and active:
+        die()
         if len(hit_sounds) > 0:
             hit_sounds.pick_random().play()
         # bad hacks here
@@ -98,7 +99,6 @@ func _physics_process(delta: float) -> void:
             collision.get_collider().get_parent().open()
         if collision.get_collider().is_in_group("shootable_block"):
             collision.get_collider().shot()
-        die()
 
     
 func die():

@@ -65,7 +65,7 @@ shape = SubResource("CircleShape2D_15piw")
 
 [node name="CPUParticles2D_SmallExplosion_Ring" type="CPUParticles2D" parent="." unique_id=297880149 groups=["explosion"]]
 emitting = false
-amount = 240
+amount = 120
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
@@ -79,7 +79,8 @@ spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 94.0
 initial_velocity_max = 98.0
-damping_min = 480.0
+radial_accel_min = -512.0
+damping_min = 400.0
 damping_max = 600.0
 color_ramp = SubResource("Gradient_0s2tp")
 
