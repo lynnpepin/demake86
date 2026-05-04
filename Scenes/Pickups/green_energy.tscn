@@ -86,35 +86,35 @@ color_ramp = SubResource("Gradient_plkpo")
 
 [node name="CrystalBlip55" type="AudioStreamPlayer2D" parent="Sfx" unique_id=18026611]
 stream = ExtResource("11_73frh")
-volume_db = -5.0
+volume_db = -10.0
 
 [node name="CrystalBlip110" type="AudioStreamPlayer2D" parent="Sfx" unique_id=987135567]
 stream = ExtResource("12_6uc0l")
-volume_db = -5.0
+volume_db = -10.0
 
 [node name="CrystalBlip165" type="AudioStreamPlayer2D" parent="Sfx" unique_id=1576193944]
 stream = ExtResource("13_g61x1")
-volume_db = -5.0
+volume_db = -10.0
 
 [node name="CrystalBlip220" type="AudioStreamPlayer2D" parent="Sfx" unique_id=833063853]
 stream = ExtResource("14_lnmc4")
-volume_db = -5.0
+volume_db = -10.0
 
 [node name="CrystalBlip330" type="AudioStreamPlayer2D" parent="Sfx" unique_id=1919952879]
 stream = ExtResource("15_esfeg")
-volume_db = -5.0
+volume_db = -10.0
 
 [node name="CrystalBlip440" type="AudioStreamPlayer2D" parent="Sfx" unique_id=386115220]
 stream = ExtResource("16_iaavo")
-volume_db = -5.0
+volume_db = -10.0
 
 [node name="CrystalBlip660" type="AudioStreamPlayer2D" parent="Sfx" unique_id=1114660670]
 stream = ExtResource("17_frxj8")
-volume_db = -5.0
+volume_db = -10.0
 
 [node name="CrystalBlip880" type="AudioStreamPlayer2D" parent="Sfx" unique_id=2087831528]
 stream = ExtResource("18_3vnea")
-volume_db = -5.0
+volume_db = -10.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1525090775]
 collision_layer = 3

@@ -6,7 +6,13 @@ var collision_lifespan = .25
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-    $GPUParticles2D.emitting = true
+    # BAD BAD HACK TODO 
+    # (Relan's death explosion and the missile explosion both use this script)
+    # (but I changed the missile to a GPU Particles...)
+    if $GPUParticles2D:
+        $GPUParticles2D.emitting = true
+    else:
+        emitting = true
     [$Explode1, $Explode2, $Explode3, $Explode4][randi() % 4].play()
     # HORRIBLE hack, should not do...
     if get_parent():

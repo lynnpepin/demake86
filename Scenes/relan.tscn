@@ -1189,7 +1189,6 @@ autoplay = "default"
 offset = Vector2(0, 4)
 
 [node name="Node2D_Screw_Attack" type="Node2D" parent="." unique_id=1145614643]
-visible = false
 position = Vector2(0, 4)
 script = ExtResource("64_fxuio")
 
