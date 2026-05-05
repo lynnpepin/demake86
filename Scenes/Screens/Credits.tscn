@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b3oco4nqm7xc3" path="res://Scenes/Typer.tscn" id="1_m703i"]
 [ext_resource type="Script" uid="uid://d0jmvdqem5pv1" path="res://Scenes/Screens/credits.gd" id="1_sb781"]
+[ext_resource type="Script" uid="uid://cfqaqdu4h4o4m" path="res://Scenes/Screens/gunship.gd" id="3_ir8xi"]
 [ext_resource type="Texture2D" uid="uid://hdudiywvqi20" path="res://art/credits/miniship.png" id="3_kdbnx"]
 [ext_resource type="Texture2D" uid="uid://7fdq5rljn31l" path="res://art/credits/miniship_l.png" id="4_ir8xi"]
 [ext_resource type="Texture2D" uid="uid://c2r8fjrqw6pt3" path="res://art/credits/miniship_r.png" id="5_f8j7b"]
@@ -81,6 +82,15 @@ gravity = Vector3(0, 0, 0)
 attractor_interaction_enabled = false
 color = Color(0.99607843, 0.7882353, 0.92941177, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8j7b"]
+size = Vector2(5, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir8xi"]
+size = Vector2(64, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vrt7"]
+size = Vector2(4, 64)
+
 [node name="Credits" type="Node2D" unique_id=690748073]
 script = ExtResource("1_sb781")
 
@@ -92,22 +102,25 @@ transform = Transform2D(1, 0, 0, 1, 34, -5)
 wait_time = 9.0
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1855400074]
-position = Vector2(32, 64)
+position = Vector2(32, -1)
 amount = 64
 lifetime = 2.0
 preprocess = 4.0
 fract_delta = false
 emission_shape = 3
 emission_rect_extents = Vector2(32, 0)
-direction = Vector2(0, -1)
+direction = Vector2(0, 1)
 spread = 0.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 32.0
 initial_velocity_max = 64.0
 color_ramp = SubResource("Gradient_sb781")
 
-[node name="gunship" type="Node2D" parent="." unique_id=7517698]
+[node name="gunship" type="CharacterBody2D" parent="." unique_id=796360164]
 position = Vector2(30, 39)
+collision_mask = 2
+script = ExtResource("3_ir8xi")
+SPEED = 36.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="gunship" unique_id=97908814]
 z_index = 32
@@ -159,5 +172,30 @@ lifetime = 3.0
 fixed_fps = 60
 fract_delta = false
 process_material = SubResource("ParticleProcessMaterial_f8j7b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gunship" unique_id=550604236]
+position = Vector2(0, 2)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_f8j7b")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=337413934]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=80060443]
+position = Vector2(32, -2)
+shape = SubResource("RectangleShape2D_ir8xi")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1259868680]
+position = Vector2(-2, 32)
+shape = SubResource("RectangleShape2D_1vrt7")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=755313548]
+position = Vector2(66, 32)
+shape = SubResource("RectangleShape2D_1vrt7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=762875480]
+position = Vector2(32, 66)
+shape = SubResource("RectangleShape2D_ir8xi")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

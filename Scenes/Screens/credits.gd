@@ -33,8 +33,9 @@ AND TOOLS:
 """AND NOT
 AFFILIATED
 WITH
-NINTENDO,
-ALSO
+NINTENDO.
+
+ALSO,
 TRANS RIGHTS
 """,
 
@@ -117,18 +118,25 @@ func _ready() -> void:
 
 func _on_timer_timeout() -> void:
     print("TIMER TIMEOUT")
-    if credits_ii < len(credit_slides):
+    var num_slides = len(credit_slides)
+    if credits_ii < num_slides:
         $Typer.target_text = credit_slides[credits_ii]
         $Typer.start(credit_slides[credits_ii],
           .1, 9.0
         )
         $Timer.start(7.20)
-    elif credits_ii == len(credit_slides):
+    elif credits_ii == num_slides:
+        $Typer.start("""
+MISSION TIME:
+%s
+SECONDS
+""" %  str(snapped(Global.game_timer, 0.1)))
+    elif credits_ii == num_slides + 1:
         $Typer.start("""
 
  DEMAKE 86
-        """, 1.0, 40 * 365.25 * 24 * 60 * 60
-)
+        """, 1.0, 40 * 365.25 * 24 * 60 * 60)
+
     else:
         $CPUParticles2D.modulate -= Color(0, 0, 0, .125)
     credits_ii += 1
