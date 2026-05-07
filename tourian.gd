@@ -18,6 +18,14 @@ func tourian_activate_escape_layout():
 func start_escape():
     $EscapeEmbers.emitting = true
     $StartEscape.play("StartEscape")
+    $RinkoSniper.tracking_distance = 0.0
+    $RinkoSniper2.tracking_distance = 0.0
+    $RinkoSniper3.tracking_distance = 0.0
+    $RinkoSniper4.tracking_distance = 0.0
+    $RinkoSniper5.tracking_distance = 0.0
+    $RinkoSniper6.tracking_distance = 0.0
+    $RinkoSniper7.tracking_distance = 0.0
+    $RinkoSniper8.tracking_distance = 0.0
     # HACKY HACKY
     #player.Typer.start("TIMEBOMB SET\nGET OUT FAST")
     escape_started = true

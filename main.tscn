@@ -64,7 +64,7 @@
 [ext_resource type="PackedScene" uid="uid://tgaoimuwfmu" path="res://Scenes/Tour/rinko_sniper.tscn" id="64_b17eg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pjyto"]
-radius = 4.0
+radius = 1.0
 
 [sub_resource type="Gradient" id="Gradient_43svb"]
 offsets = PackedFloat32Array(0.00497512, 0.883085, 1)
@@ -395,6 +395,9 @@ radial_accel_curve = SubResource("CurveTexture_54n2a")
 size = Vector2(128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vke2r"]
+size = Vector2(128, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjyto"]
 size = Vector2(64, 64)
 
 [sub_resource type="Gradient" id="Gradient_pjyto"]
@@ -531,6 +534,7 @@ SHAKABLE = true
 [node name="AudioListener2D" type="AudioListener2D" parent="CameraAnchor/Camera2D" unique_id=320238732]
 
 [node name="Area2D_CameraZoneEnterer" type="Area2D" parent="CameraAnchor" unique_id=337028161]
+position = Vector2(0, 3)
 collision_layer = 64
 collision_mask = 64
 
@@ -538,7 +542,7 @@ collision_mask = 64
 shape = SubResource("CircleShape2D_pjyto")
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
-position = Vector2(88, 81)
+position = Vector2(99, 24)
 HAS_ENOUGH_ITEMS = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Relan" unique_id=31498320]
@@ -2331,7 +2335,12 @@ collision_layer = 64
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tourian/camera_zone_thatcher" unique_id=398155042]
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_vke2r")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tourian/camera_zone_thatcher" unique_id=727924405]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_pjyto")
 
 [node name="CeilExplode" type="CPUParticles2D" parent="Tourian" unique_id=1354750708 groups=["explosion"]]
 z_index = 100
@@ -2419,46 +2428,46 @@ position = Vector2(208, -44)
 [node name="RinkoSniper" parent="Tourian" unique_id=1566865944 node_paths=PackedStringArray("tracking") instance=ExtResource("64_b17eg")]
 position = Vector2(116, 68)
 tracking = NodePath("../../Relan")
-tracking_distance = 48.0
+tracking_distance = 32.0
 
 [node name="RinkoSniper5" parent="Tourian" unique_id=532561566 node_paths=PackedStringArray("tracking") instance=ExtResource("64_b17eg")]
 position = Vector2(48, 84)
 tracking = NodePath("../../Relan")
-tracking_distance = 48.0
+tracking_distance = 32.0
 
 [node name="RinkoSniper3" parent="Tourian" unique_id=1295816988 node_paths=PackedStringArray("tracking") instance=ExtResource("64_b17eg")]
 position = Vector2(115, 12)
 tracking = NodePath("../../Relan")
-tracking_distance = 48.0
+tracking_distance = 32.0
 
 [node name="RinkoSniper4" parent="Tourian" unique_id=40114780 node_paths=PackedStringArray("tracking") instance=ExtResource("64_b17eg")]
 position = Vector2(75, 84)
 tracking = NodePath("../../Relan")
-tracking_distance = 48.0
+tracking_distance = 32.0
 angle = 0.0
 
 [node name="RinkoSniper7" parent="Tourian" unique_id=836372178 node_paths=PackedStringArray("tracking") instance=ExtResource("64_b17eg")]
 position = Vector2(84, 68)
 tracking = NodePath("../../Relan")
-tracking_distance = 48.0
+tracking_distance = 32.0
 angle = 0.0
 
 [node name="RinkoSniper8" parent="Tourian" unique_id=29148184 node_paths=PackedStringArray("tracking") instance=ExtResource("64_b17eg")]
 position = Vector2(100, 67)
 tracking = NodePath("../../Relan")
-tracking_distance = 48.0
+tracking_distance = 32.0
 angle = 0.0
 
 [node name="RinkoSniper6" parent="Tourian" unique_id=39581442 node_paths=PackedStringArray("tracking") instance=ExtResource("64_b17eg")]
 position = Vector2(44, 84)
 tracking = NodePath("../../Relan")
-tracking_distance = 48.0
+tracking_distance = 32.0
 angle = 0.0
 
 [node name="RinkoSniper2" parent="Tourian" unique_id=1135415114 node_paths=PackedStringArray("tracking") instance=ExtResource("64_b17eg")]
 position = Vector2(76, 12)
 tracking = NodePath("../../Relan")
-tracking_distance = 48.0
+tracking_distance = 32.0
 angle = 0.0
 
 [node name="KempsLair" type="Node2D" parent="." unique_id=863085050]

@@ -35,18 +35,19 @@ func planet_splode(
 func _physics_process(delta: float) -> void:
     if also_tracking_thatcher:
         var ratio_to_relan = .75
+        var start_length = 64
+        var end_length = 32
         
         var center_length_to_relan = (
             $Relan.position - also_tracking_position
         ).length()
         
-        if center_length_to_relan > 32:
+        if center_length_to_relan > start_length:
             ratio_to_relan = 1.0
-        elif center_length_to_relan > 28:
-            # map range [28, 32] to range [.75, 1.0)
+        elif center_length_to_relan > end_length:
             # for smoothly entering / exiting
             ratio_to_relan = remap(center_length_to_relan,
-                28, 32, ratio_to_relan, 1.0)
+                end_length, start_length, ratio_to_relan, 1.0)
             
         $CameraAnchor.position = (
             $Relan.position * ratio_to_relan
