@@ -446,6 +446,7 @@ debug_color = Color(0.7, 0.24500002, 0, 0.41960785)
 position = Vector2(0, -1)
 offset = Vector2(0, 1)
 ignore_rotation = false
+enabled = false
 limit_enabled = false
 position_smoothing_speed = 96.0
 script = ExtResource("2_i0hd8")

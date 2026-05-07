@@ -269,10 +269,11 @@ shape = SubResource("RectangleShape2D_f8j7b")
 z_index = 64
 position = Vector2(-2, 0)
 script = ExtResource("7_f8j7b")
+MAX_LENGTH = 64.0
 poll_for_vibe = true
 
 [node name="RayCast2D" type="RayCast2D" parent="gunship/LaserEye" unique_id=1557525994]
-target_position = Vector2(0, -48)
+target_position = Vector2(0, -64)
 collision_mask = 6
 
 [node name="Line2D" type="Line2D" parent="gunship/LaserEye" unique_id=911686363]
@@ -304,10 +305,11 @@ stream = ExtResource("9_sbp4b")
 z_index = 64
 position = Vector2(2, 0)
 script = ExtResource("7_f8j7b")
+MAX_LENGTH = 64.0
 poll_for_vibe = true
 
 [node name="RayCast2D" type="RayCast2D" parent="gunship/LaserEye2" unique_id=1031300511]
-target_position = Vector2(0, -48)
+target_position = Vector2(0, -64)
 collision_mask = 6
 
 [node name="Line2D" type="Line2D" parent="gunship/LaserEye2" unique_id=1672268626]

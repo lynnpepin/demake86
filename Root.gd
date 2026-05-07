@@ -28,6 +28,11 @@ func planet_splode(
     #b.ice = owner.has_ice_beam
     planetsplode.relan_escape = relan_escape
     get_tree().change_scene_to_node(planetsplode)
+
+func _physics_process(delta: float) -> void:
+    $Camera2D.global_position = $Relan.global_position
+    pass
     
 func _process(delta: float) -> void:
+   
     Global.game_timer += delta
