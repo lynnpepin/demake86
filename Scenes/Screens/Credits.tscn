@@ -1,11 +1,14 @@
-[gd_scene format=3 uid="uid://c5tc5r0elc8id"]
+[gd_scene format=4 uid="uid://c5tc5r0elc8id"]
 
 [ext_resource type="PackedScene" uid="uid://b3oco4nqm7xc3" path="res://Scenes/Typer.tscn" id="1_m703i"]
 [ext_resource type="Script" uid="uid://d0jmvdqem5pv1" path="res://Scenes/Screens/credits.gd" id="1_sb781"]
+[ext_resource type="Script" uid="uid://c7cc38gtpjjvx" path="res://Scenes/camera_2d.gd" id="2_1vrt7"]
 [ext_resource type="Script" uid="uid://cfqaqdu4h4o4m" path="res://Scenes/Screens/gunship.gd" id="3_ir8xi"]
 [ext_resource type="Texture2D" uid="uid://hdudiywvqi20" path="res://art/credits/miniship.png" id="3_kdbnx"]
 [ext_resource type="Texture2D" uid="uid://7fdq5rljn31l" path="res://art/credits/miniship_l.png" id="4_ir8xi"]
 [ext_resource type="Texture2D" uid="uid://c2r8fjrqw6pt3" path="res://art/credits/miniship_r.png" id="5_f8j7b"]
+[ext_resource type="Script" uid="uid://c8r3oun73i8k0" path="res://Scenes/Screens/laser_eye.gd" id="7_f8j7b"]
+[ext_resource type="AudioStream" uid="uid://cdq7marm28yph" path="res://sfx/lazer.wav" id="9_sbp4b"]
 
 [sub_resource type="Gradient" id="Gradient_sb781"]
 offsets = PackedFloat32Array(0.18355066, 0.19458374, 0.36308926, 0.3911735, 0.888666, 1)
@@ -44,8 +47,15 @@ colors = PackedColorArray(1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ir8xi"]
 gradient = SubResource("Gradient_kdbnx")
-width = 3
+width = 1
 height = 1
+
+[sub_resource type="Gradient" id="Gradient_wtfyg"]
+offsets = PackedFloat32Array(0.07979334, 0.28645235)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.90588236, 0.21568628, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_k7ahj"]
+gradient = SubResource("Gradient_wtfyg")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kdbnx"]
 particle_flag_disable_z = true
@@ -57,6 +67,14 @@ orbit_velocity_min = 9.49949e-08
 orbit_velocity_max = 0.010000096
 gravity = Vector3(0, 0, 0)
 attractor_interaction_enabled = false
+color_ramp = SubResource("GradientTexture1D_k7ahj")
+
+[sub_resource type="Gradient" id="Gradient_sbp4b"]
+offsets = PackedFloat32Array(0, 0.115384616, 0.20723307, 0.34041333, 1)
+colors = PackedColorArray(0.35686275, 0.65882355, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wtfyg"]
+gradient = SubResource("Gradient_sbp4b")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ir8xi"]
 particle_flag_disable_z = true
@@ -68,7 +86,14 @@ orbit_velocity_min = 9.49949e-08
 orbit_velocity_max = 0.010000096
 gravity = Vector3(0, 0, 0)
 attractor_interaction_enabled = false
-color = Color(0.35686275, 0.65882355, 1, 1)
+color_ramp = SubResource("GradientTexture1D_wtfyg")
+
+[sub_resource type="Gradient" id="Gradient_bjsvy"]
+offsets = PackedFloat32Array(0.0706085, 0.1532721, 1)
+colors = PackedColorArray(0.99607843, 0.7882353, 0.92941177, 1, 0.41568628, 0.19215687, 0.7921569, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u0aqh"]
+gradient = SubResource("Gradient_bjsvy")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f8j7b"]
 particle_flag_disable_z = true
@@ -80,10 +105,62 @@ orbit_velocity_min = 9.49949e-08
 orbit_velocity_max = 0.010000096
 gravity = Vector3(0, 0, 0)
 attractor_interaction_enabled = false
-color = Color(0.99607843, 0.7882353, 0.92941177, 1)
+color_ramp = SubResource("GradientTexture1D_u0aqh")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8j7b"]
 size = Vector2(5, 5)
+
+[sub_resource type="Gradient" id="Gradient_ir8xi"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f8j7b"]
+gradient = SubResource("Gradient_ir8xi")
+width = 1
+height = 1
+fill_from = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_f8j7b"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.2531573, 0.5195178, 0.77669346)
+colors = PackedColorArray(1, 0.9137255, 0.77254903, 1, 1, 0.50980395, 0.80784315, 1, 0.8117647, 0.23529412, 0.44313726, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1vrt7"]
+gradient = SubResource("Gradient_f8j7b")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1vrt7"]
+lifetime_randomness = 0.25
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 24.0
+initial_velocity_max = 96.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_1vrt7")
+
+[sub_resource type="Gradient" id="Gradient_1vrt7"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.18427095, 0.3771527, 0.68943745)
+colors = PackedColorArray(1, 0.9137255, 0.77254903, 1, 0.9647059, 0.56078434, 0.21568628, 1, 0.8784314, 0.23529412, 0.15686275, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f8j7b"]
+gradient = SubResource("Gradient_1vrt7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sbp4b"]
+lifetime_randomness = 0.25
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 120.0
+initial_velocity_min = 24.0
+initial_velocity_max = 96.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_f8j7b")
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_sbp4b"]
+data = PackedByteArray("cW9hZgAAInQBAKxEFAAIGAAAAAAAAAAAAAAAAOAAQAAwRCi26wlpgkb7ZCy2DN7aSTSA9/gwQN9q6ywCXXe+SkCT79pCiQBBMokNFBFmkxZQS6ShCff2BJJr/ZQlTYKEYbZu9kQANkg8Ia6EUCwQAVIDVDKkkJJEWYisiYJ8lSCCywAHTS03/64iSAEMKIJITzNlgohgEphgSA0SHW1NolZemxtYmjdqZJN8NAv/ii+f/zIlJgI0yTC0NdCTVAIBYgEggFt0KbBUhNpHw5lH2WCjFpABt9bFo22oZCJIgAlJ3AiGSACQSmIIIIYBBFvpdSbKQRKAFsBVknWxBC63UHJLpbDDr/LkYaJQxokEgggwymgwwCkDXXJAIJbLYBJ9q0lQJBQJWEBdoA+KUYAiGC9SgQJZBBRIMgggllkgIi923WwFBjJpo1zAMSWWMJLYPwxZTBIpkBoTFkgRSywAECBDTBBRRRLdN2291sFBBBhSzXfe60EI0kaARCKASUMBLBgggogBFAEciA0yQQIptiikikSSaYbFF+2vs0tkssEWCyWGGwWCSAoRCKKBAaYIEgggEJxwBIQREolIJEkkkBCBTRDTBDBJCeltcNlqihsB1w6HQwwQDBBRCCCEQkGGEZSKRKBQpEIPA02KSK11ywVFYo5q447NAdsVjihhohAQAAEUiggiERBIZbNr79/9H22ltFCDDDQYspIookgE0w3/9FceWm2SEENUlktNJJQwAQCw2bXa+DZASQgRTVb/S2/80BJBAAouye//2XDFICgABBCESCJrNlkIKSIJimk2glgkDW7SwUBDJtdrdBJZR2u8tlAFNksuikE2SpNiPTpKm0AvtE22UN0shFOv+1lyqLffXBAwWUCm0wRbJBRBJgAkEIB20zaAWC0URX7RFHTcMkmiJ/AUVS21RRmupFNH+Ggz32QQSDCADThBYESLVgpEVsBF/+mgW72cMBIokGl/qUTNYQTLNlYW9oIOshEwCgiGEkWWsmBYIRDbCIdtopq2+iJCSJBsv60oG20ACz5EBfbSJNIKJoqRMlTQ3iZUQ2AEHTUUb6YYBNvakymiU7AH9pKMVgozHayimWSAGjYABYC0yDIWPKHkjbKv1LRgw6CQW33WRYN99ymEUxCIIpH2sQpUMgAiCSAQyWEkb4JIJTTLtbCUZSbTAGBRQJlbwwEkimGCQCciZLYYBAYYMgggMEkFEh1mXxWQoFjNJk+bYBCSUykQOu91tNGGBBARsQEUjCkQCRJJBARAJp/vKmslgoJCGFMwy3X3/XWGgCUgiCSITRLDG/3//t0EBBIgQCya337e6yaKUUwmEiikNBJSLbLZJokb/2ux5yG1SRYYYZJaoZJJIEABCCSTLaIpAAWaHSWSyB7TFDDVVc8YD8Vrudz+etcOy1//+f/+PSBBQCEUkk0yKJBMsUs0NgsQyyGQwWCKqBq8ZDBDAZBDDUckpxww5JQIoIAHOxWSJCAASESkkixiEJnv/+/393sX226KSQBApBEiSQjjQKIRFABMAsFgFKIgkAmC3a/eeDJQCAAJdPf7SmkEhMMNu20/aEolGCW26CrCMABIYSiwMBstgqLJQts23BJIQ7bwXEIYr7/bLJNfW1+gmEENlko/oQAwmiSSEkCarBMSAr5YgAEsssAgu+96VIWmQo8UgU/5CSBZZCIIOogEEgFkhBdzSylkgUEooFtrOWDdaURfgkokNlgEOvlwtIsMAmSSASxrIAJADdQxghggqnuqTBaTEgmWSEAySFiNtJgdvICfb//DTaZAssE8SG0CQUSyQnDBYKZ/9W20faZAN0iIMtpQk+2Ci/Wyi3r9CkymCTJJPNBhppgFEtmAQQyGAXb25o0kwSIRYZCKTt1mAF2sEk9TSwSK7aSklDyhLZaIJBCQMFshCB33hoOCyyyA2/+NMY002qIQIJDIMxJMssolEkggQUwQQGLS0HBBYrbcMiUkbQgApBJIsGpPAJAkQGSQCBmxLbbZYorpFsgBEFutkpJA1Tb//3BNpGSUk2DTJBIINNCKSSKIAtMe6WSEUEUCAxAaYAABRabbIsMsEkAIJJQkokECCWy63S59dpbBIBRRHAQJBAIgAEgJ3KiEEIogoxBIZNHHtv/vH/+uttNIJRIYoMcIkoEoEBiCSEMCQSCCEIoppgtmuvsfb7e62yUUkhiWEiUUMgSQGBJGIIJIIQoUgkjAkEgkEBCRAKZDbb57H99+ussAJKIYsslpFMcpFBUUSiSghSABEkstt01stgkgCACUyy6+/zboLRSUESwkUQySRIEhqhMvN2iSmghBIiwkSKYFBLTREQJFNFppCJIgCWW2yQEpFCRVPfvdpJILM03v92uhst1G+e+GUUiGGyf9BQgBDTgiMAtllJYQGu00ZNELf+QJGXLLLYIJLbtbWzGKllkJBAAvy2EmmCiGWUAABbYKgF9/gAAu21zRVMFophgrbWoEGV4RhTZJCILBMIoshEguKYFGQJAG6pIHa2QQLpKAb9bTknv/HQKTGAlh/DESWQACSTiBYIAJANfsVYZkhZAuuSJm2UkW64Ab66BBdtCyk00ab19pIihgJgtMwCGiCCCW21i0TDEQDrSgUO2BR81wB/+iCC3awIhIkF3t/CQTZJABJ9qANogMFA9myxFoIQgkA04Kyhr4SSb9cglNlslpm292NFlloSQyGCxSbbKIIJRQQlgNAM21kgN27/TBkotgE12ajFpLgCTTPokIIkMtNNEeW2jECGzChwEArEQOdAXg/9j/+AAeABEJp/cl3atAF1LLrZCGmm2zSNlNJSKBFssy0YJEoEQ02i6YBRATRILTGg0lpohNVv9CSGCAQCGXb1troQSjUcKQZKLaEKokgNM4iwCU0QQCUyhYAYAJRKBREwAhhml1utsiQQAEYFElIiSgCABBIYJaHkshkMEhpggKAQADGCCaPRJYbLbNbPFNFltgtMoApFIQIEEgkEEgghCCCCKQCACADbbCBIqh1+8WGWWWWWSwSBJRCCMAghggFJJIQwJIIJISkigkUEUAEQmgUeaKaTgUEAIoQwQRJQIUEUSSW2bT3SZNJrNLbJJBEQKJKJJIIIkUQSCCCACGGyJbNFYoBQUUQAApkUvn88gxlsZDAIAhFDywjRKcccKKGGCh0MhBECkiQUEoii3bWTISQhAdNZZAMomu//91hhtHX3/y1BCi2T9ZaRhAYBAIMMkFJINt0KRUQWyyjCTba3aaZdt9aQSoQ9ySSRl2toE82KCACQQQSWBBAZIKAN95cLRhMYyJB1tbsM+bYoGbQUWLtrEAfvZESSKSJqsgkBoyiSylG/XJL4ZJRLv5G0GWbQh3/7FC1gJA7eFCXWEgG0ZCQUigDJBKOlJMViIH/5SiGQQCz2FgsK2KTZpCKZJBWa8spA1pwos+AJJNpmGyADZASFZcit/SoEMFogt2kwSlMlGQyyEQGFvxQNLATTJBLZVlDBBpTIky0kgayhira0ASZr6IBf//gEF2+s4Y6bJCgK/bUYCC2Bd2F7riQLIQUNMglECv38R0oMNMECgmk0bpbgQSLBYIGLAW32ut2vsWSEEQWWQEnVJJoLKCUkkzTVsmouFKKBIvXe3SCpJtJhEFf9//jaQSFBFAgEgkkMAiACESmKX7/z4rYICQUKQCQhhtvu2hooI9ZDHE4CkQihO2SigCACg2NBKDCQQAAsMl2G2GWC2i2hPDDJYLIbTYEsklkMkkkkkFWGQCE0rGrAoorbttf/fvD9++u9ut0mgG0w0Q0A80EAAhgQQSCCTwABABAAoEAOMQQCUQQiAEAhCQUCUSUSUQFJAIggkMlhsRQ6G2y2Wy2RbLZZZYYaJQFBKBRIIAEtsXb3+/TSBFNikGkkwgSYYbG/3/3v890lkJFpIkIAgIgBDDbftfpJimMIgBh1v29upAUiiU2bb/+TIw2ISRRhgQKFQoAEklgoggCSwSkooQ3TbAKgSJddLAQFMuu81kAsdT3fWjEgWGGTwkQTFJaJRJMAFFhkpIJ21iCgQaaGECb4r5AUoJIMcBVC39FJFikEA4aW0iAwQCA1BAbZImyAJQXQKvkTBWuiJY3eDAnfWEj3fvIWMy0adFTlJMtgFMEEpiUwCwCi73VmkiWmSF7qgTW+qJXmmI22iAA260JktlGGfLKALAJTAJYBokEkhGv95tpFJtAPaZEVf5iRfpQRvbggE2tmSTKJVR+agAWA0SA2AJBAJLAIN9fuLYbLGIlttdjB27BGK6CmILbBaDbtbSZSSJBqkMAgg2UCSSEEzXQYBILJLRYt9YmQRYaUJgEhhFTAASWGiCGi/zKJYLQKTIUgEgs1slTTZdkwamAgkEwTtTgkWMJJbBKoJIpmvu2lgS0GC6a2yQUkIDJbrbZSU2aKSIkMkMgMAzFtttmA2yyypbBCQkUSSIFFhktptEkEEU4QkkEiBXby4777rZJCCQKQKKJJIIkFknRXaeXSWSABKiUgiShSIBEMNl0UuhhtASAgkFAlAohBChEIRAIJBJDu29931ut0UF0wCAUAnmiRBIJIYLDLDLFhsNhksBkBoSAUUUUikUjBKQQSAgCQQSEIJBAQoBFEoiQSWGWy6XSyobIJQMASQQHYSSDDJSCY4UslFhMJkssB0iykSiEIQAMFFBJRRYJJova++3zW623TIZIBSSky0UIpUums1hsMgQygAAAQU0CBILJZIAmGygIl1322klIIEy67f/WyUU6Ur/v/hUSBRIIsIRYSFElkk=")
+format = 3
+loop_mode = 1
+loop_end = 8819
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir8xi"]
 size = Vector2(64, 4)
@@ -93,6 +170,15 @@ size = Vector2(4, 64)
 
 [node name="Credits" type="Node2D" unique_id=690748073]
 script = ExtResource("1_sb781")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=552781744]
+offset = Vector2(32, 32)
+ignore_rotation = false
+limit_enabled = false
+position_smoothing_speed = 96.0
+script = ExtResource("2_1vrt7")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Camera2D" unique_id=2114695322]
 
 [node name="Typer" parent="." unique_id=1065834698 instance=ExtResource("1_m703i")]
 offset = Vector2(34, -5)
@@ -117,7 +203,7 @@ initial_velocity_max = 64.0
 color_ramp = SubResource("Gradient_sb781")
 
 [node name="gunship" type="CharacterBody2D" parent="." unique_id=796360164]
-position = Vector2(30, 39)
+position = Vector2(32, 32)
 collision_mask = 2
 script = ExtResource("3_ir8xi")
 SPEED = 36.0
@@ -130,7 +216,7 @@ sprite_frames = SubResource("SpriteFrames_sb781")
 [node name="part_white" type="GPUParticles2D" parent="gunship" unique_id=555628385]
 z_index = 16
 position = Vector2(0, 4)
-amount = 256
+amount = 360
 texture = SubResource("GradientTexture2D_ir8xi")
 lifetime = 3.0
 fixed_fps = 60
@@ -139,7 +225,7 @@ process_material = SubResource("ParticleProcessMaterial_kdbnx")
 
 [node name="part_blue_l" type="GPUParticles2D" parent="gunship" unique_id=1686441803]
 position = Vector2(-2, 3)
-amount = 256
+amount = 360
 texture = SubResource("GradientTexture2D_ir8xi")
 lifetime = 3.0
 fixed_fps = 60
@@ -148,7 +234,7 @@ process_material = SubResource("ParticleProcessMaterial_ir8xi")
 
 [node name="part_blue_r" type="GPUParticles2D" parent="gunship" unique_id=1942313405]
 position = Vector2(2, 3)
-amount = 256
+amount = 360
 texture = SubResource("GradientTexture2D_ir8xi")
 lifetime = 3.0
 fixed_fps = 60
@@ -157,7 +243,7 @@ process_material = SubResource("ParticleProcessMaterial_ir8xi")
 
 [node name="part_pink_r" type="GPUParticles2D" parent="gunship" unique_id=1735231952]
 position = Vector2(1, 5)
-amount = 256
+amount = 360
 texture = SubResource("GradientTexture2D_ir8xi")
 lifetime = 3.0
 fixed_fps = 60
@@ -166,7 +252,7 @@ process_material = SubResource("ParticleProcessMaterial_f8j7b")
 
 [node name="part_pink_l" type="GPUParticles2D" parent="gunship" unique_id=954480412]
 position = Vector2(-1, 5)
-amount = 256
+amount = 360
 texture = SubResource("GradientTexture2D_ir8xi")
 lifetime = 3.0
 fixed_fps = 60
@@ -178,6 +264,77 @@ position = Vector2(0, 2)
 rotation = 0.7853982
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_f8j7b")
+
+[node name="LaserEye" type="Node2D" parent="gunship" unique_id=1432770991]
+z_index = 64
+position = Vector2(-2, 0)
+script = ExtResource("7_f8j7b")
+poll_for_vibe = true
+
+[node name="RayCast2D" type="RayCast2D" parent="gunship/LaserEye" unique_id=1557525994]
+target_position = Vector2(0, -48)
+collision_mask = 6
+
+[node name="Line2D" type="Line2D" parent="gunship/LaserEye" unique_id=911686363]
+points = PackedVector2Array(0, 0, 0, -48)
+width = 1.0
+joint_mode = 1
+begin_cap_mode = 1
+end_cap_mode = 2
+
+[node name="GPUParticles2D_eye" type="GPUParticles2D" parent="gunship/LaserEye" unique_id=1229536629]
+amount = 24
+texture = SubResource("GradientTexture2D_f8j7b")
+lifetime = 0.060000000000000005
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_1vrt7")
+
+[node name="GPUParticles2D_hit" type="GPUParticles2D" parent="gunship/LaserEye" unique_id=1060920684]
+position = Vector2(0, -14)
+amount = 24
+texture = SubResource("GradientTexture2D_f8j7b")
+lifetime = 0.060000000000000005
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_sbp4b")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="gunship/LaserEye" unique_id=1214456255]
+stream = ExtResource("9_sbp4b")
+
+[node name="LaserEye2" type="Node2D" parent="gunship" unique_id=601461994]
+z_index = 64
+position = Vector2(2, 0)
+script = ExtResource("7_f8j7b")
+poll_for_vibe = true
+
+[node name="RayCast2D" type="RayCast2D" parent="gunship/LaserEye2" unique_id=1031300511]
+target_position = Vector2(0, -48)
+collision_mask = 6
+
+[node name="Line2D" type="Line2D" parent="gunship/LaserEye2" unique_id=1672268626]
+points = PackedVector2Array(0, 0, 0, -48)
+width = 1.0
+joint_mode = 1
+begin_cap_mode = 1
+end_cap_mode = 2
+
+[node name="GPUParticles2D_eye" type="GPUParticles2D" parent="gunship/LaserEye2" unique_id=878163955]
+amount = 24
+texture = SubResource("GradientTexture2D_f8j7b")
+lifetime = 0.060000000000000005
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_1vrt7")
+
+[node name="GPUParticles2D_hit" type="GPUParticles2D" parent="gunship/LaserEye2" unique_id=1322282777]
+position = Vector2(0, -14)
+amount = 24
+texture = SubResource("GradientTexture2D_f8j7b")
+lifetime = 0.060000000000000005
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_sbp4b")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="gunship/LaserEye2" unique_id=1984385619]
+stream = SubResource("AudioStreamWAV_sbp4b")
+pitch_scale = 0.5
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=337413934]
 collision_layer = 2

@@ -18,6 +18,9 @@ var DDs: Array[float]   = [12.0, 12.0, 12.0]
 var shaking_timer = 0.0
 var shaking_timer_max = 12.0
 
+func _ready():
+    set_shake(Vector2(0., 0.0))
+
 func _process(delta):
     if shaking_timer >= shaking_timer_max:
         # Prevent shaking from going on too long
