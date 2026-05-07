@@ -21,18 +21,13 @@ var shaking_timer = 0.0
 var shaking_timer_max = 12.0
 
 func _ready():
-    set_shake(Vector2(0., 0.0))
+    pass
 
-func _process(delta):
+func _physics_process(delta):
     if SHAKABLE:
         if shaking_timer >= shaking_timer_max:
-            # Prevent shaking from going on too long
+            reset_shake()
             shaking_timer = 0.0
-            position = Vector2(0,0)
-            shaking_timer = 0.0
-            for ii in [0, 1, 2]:
-                AAs[ii] = Vector2(0,0)
-                VVs[ii] = Vector2(0,0)
         else:
             var all_zero: bool = true
             for ii in [0, 1, 2]:
@@ -86,3 +81,10 @@ func set_shake(
         KKs[1] = KK[1]
         DDs[1] = DD[1]
         
+func reset_shake():
+    # Prevent shaking from going on too long
+    position = Vector2(0,0)
+    shaking_timer = 0.0
+    for ii in [0, 1, 2]:
+        AAs[ii] = Vector2(0,0)
+        VVs[ii] = Vector2(0,0)

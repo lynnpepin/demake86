@@ -411,7 +411,7 @@ func hurt(damage: int, cooldown: float) -> void:
         if barrier_timer >= BARRIER_RECHARGE_PERIOD:
             remove_barrier()
         else:
-            $CameraAnchor/Camera2D.vshake(4.0 * damage)
+            get_parent().vshake_player_camera(4.0 * damage)
             barrier_timer = 0
             $Sounds/Hurt1.play()
             add_energy(-damage)
@@ -552,7 +552,7 @@ func die():
         bits.position = Vector2(0,0)
         bits.explode()
         
-    $CameraAnchor/Camera2D.set_shake(Vector2(randf_range(-24.0, 24.0), randf_range(-24.0, 24.0)), [4.0, 4.0], [6.0, 8.0])
+    get_parent().shake_player_camera(Vector2(randf_range(-24.0, 24.0), randf_range(-24.0, 24.0)), [4.0, 4.0], [6.0, 8.0])
     # TODO:
     # Family Guy death pose
     # MegaMan / Celeste explosion
@@ -562,18 +562,3 @@ func die():
     
     pass
 #endregion
-
-
-
-func _on_camera_area_area_shape_entered(
-    area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int
-) -> void:
-    print("camera area entered")
-    #$CameraAnchor.global_position = area.global_position
-    #$CameraAnchor.global_position = $Camera2D.global_position
-
-func _on_camera_area_area_shape_exited(
-    area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int
-) -> void:
-
-    print("camera area exited")
