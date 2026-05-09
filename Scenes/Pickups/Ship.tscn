@@ -77,22 +77,49 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ev3d8")
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_1gsy7"]
-frequency = 0.005
-fractal_octaves = 3
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6ptyk"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tkykk"]
-noise = SubResource("FastNoiseLite_1gsy7")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6ptyk"]
+noise = SubResource("FastNoiseLite_6ptyk")
 in_3d_space = true
 as_normal_map = true
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1gsy7"]
+seed = 9
+frequency = 0.02
+fractal_type = 2
+fractal_octaves = 3
+fractal_lacunarity = 1.0
+fractal_gain = 1.0
+domain_warp_amplitude = 90.0
+domain_warp_frequency = 0.01
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tkykk"]
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_1gsy7")
+in_3d_space = true
+as_normal_map = true
+normalize = false
+bump_strength = 1.0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tkykk"]
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
 albedo_color = Color(0.8, 0.56078434, 0.08235294, 1)
 metallic = 1.0
 metallic_specular = 1.0
 roughness = 0.25
 normal_enabled = true
+normal_scale = 2.0
 normal_texture = SubResource("NoiseTexture2D_tkykk")
+bent_normal_texture = SubResource("NoiseTexture2D_6ptyk")
+anisotropy_enabled = true
+anisotropy = 0.25
+ao_light_affect = 1.0
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+backlight = Color(1, 1, 1, 1)
 
 [sub_resource type="Environment" id="Environment_bimby"]
 background_mode = 1

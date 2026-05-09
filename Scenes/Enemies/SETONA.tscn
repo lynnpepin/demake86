@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://be6esv11x3s5t" path="res://Classes/EnemyClass.tscn" id="1_3slqs"]
 [ext_resource type="Texture2D" uid="uid://c6tufm4ggxvc7" path="res://art/SETONA/SETONA-4.png" id="2_imn7e"]
+[ext_resource type="Script" uid="uid://d1ihixyrl3g2o" path="res://Scenes/Enemies/setona.gd" id="2_ytpi5"]
 [ext_resource type="Texture2D" uid="uid://b7tkofvaklemi" path="res://art/SETONA/SETONA-5.png" id="3_ntaxx"]
 [ext_resource type="Texture2D" uid="uid://ekqe4u8tnfw2" path="res://art/SETONA/SETONA-6.png" id="4_cqgfd"]
 [ext_resource type="Texture2D" uid="uid://b66lfx2c4bkdn" path="res://art/SETONA/SETONA-8.png" id="5_yrj2r"]
@@ -30,16 +31,28 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ytpi5"]
 shader = ExtResource("8_yrj2r")
+shader_parameter/radius = 128.0
+
+[sub_resource type="Gradient" id="Gradient_ytpi5"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_471fi"]
+gradient = SubResource("Gradient_ytpi5")
+width = 2
+height = 2
 
 [node name="Setona" unique_id=1981089262 instance=ExtResource("1_3slqs")]
-position = Vector2(32, 32)
+script = ExtResource("2_ytpi5")
+tracking_distance = 512.0
 
 [node name="Sprite2D_bg_white" type="Sprite2D" parent="." index="0" unique_id=1548837251 groups=["enemies"]]
+visible = false
 z_index = -256
 z_as_relative = false
 texture = ExtResource("8_cqgfd")
@@ -50,6 +63,7 @@ visible = false
 
 [node name="AnimatedSprite2D" parent="." index="5" unique_id=787643559]
 sprite_frames = SubResource("SpriteFrames_471fi")
+autoplay = "default"
 offset = Vector2(0, 0)
 
 [node name="DeathExplosion" parent="." index="10" unique_id=1149512892]
@@ -60,3 +74,27 @@ z_index = 100
 material = SubResource("ShaderMaterial_ytpi5")
 texture = ExtResource("8_cqgfd")
 script = ExtResource("9_yrj2r")
+
+[node name="Sprite2DBlack" type="Sprite2D" parent="Sprite2D_gradient" index="0" unique_id=1568960811]
+visible = false
+position = Vector2(128, 64)
+scale = Vector2(64, 128)
+texture = SubResource("GradientTexture2D_471fi")
+
+[node name="Sprite2DBlack2" type="Sprite2D" parent="Sprite2D_gradient" index="1" unique_id=247661745]
+visible = false
+position = Vector2(-128, -64)
+scale = Vector2(64, 128)
+texture = SubResource("GradientTexture2D_471fi")
+
+[node name="Sprite2DBlack3" type="Sprite2D" parent="Sprite2D_gradient" index="2" unique_id=373140353]
+visible = false
+position = Vector2(64, -128)
+scale = Vector2(128, 64)
+texture = SubResource("GradientTexture2D_471fi")
+
+[node name="Sprite2DBlack4" type="Sprite2D" parent="Sprite2D_gradient" index="3" unique_id=2059856924]
+visible = false
+position = Vector2(-64, 128)
+scale = Vector2(128, 64)
+texture = SubResource("GradientTexture2D_471fi")

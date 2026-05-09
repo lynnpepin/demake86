@@ -12,7 +12,7 @@ output_port_for_preview = 0
 size = Vector2(840, 1100)
 expression = "// Dithering ??
 
-float steps = 4.0;
+float steps = 3.0;
 
 ivec2 px = ivec2(FRAGCOORD.xy);
 int bx = px.x % 4;
@@ -24,7 +24,7 @@ float m[16] = float[](
      3.0, 11.0,  1.0,  9.0,
     15.0,  7.0, 13.0,  5.0
 );
-float threshold = m[by * 4 + bx] / 16.0;
+float threshold = m[by * 4 + bx] / 16.0; // orig 16
 float dithered = value + (threshold - 0.5) / steps;
 q = clamp(floor(dithered * steps + 0.5) / steps, 0.0, 1.0);
 "
@@ -60,8 +60,8 @@ default_value = 128.0
 
 [sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_jngj8"]
 output_port_for_preview = 0
-size = Vector2(860, 1160)
-expression = "float maxR = 256.0;
+size = Vector2(860, 1500)
+expression = "float maxR = 128.0;
 float steps = 8.0;
 
 // normalize uvlen in range [0, maxR]
@@ -72,9 +72,11 @@ output = - (maxR/R)*uvlen + maxR;
 
 // normalize [0, 256] to [0, 1]
 output = 1.0 - output / maxR;
+output = clamp(output, 0.0, 1.0);
 
 // finally, for the first 25% of maxR, fade in
 // (e.g. pairs (0, 0), (16, .25), (64, 1.0))
+/*
 float alpha_fade_in = min(
   (maxR - R) 
     * 4.0    // So it only takes the first 25%
@@ -82,6 +84,7 @@ float alpha_fade_in = min(
   1.0        // clip at 1.0
 );
 output = output * alpha_fade_in;
+*/
 
 // divide into steps
 // todo; dithering preferred
@@ -92,21 +95,21 @@ mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(480, 400)
 nodes/fragment/2/node = SubResource("VisualShaderNodeVectorOp_ai8r7")
-nodes/fragment/2/position = Vector2(-1440, 306.66666)
+nodes/fragment/2/position = Vector2(-1622.8572, 297.14285)
 nodes/fragment/3/node = SubResource("VisualShaderNodeVectorLen_jngj8")
-nodes/fragment/3/position = Vector2(-1253.3334, 346.66666)
+nodes/fragment/3/position = Vector2(-1440, 331.42856)
 nodes/fragment/4/node = SubResource("VisualShaderNodeInput_rvn8q")
-nodes/fragment/4/position = Vector2(-1760, 373.33334)
+nodes/fragment/4/position = Vector2(-1942.8572, 365.7143)
 nodes/fragment/5/node = SubResource("VisualShaderNodeInput_ai8r7")
 nodes/fragment/5/position = Vector2(-1960, 146.66667)
 nodes/fragment/8/node = SubResource("VisualShaderNodeFloatParameter_ai8r7")
 nodes/fragment/8/position = Vector2(-2093.3333, 973.3333)
 nodes/fragment/9/node = SubResource("VisualShaderNodeExpression_jngj8")
-nodes/fragment/9/position = Vector2(-960, 360)
-nodes/fragment/9/size = Vector2(860, 1160)
+nodes/fragment/9/position = Vector2(-937.1429, 377.14285)
+nodes/fragment/9/size = Vector2(860, 1500)
 nodes/fragment/9/input_ports = "0,0,uvlen;1,0,R;"
 nodes/fragment/9/output_ports = "0,0,output;"
-nodes/fragment/9/expression = "float maxR = 256.0;
+nodes/fragment/9/expression = "float maxR = 128.0;
 float steps = 8.0;
 
 // normalize uvlen in range [0, maxR]
@@ -117,9 +120,11 @@ output = - (maxR/R)*uvlen + maxR;
 
 // normalize [0, 256] to [0, 1]
 output = 1.0 - output / maxR;
+output = clamp(output, 0.0, 1.0);
 
 // finally, for the first 25% of maxR, fade in
 // (e.g. pairs (0, 0), (16, .25), (64, 1.0))
+/*
 float alpha_fade_in = min(
   (maxR - R) 
     * 4.0    // So it only takes the first 25%
@@ -127,14 +132,15 @@ float alpha_fade_in = min(
   1.0        // clip at 1.0
 );
 output = output * alpha_fade_in;
+*/
 
 // divide into steps
 // todo; dithering preferred
 //output = round(output * steps) / steps;"
 nodes/fragment/10/node = SubResource("VisualShaderNodeColorConstant_ai8r7")
-nodes/fragment/10/position = Vector2(653.3333, 320)
+nodes/fragment/10/position = Vector2(91.42857, 331.42856)
 nodes/fragment/11/node = SubResource("VisualShaderNodeFloatConstant_ai8r7")
-nodes/fragment/11/position = Vector2(-1386.6666, 1093.3334)
+nodes/fragment/11/position = Vector2(-1394.2858, 1600)
 nodes/fragment/12/node = SubResource("VisualShaderNodeExpression_ai8r7")
 nodes/fragment/12/position = Vector2(-266.66666, 866.6667)
 nodes/fragment/12/size = Vector2(840, 1100)
@@ -142,7 +148,7 @@ nodes/fragment/12/input_ports = "0,0,value;"
 nodes/fragment/12/output_ports = "0,0,q;"
 nodes/fragment/12/expression = "// Dithering ??
 
-float steps = 4.0;
+float steps = 3.0;
 
 ivec2 px = ivec2(FRAGCOORD.xy);
 int bx = px.x % 4;
@@ -154,14 +160,14 @@ float m[16] = float[](
      3.0, 11.0,  1.0,  9.0,
     15.0,  7.0, 13.0,  5.0
 );
-float threshold = m[by * 4 + bx] / 16.0;
+float threshold = m[by * 4 + bx] / 16.0; // orig 16
 float dithered = value + (threshold - 0.5) / steps;
 q = clamp(floor(dithered * steps + 0.5) / steps, 0.0, 1.0);
 "
 nodes/fragment/13/node = SubResource("VisualShaderNodeInput_jngj8")
-nodes/fragment/13/position = Vector2(-1733.3334, 760)
+nodes/fragment/13/position = Vector2(-1805.7142, 1451.4286)
 nodes/fragment/14/node = SubResource("VisualShaderNodeFloatOp_rvn8q")
-nodes/fragment/14/position = Vector2(-1173.3334, 720)
+nodes/fragment/14/position = Vector2(-1177.1428, 1222.8572)
 nodes/fragment/15/node = SubResource("VisualShaderNodeFloatOp_ai8r7")
-nodes/fragment/15/position = Vector2(-1386.6666, 786.6667)
-nodes/fragment/connections = PackedInt32Array(2, 0, 3, 0, 4, 0, 2, 0, 3, 0, 9, 0, 10, 0, 0, 0, 9, 0, 12, 0, 12, 0, 0, 1, 11, 0, 14, 0, 14, 0, 9, 1, 13, 0, 15, 0, 15, 0, 14, 1)
+nodes/fragment/15/position = Vector2(-1394.2858, 1291.4286)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 0, 4, 0, 2, 0, 3, 0, 9, 0, 10, 0, 0, 0, 9, 0, 12, 0, 11, 0, 14, 0, 13, 0, 15, 0, 15, 0, 14, 1, 8, 0, 9, 1, 12, 0, 0, 1)
