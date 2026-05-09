@@ -40,6 +40,48 @@ operator = 1
 default_input_values = [0, 0.0, 1, 32.0]
 operator = 2
 
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_rvn8q"]
+output_port_for_preview = 0
+size = Vector2(860, 1500)
+expression = "float maxR = 256.0;
+
+// normalize uvlen in range [0, maxR]
+uvlen = uvlen * maxR;
+
+// linear equation controls pinhole
+output = - (maxR/R)*uvlen + maxR;
+
+// normalize [0, 256] to [0, 1]
+output = 1.0 - output / maxR;
+
+
+//output = clamp(output, 0.0, 1.0);
+
+// finally, for the first 25% of maxR, fade in
+// (e.g. pairs (0, 0), (16, .25), (64, 1.0))
+/*
+float alpha_fade_in = min(
+  (maxR - R) 
+    * 4.0    // So it only takes the first 25%
+    / maxR,  // Normalize to 1.0
+  1.0        // clip at 1.0
+);
+output = output * alpha_fade_in;
+*/
+
+// divide into steps
+// todo; dithering preferred
+//output = round(output * steps) / steps;"
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_jngj8"]
+parameter_name = "fade_in_alpha"
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_v6yl0"]
+default_input_values = [0, 0.0, 1, 32.0]
+operator = 2
+
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_ai8r7"]
 output_port_for_preview = 0
 default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(0.5, 0.5, 0)]
@@ -61,39 +103,37 @@ default_value = 128.0
 [sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_jngj8"]
 output_port_for_preview = 0
 size = Vector2(860, 1500)
-expression = "float maxR = 128.0;
-float steps = 8.0;
+expression = "
+// norm-R; should be 1/2 width
+float nR = 256.0;
 
-// normalize uvlen in range [0, maxR]
-uvlen = uvlen * maxR;
+// Normalize to range [0, nR]. (nR*1.414 on corners)
+// uvlen is [0, .5] by default, .717 on corners
+// uvlen * 2.0 brings us to [0, 1.0]
+// * nR brings us to [0, nR]
+uvlen = uvlen * nR * 2.0;
 
-// linear equation controls pinhole
-output = - (maxR/R)*uvlen + maxR;
+// linear equation to control pinhole:
+// y = mx + b
+// where b = nR
+// x = uvlen
+// and m is variable with radius, against nR
+// so, perfect linear when R = nR
+output = - (nR/R) * uvlen + nR;
 
-// normalize [0, 256] to [0, 1]
-output = 1.0 - output / maxR;
-output = clamp(output, 0.0, 1.0);
+// remove negative values
+//output = max(0.0, output)
+// fix values >1 at corners
+//output = min(1.0, output)
 
-// finally, for the first 25% of maxR, fade in
-// (e.g. pairs (0, 0), (16, .25), (64, 1.0))
-/*
-float alpha_fade_in = min(
-  (maxR - R) 
-    * 4.0    // So it only takes the first 25%
-    / maxR,  // Normalize to 1.0
-  1.0        // clip at 1.0
-);
-output = output * alpha_fade_in;
-*/
-
-// divide into steps
-// todo; dithering preferred
-//output = round(output * steps) / steps;"
+// now re-normalize from [0, nR] to [0, 1]
+output = 1.0 - output / nR;
+"
 
 [resource]
 mode = 1
 flags/light_only = false
-nodes/fragment/0/position = Vector2(480, 400)
+nodes/fragment/0/position = Vector2(1142.8572, 422.85715)
 nodes/fragment/2/node = SubResource("VisualShaderNodeVectorOp_ai8r7")
 nodes/fragment/2/position = Vector2(-1622.8572, 297.14285)
 nodes/fragment/3/node = SubResource("VisualShaderNodeVectorLen_jngj8")
@@ -103,46 +143,44 @@ nodes/fragment/4/position = Vector2(-1942.8572, 365.7143)
 nodes/fragment/5/node = SubResource("VisualShaderNodeInput_ai8r7")
 nodes/fragment/5/position = Vector2(-1960, 146.66667)
 nodes/fragment/8/node = SubResource("VisualShaderNodeFloatParameter_ai8r7")
-nodes/fragment/8/position = Vector2(-2093.3333, 973.3333)
+nodes/fragment/8/position = Vector2(-1840, 902.8571)
 nodes/fragment/9/node = SubResource("VisualShaderNodeExpression_jngj8")
-nodes/fragment/9/position = Vector2(-937.1429, 377.14285)
+nodes/fragment/9/position = Vector2(-1017.1429, 388.57144)
 nodes/fragment/9/size = Vector2(860, 1500)
 nodes/fragment/9/input_ports = "0,0,uvlen;1,0,R;"
 nodes/fragment/9/output_ports = "0,0,output;"
-nodes/fragment/9/expression = "float maxR = 128.0;
-float steps = 8.0;
+nodes/fragment/9/expression = "
+// norm-R; should be 1/2 width
+float nR = 256.0;
 
-// normalize uvlen in range [0, maxR]
-uvlen = uvlen * maxR;
+// Normalize to range [0, nR]. (nR*1.414 on corners)
+// uvlen is [0, .5] by default, .717 on corners
+// uvlen * 2.0 brings us to [0, 1.0]
+// * nR brings us to [0, nR]
+uvlen = uvlen * nR * 2.0;
 
-// linear equation controls pinhole
-output = - (maxR/R)*uvlen + maxR;
+// linear equation to control pinhole:
+// y = mx + b
+// where b = nR
+// x = uvlen
+// and m is variable with radius, against nR
+// so, perfect linear when R = nR
+output = - (nR/R) * uvlen + nR;
 
-// normalize [0, 256] to [0, 1]
-output = 1.0 - output / maxR;
-output = clamp(output, 0.0, 1.0);
+// remove negative values
+//output = max(0.0, output)
+// fix values >1 at corners
+//output = min(1.0, output)
 
-// finally, for the first 25% of maxR, fade in
-// (e.g. pairs (0, 0), (16, .25), (64, 1.0))
-/*
-float alpha_fade_in = min(
-  (maxR - R) 
-    * 4.0    // So it only takes the first 25%
-    / maxR,  // Normalize to 1.0
-  1.0        // clip at 1.0
-);
-output = output * alpha_fade_in;
-*/
-
-// divide into steps
-// todo; dithering preferred
-//output = round(output * steps) / steps;"
+// now re-normalize from [0, nR] to [0, 1]
+output = 1.0 - output / nR;
+"
 nodes/fragment/10/node = SubResource("VisualShaderNodeColorConstant_ai8r7")
 nodes/fragment/10/position = Vector2(91.42857, 331.42856)
 nodes/fragment/11/node = SubResource("VisualShaderNodeFloatConstant_ai8r7")
-nodes/fragment/11/position = Vector2(-1394.2858, 1600)
+nodes/fragment/11/position = Vector2(-1371.4286, 2125.7144)
 nodes/fragment/12/node = SubResource("VisualShaderNodeExpression_ai8r7")
-nodes/fragment/12/position = Vector2(-266.66666, 866.6667)
+nodes/fragment/12/position = Vector2(102.85714, 582.8571)
 nodes/fragment/12/size = Vector2(840, 1100)
 nodes/fragment/12/input_ports = "0,0,value;"
 nodes/fragment/12/output_ports = "0,0,q;"
@@ -165,9 +203,47 @@ float dithered = value + (threshold - 0.5) / steps;
 q = clamp(floor(dithered * steps + 0.5) / steps, 0.0, 1.0);
 "
 nodes/fragment/13/node = SubResource("VisualShaderNodeInput_jngj8")
-nodes/fragment/13/position = Vector2(-1805.7142, 1451.4286)
+nodes/fragment/13/position = Vector2(-1965.7142, 1828.5714)
 nodes/fragment/14/node = SubResource("VisualShaderNodeFloatOp_rvn8q")
-nodes/fragment/14/position = Vector2(-1177.1428, 1222.8572)
+nodes/fragment/14/position = Vector2(-1154.2858, 1748.5714)
 nodes/fragment/15/node = SubResource("VisualShaderNodeFloatOp_ai8r7")
-nodes/fragment/15/position = Vector2(-1394.2858, 1291.4286)
-nodes/fragment/connections = PackedInt32Array(2, 0, 3, 0, 4, 0, 2, 0, 3, 0, 9, 0, 10, 0, 0, 0, 9, 0, 12, 0, 11, 0, 14, 0, 13, 0, 15, 0, 15, 0, 14, 1, 8, 0, 9, 1, 12, 0, 0, 1)
+nodes/fragment/15/position = Vector2(-1520, 1942.8572)
+nodes/fragment/16/node = SubResource("VisualShaderNodeExpression_rvn8q")
+nodes/fragment/16/position = Vector2(-491.42856, 925.7143)
+nodes/fragment/16/size = Vector2(860, 1500)
+nodes/fragment/16/input_ports = "0,0,uvlen;1,0,R;"
+nodes/fragment/16/output_ports = "0,0,output;"
+nodes/fragment/16/expression = "float maxR = 256.0;
+
+// normalize uvlen in range [0, maxR]
+uvlen = uvlen * maxR;
+
+// linear equation controls pinhole
+output = - (maxR/R)*uvlen + maxR;
+
+// normalize [0, 256] to [0, 1]
+output = 1.0 - output / maxR;
+
+
+//output = clamp(output, 0.0, 1.0);
+
+// finally, for the first 25% of maxR, fade in
+// (e.g. pairs (0, 0), (16, .25), (64, 1.0))
+/*
+float alpha_fade_in = min(
+  (maxR - R) 
+    * 4.0    // So it only takes the first 25%
+    / maxR,  // Normalize to 1.0
+  1.0        // clip at 1.0
+);
+output = output * alpha_fade_in;
+*/
+
+// divide into steps
+// todo; dithering preferred
+//output = round(output * steps) / steps;"
+nodes/fragment/17/node = SubResource("VisualShaderNodeFloatParameter_jngj8")
+nodes/fragment/17/position = Vector2(-1805.7142, 1222.8572)
+nodes/fragment/18/node = SubResource("VisualShaderNodeFloatOp_v6yl0")
+nodes/fragment/18/position = Vector2(788.5714, 594.2857)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 0, 4, 0, 2, 0, 3, 0, 9, 0, 10, 0, 0, 0, 11, 0, 14, 0, 13, 0, 15, 0, 15, 0, 14, 1, 8, 0, 9, 1, 8, 0, 16, 1, 3, 0, 16, 0, 9, 0, 12, 0, 17, 0, 18, 0, 12, 0, 18, 1, 18, 0, 0, 1)

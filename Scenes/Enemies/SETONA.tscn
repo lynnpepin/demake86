@@ -36,6 +36,7 @@ animations = [{
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ytpi5"]
 shader = ExtResource("8_yrj2r")
+shader_parameter/fade_in_alpha = 1.0
 shader_parameter/radius = 128.0
 
 [sub_resource type="Gradient" id="Gradient_ytpi5"]
@@ -51,25 +52,19 @@ height = 2
 script = ExtResource("2_ytpi5")
 tracking_distance = 512.0
 
-[node name="Sprite2D_bg_white" type="Sprite2D" parent="." index="0" unique_id=1548837251 groups=["enemies"]]
-visible = false
-z_index = -256
-z_as_relative = false
-texture = ExtResource("8_cqgfd")
-script = ExtResource("9_yrj2r")
-
-[node name="Sprite2D_freeze_box" parent="." index="2" unique_id=840567474]
+[node name="Sprite2D_freeze_box" parent="." index="1" unique_id=840567474]
 visible = false
 
-[node name="AnimatedSprite2D" parent="." index="5" unique_id=787643559]
+[node name="AnimatedSprite2D" parent="." index="4" unique_id=787643559]
 sprite_frames = SubResource("SpriteFrames_471fi")
 autoplay = "default"
 offset = Vector2(0, 0)
 
-[node name="DeathExplosion" parent="." index="10" unique_id=1149512892]
+[node name="DeathExplosion" parent="." index="9" unique_id=1149512892]
 position = Vector2(0, 0)
 
-[node name="Sprite2D_gradient" type="Sprite2D" parent="." index="11" unique_id=678579505 groups=["enemies"]]
+[node name="Sprite2D_gradient" type="Sprite2D" parent="." index="10" unique_id=678579505 groups=["enemies"]]
+visible = false
 z_index = 100
 material = SubResource("ShaderMaterial_ytpi5")
 texture = ExtResource("8_cqgfd")
