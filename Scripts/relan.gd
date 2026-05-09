@@ -507,6 +507,7 @@ func add_energy(count: int) -> void:
 
 #region die
 func die():
+    Global.deaths += 1
     $Sounds/LowEnergy.stop()
     state = States.Dead
     $body_sprite.visible = false
@@ -529,8 +530,8 @@ func die():
         # funny sprite appears out of explosion
         # todo - change p for effects we dont want in explosion
         var blam = BiggerExplosion.instantiate()
-        blam.position = Vector2(0,0)#global_position
-        add_child(blam)
+        blam.position = global_position
+        get_parent().add_child(blam)
     
     if  p < 0.10:
         $DeathSprites/sprite_fgdp.visible = true

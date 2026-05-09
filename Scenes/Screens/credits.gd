@@ -126,11 +126,14 @@ func _on_timer_timeout() -> void:
         )
         $Timer.start(7.20)
     elif credits_ii == num_slides:
-        $Typer.start("""
-MISSION TIME:
+        $Typer.start("""MISSION TIME:
 %s
 SECONDS
-""" %  str(snapped(Global.game_timer, 0.1)))
+
+DEATHS:
+%s
+""" %  [str(snapped(Global.game_timer, 0.1)), str(Global.deaths)]
+)
     elif credits_ii == num_slides + 1:
         $Typer.start("""
 
