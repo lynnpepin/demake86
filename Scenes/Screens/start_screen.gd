@@ -1,5 +1,6 @@
 extends Node2D
 
+var MainScene = preload("res://main.tscn")
 
 # handle_angles and vars copied from cannon.gd
 # Might need to update some things manually!
@@ -122,7 +123,6 @@ func handle_angles():
             7
         ][angle]
 
-
 func _on_item_list_item_activated(index: int) -> void:
     [
         menu_start,
@@ -131,10 +131,14 @@ func _on_item_list_item_activated(index: int) -> void:
     ][index].call()
 
 func menu_start():
-    print("TODO START")
+    var main_scene = MainScene.instantiate()
+    #var b = BeamShot.instantiate()
+    #b.ice = owner.has_ice_beam
+    get_tree().change_scene_to_node(main_scene)
 
 func menu_options():
     print("TODO OPTIONS")
 
 func menu_quit():
-    print("TODO QUIT")
+    get_tree().quit()
+    print("SEE YOU NEXT MISSION")
