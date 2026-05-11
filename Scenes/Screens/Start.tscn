@@ -141,6 +141,18 @@ color_ramp = SubResource("GradientTexture1D_l4o21")
 default_font = ExtResource("3_fm381")
 default_font_size = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fm381"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [node name="Start" type="Node2D" unique_id=921053637]
 script = ExtResource("1_etyfm")
 
@@ -220,15 +232,24 @@ focus_mode = 2
 [node name="ItemList" type="ItemList" parent="Control" unique_id=1264372652]
 layout_mode = 0
 offset_top = 48.0
-offset_right = 64.0
+offset_right = 80.0
 offset_bottom = 64.0
 focus_neighbor_top = NodePath(".")
 focus_neighbor_bottom = NodePath(".")
 theme = SubResource("Theme_l4o21")
-theme_override_constants/h_separation = 0
+theme_override_colors/font_color = Color(0.26250002, 0.5, 0.25, 1)
+theme_override_colors/font_hovered_color = Color(0, 1, 1, 1)
+theme_override_colors/font_hovered_selected_color = Color(0, 0.8499182, 0.2834891, 1)
+theme_override_colors/font_selected_color = Color(0.05000007, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/scroll_hint_color = Color(0, 0, 0, 1)
+theme_override_colors/guide_color = Color(0.7, 0.7, 0.7, 0.25)
+theme_override_constants/h_separation = 2
 theme_override_constants/v_separation = 4
-theme_override_constants/outline_size = 0
+theme_override_constants/outline_size = 2
 theme_override_constants/line_separation = 2
+theme_override_constants/icon_margin = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_fm381")
 allow_reselect = true
 allow_rmb_select = true
 allow_search = false
