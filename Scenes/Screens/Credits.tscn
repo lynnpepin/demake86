@@ -286,7 +286,7 @@ end_cap_mode = 2
 [node name="GPUParticles2D_eye" type="GPUParticles2D" parent="gunship/LaserEye" unique_id=1229536629]
 amount = 24
 texture = SubResource("GradientTexture2D_f8j7b")
-lifetime = 0.060000000000000005
+lifetime = 0.06
 randomness = 0.5
 process_material = SubResource("ParticleProcessMaterial_1vrt7")
 
@@ -294,7 +294,7 @@ process_material = SubResource("ParticleProcessMaterial_1vrt7")
 position = Vector2(0, -14)
 amount = 24
 texture = SubResource("GradientTexture2D_f8j7b")
-lifetime = 0.060000000000000005
+lifetime = 0.06
 randomness = 0.5
 process_material = SubResource("ParticleProcessMaterial_sbp4b")
 
@@ -322,7 +322,7 @@ end_cap_mode = 2
 [node name="GPUParticles2D_eye" type="GPUParticles2D" parent="gunship/LaserEye2" unique_id=878163955]
 amount = 24
 texture = SubResource("GradientTexture2D_f8j7b")
-lifetime = 0.060000000000000005
+lifetime = 0.06
 randomness = 0.5
 process_material = SubResource("ParticleProcessMaterial_1vrt7")
 
@@ -330,7 +330,7 @@ process_material = SubResource("ParticleProcessMaterial_1vrt7")
 position = Vector2(0, -14)
 amount = 24
 texture = SubResource("GradientTexture2D_f8j7b")
-lifetime = 0.060000000000000005
+lifetime = 0.06
 randomness = 0.5
 process_material = SubResource("ParticleProcessMaterial_sbp4b")
 

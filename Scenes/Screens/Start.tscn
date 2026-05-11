@@ -1,0 +1,204 @@
+[gd_scene format=3 uid="uid://cwrpkxmkuihc5"]
+
+[ext_resource type="Script" uid="uid://cq6lnfgtqi185" path="res://Scenes/Screens/start_screen.gd" id="1_etyfm"]
+[ext_resource type="Texture2D" uid="uid://jjorf5tasieq" path="res://art/bgs_old/64_bg.png" id="2_2q7jf"]
+
+[sub_resource type="Gradient" id="Gradient_q3f0l"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.110687025, 0.29389313, 0.4491094, 0.6221374, 0.7188295, 0.851145, 1)
+colors = PackedColorArray(0.14509805, 0.8862745, 0.8039216, 1, 0.039215688, 0.59607846, 0.6745098, 1, 0, 0.32156864, 0.5019608, 1, 0.6784314, 0.30588236, 0.101960786, 1, 0.8, 0.56078434, 0.08235294, 1, 1, 0.73333335, 0.19215687, 1, 1, 0.90588236, 0.21568628, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sbw6n"]
+gradient = SubResource("Gradient_q3f0l")
+width = 16
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hyaid"]
+particle_flag_disable_z = true
+direction = Vector3(1, -0.5, 0)
+spread = 0.0
+initial_velocity_min = 150.0
+initial_velocity_max = 150.0
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = -2.2351742e-05
+gravity = Vector3(0, 200, 0)
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = -2.2351742e-06
+color_ramp = SubResource("GradientTexture1D_sbw6n")
+
+[sub_resource type="Gradient" id="Gradient_sbw6n"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.14885497, 0.2811705, 0.37786257, 0.55089056, 0.7061069, 0.889313, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.90588236, 0.21568628, 1, 1, 0.73333335, 0.19215687, 1, 0.8, 0.56078434, 0.08235294, 1, 0.6784314, 0.30588236, 0.101960786, 1, 0, 0.32156864, 0.5019608, 1, 0.039215688, 0.59607846, 0.6745098, 1, 0.14509805, 0.8862745, 0.8039216, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hyaid"]
+gradient = SubResource("Gradient_sbw6n")
+width = 32
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dt0so"]
+particle_flag_disable_z = true
+direction = Vector3(-1, -0.5, 0)
+spread = 0.0
+initial_velocity_min = 150.0
+initial_velocity_max = 150.0
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = -2.2351742e-05
+gravity = Vector3(0, 200, 0)
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = -2.2351742e-06
+color_ramp = SubResource("GradientTexture1D_hyaid")
+
+[sub_resource type="Gradient" id="Gradient_2q7jf"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.16157761, 0.69338423)
+colors = PackedColorArray(1, 1, 1, 1, 0.44313726, 0.6509804, 0.6313726, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fm381"]
+gradient = SubResource("Gradient_2q7jf")
+width = 16
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l4o21"]
+particle_flag_disable_z = true
+spread = 0.0
+initial_velocity_min = 4.0
+initial_velocity_max = 32.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_fm381")
+
+[sub_resource type="Gradient" id="Gradient_l4o21"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.09033079, 0.6475827, 0.86895674)
+colors = PackedColorArray(1, 1, 1, 1, 0.8784314, 0.23529412, 0.15686275, 1, 0.5294118, 0.08627451, 0.27450982, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7uudt"]
+gradient = SubResource("Gradient_l4o21")
+width = 16
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qmbu8"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 16.0
+initial_velocity_max = 16.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_7uudt")
+
+[sub_resource type="Gradient" id="Gradient_7uudt"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.09287532, 0.33969465, 0.629771, 0.84096694)
+colors = PackedColorArray(1, 1, 1, 1, 0.14509805, 0.8862745, 0.8039216, 1, 0.039215688, 0.59607846, 0.6745098, 1, 0, 0.32156864, 0.5019608, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qmbu8"]
+gradient = SubResource("Gradient_7uudt")
+width = 16
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q3f0l"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 16.0
+initial_velocity_max = 16.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_qmbu8")
+
+[sub_resource type="Gradient" id="Gradient_qmbu8"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.09287532, 0.33969465, 0.629771, 0.84096694)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.90588236, 0.21568628, 1, 0.9647059, 0.56078434, 0.21568628, 1, 0.6784314, 0.30588236, 0.101960786, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q3f0l"]
+gradient = SubResource("Gradient_qmbu8")
+width = 16
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sbw6n"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 16.0
+initial_velocity_max = 16.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_q3f0l")
+
+[sub_resource type="Gradient" id="Gradient_fm381"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.09033079, 0.63740456, 0.86895674)
+colors = PackedColorArray(1, 1, 1, 1, 0.34509805, 0.827451, 0.19607843, 1, 0.07450981, 0.6156863, 0.03137255, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_l4o21"]
+gradient = SubResource("Gradient_fm381")
+width = 16
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7uudt"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 16.0
+initial_velocity_max = 16.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_l4o21")
+
+[node name="Start" type="Node2D" unique_id=921053637]
+script = ExtResource("1_etyfm")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=708606464]
+position = Vector2(32, 32)
+ignore_rotation = false
+limit_enabled = false
+position_smoothing_speed = 96.0
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Camera2D" unique_id=41695516]
+
+[node name="64Bg" type="Sprite2D" parent="." unique_id=420405627]
+texture = ExtResource("2_2q7jf")
+centered = false
+
+[node name="GPUParticles2D_pad_lb" type="GPUParticles2D" parent="." unique_id=1828201710]
+position = Vector2(-1, 12)
+emitting = false
+amount = 30
+lifetime = 0.13
+fixed_fps = 60
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_hyaid")
+
+[node name="GPUParticles2D_pad_rb" type="GPUParticles2D" parent="." unique_id=105184174]
+position = Vector2(66, 12)
+emitting = false
+amount = 30
+lifetime = 0.13
+fixed_fps = 60
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_dt0so")
+
+[node name="GPUParticles2D_dpad" type="GPUParticles2D" parent="." unique_id=29629081]
+position = Vector2(16, 16)
+lifetime = 0.25
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_l4o21")
+
+[node name="GPUParticles2D_padB" type="GPUParticles2D" parent="." unique_id=157408218]
+position = Vector2(52, 16)
+emitting = false
+lifetime = 0.25
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_qmbu8")
+
+[node name="GPUParticles2D_padX" type="GPUParticles2D" parent="." unique_id=1255984952]
+position = Vector2(44, 16)
+emitting = false
+lifetime = 0.25
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_q3f0l")
+
+[node name="GPUParticles2D_padY" type="GPUParticles2D" parent="." unique_id=1072458917]
+position = Vector2(48, 12)
+emitting = false
+lifetime = 0.25
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_sbw6n")
+
+[node name="GPUParticles2D_padA" type="GPUParticles2D" parent="." unique_id=1015143106]
+position = Vector2(48, 20)
+emitting = false
+lifetime = 0.25
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_7uudt")
