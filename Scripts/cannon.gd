@@ -111,14 +111,14 @@ func handle_angles():
     )
     
     if aimvec.length() == 0:
+    #    if abs(aimvec.length()) <= 0.1:
+    # what might be the macos problem...
         aimvec.x = flip
     
     # Set the angle according to our X-Y components
-    angle = posmod(int((
-        aimvec.angle() / PI) * 4 #+ .001
-        #+ 0.001 * int(flip == -1.0)
-        # TODO - MACOS FLOATING POINT FUCKERY????
-        ),8)
+    angle = posmod(
+        round(4 * aimvec.angle() / PI),
+    8)
     
     # If lb is pressed, use this to map (angle, previous_angle) to an angle
     if diag:
