@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cq6lnfgtqi185" path="res://Scenes/Screens/start_screen.gd" id="1_etyfm"]
 [ext_resource type="Texture2D" uid="uid://jjorf5tasieq" path="res://art/bgs_old/64_bg.png" id="2_2q7jf"]
+[ext_resource type="FontFile" uid="uid://50omi7qgmx2w" path="res://fonts/GravityRegular5.ttf" id="3_fm381"]
 
 [sub_resource type="Gradient" id="Gradient_q3f0l"]
 interpolation_mode = 1
@@ -136,6 +137,10 @@ initial_velocity_max = 16.0
 gravity = Vector3(0, 0, 0)
 color_ramp = SubResource("GradientTexture1D_l4o21")
 
+[sub_resource type="Theme" id="Theme_l4o21"]
+default_font = ExtResource("3_fm381")
+default_font_size = 5
+
 [node name="Start" type="Node2D" unique_id=921053637]
 script = ExtResource("1_etyfm")
 
@@ -202,3 +207,35 @@ emitting = false
 lifetime = 0.25
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_7uudt")
+
+[node name="Control" type="Control" parent="." unique_id=163429792]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+focus_next = NodePath("ItemList")
+focus_previous = NodePath("ItemList")
+focus_mode = 2
+
+[node name="ItemList" type="ItemList" parent="Control" unique_id=1264372652]
+layout_mode = 0
+offset_top = 48.0
+offset_right = 64.0
+offset_bottom = 64.0
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+theme = SubResource("Theme_l4o21")
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 4
+theme_override_constants/outline_size = 0
+theme_override_constants/line_separation = 2
+allow_reselect = true
+allow_rmb_select = true
+allow_search = false
+text_overrun_behavior = 0
+item_count = 3
+item_0/text = "Start"
+item_1/text = "Options"
+item_2/text = "Quit"
+
+[connection signal="item_activated" from="Control/ItemList" to="." method="_on_item_list_item_activated"]

@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://cwhbr3wmojha8"]
+
+[ext_resource type="FontFile" uid="uid://50omi7qgmx2w" path="res://fonts/GravityRegular5.ttf" id="1_u21jw"]
+
+[resource]
+default_font = ExtResource("1_u21jw")
+default_font_size = 5

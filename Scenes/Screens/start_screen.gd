@@ -20,6 +20,7 @@ var flip: int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+    $Control/ItemList.grab_focus()
     pass # Replace with function body.
 
 
@@ -120,3 +121,20 @@ func handle_angles():
             [7, 7, 5, 5, 5, 5, 6 + flip, 7 ][prevangle], # down
             7
         ][angle]
+
+
+func _on_item_list_item_activated(index: int) -> void:
+    [
+        menu_start,
+        menu_options,
+        menu_quit
+    ][index].call()
+
+func menu_start():
+    print("TODO START")
+
+func menu_options():
+    print("TODO OPTIONS")
+
+func menu_quit():
+    print("TODO QUIT")
