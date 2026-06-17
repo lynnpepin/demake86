@@ -137,6 +137,8 @@ initial_velocity_max = 16.0
 gravity = Vector3(0, 0, 0)
 color_ramp = SubResource("GradientTexture1D_l4o21")
 
+[sub_resource type="Theme" id="Theme_fm381"]
+
 [sub_resource type="Theme" id="Theme_l4o21"]
 default_font = ExtResource("3_fm381")
 default_font_size = 5
@@ -147,11 +149,26 @@ content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_color = Color(1, 0.6792355, 0.9172413, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
-corner_detail = 5
+corner_detail = 1
+shadow_size = 1
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fm381"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sbw6n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l4o21"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hyaid"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7uudt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qmbu8"]
 
 [node name="Start" type="Node2D" unique_id=921053637]
 script = ExtResource("1_etyfm")
@@ -228,6 +245,7 @@ offset_bottom = 64.0
 focus_next = NodePath("ItemList")
 focus_previous = NodePath("ItemList")
 focus_mode = 2
+theme = SubResource("Theme_fm381")
 
 [node name="ItemList" type="ItemList" parent="Control" unique_id=1264372652]
 layout_mode = 0
@@ -244,12 +262,16 @@ theme_override_colors/font_selected_color = Color(0.05000007, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/scroll_hint_color = Color(0, 0, 0, 1)
 theme_override_colors/guide_color = Color(0.7, 0.7, 0.7, 0.25)
-theme_override_constants/h_separation = 2
-theme_override_constants/v_separation = 4
-theme_override_constants/outline_size = 2
-theme_override_constants/line_separation = 2
-theme_override_constants/icon_margin = 4
+theme_override_constants/h_separation = 3
+theme_override_constants/v_separation = 3
+theme_override_constants/outline_size = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_fm381")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fm381")
+theme_override_styles/hovered_selected = SubResource("StyleBoxEmpty_sbw6n")
+theme_override_styles/hovered_selected_focus = SubResource("StyleBoxEmpty_l4o21")
+theme_override_styles/selected = SubResource("StyleBoxEmpty_hyaid")
+theme_override_styles/selected_focus = SubResource("StyleBoxEmpty_7uudt")
+theme_override_styles/cursor_unfocused = SubResource("StyleBoxEmpty_qmbu8")
 allow_reselect = true
 allow_rmb_select = true
 allow_search = false
