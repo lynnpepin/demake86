@@ -543,8 +543,7 @@ collision_mask = 64
 shape = SubResource("CircleShape2D_pjyto")
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
-position = Vector2(369, 38)
-HAS_ENOUGH_ITEMS = true
+position = Vector2(95, 161)
 
 [node name="PointLight2D" type="PointLight2D" parent="Relan" unique_id=31498320]
 visible = false
@@ -2433,11 +2432,6 @@ tracking_distance = 32.0
 
 [node name="RinkoSniper5" parent="Tourian" unique_id=532561566 node_paths=PackedStringArray("tracking") instance=ExtResource("64_b17eg")]
 position = Vector2(48, 84)
-tracking = NodePath("../../Relan")
-tracking_distance = 32.0
-
-[node name="RinkoSniper3" parent="Tourian" unique_id=1295816988 node_paths=PackedStringArray("tracking") instance=ExtResource("64_b17eg")]
-position = Vector2(115, 12)
 tracking = NodePath("../../Relan")
 tracking_distance = 32.0
 

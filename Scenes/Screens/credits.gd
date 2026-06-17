@@ -34,9 +34,6 @@ AND TOOLS:
 AFFILIATED
 WITH
 NINTENDO.
-
-ALSO,
-TRANS RIGHTS
 """,
 
 """THANK YOU
@@ -103,6 +100,13 @@ FOURTY YEARS
 
 2026-AUG-6
 """,
+"""
+P.S.
+
+TRANS RIGHTS 
+ ARE
+HUMAN RIGHTS
+"""
 ]
 
 # playtesters, used jfxr, gimp, blender; made with godot, nintendo, thank you
