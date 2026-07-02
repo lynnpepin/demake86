@@ -24,6 +24,11 @@ func start_escape():
         $RinkoSniper5, $RinkoSniper6, $RinkoSniper7, $RinkoSniper8]:
             if sniper:
                 sniper.tracking_distance = 0.0
+                sniper.tracking = null
+                sniper.line.set_point_position(
+                1,
+                Vector2(0, 0)
+            )
     # HACKY HACKY
     #player.Typer.start("TIMEBOMB SET\nGET OUT FAST")
     escape_started = true

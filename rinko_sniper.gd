@@ -8,6 +8,7 @@ extends Node2D
 @export var SHOOT_PERIOD: float = 3.0
 var shoot_timer = 0.0
 
+@onready var line = $Line2D
 var Cheerio = preload("res://Scenes/Enemies/cheerio.tscn")
 
 @export var angle: float:
@@ -33,7 +34,10 @@ func _process(delta):
             if shoot_timer == 0.0:
                 $ChargeSfx.play()
             shoot_timer += delta
-            $Line2D.points[1] = tracking.global_position - global_position + Vector2(0,2)
+            $Line2D.set_point_position(
+                1,
+                tracking.global_position - global_position + Vector2(0,2)
+            )
             $Line2D.modulate = Color(1, 1, 1, shoot_timer / SHOOT_PERIOD)
             if shoot_timer >= SHOOT_PERIOD:
                 print("shooting cheerio to ", $Line2D.points[1])
@@ -44,9 +48,10 @@ func _process(delta):
                 cheerio.velocity = 48.0
                 cheerio.direction = $Line2D.points[1].normalized()
                 owner.add_child(cheerio)
-                # todo - shoot
         else:
-            #print("NOT TRACKING")
             $ChargeSfx.stop()
-            $Line2D.points[1] = Vector2(0,0)
+            $Line2D.set_point_position(
+                1,
+                Vector2(0, 0)
+            )
             shoot_timer = 0.0
