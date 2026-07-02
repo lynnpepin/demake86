@@ -16,25 +16,25 @@ var credit_slides = [
     AND
     
  ABSOLUTELY
-  ZERO  AI
+  ZERO AI
 """,
 
-
-"""
-AND TOOLS:
- GIMP, JFXR,
- PIXAKI,
- BLENDER,
- AUDACITY,
- LINUX
-""",
-
-
-"""AND NOT
+"""NOT
 AFFILIATED
 WITH
 NINTENDO.
 """,
+
+
+"""
+AND GOOD TOOLS:
+ GIMP, JFXR,
+ PIXAKI,
+ BLENDER,
+ AUDACITY,
+ ON LINUX :)
+""",
+
 
 """THANK YOU
 TO MY

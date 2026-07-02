@@ -36,6 +36,8 @@ func _process(delta):
             $Line2D.points[1] = tracking.global_position - global_position + Vector2(0,2)
             $Line2D.modulate = Color(1, 1, 1, shoot_timer / SHOOT_PERIOD)
             if shoot_timer >= SHOOT_PERIOD:
+                print("shooting cheerio to ", $Line2D.points[1])
+                print("... points: ", $Line2D.points)
                 shoot_timer = 0.0
                 var cheerio = Cheerio.instantiate()
                 cheerio.position = global_position
@@ -44,6 +46,7 @@ func _process(delta):
                 owner.add_child(cheerio)
                 # todo - shoot
         else:
+            #print("NOT TRACKING")
             $ChargeSfx.stop()
             $Line2D.points[1] = Vector2(0,0)
             shoot_timer = 0.0
