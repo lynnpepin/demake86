@@ -9,6 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://c2r8fjrqw6pt3" path="res://art/credits/miniship_r.png" id="5_f8j7b"]
 [ext_resource type="Script" uid="uid://c8r3oun73i8k0" path="res://Scenes/Screens/laser_eye.gd" id="7_f8j7b"]
 [ext_resource type="AudioStream" uid="uid://cdq7marm28yph" path="res://sfx/lazer.wav" id="9_sbp4b"]
+[ext_resource type="Script" uid="uid://dqn3ricb3mpuc" path="res://Scenes/Screens/line_2d_spawns_asteroids.gd" id="10_wtfyg"]
+[ext_resource type="Script" uid="uid://c60scpipo8ahi" path="res://Scenes/Screens/asteroid.gd" id="11_k7ahj"]
+[ext_resource type="AudioStream" uid="uid://bs5hnex5w2261" path="res://sfx/asteroid_1.wav" id="12_a5yyg"]
+[ext_resource type="AudioStream" uid="uid://d3h534n7am876" path="res://sfx/asteroid_2.wav" id="13_w1xyk"]
+[ext_resource type="AudioStream" uid="uid://cio4xfnp7fxdq" path="res://sfx/asteroid_3.wav" id="14_ubv0p"]
+[ext_resource type="AudioStream" uid="uid://8kmesfkrv5qh" path="res://sfx/asteroid_4.wav" id="15_l3jum"]
 
 [sub_resource type="Gradient" id="Gradient_sb781"]
 offsets = PackedFloat32Array(0.18355066, 0.19458374, 0.36308926, 0.3911735, 0.888666, 1)
@@ -20,7 +26,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_kdbnx")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -28,7 +34,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_ir8xi")
 }],
-"loop": true,
+"loop": 1,
 "name": &"left",
 "speed": 5.0
 }, {
@@ -36,7 +42,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_f8j7b")
 }],
-"loop": true,
+"loop": 1,
 "name": &"right",
 "speed": 5.0
 }]
@@ -167,6 +173,51 @@ size = Vector2(64, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vrt7"]
 size = Vector2(4, 64)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k7ahj"]
+friction = 0.0
+bounce = 2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k7ahj"]
+size = Vector2(4, 4)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wtfyg"]
+frequency = 0.1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vvnsp"]
+width = 12
+height = 12
+noise = SubResource("FastNoiseLite_wtfyg")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wtfyg"]
+width = 8
+height = 8
+noise = SubResource("FastNoiseLite_wtfyg")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k7ahj"]
+width = 16
+height = 16
+noise = SubResource("FastNoiseLite_wtfyg")
+
+[sub_resource type="Gradient" id="Gradient_k7ahj"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.06299841, 0.13476874, 0.23365231, 0.34848484, 0.47926635, 0.6467305, 0.7902711, 0.930622)
+colors = PackedColorArray(1, 1, 1, 1, 0.7411765, 1, 0.7921569, 1, 0.59607846, 0.8627451, 1, 1, 0.99607843, 0.7882353, 0.92941177, 1, 0.84313726, 0.84313726, 0.84313726, 1, 0.65882355, 0.65882355, 0.65882355, 1, 0.48235294, 0.48235294, 0.48235294, 1, 0.20392157, 0.20392157, 0.20392157, 1, 0.08235294, 0.08235294, 0.08235294, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bjsvy"]
+gradient = SubResource("Gradient_k7ahj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k7ahj"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 4.0
+spread = 180.0
+initial_velocity_min = 32.0
+initial_velocity_max = 256.0
+gravity = Vector3(0, 0, 0)
+scale_max = 3.0
+color_ramp = SubResource("GradientTexture1D_bjsvy")
 
 [node name="Credits" type="Node2D" unique_id=690748073]
 script = ExtResource("1_sb781")
@@ -356,5 +407,58 @@ shape = SubResource("RectangleShape2D_1vrt7")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=762875480]
 position = Vector2(32, 66)
 shape = SubResource("RectangleShape2D_ir8xi")
+
+[node name="Line2D_Spawns_Asteroids" type="Line2D" parent="." unique_id=548502944]
+position = Vector2(0, -16)
+points = PackedVector2Array(0, 0, 64, 0)
+width = 0.0
+script = ExtResource("10_wtfyg")
+
+[node name="Asteroid" type="RigidBody2D" parent="." unique_id=1071772873]
+position = Vector2(31, -33)
+collision_layer = 6
+mass = 2000.0
+physics_material_override = SubResource("PhysicsMaterial_k7ahj")
+gravity_scale = 0.0
+script = ExtResource("11_k7ahj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid" unique_id=1300390836]
+shape = SubResource("RectangleShape2D_k7ahj")
+
+[node name="Sprite2D_12" type="Sprite2D" parent="Asteroid" unique_id=1622368065]
+visible = false
+texture = SubResource("NoiseTexture2D_vvnsp")
+
+[node name="Sprite2D_8" type="Sprite2D" parent="Asteroid" unique_id=1015615559]
+visible = false
+texture = SubResource("NoiseTexture2D_wtfyg")
+
+[node name="Sprite2D_16" type="Sprite2D" parent="Asteroid" unique_id=70028463]
+visible = false
+texture = SubResource("NoiseTexture2D_k7ahj")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Asteroid" unique_id=1943488892]
+emitting = false
+amount = 256
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+fract_delta = false
+process_material = SubResource("ParticleProcessMaterial_k7ahj")
+
+[node name="Sfx" type="Node2D" parent="Asteroid" unique_id=553092077]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Asteroid/Sfx" unique_id=1201095823]
+stream = ExtResource("12_a5yyg")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Asteroid/Sfx" unique_id=289796554]
+stream = ExtResource("13_w1xyk")
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="Asteroid/Sfx" unique_id=418701591]
+stream = ExtResource("14_ubv0p")
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="Asteroid/Sfx" unique_id=2110114073]
+stream = ExtResource("15_l3jum")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

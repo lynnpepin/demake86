@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cpnt6p4sa33xm"]
+
+[ext_resource type="Script" uid="uid://c60scpipo8ahi" path="res://Scenes/Screens/asteroid.gd" id="1_3o3o6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k7ahj"]
+friction = 0.0
+bounce = 8.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wtfyg"]
+frequency = 0.1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vvnsp"]
+width = 12
+height = 12
+noise = SubResource("FastNoiseLite_wtfyg")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wtfyg"]
+width = 8
+height = 8
+noise = SubResource("FastNoiseLite_wtfyg")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k7ahj"]
+width = 16
+height = 16
+noise = SubResource("FastNoiseLite_wtfyg")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k7ahj"]
+size = Vector2(4, 4)
+
+[node name="Asteroid" type="RigidBody2D" unique_id=26223650]
+mass = 0.001
+physics_material_override = SubResource("PhysicsMaterial_k7ahj")
+gravity_scale = 0.0
+script = ExtResource("1_3o3o6")
+
+[node name="Sprite2D_12" type="Sprite2D" parent="." unique_id=511642862]
+visible = false
+texture = SubResource("NoiseTexture2D_vvnsp")
+
+[node name="Sprite2D_8" type="Sprite2D" parent="." unique_id=772660933]
+visible = false
+texture = SubResource("NoiseTexture2D_wtfyg")
+
+[node name="Sprite2D_16" type="Sprite2D" parent="." unique_id=297663137]
+visible = false
+texture = SubResource("NoiseTexture2D_k7ahj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1261897169]
+shape = SubResource("RectangleShape2D_k7ahj")

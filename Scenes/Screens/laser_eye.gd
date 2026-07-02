@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
         if $RayCast2D.is_colliding():
             #print(".. .. raycast is colliding,")
             length = (global_position - $RayCast2D.get_collision_point()).length()
-            $Line2D.points[1].y = -length
+            $Line2D.set_point_position(1, Vector2(0, -length))
             $GPUParticles2D_hit.position.y = -length
             if poll_for_vibe:
                 var major_vibe_strength = clamp(1 - length / 12.0, 0.0, 1.0)
@@ -25,6 +25,9 @@ func _physics_process(delta: float) -> void:
                     0, minor_vibe_strength, major_vibe_strength,
                     .25
                 )
+            var collider = $RayCast2D.get_collider()
+            if collider.has_method("get_fucking_lasered"):
+                collider.get_fucking_lasered(delta)
 
 func activate():
     print("activate laser")

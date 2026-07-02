@@ -1,0 +1,38 @@
+extends RigidBody2D
+
+var size: int = 8
+var health: float = 24.0
+
+func _ready() -> void:
+    size = [8, 10, 12].pick_random()
+    health = float(size)
+    $CollisionShape2D.shape.size.x = size
+    $CollisionShape2D.shape.size.y = size
+    angular_velocity = randf() * (16.0)
+    match size:
+        8: $Sprite2D_8.visible = true
+        12: $Sprite2D_12.visible = true
+        16: $Sprite2D_16.visible = true
+        _: $Sprite2D_8.visible = true
+    
+    set_linear_velocity(Vector2(0, 64 - size*2))
+
+func get_fucking_lasered(delta):
+    health -= delta * 8.0
+    if health <= 0.0:
+        die()
+
+func die():
+    $CollisionShape2D.set_deferred("disabled", true)
+    $Sprite2D_8.visible = false
+    $Sprite2D_12.visible = false
+    $Sprite2D_16.visible = false
+    $GPUParticles2D.emitting = true
+    $Sfx.get_children().pick_random().play()
+
+# todo:
+# - get spawned randomly 
+# - dink sound on bounce MEH
+# - takes damage YEAH
+# - can be exploded HELL YEAH
+# 
