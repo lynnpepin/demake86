@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
                 collider.get_fucking_lasered(delta)
 
 func activate():
-    print("activate laser")
+    #print("activate laser")
     active = true
     $GPUParticles2D_eye.emitting = true
     $GPUParticles2D_hit.emitting = true
@@ -41,7 +41,7 @@ func activate():
     # shake screen, vibrate controller, make noise
 
 func deactivate():
-    print("deactivate laser")
+    #print("deactivate laser")
     active = false
     $GPUParticles2D_eye.emitting = false
     $GPUParticles2D_hit.emitting = false

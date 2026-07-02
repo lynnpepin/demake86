@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cpnt6p4sa33xm"]
 
-[ext_resource type="Script" uid="uid://c60scpipo8ahi" path="res://Scenes/Screens/asteroid.gd" id="1_3o3o6"]
+[ext_resource type="Script" uid="uid://c60scpipo8ahi" path="res://Scenes/asteroid.gd" id="1_3o3o6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k7ahj"]
 friction = 0.0

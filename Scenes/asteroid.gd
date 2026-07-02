@@ -8,17 +8,17 @@ func _ready() -> void:
     health = float(size)
     $CollisionShape2D.shape.size.x = size
     $CollisionShape2D.shape.size.y = size
-    angular_velocity = randf() * (16.0)
+    angular_velocity = randf_range(-20.0 - size, 20.0 - size)
     match size:
         8: $Sprite2D_8.visible = true
         12: $Sprite2D_12.visible = true
         16: $Sprite2D_16.visible = true
         _: $Sprite2D_8.visible = true
     
-    set_linear_velocity(Vector2(0, 64 - size*2))
+    set_linear_velocity(Vector2(0, 48 - size*2))
 
 func get_fucking_lasered(delta):
-    health -= delta * 8.0
+    health -= delta * 12.0
     if health <= 0.0:
         die()
 
