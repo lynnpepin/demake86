@@ -24,6 +24,7 @@ rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_ntx8l")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=353032711]
+visible = false
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_ntx8l")
 
