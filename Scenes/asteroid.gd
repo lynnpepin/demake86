@@ -17,7 +17,7 @@ func _ready() -> void:
     set_linear_velocity(Vector2(randf_range(-2.0, 2.0), 48 - size*2))
 
 func get_fucking_lasered(delta):
-    health -= delta * 12.0
+    health -= delta * 16.0
     if health <= 0.0:
         die()
 
@@ -28,6 +28,7 @@ func die():
     $Sprite2D_16.visible = false
     $GPUParticles2D.emitting = true
     $Sfx.get_children().pick_random().play()
+    $AfterDeathTimer.start()
 
 # todo:
 # - get spawned randomly 
@@ -35,3 +36,11 @@ func die():
 # - takes damage YEAH
 # - can be exploded HELL YEAH
 # 
+
+
+func _on_timer_timeout() -> void:
+    die()
+
+
+func _on_after_death_timer_timeout() -> void:
+    queue_free()

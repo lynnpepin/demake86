@@ -208,7 +208,7 @@ color_ramp = SubResource("Gradient_sb781")
 position = Vector2(32, 32)
 collision_mask = 2
 script = ExtResource("3_ir8xi")
-SPEED = 36.0
+SPEED = 64.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="gunship" unique_id=97908814]
 z_index = 32

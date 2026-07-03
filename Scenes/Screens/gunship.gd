@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var SPEED: float = 12.0
+@export var SPEED: float = 24.0
 
 var left: bool
 var right: bool

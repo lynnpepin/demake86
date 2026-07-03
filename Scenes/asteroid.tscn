@@ -39,9 +39,13 @@ lifetime_randomness = 1.0
 particle_flag_disable_z = true
 emission_shape = 1
 emission_sphere_radius = 4.0
+angle_min = 1.0728835e-05
+angle_max = 45.00001
 spread = 180.0
-initial_velocity_min = 32.0
-initial_velocity_max = 256.0
+initial_velocity_min = 2.0
+initial_velocity_max = 512.0
+angular_velocity_min = -24.000015
+angular_velocity_max = 23.999983
 gravity = Vector3(0, 0, 0)
 scale_max = 3.0
 color_ramp = SubResource("GradientTexture1D_bjsvy")
@@ -67,7 +71,7 @@ texture = SubResource("NoiseTexture2D_k7ahj")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1548616962]
 emitting = false
-amount = 256
+amount = 240
 one_shot = true
 explosiveness = 1.0
 randomness = 1.0
@@ -94,3 +98,13 @@ stream = ExtResource("5_wf8ax")
 [node name="Sprite2D_pinkcake" type="Sprite2D" parent="Sprites_8px" unique_id=16590972]
 visible = false
 texture = ExtResource("6_f2ils")
+
+[node name="Timer" type="Timer" parent="." unique_id=1463032534]
+wait_time = 24.0
+autostart = true
+
+[node name="AfterDeathTimer" type="Timer" parent="." unique_id=1686836293]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="AfterDeathTimer" to="." method="_on_after_death_timer_timeout"]
