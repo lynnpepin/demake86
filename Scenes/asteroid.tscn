@@ -5,10 +5,10 @@
 [ext_resource type="AudioStream" uid="uid://d3h534n7am876" path="res://sfx/asteroid_2.wav" id="3_q3pxt"]
 [ext_resource type="AudioStream" uid="uid://cio4xfnp7fxdq" path="res://sfx/asteroid_3.wav" id="4_had7t"]
 [ext_resource type="AudioStream" uid="uid://8kmesfkrv5qh" path="res://sfx/asteroid_4.wav" id="5_wf8ax"]
+[ext_resource type="Texture2D" uid="uid://xl7pdli8l7sd" path="res://art/pinkcake.png" id="6_f2ils"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k7ahj"]
-friction = 0.0
-bounce = 16.0
+bounce = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k7ahj"]
 size = Vector2(4, 4)
@@ -19,11 +19,6 @@ frequency = 0.1
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vvnsp"]
 width = 12
 height = 12
-noise = SubResource("FastNoiseLite_wtfyg")
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wtfyg"]
-width = 8
-height = 8
 noise = SubResource("FastNoiseLite_wtfyg")
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k7ahj"]
@@ -52,8 +47,7 @@ scale_max = 3.0
 color_ramp = SubResource("GradientTexture1D_bjsvy")
 
 [node name="Asteroid" type="RigidBody2D" unique_id=1585819476]
-collision_layer = 6
-mass = 2000.0
+collision_layer = 7
 physics_material_override = SubResource("PhysicsMaterial_k7ahj")
 gravity_scale = 0.0
 angular_velocity = 0.41887903
@@ -66,10 +60,6 @@ shape = SubResource("RectangleShape2D_k7ahj")
 [node name="Sprite2D_12" type="Sprite2D" parent="." unique_id=1277125405]
 visible = false
 texture = SubResource("NoiseTexture2D_vvnsp")
-
-[node name="Sprite2D_8" type="Sprite2D" parent="." unique_id=16590972]
-visible = false
-texture = SubResource("NoiseTexture2D_wtfyg")
 
 [node name="Sprite2D_16" type="Sprite2D" parent="." unique_id=1917825800]
 visible = false
@@ -98,3 +88,9 @@ stream = ExtResource("4_had7t")
 
 [node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="Sfx" unique_id=1249121328]
 stream = ExtResource("5_wf8ax")
+
+[node name="Sprites_8px" type="Node2D" parent="." unique_id=775604321]
+
+[node name="Sprite2D_pinkcake" type="Sprite2D" parent="Sprites_8px" unique_id=16590972]
+visible = false
+texture = ExtResource("6_f2ils")

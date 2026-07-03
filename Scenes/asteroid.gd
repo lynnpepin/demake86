@@ -4,18 +4,17 @@ var size: int = 8
 var health: float = 24.0
 
 func _ready() -> void:
-    size = [8, 10, 12].pick_random()
+    size = [8, 12, 16].pick_random()
     health = float(size)
-    $CollisionShape2D.shape.size.x = size
-    $CollisionShape2D.shape.size.y = size
-    angular_velocity = randf_range(-20.0 - size, 20.0 - size)
+    $CollisionShape2D.shape.size.x = size - 1.0
+    $CollisionShape2D.shape.size.y = size - 1.0
+    angular_velocity = randf_range(-20.0 + size, 20.0 - size)
     match size:
-        8: $Sprite2D_8.visible = true
+        8: $Sprites_8px.get_children().pick_random().visible = true
         12: $Sprite2D_12.visible = true
         16: $Sprite2D_16.visible = true
-        _: $Sprite2D_8.visible = true
     
-    set_linear_velocity(Vector2(0, 48 - size*2))
+    set_linear_velocity(Vector2(randf_range(-2.0, 2.0), 48 - size*2))
 
 func get_fucking_lasered(delta):
     health -= delta * 12.0
@@ -24,7 +23,7 @@ func get_fucking_lasered(delta):
 
 func die():
     $CollisionShape2D.set_deferred("disabled", true)
-    $Sprite2D_8.visible = false
+    $Sprites_8px.visible = false
     $Sprite2D_12.visible = false
     $Sprite2D_16.visible = false
     $GPUParticles2D.emitting = true
