@@ -6,8 +6,8 @@ var health: float = 24.0
 func _ready() -> void:
     size = [8, 12, 16].pick_random()
     health = float(size)
-    $CollisionShape2D.shape.size.x = size - 1.0
-    $CollisionShape2D.shape.size.y = size - 1.0
+    $CollisionShape2D.shape.size.x = size - 2.0
+    $CollisionShape2D.shape.size.y = size - 2.0
     angular_velocity = randf_range(-20.0 + size, 20.0 - size)
     match size:
         8: $Sprites_8px.get_children().pick_random().visible = true
