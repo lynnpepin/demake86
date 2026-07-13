@@ -543,8 +543,7 @@ collision_mask = 64
 shape = SubResource("CircleShape2D_pjyto")
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
-position = Vector2(109, 18)
-HAS_ENOUGH_ITEMS = true
+position = Vector2(96, 153)
 
 [node name="PointLight2D" type="PointLight2D" parent="Relan" unique_id=31498320]
 visible = false
@@ -554,7 +553,6 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_p8m5k")
 
 [node name="HatchShadows" type="Node2D" parent="." unique_id=634801033]
-visible = false
 script = ExtResource("3_4w656")
 
 [node name="shadow_brin_shadow_1" type="TileMapLayer" parent="HatchShadows" unique_id=1981081113]
