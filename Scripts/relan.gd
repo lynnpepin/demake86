@@ -118,7 +118,10 @@ func _ready():
     
     if has_varia_suit:
         regain_barrier()
-        
+    
+    # Fun spawn effect
+    $Angels.activate(3.6)
+    $Sounds/RelanSpawns.play()
     pass # Replace with function body.
 
 

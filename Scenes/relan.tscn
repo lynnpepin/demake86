@@ -36,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://bv7j2dij7vk4c" path="res://Scenes/MotesOfSmoke.tscn" id="29_5nb38"]
 [ext_resource type="PackedScene" uid="uid://cs0gcifpqgg8h" path="res://Scenes/Typer_Timer.tscn" id="30_72vhv"]
 [ext_resource type="Texture2D" uid="uid://wmw2830gd0cv" path="res://art/barrier_frames/outfile00000.png" id="31_nsgbk"]
+[ext_resource type="AudioStream" uid="uid://c3dyifp12yp8w" path="res://music/relan_appears.wav" id="31_yy1tg"]
 [ext_resource type="Texture2D" uid="uid://r8itplc6uyxp" path="res://art/barrier_frames/outfile00001.png" id="32_15ux0"]
 [ext_resource type="Texture2D" uid="uid://hk23fnsbi3v8" path="res://art/barrier_frames/outfile00002.png" id="33_iiqjc"]
 [ext_resource type="Texture2D" uid="uid://cmkrty4vnv6ce" path="res://art/barrier_frames/outfile00003.png" id="34_74dfm"]
@@ -77,6 +78,10 @@
 [ext_resource type="Script" uid="uid://ds0q0vng6dw0n" path="res://Scenes/sprite_plumber.gd" id="72_mr6aa"]
 [ext_resource type="Texture2D" uid="uid://bj36eefka6y8y" path="res://art/relan/relan_grave.png" id="73_473r1"]
 [ext_resource type="Texture2D" uid="uid://7mbodyad5dov" path="res://art/relan/relan_skeleton.png" id="74_0whd5"]
+[ext_resource type="Script" uid="uid://daftqi0bdjvvh" path="res://Scenes/angels.gd" id="79_2340e"]
+[ext_resource type="Texture2D" uid="uid://ggdrgmeycwx3" path="res://art/angel_1_sm.png" id="80_apfav"]
+[ext_resource type="Texture2D" uid="uid://bddf2qqcsnque" path="res://art/angel_2_sm.png" id="81_7ycrr"]
+[ext_resource type="Script" uid="uid://d3k1lm08vqis3" path="res://Scenes/angel.gd" id="82_apfav"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8s541"]
 radius = 3.0
@@ -114,7 +119,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_8n4ka")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -155,7 +160,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("21_1m4bp")
 }],
-"loop": true,
+"loop": 1,
 "name": &"run",
 "speed": 12.0
 }]
@@ -175,7 +180,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("12_l15xt")
 }],
-"loop": true,
+"loop": 1,
 "name": &"s",
 "speed": 12.0
 }]
@@ -320,7 +325,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("60_rfqoy")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 12.0
 }]
@@ -347,7 +352,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("67_bh2oj")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -358,7 +363,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("28_240g0")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -369,7 +374,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("69_dw83p")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 5.0
 }]
@@ -380,7 +385,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("71_nni4w")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -391,7 +396,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("73_473r1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -402,13 +407,27 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("74_0whd5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm3d7"]
 size = Vector2(8, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vvnsp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("80_apfav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_7ycrr")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Relan" type="CharacterBody2D" unique_id=1720302912 groups=["player"]]
 collision_mask = 2
@@ -1118,6 +1137,10 @@ high_pass_filter/cutoff_sweep = 0.0
 [node name="LowEnergy" type="AudioStreamPlayer2D" parent="Sounds" unique_id=372169707]
 stream = ExtResource("29_0whd5")
 
+[node name="RelanSpawns" type="AudioStreamPlayer" parent="Sounds" unique_id=176542522]
+stream = ExtResource("31_yy1tg")
+volume_db = -10.0
+
 [node name="RayCast2D_TuckChecker" type="RayCast2D" parent="." unique_id=1003190590]
 position = Vector2(0, 6)
 target_position = Vector2(0, -6)
@@ -1275,9 +1298,34 @@ collision_mask = 64
 [node name="CollisionShape2D" type="CollisionShape2D" parent="camera_area" unique_id=425983631]
 shape = SubResource("RectangleShape2D_bm3d7")
 
+[node name="Angels" type="Node2D" parent="." unique_id=1872311087]
+script = ExtResource("79_2340e")
+
+[node name="angel_1" type="AnimatedSprite2D" parent="Angels" unique_id=1832907848]
+visible = false
+z_index = 100
+position = Vector2(-11, -5)
+sprite_frames = SubResource("SpriteFrames_vvnsp")
+centered = false
+script = ExtResource("82_apfav")
+
+[node name="angel_2" type="AnimatedSprite2D" parent="Angels" unique_id=1966005680]
+visible = false
+z_index = 100
+position = Vector2(6, -5)
+sprite_frames = SubResource("SpriteFrames_vvnsp")
+centered = false
+flip_h = true
+script = ExtResource("82_apfav")
+time = 0.25
+
+[node name="Timer" type="Timer" parent="Angels" unique_id=945975409]
+wait_time = 2.0
+
 [connection signal="area_entered" from="hurt_box" to="." method="_on_hurt_area_area_entered"]
 [connection signal="area_entered" from="Node2D_Screw_Attack/Area2D" to="Node2D_Screw_Attack/Area2D" method="_on_area_entered_to_check_for_enemies"]
 [connection signal="area_shape_entered" from="camera_area" to="." method="_on_camera_area_area_shape_entered"]
 [connection signal="area_shape_exited" from="camera_area" to="." method="_on_camera_area_area_shape_exited"]
+[connection signal="timeout" from="Angels/Timer" to="Angels" method="_on_timer_timeout"]
 
 [editable path="EscapeTimeTyper"]
