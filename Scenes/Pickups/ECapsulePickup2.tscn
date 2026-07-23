@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://d3sa3xjjqxexs" path="res://Scenes/Pickups/e_capsule_pickup_2.gd" id="1_gwgti"]
 [ext_resource type="Script" uid="uid://ixuaysx1ibjc" path="res://Scripts/node_3d.gd" id="2_4ul7c"]
+[ext_resource type="Texture2D" uid="uid://ggdrgmeycwx3" path="res://art/angel_1_sm.png" id="3_g34p1"]
+[ext_resource type="Texture2D" uid="uid://bddf2qqcsnque" path="res://art/angel_2_sm.png" id="4_375ek"]
+[ext_resource type="Script" uid="uid://d3k1lm08vqis3" path="res://Scenes/angel.gd" id="5_djt64"]
+[ext_resource type="AudioStream" uid="uid://b7o743sx0nwum" path="res://music/pickup_fanfare.wav" id="6_r6j2w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w4wew"]
 radius = 4.0
@@ -78,6 +82,20 @@ size = Vector3(0.375, 0.125, 0.063)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_2p5ev"]
 viewport_path = NodePath("SubViewport_etank")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mafk4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_g34p1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_375ek")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="EnergyTank" type="Node2D" unique_id=2002973485]
 script = ExtResource("1_gwgti")
@@ -194,4 +212,29 @@ skeleton = NodePath("")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1450243342]
 texture = SubResource("ViewportTexture_2p5ev")
 
+[node name="Timer" type="Timer" parent="." unique_id=1999437967]
+wait_time = 3.6
+
+[node name="angel_1" type="AnimatedSprite2D" parent="." unique_id=637959762]
+visible = false
+z_index = 100
+position = Vector2(-11, -5)
+sprite_frames = SubResource("SpriteFrames_mafk4")
+centered = false
+script = ExtResource("5_djt64")
+
+[node name="angel_2" type="AnimatedSprite2D" parent="." unique_id=357093463]
+visible = false
+z_index = 100
+position = Vector2(6, -5)
+sprite_frames = SubResource("SpriteFrames_mafk4")
+centered = false
+flip_h = true
+script = ExtResource("5_djt64")
+time = 0.25
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1194486612]
+stream = ExtResource("6_r6j2w")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

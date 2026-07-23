@@ -26,8 +26,22 @@ func player_do(body) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
     if body.is_in_group("player"):
+        $Area2D.set_deferred("monitoring", false)
+        $Area2D.set_deferred("monitorable", false)
         print("got ", pickup_name)
         player_do(body)
         body.show_message(pickup_message)
-        queue_free()
-        # TODO - Make noise
+        # HACKY angels!! 
+        # I don't know why these nodes don't inherit across PickupClass es
+        # but it's cheap n ez enough to copy to all of them 
+        $Timer.start(3.6)
+        for child in get_children():
+            if "visible" in child:
+                child.visible = false
+        $angel_1.visible = true
+        $angel_2.visible = true
+        $AudioStreamPlayer2D.play()
+
+
+func _on_timer_timeout() -> void:
+    queue_free()

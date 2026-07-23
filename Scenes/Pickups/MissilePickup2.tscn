@@ -4,6 +4,10 @@
 [ext_resource type="Script" uid="uid://upu1kcsqk88p" path="res://Scenes/Old/node_3d_missile.gd" id="2_56lp4"]
 [ext_resource type="Material" uid="uid://b7fnbkras7k2x" path="res://resources/missile_pickup_material.tres" id="3_knuo8"]
 [ext_resource type="Material" uid="uid://475c4ayib2vg" path="res://resources/material_white_unshaded.tres" id="4_4y18q"]
+[ext_resource type="Texture2D" uid="uid://ggdrgmeycwx3" path="res://art/angel_1_sm.png" id="5_jkcxc"]
+[ext_resource type="Texture2D" uid="uid://bddf2qqcsnque" path="res://art/angel_2_sm.png" id="6_4sveb"]
+[ext_resource type="Script" uid="uid://d3k1lm08vqis3" path="res://Scenes/angel.gd" id="7_isiy2"]
+[ext_resource type="AudioStream" uid="uid://b7o743sx0nwum" path="res://music/pickup_fanfare.wav" id="8_4sveb"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_8t7u6"]
 lightmap_size_hint = Vector2i(17, 9)
@@ -43,6 +47,20 @@ viewport_path = NodePath("SubViewport_missile")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w4wew"]
 radius = 4.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kkyuo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jkcxc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4sveb")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="MissileTank" type="Node2D" unique_id=501768768]
 script = ExtResource("1_n2oeo")
@@ -133,4 +151,29 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1585639805]
 shape = SubResource("CircleShape2D_w4wew")
 
+[node name="Timer" type="Timer" parent="." unique_id=2114439503]
+wait_time = 3.6
+
+[node name="angel_1" type="AnimatedSprite2D" parent="." unique_id=874920096]
+visible = false
+z_index = 100
+position = Vector2(-11, -5)
+sprite_frames = SubResource("SpriteFrames_kkyuo")
+centered = false
+script = ExtResource("7_isiy2")
+
+[node name="angel_2" type="AnimatedSprite2D" parent="." unique_id=1793365749]
+visible = false
+z_index = 100
+position = Vector2(6, -5)
+sprite_frames = SubResource("SpriteFrames_kkyuo")
+centered = false
+flip_h = true
+script = ExtResource("7_isiy2")
+time = 0.25
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=470324742]
+stream = ExtResource("8_4sveb")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
