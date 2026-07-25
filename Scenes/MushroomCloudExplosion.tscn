@@ -9,23 +9,23 @@
 size = Vector2(4, 16)
 
 [node name="MushroomCloudExplosion" type="Node2D" unique_id=1847167447]
-position = Vector2(0, 2)
 script = ExtResource("1_ab4n3")
 
 [node name="Particles_Ring" parent="." unique_id=1582928063 instance=ExtResource("1_7boi8")]
-position = Vector2(0, -4)
+position = Vector2(0, -2)
 emitting = false
 lifetime = 4.0
 one_shot = true
 
 [node name="Particles_Cloud" parent="." unique_id=229452179 instance=ExtResource("2_ab4n3")]
+position = Vector2(0, 2)
 emitting = false
 one_shot = true
 emission_rect_extents = Vector2(0, 2)
 scale_amount_max = 3.0
 
 [node name="hurtbox" type="Area2D" parent="." unique_id=776851219 groups=["water"]]
-position = Vector2(0, -8)
+position = Vector2(0, -6)
 collision_layer = 4
 collision_mask = 16
 monitoring = false
@@ -34,6 +34,7 @@ monitoring = false
 shape = SubResource("RectangleShape2D_ab4n3")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=390546237]
+position = Vector2(0, 2)
 stream = ExtResource("4_ojrpq")
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_area_entered"]
