@@ -83,15 +83,19 @@ process_material = SubResource("ParticleProcessMaterial_k7ahj")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sfx" unique_id=1900159074]
 stream = ExtResource("2_oo82e")
+max_distance = 256.0
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Sfx" unique_id=944927040]
 stream = ExtResource("3_q3pxt")
+max_distance = 256.0
 
 [node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="Sfx" unique_id=403741206]
 stream = ExtResource("4_had7t")
+max_distance = 256.0
 
 [node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="Sfx" unique_id=1249121328]
 stream = ExtResource("5_wf8ax")
+max_distance = 256.0
 
 [node name="Sprites_8px" type="Node2D" parent="." unique_id=775604321]
 

@@ -2,13 +2,25 @@ extends Node2D
 
 # note: 12 char max, 5 line max
 
+@export var disappear_after_time: float = 12.0
+@export var time_per_char: float = 1.0/16.0
+
 var credit_slides = [
 """ A GAME BY
 
   OPOSSUM
   CARRION
 
+IN HOMAGE TO
+METROID 1986
 """,
+
+"""NOT
+AFFILIATED
+WITH
+NINTENDO.
+""",
+
 """ MADE WITH
 
  G O D O T
@@ -19,22 +31,23 @@ var credit_slides = [
   ZERO AI
 """,
 
-"""NOT
-AFFILIATED
-WITH
-NINTENDO.
+
+"""CREATIVE TOOLS:
+GIMP, LINUX,
+PIXAKI, JFXR,
+BLENDER,
+AUDACITY,
+STRUDEL.CC
 """,
+"""COVERS OF
+Enter: Samus
+Power Up
 
-
-"""
-AND GOOD TOOLS:
- GIMP, JFXR,
- PIXAKI,
- BLENDER,
- AUDACITY,
- ON LINUX :)
+CREDITS TO
+OG COMPOSER
+Hirokazu "Hip"
+Tanaka
 """,
-
 
 """THANK YOU
 TO MY
@@ -100,13 +113,6 @@ FOURTY YEARS
 
 2026-AUG-6
 """,
-"""
-P.S.
-
-TRANS RIGHTS 
- ARE
-HUMAN RIGHTS
-"""
 ]
 
 # playtesters, used jfxr, gimp, blender; made with godot, nintendo, thank you
@@ -114,8 +120,8 @@ HUMAN RIGHTS
 @onready var credits_ii: int = 0
 
 func _ready() -> void:
-    $Typer.time_per_char = 0.0625
-    $Typer.disappear_after_time = 12.0
+    $Typer.time_per_char = time_per_char
+    $Typer.disappear_after_time = disappear_after_time
     $Typer.start("CREDITS", .25, 7)
     $Timer.start(2.0)
 
