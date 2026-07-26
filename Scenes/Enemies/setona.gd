@@ -40,6 +40,10 @@ func _physics_process(delta: float) -> void:
         "fade_in_alpha", fade_in_alpha
     )
 
+func die():
+    super()
+    $Sprite2D_gradient.visible = false
+
 # TODO
 # Ice, missile only way to kill
 # Invincible to screw attack
