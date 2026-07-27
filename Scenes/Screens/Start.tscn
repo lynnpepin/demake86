@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dtbv85mx8jflh" path="res://media/blender_renders/comically_pockmarked_planet_zenith_64px.png" id="4_l4o21"]
 [ext_resource type="Texture2D" uid="uid://cj3d6inmhx417" path="res://art/start_buttons/space_noise_1.png" id="5_7uudt"]
 [ext_resource type="Texture2D" uid="uid://bung8odpkvisc" path="res://art/start_buttons/spacenoise_2.png" id="6_qmbu8"]
+[ext_resource type="Texture2D" uid="uid://dydambstfn0fv" path="res://media/title_logo_64.png" id="7_q3f0l"]
 
 [sub_resource type="Gradient" id="Gradient_q3f0l"]
 interpolation_mode = 1
@@ -201,10 +202,22 @@ tracks/1/keys = {
 "update": 1,
 "values": [SubResource("ShaderMaterial_kq2gj")]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TitleLogo64:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(32, -32)]
+}
 
 [sub_resource type="Animation" id="Animation_7uudt"]
 resource_name = "new_animation"
-length = 8.6
+length = 19.86
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -228,6 +241,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [SubResource("ShaderMaterial_kq2gj")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TitleLogo64:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(7.2, 14.13),
+"transitions": PackedFloat32Array(1, 155871.75),
+"update": 0,
+"values": [Vector2(32, -32), Vector2(32, 32)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qmbu8"]
@@ -412,5 +437,10 @@ ignore_camera_scroll = true
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=944785138]
 position = Vector2(32, 0)
 texture = ExtResource("5_7uudt")
+
+[node name="TitleLogo64" type="Sprite2D" parent="." unique_id=1484739885]
+z_index = 200
+position = Vector2(32, -32)
+texture = ExtResource("7_q3f0l")
 
 [connection signal="item_activated" from="Control/ItemList" to="." method="_on_item_list_item_activated"]
