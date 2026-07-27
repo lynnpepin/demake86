@@ -1806,7 +1806,7 @@ collision_mask = 64
 shape = SubResource("CircleShape2D_pjyto")
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
-position = Vector2(116, 20)
+position = Vector2(95, 158)
 
 [node name="PointLight2D" type="PointLight2D" parent="Relan" unique_id=31498320]
 visible = false

@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cj3d6inmhx417" path="res://art/start_buttons/space_noise_1.png" id="5_7uudt"]
 [ext_resource type="Texture2D" uid="uid://bung8odpkvisc" path="res://art/start_buttons/spacenoise_2.png" id="6_qmbu8"]
 [ext_resource type="Texture2D" uid="uid://dydambstfn0fv" path="res://media/title_logo_64.png" id="7_q3f0l"]
+[ext_resource type="Texture2D" uid="uid://c7x2gpjx7yyey" path="res://media/8px_plus.png" id="8_sbw6n"]
+[ext_resource type="Texture2D" uid="uid://ci8uqok4i2dmb" path="res://media/start_png.png" id="9_hyaid"]
 
 [sub_resource type="Gradient" id="Gradient_q3f0l"]
 interpolation_mode = 1
@@ -30,6 +32,7 @@ radial_velocity_max = -2.2351742e-05
 gravity = Vector3(0, 200, 0)
 tangential_accel_min = -2.2351742e-06
 tangential_accel_max = -2.2351742e-06
+scale_max = 2.0
 color_ramp = SubResource("GradientTexture1D_sbw6n")
 
 [sub_resource type="Gradient" id="Gradient_sbw6n"]
@@ -54,6 +57,7 @@ radial_velocity_max = -2.2351742e-05
 gravity = Vector3(0, 200, 0)
 tangential_accel_min = -2.2351742e-06
 tangential_accel_max = -2.2351742e-06
+scale_max = 2.0
 color_ramp = SubResource("GradientTexture1D_hyaid")
 
 [sub_resource type="Gradient" id="Gradient_2q7jf"]
@@ -71,6 +75,7 @@ spread = 0.0
 initial_velocity_min = 4.0
 initial_velocity_max = 32.0
 gravity = Vector3(0, 0, 0)
+scale_max = 3.0
 color_ramp = SubResource("GradientTexture1D_fm381")
 
 [sub_resource type="Gradient" id="Gradient_l4o21"]
@@ -88,6 +93,7 @@ spread = 180.0
 initial_velocity_min = 16.0
 initial_velocity_max = 16.0
 gravity = Vector3(0, 0, 0)
+scale_max = 2.0
 color_ramp = SubResource("GradientTexture1D_7uudt")
 
 [sub_resource type="Gradient" id="Gradient_7uudt"]
@@ -105,6 +111,7 @@ spread = 180.0
 initial_velocity_min = 16.0
 initial_velocity_max = 16.0
 gravity = Vector3(0, 0, 0)
+scale_max = 2.0
 color_ramp = SubResource("GradientTexture1D_qmbu8")
 
 [sub_resource type="Gradient" id="Gradient_qmbu8"]
@@ -122,6 +129,7 @@ spread = 180.0
 initial_velocity_min = 16.0
 initial_velocity_max = 16.0
 gravity = Vector3(0, 0, 0)
+scale_max = 2.0
 color_ramp = SubResource("GradientTexture1D_q3f0l")
 
 [sub_resource type="Gradient" id="Gradient_fm381"]
@@ -139,7 +147,28 @@ spread = 180.0
 initial_velocity_min = 16.0
 initial_velocity_max = 16.0
 gravity = Vector3(0, 0, 0)
+scale_max = 2.0
 color_ramp = SubResource("GradientTexture1D_l4o21")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kq2gj"]
+particle_flag_disable_z = true
+initial_velocity_min = 16.0
+initial_velocity_max = 16.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_l4o21")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r4pb8"]
+particle_flag_disable_z = true
+velocity_pivot = Vector3(-1, 0, 0)
+direction = Vector3(-1, 0, 0)
+spread = 30.0
+flatness = 1.0
+initial_velocity_min = 16.0
+initial_velocity_max = 16.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_qmbu8")
 
 [sub_resource type="Theme" id="Theme_fm381"]
 
@@ -214,6 +243,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(32, -32)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("8PxPlus_1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("8PxPlus:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_7uudt"]
 resource_name = "new_animation"
@@ -254,6 +307,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(32, -32), Vector2(32, 32)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("8PxPlus_1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 13.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("8PxPlus:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.04, 4.13, 7.2, 8.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qmbu8"]
 _data = {
@@ -290,56 +367,86 @@ texture = ExtResource("2_2q7jf")
 centered = false
 
 [node name="GPUParticles2D_pad_lb" type="GPUParticles2D" parent="." unique_id=1828201710]
+z_index = 300
 position = Vector2(-1, 12)
 emitting = false
-amount = 30
+amount = 60
 lifetime = 0.5
 fixed_fps = 60
 draw_order = 0
 process_material = SubResource("ParticleProcessMaterial_hyaid")
 
 [node name="GPUParticles2D_pad_rb" type="GPUParticles2D" parent="." unique_id=105184174]
+z_index = 300
 position = Vector2(66, 12)
 emitting = false
-amount = 30
+amount = 60
 lifetime = 0.5
 fixed_fps = 60
 draw_order = 0
 process_material = SubResource("ParticleProcessMaterial_dt0so")
 
 [node name="GPUParticles2D_dpad" type="GPUParticles2D" parent="." unique_id=29629081]
+z_index = 300
 position = Vector2(16, 16)
-lifetime = 0.25
+amount = 60
+lifetime = 0.5
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_l4o21")
 
 [node name="GPUParticles2D_padB" type="GPUParticles2D" parent="." unique_id=157408218]
+z_index = 300
 position = Vector2(52, 16)
 emitting = false
+amount = 60
 lifetime = 0.25
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_qmbu8")
 
 [node name="GPUParticles2D_padX" type="GPUParticles2D" parent="." unique_id=1255984952]
+z_index = 300
 position = Vector2(44, 16)
 emitting = false
+amount = 60
 lifetime = 0.25
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_q3f0l")
 
 [node name="GPUParticles2D_padY" type="GPUParticles2D" parent="." unique_id=1072458917]
+z_index = 300
 position = Vector2(48, 12)
 emitting = false
+amount = 60
 lifetime = 0.25
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_sbw6n")
 
 [node name="GPUParticles2D_padA" type="GPUParticles2D" parent="." unique_id=1015143106]
+z_index = 300
 position = Vector2(48, 20)
 emitting = false
+amount = 60
 lifetime = 0.25
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_7uudt")
+
+[node name="GPUParticles2D_padA_start" type="GPUParticles2D" parent="." unique_id=1831207665]
+z_index = 300
+position = Vector2(36, 51)
+emitting = false
+amount = 60
+lifetime = 0.5
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_kq2gj")
+
+[node name="GPUParticles2D_padX_start" type="GPUParticles2D" parent="." unique_id=400466536]
+z_index = 300
+position = Vector2(28, 51)
+emitting = false
+amount = 60
+lifetime = 0.5
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_r4pb8")
 
 [node name="Control" type="Control" parent="." unique_id=163429792]
 visible = false
@@ -442,5 +549,17 @@ texture = ExtResource("5_7uudt")
 z_index = 200
 position = Vector2(32, -32)
 texture = ExtResource("7_q3f0l")
+
+[node name="8PxPlus_1" type="Sprite2D" parent="." unique_id=744661477]
+visible = false
+z_index = 250
+position = Vector2(32, 51)
+texture = ExtResource("8_sbw6n")
+
+[node name="8PxPlus" type="Sprite2D" parent="." unique_id=1936873830]
+modulate = Color(0, 0, 0, 1)
+z_index = 250
+position = Vector2(35, 51)
+texture = ExtResource("9_hyaid")
 
 [connection signal="item_activated" from="Control/ItemList" to="." method="_on_item_list_item_activated"]
