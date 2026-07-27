@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://cq6lnfgtqi185" path="res://Scenes/Screens/start_screen.gd" id="1_etyfm"]
 [ext_resource type="Texture2D" uid="uid://jjorf5tasieq" path="res://art/bgs_old/64_bg.png" id="2_2q7jf"]
 [ext_resource type="FontFile" uid="uid://50omi7qgmx2w" path="res://fonts/GravityRegular5.ttf" id="3_fm381"]
+[ext_resource type="Texture2D" uid="uid://dtbv85mx8jflh" path="res://media/blender_renders/comically_pockmarked_planet_zenith_64px.png" id="4_l4o21"]
+[ext_resource type="Texture2D" uid="uid://cj3d6inmhx417" path="res://art/start_buttons/space_noise_1.png" id="5_7uudt"]
+[ext_resource type="Texture2D" uid="uid://bung8odpkvisc" path="res://art/start_buttons/spacenoise_2.png" id="6_qmbu8"]
 
 [sub_resource type="Gradient" id="Gradient_q3f0l"]
 interpolation_mode = 1
@@ -170,6 +173,81 @@ anti_aliasing = false
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qmbu8"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kq2gj"]
+
+[sub_resource type="Animation" id="Animation_l4o21"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D_zenith:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(32, 86)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Galaxy_Sprite2D:material")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_kq2gj")]
+}
+
+[sub_resource type="Animation" id="Animation_7uudt"]
+resource_name = "new_animation"
+length = 8.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D_zenith:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(32, 86), Vector2(32, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Galaxy_Sprite2D:material")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_kq2gj")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qmbu8"]
+_data = {
+&"RESET": SubResource("Animation_l4o21"),
+&"new_animation": SubResource("Animation_7uudt")
+}
+
+[sub_resource type="Gradient" id="Gradient_hyaid"]
+offsets = PackedFloat32Array(0.18355066, 0.19458374, 0.36308926, 0.3911735, 0.888666, 1)
+colors = PackedColorArray(0.99607843, 0.7882353, 0.92941177, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.59607846, 0.8627451, 1, 1, 0.59607846, 0.8627451, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_dt0so"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kq2gj"]
+gradient = SubResource("Gradient_dt0so")
+fill_from = Vector2(0, 1)
+
 [node name="Start" type="Node2D" unique_id=921053637]
 script = ExtResource("1_etyfm")
 
@@ -182,6 +260,7 @@ position_smoothing_speed = 96.0
 [node name="AudioListener2D" type="AudioListener2D" parent="Camera2D" unique_id=41695516]
 
 [node name="64Bg" type="Sprite2D" parent="." unique_id=420405627]
+visible = false
 texture = ExtResource("2_2q7jf")
 centered = false
 
@@ -189,7 +268,7 @@ centered = false
 position = Vector2(-1, 12)
 emitting = false
 amount = 30
-lifetime = 0.13
+lifetime = 0.5
 fixed_fps = 60
 draw_order = 0
 process_material = SubResource("ParticleProcessMaterial_hyaid")
@@ -198,7 +277,7 @@ process_material = SubResource("ParticleProcessMaterial_hyaid")
 position = Vector2(66, 12)
 emitting = false
 amount = 30
-lifetime = 0.13
+lifetime = 0.5
 fixed_fps = 60
 draw_order = 0
 process_material = SubResource("ParticleProcessMaterial_dt0so")
@@ -238,6 +317,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_7uudt")
 
 [node name="Control" type="Control" parent="." unique_id=163429792]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 64.0
@@ -280,5 +360,57 @@ item_count = 3
 item_0/text = "Start"
 item_1/text = "Options"
 item_2/text = "Quit"
+
+[node name="Sprite2D_zenith" type="Sprite2D" parent="." unique_id=1517084365]
+z_index = 100
+position = Vector2(32, 86)
+texture = ExtResource("4_l4o21")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=177008705]
+libraries/ = SubResource("AnimationLibrary_qmbu8")
+autoplay = &"new_animation"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=729162781]
+position = Vector2(32, -1)
+amount = 64
+lifetime = 2.0
+preprocess = 4.0
+fract_delta = false
+emission_shape = 3
+emission_rect_extents = Vector2(32, 0)
+direction = Vector2(0, 1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 32.0
+initial_velocity_max = 64.0
+color_ramp = SubResource("Gradient_hyaid")
+
+[node name="Galaxy_Sprite2D" type="Sprite2D" parent="." unique_id=1555726331]
+visible = false
+material = SubResource("ShaderMaterial_kq2gj")
+position = Vector2(32, 32)
+texture = SubResource("GradientTexture2D_kq2gj")
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1835137331]
+repeat_size = Vector2(0, 1024)
+autoscroll = Vector2(0, 32)
+repeat_times = 64
+follow_viewport = false
+ignore_camera_scroll = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=917775023]
+position = Vector2(32, 0)
+texture = ExtResource("6_qmbu8")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=2112575007]
+repeat_size = Vector2(0, 1024)
+autoscroll = Vector2(0, 16)
+repeat_times = 64
+follow_viewport = false
+ignore_camera_scroll = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=944785138]
+position = Vector2(32, 0)
+texture = ExtResource("5_7uudt")
 
 [connection signal="item_activated" from="Control/ItemList" to="." method="_on_item_list_item_activated"]
