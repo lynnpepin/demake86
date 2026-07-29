@@ -62,6 +62,7 @@
 [ext_resource type="PackedScene" uid="uid://cs2vp0lm578ou" path="res://Scenes/Enemies/hopper.tscn" id="44_0n3wm"]
 [ext_resource type="PackedScene" uid="uid://1va7v8f7o67x" path="res://Scenes/Enemies/waver.tscn" id="44_gngh3"]
 [ext_resource type="PackedScene" uid="uid://bnhvg0pa3b4mt" path="res://opossum.tscn" id="45_0n3wm"]
+[ext_resource type="Texture2D" uid="uid://ct00cif8flr57" path="res://art/terrain/new_bg_01_for256.png" id="46_jx0wj"]
 [ext_resource type="PackedScene" uid="uid://burro5wpa66hf" path="res://Scenes/Pickups/Milk.tscn" id="53_abqjc"]
 [ext_resource type="PackedScene" uid="uid://cjyhhvm6f736p" path="res://Scenes/Tour/TourBarrier.tscn" id="56_e71vb"]
 [ext_resource type="Script" uid="uid://duq2r61tg70yr" path="res://tourian.gd" id="57_vke2r"]
@@ -2786,7 +2787,6 @@ stream = ExtResource("25_facbu")
 
 [node name="ParallaxBackground_fg" type="ParallaxBackground" parent="." unique_id=849633338]
 layer = 0
-visible = false
 offset = Vector2(384, 384)
 transform = Transform2D(1, 0, 0, 1, 384, 384)
 
@@ -2800,7 +2800,6 @@ motion_offset = Vector2(96, 96)
 texture = ExtResource("4_ix4gv")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=76924821]
-visible = false
 offset = Vector2(256, 256)
 transform = Transform2D(1, 0, 0, 1, 256, 256)
 
@@ -2811,29 +2810,62 @@ motion_scale = Vector2(0, 0)
 motion_offset = Vector2(-224, -224)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_64" unique_id=646541815]
+visible = false
 texture = ExtResource("7_s1bfu")
 
-[node name="ParallaxLayer_128" type="ParallaxLayer" parent="ParallaxBackground" unique_id=600164753]
+[node name="ParallaxLayer_128" type="ParallaxLayer" parent="ParallaxBackground" unique_id=948745344]
 z_index = -50
 motion_scale = Vector2(0.25, 0.25)
 motion_offset = Vector2(-168, -168)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_128" unique_id=1843943342]
-texture = ExtResource("6_lsn6u")
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_128" unique_id=1346262376]
+texture = ExtResource("46_jx0wj")
 
-[node name="ParallaxLayer_256" type="ParallaxLayer" parent="ParallaxBackground" unique_id=2045790785]
+[node name="ParallaxLayer_256" type="ParallaxLayer" parent="ParallaxBackground" unique_id=670347589]
 z_index = -40
 motion_scale = Vector2(0.5, 0.5)
 motion_offset = Vector2(-112, -112)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_256" unique_id=482118271]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_256" unique_id=185998016]
+texture = ExtResource("46_jx0wj")
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="." unique_id=27922570]
+visible = false
+offset = Vector2(256, 256)
+transform = Transform2D(1, 0, 0, 1, 256, 256)
+
+[node name="ParallaxLayer_64" type="ParallaxLayer" parent="ParallaxBackground2" unique_id=1411468292]
+z_index = -60
+motion_scale = Vector2(0, 0)
+motion_offset = Vector2(-224, -224)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer_64" unique_id=691196192]
+visible = false
+texture = ExtResource("7_s1bfu")
+
+[node name="ParallaxLayer_128" type="ParallaxLayer" parent="ParallaxBackground2" unique_id=440080884]
+z_index = -50
+motion_scale = Vector2(0.25, 0.25)
+motion_offset = Vector2(-168, -168)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer_128" unique_id=867233100]
+visible = false
+texture = ExtResource("6_lsn6u")
+
+[node name="ParallaxLayer_256" type="ParallaxLayer" parent="ParallaxBackground2" unique_id=1679513890]
+visible = false
+z_index = -40
+motion_scale = Vector2(0.5, 0.5)
+motion_offset = Vector2(-112, -112)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer_256" unique_id=888259056]
+visible = false
 texture = ExtResource("5_xcij7")
 
-[node name="ParallaxLayer_512" type="ParallaxLayer" parent="ParallaxBackground" unique_id=710848742]
-visible = false
+[node name="ParallaxLayer_512" type="ParallaxLayer" parent="ParallaxBackground2" unique_id=1341529273]
 z_index = -30
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_512" unique_id=331792555]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer_512" unique_id=229161566]
 texture = ExtResource("4_kp1pf")
 
 [node name="Critters" type="Node2D" parent="." unique_id=1802172158]
