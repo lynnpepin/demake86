@@ -33,7 +33,9 @@ func start_escape():
     #player.Typer.start("TIMEBOMB SET\nGET OUT FAST")
     escape_started = true
     #player.escape_time_set(19.86)
+    player._thatcher_dead()
     # todo play music
+    # TODO - Relan modulate
 
 func _process(delta):
     if escape_time <= 0.5:

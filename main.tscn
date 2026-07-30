@@ -75,9 +75,6 @@
 [ext_resource type="PackedScene" uid="uid://cjrves4o71ear" path="res://Scenes/Pickups/Ship.tscn" id="63_sm6fg"]
 [ext_resource type="PackedScene" uid="uid://tgaoimuwfmu" path="res://Scenes/Tour/rinko_sniper.tscn" id="64_b17eg"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pjyto"]
-radius = 1.0
-
 [sub_resource type="Gradient" id="Gradient_43svb"]
 offsets = PackedFloat32Array(0.00497512, 0.883085, 1)
 colors = PackedColorArray(0.2436, 0.58, 0.406193, 1, 0.0149254, 0.0149254, 0.0149254, 1, 0, 0, 0, 1)
@@ -90,6 +87,9 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 metadata/_snap_enabled = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pjyto"]
+radius = 1.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6iyjs"]
 texture = ExtResource("3_abqjc")
@@ -2119,6 +2119,18 @@ size = Vector2(64, 64)
 [node name="Root" type="Node2D" unique_id=1570894400]
 script = ExtResource("1_hrvbo")
 
+[node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
+position = Vector2(94, 46)
+HAS_ALL_ITEMS = true
+HAS_ENOUGH_ITEMS = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Relan" unique_id=31498320]
+visible = false
+position = Vector2(0, 1)
+scale = Vector2(0.578125, 0.484375)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_p8m5k")
+
 [node name="CameraAnchor" type="Node2D" parent="." unique_id=1016033142]
 
 [node name="Camera2D" type="Camera2D" parent="CameraAnchor" unique_id=1240961670]
@@ -2138,17 +2150,6 @@ collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraAnchor/Area2D_CameraZoneEnterer" unique_id=2019297046]
 shape = SubResource("CircleShape2D_pjyto")
-
-[node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
-position = Vector2(96, 156)
-HAS_ENOUGH_ITEMS = true
-
-[node name="PointLight2D" type="PointLight2D" parent="Relan" unique_id=31498320]
-visible = false
-position = Vector2(0, 1)
-scale = Vector2(0.578125, 0.484375)
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_p8m5k")
 
 [node name="HatchShadows" type="Node2D" parent="." unique_id=634801033]
 visible = false

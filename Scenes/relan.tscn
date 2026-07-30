@@ -3,35 +3,35 @@
 [ext_resource type="Script" uid="uid://c6htj1uosbs8w" path="res://Scripts/relan.gd" id="1_hqtwd"]
 [ext_resource type="Script" uid="uid://c7cc38gtpjjvx" path="res://Scenes/camera_2d.gd" id="2_i0hd8"]
 [ext_resource type="Script" uid="uid://disyh5u23s0go" path="res://Scripts/cannon.gd" id="2_slkt1"]
-[ext_resource type="Texture2D" uid="uid://x1ncr4x48wv1" path="res://art/relan/cannon_right_u.png" id="3_lgw80"]
-[ext_resource type="Texture2D" uid="uid://cpfbmxeij0x8a" path="res://art/relan/cannon_right_uf.png" id="4_o6qhq"]
-[ext_resource type="Texture2D" uid="uid://dr7jr7h3ic6e2" path="res://art/relan/cannon_right_f.png" id="5_d634i"]
-[ext_resource type="Texture2D" uid="uid://oip1i5o2irt1" path="res://art/relan/cannon_right_df.png" id="6_ws1if"]
-[ext_resource type="Texture2D" uid="uid://c28g3cl6svxb0" path="res://art/relan/cannon_right_d.png" id="7_stq8y"]
+[ext_resource type="Texture2D" uid="uid://x1ncr4x48wv1" path="res://art/relan_gore/cannon_right_u.png" id="3_lgw80"]
+[ext_resource type="Texture2D" uid="uid://cpfbmxeij0x8a" path="res://art/relan_gore/cannon_right_uf.png" id="4_o6qhq"]
+[ext_resource type="Texture2D" uid="uid://dr7jr7h3ic6e2" path="res://art/relan_gore/cannon_right_f.png" id="5_d634i"]
+[ext_resource type="Texture2D" uid="uid://oip1i5o2irt1" path="res://art/relan_gore/cannon_right_df.png" id="6_ws1if"]
+[ext_resource type="Texture2D" uid="uid://c28g3cl6svxb0" path="res://art/relan_gore/cannon_right_d.png" id="7_stq8y"]
 [ext_resource type="Script" uid="uid://bc0paoyr8p4u" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="8_87bux"]
-[ext_resource type="Texture2D" uid="uid://oeqnwixh6b5m" path="res://art/relan/relan_ball_1.png" id="9_1nb6e"]
-[ext_resource type="Texture2D" uid="uid://b6ckyjdjddifx" path="res://art/relan/relan_right.png" id="9_8n4ka"]
-[ext_resource type="Texture2D" uid="uid://bqjbrci3cvg3g" path="res://art/relan/relan_run_3.png" id="10_ao4rs"]
-[ext_resource type="Texture2D" uid="uid://1b2vcwepc1pc" path="res://art/relan/relan_ball_2.png" id="10_vxkgn"]
-[ext_resource type="Texture2D" uid="uid://cldkfri6u7fd6" path="res://art/relan/relan_ball_3.png" id="11_hdqrt"]
-[ext_resource type="Texture2D" uid="uid://b4j3y2tq4rsct" path="res://art/relan/relan_run_4.png" id="11_po0yc"]
-[ext_resource type="Texture2D" uid="uid://c82x3pbv6usmq" path="res://art/relan/relan_ball_4.png" id="12_l15xt"]
-[ext_resource type="Texture2D" uid="uid://bx5ie2k53wt3u" path="res://art/relan/relan_run_5.png" id="12_xt5yw"]
-[ext_resource type="Texture2D" uid="uid://cixchds0pm6lo" path="res://art/relan/relan_run_6.png" id="13_r0alw"]
-[ext_resource type="Texture2D" uid="uid://dch46gqlxwx11" path="res://art/relan/relan_run_7.png" id="14_0dak8"]
-[ext_resource type="Texture2D" uid="uid://dvhp4h1tyypv6" path="res://art/relan/relan_run_8.png" id="15_mulhv"]
-[ext_resource type="Texture2D" uid="uid://6q43cqpufapj" path="res://art/relan/relan_run_9.png" id="16_goj46"]
-[ext_resource type="Texture2D" uid="uid://cegbgmm66xde0" path="res://art/relan/relan_run_10.png" id="17_0ijh1"]
-[ext_resource type="Texture2D" uid="uid://xwwvurx872by" path="res://art/relan/relan_run_11.png" id="18_w4p40"]
-[ext_resource type="Texture2D" uid="uid://cyx8qxku5lo30" path="res://art/relan/relan_run_0.png" id="19_bw8u6"]
-[ext_resource type="Texture2D" uid="uid://ct0hfh3g8ff7c" path="res://art/relan/relan_run_1.png" id="20_6w8dc"]
-[ext_resource type="Texture2D" uid="uid://cw5xj5g875xbr" path="res://art/relan/relan_run_2.png" id="21_1m4bp"]
+[ext_resource type="Texture2D" uid="uid://oeqnwixh6b5m" path="res://art/relan_gore/relan_ball_1.png" id="9_1nb6e"]
+[ext_resource type="Texture2D" uid="uid://b6ckyjdjddifx" path="res://art/relan_gore/relan_right.png" id="9_8n4ka"]
+[ext_resource type="Texture2D" uid="uid://bqjbrci3cvg3g" path="res://art/relan_gore/relan_run_3.png" id="10_ao4rs"]
+[ext_resource type="Texture2D" uid="uid://1b2vcwepc1pc" path="res://art/relan_gore/relan_ball_2.png" id="10_vxkgn"]
+[ext_resource type="Texture2D" uid="uid://cldkfri6u7fd6" path="res://art/relan_gore/relan_ball_3.png" id="11_hdqrt"]
+[ext_resource type="Texture2D" uid="uid://b4j3y2tq4rsct" path="res://art/relan_gore/relan_run_4.png" id="11_po0yc"]
+[ext_resource type="Texture2D" uid="uid://c82x3pbv6usmq" path="res://art/relan_gore/relan_ball_4.png" id="12_l15xt"]
+[ext_resource type="Texture2D" uid="uid://bx5ie2k53wt3u" path="res://art/relan_gore/relan_run_5.png" id="12_xt5yw"]
+[ext_resource type="Texture2D" uid="uid://cixchds0pm6lo" path="res://art/relan_gore/relan_run_6.png" id="13_r0alw"]
+[ext_resource type="Texture2D" uid="uid://dch46gqlxwx11" path="res://art/relan_gore/relan_run_7.png" id="14_0dak8"]
+[ext_resource type="Texture2D" uid="uid://dvhp4h1tyypv6" path="res://art/relan_gore/relan_run_8.png" id="15_mulhv"]
+[ext_resource type="Texture2D" uid="uid://6q43cqpufapj" path="res://art/relan_gore/relan_run_9.png" id="16_goj46"]
+[ext_resource type="Texture2D" uid="uid://cegbgmm66xde0" path="res://art/relan_gore/relan_run_10.png" id="17_0ijh1"]
+[ext_resource type="Texture2D" uid="uid://xwwvurx872by" path="res://art/relan_gore/relan_run_11.png" id="18_w4p40"]
+[ext_resource type="Texture2D" uid="uid://cyx8qxku5lo30" path="res://art/relan_gore/relan_run_0.png" id="19_bw8u6"]
+[ext_resource type="Texture2D" uid="uid://ct0hfh3g8ff7c" path="res://art/relan_gore/relan_run_1.png" id="20_6w8dc"]
+[ext_resource type="Texture2D" uid="uid://cw5xj5g875xbr" path="res://art/relan_gore/relan_run_2.png" id="21_1m4bp"]
 [ext_resource type="AudioStream" uid="uid://cci6sutsxcbek" path="res://sfx/shield_hurt.wav" id="26_15ux0"]
 [ext_resource type="PackedScene" uid="uid://b3oco4nqm7xc3" path="res://Scenes/Typer.tscn" id="26_dahf0"]
 [ext_resource type="Script" uid="uid://ci475li2wefq" path="res://Scenes/hud.gd" id="27_7jqek"]
 [ext_resource type="AudioStream" uid="uid://dbxajgddua35c" path="res://sfx/shield_charge.wav" id="27_74dfm"]
 [ext_resource type="AudioStream" uid="uid://dw3dxdq4hnq3m" path="res://sfx/shield_beep.wav" id="27_iiqjc"]
-[ext_resource type="Texture2D" uid="uid://7fslt01fx260" path="res://art/relan/relan_boots.png" id="28_240g0"]
+[ext_resource type="Texture2D" uid="uid://7fslt01fx260" path="res://art/relan_gore/relan_boots.png" id="28_240g0"]
 [ext_resource type="AudioStream" uid="uid://bcsxh73cwaw6h" path="res://sfx/low_energy_2.wav" id="29_0whd5"]
 [ext_resource type="PackedScene" uid="uid://bv7j2dij7vk4c" path="res://Scenes/MotesOfSmoke.tscn" id="29_5nb38"]
 [ext_resource type="PackedScene" uid="uid://cs0gcifpqgg8h" path="res://Scenes/Typer_Timer.tscn" id="30_72vhv"]
@@ -69,19 +69,22 @@
 [ext_resource type="Script" uid="uid://dgn3qxw0xbndk" path="res://Scenes/node_2d_screw_attack.gd" id="64_fxuio"]
 [ext_resource type="PackedScene" uid="uid://bdrhfhftvg8lb" path="res://Scenes/VfxElectric.tscn" id="64_vhaco"]
 [ext_resource type="Script" uid="uid://qr2nn5y5e1q" path="res://Scenes/screw_attack_area2d_script.gd" id="65_5vuaf"]
-[ext_resource type="Texture2D" uid="uid://b27jj6lbe7ynw" path="res://art/relan/relan_fgdp.png" id="67_bh2oj"]
+[ext_resource type="Texture2D" uid="uid://b27jj6lbe7ynw" path="res://art/relan_gore/relan_fgdp.png" id="67_bh2oj"]
 [ext_resource type="Shader" uid="uid://dgo80kujk4qkj" path="res://resources/VfxElectricMat (copy).tres" id="67_bm3d7"]
 [ext_resource type="AudioStream" uid="uid://bk2s3ltjf0cwf" path="res://resources/screw.wav" id="67_j7v81"]
-[ext_resource type="Texture2D" uid="uid://bibijr5244ou2" path="res://art/relan/relan_ghost.png" id="69_dw83p"]
+[ext_resource type="Texture2D" uid="uid://bibijr5244ou2" path="res://art/relan_gore/relan_ghost.png" id="69_dw83p"]
 [ext_resource type="Script" uid="uid://d1grk2nmbpvd4" path="res://Scenes/sprite_ghost.gd" id="70_o3kwa"]
-[ext_resource type="Texture2D" uid="uid://be7uruj8qv3sh" path="res://art/relan/relan_plumber_death.png" id="71_nni4w"]
+[ext_resource type="Texture2D" uid="uid://be7uruj8qv3sh" path="res://art/relan_gore/relan_plumber_death.png" id="71_nni4w"]
 [ext_resource type="Script" uid="uid://ds0q0vng6dw0n" path="res://Scenes/sprite_plumber.gd" id="72_mr6aa"]
-[ext_resource type="Texture2D" uid="uid://bj36eefka6y8y" path="res://art/relan/relan_grave.png" id="73_473r1"]
-[ext_resource type="Texture2D" uid="uid://7mbodyad5dov" path="res://art/relan/relan_skeleton.png" id="74_0whd5"]
+[ext_resource type="Texture2D" uid="uid://bj36eefka6y8y" path="res://art/relan_gore/relan_grave.png" id="73_473r1"]
+[ext_resource type="Texture2D" uid="uid://7mbodyad5dov" path="res://art/relan_gore/relan_skeleton.png" id="74_0whd5"]
 [ext_resource type="Script" uid="uid://daftqi0bdjvvh" path="res://Scenes/angels.gd" id="79_2340e"]
 [ext_resource type="Texture2D" uid="uid://ggdrgmeycwx3" path="res://art/angel_1_sm.png" id="80_apfav"]
 [ext_resource type="Texture2D" uid="uid://bddf2qqcsnque" path="res://art/angel_2_sm.png" id="81_7ycrr"]
 [ext_resource type="Script" uid="uid://d3k1lm08vqis3" path="res://Scenes/angel.gd" id="82_apfav"]
+[ext_resource type="Texture2D" uid="uid://xu2cyhujqcwa" path="res://art/tour/thatcher_bit_1.png" id="83_jr3c4"]
+[ext_resource type="Texture2D" uid="uid://s64f4y737n5e" path="res://art/tour/thatcher_bit_2.png" id="84_h00ml"]
+[ext_resource type="Texture2D" uid="uid://c2wwhm2h87gv6" path="res://art/tour/thatcher_bit_3.png" id="85_w7bw4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8s541"]
 radius = 3.0
@@ -428,6 +431,11 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Gradient" id="Gradient_jr3c4"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.060897436, 0.15064102, 0.58226496, 0.70405984, 0.8194444)
+colors = PackedColorArray(0.88235295, 0.84313726, 0.7176471, 1, 0.84313726, 0.5372549, 0.5372549, 1, 0.8235294, 0.3137255, 0.1764706, 1, 0.48235294, 0.25882354, 0.24313726, 1, 0.2901961, 0.105882354, 0.03529412, 1, 0.49411765, 0.15686275, 0.27058825, 1)
 
 [node name="Relan" type="CharacterBody2D" unique_id=1720302912 groups=["player"]]
 collision_mask = 2
@@ -1321,6 +1329,42 @@ time = 0.25
 
 [node name="Timer" type="Timer" parent="Angels" unique_id=945975409]
 wait_time = 2.0
+
+[node name="ThatcherBit1" type="Sprite2D" parent="." unique_id=1537025799]
+visible = false
+z_index = 300
+position = Vector2(3, 2)
+texture = ExtResource("83_jr3c4")
+
+[node name="ThatcherBit2" type="Sprite2D" parent="." unique_id=114992333]
+visible = false
+z_index = 300
+position = Vector2(-1, -1)
+texture = ExtResource("84_h00ml")
+
+[node name="ThatcherBit3" type="Sprite2D" parent="." unique_id=500538236]
+visible = false
+z_index = 300
+position = Vector2(-2, 5)
+texture = ExtResource("85_w7bw4")
+
+[node name="ThatcherBloodParticles" type="CPUParticles2D" parent="." unique_id=115129267]
+visible = false
+z_index = 60
+position = Vector2(0, 3)
+amount = 12
+lifetime = 4.0
+preprocess = 0.36
+randomness = 1.0
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(3, 2)
+direction = Vector2(0, 1)
+spread = 30.0
+gravity = Vector2(0, 30)
+initial_velocity_max = 30.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_jr3c4")
 
 [connection signal="area_entered" from="hurt_box" to="." method="_on_hurt_area_area_entered"]
 [connection signal="area_entered" from="Node2D_Screw_Attack/Area2D" to="Node2D_Screw_Attack/Area2D" method="_on_area_entered_to_check_for_enemies"]

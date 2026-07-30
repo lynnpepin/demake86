@@ -566,3 +566,12 @@ func die():
     
     pass
 #endregion
+
+#region special
+func _thatcher_dead():
+    $ThatcherBit1.visible = true
+    $ThatcherBit2.visible = true
+    $ThatcherBit3.visible = true
+    $ThatcherBloodParticles.visible = true
+    modulate = Color("#fde9c7")
+#endregion
