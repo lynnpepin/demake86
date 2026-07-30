@@ -273,10 +273,12 @@ func _process(delta):
     if Input.is_action_just_pressed("pad_left") or _ls_hz < -.5:
         $body_sprite.flip_h = 1
         $ball_sprite.flip_h = 1
+        $ThatcherBits.scale.x = -1.0
         #$Node2D_cannon.flip_h = 1
     if Input.is_action_just_pressed("pad_right") or _ls_hz > .5:
         $body_sprite.flip_h = 0
         $ball_sprite.flip_h = 0
+        $ThatcherBits.scale.x = 1.0
         #$Node2D_cannon.flip_h = 0
         
     for input_key in ["pad_left", "pad_right", "pad_up", "pad_down", "pad_a", "pad_b", "pad_x", "pad_y", "pad_lb", "pad_rb"]:
@@ -569,9 +571,7 @@ func die():
 
 #region special
 func _thatcher_dead():
-    $ThatcherBit1.visible = true
-    $ThatcherBit2.visible = true
-    $ThatcherBit3.visible = true
+    $ThatcherBits.visible = true
     $ThatcherBloodParticles.visible = true
     modulate = Color("#fde9c7")
 #endregion

@@ -1330,24 +1330,6 @@ time = 0.25
 [node name="Timer" type="Timer" parent="Angels" unique_id=945975409]
 wait_time = 2.0
 
-[node name="ThatcherBit1" type="Sprite2D" parent="." unique_id=1537025799]
-visible = false
-z_index = 300
-position = Vector2(3, 2)
-texture = ExtResource("83_jr3c4")
-
-[node name="ThatcherBit2" type="Sprite2D" parent="." unique_id=114992333]
-visible = false
-z_index = 300
-position = Vector2(-1, -1)
-texture = ExtResource("84_h00ml")
-
-[node name="ThatcherBit3" type="Sprite2D" parent="." unique_id=500538236]
-visible = false
-z_index = 300
-position = Vector2(-2, 5)
-texture = ExtResource("85_w7bw4")
-
 [node name="ThatcherBloodParticles" type="CPUParticles2D" parent="." unique_id=115129267]
 visible = false
 z_index = 60
@@ -1365,6 +1347,24 @@ gravity = Vector2(0, 30)
 initial_velocity_max = 30.0
 scale_amount_max = 2.0
 color_ramp = SubResource("Gradient_jr3c4")
+
+[node name="ThatcherBits" type="Node2D" parent="." unique_id=1593986554]
+visible = false
+
+[node name="ThatcherBit1" type="Sprite2D" parent="ThatcherBits" unique_id=1537025799]
+z_index = 300
+position = Vector2(3, 2)
+texture = ExtResource("83_jr3c4")
+
+[node name="ThatcherBit2" type="Sprite2D" parent="ThatcherBits" unique_id=114992333]
+z_index = 300
+position = Vector2(-1, -1)
+texture = ExtResource("84_h00ml")
+
+[node name="ThatcherBit3" type="Sprite2D" parent="ThatcherBits" unique_id=500538236]
+z_index = 300
+position = Vector2(-2, 5)
+texture = ExtResource("85_w7bw4")
 
 [connection signal="area_entered" from="hurt_box" to="." method="_on_hurt_area_area_entered"]
 [connection signal="area_entered" from="Node2D_Screw_Attack/Area2D" to="Node2D_Screw_Attack/Area2D" method="_on_area_entered_to_check_for_enemies"]
