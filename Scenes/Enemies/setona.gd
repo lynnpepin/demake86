@@ -61,7 +61,11 @@ func _physics_process(delta: float) -> void:
     var fade_in_alpha = 1.0
     if tracking:
         # if in of range,
-        radius = global_position.distance_to(tracking.global_position)
+        
+        radius = global_position.distance_to(
+            # offset by 4px to be closer to player center of mass
+            tracking.global_position + Vector2(0, 4.0)
+        )
         if !frozen:
             if !striked:
                 if !primed:

@@ -4118,7 +4118,7 @@ scale_amount_max = 2.5
 color_ramp = SubResource("Gradient_rm4vd")
 
 [node name="Ship" parent="Tourian" unique_id=1814193282 instance=ExtResource("63_sm6fg")]
-position = Vector2(208, -44)
+position = Vector2(208, -36)
 
 [node name="RinkoSniper" parent="Tourian" unique_id=1566865944 node_paths=PackedStringArray("tracking") instance=ExtResource("64_b17eg")]
 position = Vector2(116, 68)

@@ -39,14 +39,20 @@ BLENDER,
 AUDACITY,
 STRUDEL.CC
 """,
+"""
+ENDING ART
+LINE WORK
+BY
+RAE WHITELEY
+""",
 """COVERS OF
-Enter: Samus
-Power Up
+MUSIC FROM
+METROID 1986.
 
 CREDITS TO
-OG COMPOSER
-Hirokazu "Hip"
-Tanaka
+OG COMPOSER:
+Hirokazu
+"Hip" Tanaka
 """,
 
 """THANK YOU
