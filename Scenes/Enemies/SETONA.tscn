@@ -1,37 +1,67 @@
 [gd_scene format=3 uid="uid://7r054hw760ku"]
 
 [ext_resource type="PackedScene" uid="uid://be6esv11x3s5t" path="res://Classes/EnemyClass.tscn" id="1_3slqs"]
-[ext_resource type="Texture2D" uid="uid://c6tufm4ggxvc7" path="res://art/SETONA/SETONA-4.png" id="2_imn7e"]
 [ext_resource type="Script" uid="uid://d1ihixyrl3g2o" path="res://Scenes/Enemies/setona.gd" id="2_ytpi5"]
-[ext_resource type="Texture2D" uid="uid://b7tkofvaklemi" path="res://art/SETONA/SETONA-5.png" id="3_ntaxx"]
-[ext_resource type="Texture2D" uid="uid://ekqe4u8tnfw2" path="res://art/SETONA/SETONA-6.png" id="4_cqgfd"]
-[ext_resource type="Texture2D" uid="uid://b66lfx2c4bkdn" path="res://art/SETONA/SETONA-8.png" id="5_yrj2r"]
-[ext_resource type="Texture2D" uid="uid://cqn0hsl82e2ho" path="res://art/SETONA/SETONA-9.png" id="6_ytpi5"]
+[ext_resource type="Texture2D" uid="uid://c3dg2y021s5he" path="res://art/SETONA_2/SETONA_30.png" id="3_mkodl"]
+[ext_resource type="Texture2D" uid="uid://k6j72qb08gru" path="res://art/SETONA_2/SETONA_31.png" id="4_nps5y"]
+[ext_resource type="Texture2D" uid="uid://dmueii5ks6i1b" path="res://art/SETONA_2/SETONA_32.png" id="5_jo8f4"]
+[ext_resource type="Texture2D" uid="uid://3dupr755v8ls" path="res://art/SETONA_2/SETONA_33.png" id="6_ecuwe"]
+[ext_resource type="Texture2D" uid="uid://dmp8rqrouk7je" path="res://art/SETONA_2/SETONA_34.png" id="7_52uju"]
+[ext_resource type="Texture2D" uid="uid://csntnfmqsxv20" path="res://art/SETONA_2/SETONA_30_red.png" id="8_2tbkp"]
 [ext_resource type="Texture2D" uid="uid://bp1is6pfr4ywq" path="res://resources/GradientTexture2D_White36px.tres" id="8_cqgfd"]
 [ext_resource type="Shader" uid="uid://bqf1f87mlllnt" path="res://Scenes/Enemies/SETONA_gradient.tres" id="8_yrj2r"]
+[ext_resource type="Texture2D" uid="uid://tv16qrquicha" path="res://art/SETONA_2/SETONA_31_red.png" id="9_ji28m"]
 [ext_resource type="Script" uid="uid://nkhdraadwf8q" path="res://Scenes/Enemies/setona_gradient.gd" id="9_yrj2r"]
+[ext_resource type="Texture2D" uid="uid://b5nvta0qmg0me" path="res://art/SETONA_2/SETONA_32_red.png" id="10_533ep"]
+[ext_resource type="Texture2D" uid="uid://ba6der0u0c4i7" path="res://art/SETONA_2/SETONA_33_red.png" id="11_mbn3b"]
+[ext_resource type="Texture2D" uid="uid://4o32s5fdmj8i" path="res://art/SETONA_2/SETONA_34_red.png" id="12_e1pkp"]
+[ext_resource type="AudioStream" uid="uid://kdccofwah2fx" path="res://sfx/pure_55.wav" id="16_nps5y"]
+[ext_resource type="AudioStream" uid="uid://b62lku2yhf3uv" path="res://sfx/pure_110.wav" id="17_jo8f4"]
+[ext_resource type="AudioStream" uid="uid://che8u45omiwxf" path="res://sfx/pure_220.wav" id="18_ecuwe"]
+[ext_resource type="AudioStream" uid="uid://wggmfjnwfcuj" path="res://sfx/noise_440.wav" id="19_52uju"]
+[ext_resource type="AudioStream" uid="uid://dagso5jyl3hc1" path="res://sfx/dark_laughter.wav" id="20_2tbkp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_471fi"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_imn7e")
+"texture": ExtResource("3_mkodl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_ntaxx")
+"texture": ExtResource("4_nps5y")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_cqgfd")
+"texture": ExtResource("5_jo8f4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_yrj2r")
+"texture": ExtResource("6_ecuwe")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_ytpi5")
+"texture": ExtResource("7_52uju")
 }],
 "loop": 1,
 "name": &"default",
-"speed": 3.0
+"speed": 0.25
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_ji28m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2tbkp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mbn3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_e1pkp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_533ep")
+}],
+"loop": 1,
+"name": &"red_eyes",
+"speed": 1.0
 }]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ytpi5"]
@@ -50,20 +80,31 @@ height = 2
 
 [node name="Setona" unique_id=1981089262 instance=ExtResource("1_3slqs")]
 script = ExtResource("2_ytpi5")
+radius_gap = 2.0
 tracking_distance = 512.0
+prime_distance = 24.0
+strike_distance = 12.0
 
 [node name="Sprite2D_freeze_box" parent="." index="1" unique_id=840567474]
 visible = false
 
 [node name="AnimatedSprite2D" parent="." index="4" unique_id=787643559]
 sprite_frames = SubResource("SpriteFrames_471fi")
+animation = &"red_eyes"
 autoplay = "default"
+frame_progress = 0.8035798
 offset = Vector2(0, 0)
 
-[node name="DeathExplosion" parent="." index="9" unique_id=1149512892]
+[node name="AnimatedSprite2D_old" type="AnimatedSprite2D" parent="." index="5" unique_id=1314028641]
+visible = false
+sprite_frames = SubResource("SpriteFrames_471fi")
+animation = &"red_eyes"
+autoplay = "default"
+
+[node name="DeathExplosion" parent="." index="10" unique_id=1149512892]
 position = Vector2(0, 0)
 
-[node name="Sprite2D_gradient" type="Sprite2D" parent="." index="10" unique_id=678579505 groups=["enemies"]]
+[node name="Sprite2D_gradient" type="Sprite2D" parent="." index="11" unique_id=678579505 groups=["enemies"]]
 visible = false
 z_index = 100
 material = SubResource("ShaderMaterial_ytpi5")
@@ -93,3 +134,37 @@ visible = false
 position = Vector2(-64, 128)
 scale = Vector2(128, 64)
 texture = SubResource("GradientTexture2D_471fi")
+
+[node name="sfx_55" type="AudioStreamPlayer2D" parent="." index="12" unique_id=1964730826]
+stream = ExtResource("16_nps5y")
+autoplay = true
+max_distance = 1024.0
+attenuation = 2.0000005
+
+[node name="sfx_110" type="AudioStreamPlayer2D" parent="." index="13" unique_id=715927299]
+stream = ExtResource("17_jo8f4")
+autoplay = true
+max_distance = 512.0
+attenuation = 2.0000005
+panning_strength = 2.0
+
+[node name="sfx_220" type="AudioStreamPlayer2D" parent="." index="14" unique_id=987771481]
+stream = ExtResource("18_ecuwe")
+autoplay = true
+max_distance = 256.0
+attenuation = 2.0000005
+panning_strength = 3.0
+
+[node name="sfx_noise_440" type="AudioStreamPlayer2D" parent="." index="15" unique_id=1499115719]
+stream = ExtResource("19_52uju")
+autoplay = true
+max_distance = 64.0
+attenuation = 2.0000005
+panning_strength = 6.0
+
+[node name="sfx_laugh" type="AudioStreamPlayer2D" parent="." index="16" unique_id=442843952]
+stream = ExtResource("20_2tbkp")
+autoplay = true
+max_distance = 32.0
+attenuation = 2.0000005
+panning_strength = 6.0
