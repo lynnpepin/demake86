@@ -101,7 +101,9 @@ func strike():
     $AnimatedSprite2D.modulate = Color("#ff8010")
     striked = true
     print("setona strike")
-    pass
+    if tracking:
+        tracking.setona_attack()
+        striked = false
 
 func die():
     super()

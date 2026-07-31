@@ -85,6 +85,13 @@
 [ext_resource type="Texture2D" uid="uid://xu2cyhujqcwa" path="res://art/tour/thatcher_bit_1.png" id="83_jr3c4"]
 [ext_resource type="Texture2D" uid="uid://s64f4y737n5e" path="res://art/tour/thatcher_bit_2.png" id="84_h00ml"]
 [ext_resource type="Texture2D" uid="uid://c2wwhm2h87gv6" path="res://art/tour/thatcher_bit_3.png" id="85_w7bw4"]
+[ext_resource type="Texture2D" uid="uid://urubfqdnq788" path="res://art/SETONA_2/attack_1.png" id="86_rl7yr"]
+[ext_resource type="Texture2D" uid="uid://ddpy0jsm5jh8c" path="res://art/SETONA_2/attack_2.png" id="87_qvuxf"]
+[ext_resource type="Texture2D" uid="uid://bfplvfar20m7i" path="res://art/SETONA_2/attack_3.png" id="88_lnsfr"]
+[ext_resource type="Texture2D" uid="uid://c1v8puvbqh0lu" path="res://art/SETONA_2/attack_4.png" id="89_jb6n8"]
+[ext_resource type="Texture2D" uid="uid://ddb0spbrfkjtx" path="res://art/SETONA_2/attack_5.png" id="90_18v87"]
+[ext_resource type="Texture2D" uid="uid://df7pg8yvl65n1" path="res://art/SETONA_2/attack_6.png" id="91_k2m0s"]
+[ext_resource type="AudioStream" uid="uid://5742ytuqoy3j" path="res://sfx/get_teleported_idiot.wav" id="92_qvuxf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8s541"]
 radius = 3.0
@@ -436,6 +443,59 @@ animations = [{
 interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.060897436, 0.15064102, 0.58226496, 0.70405984, 0.8194444)
 colors = PackedColorArray(0.88235295, 0.84313726, 0.7176471, 1, 0.84313726, 0.5372549, 0.5372549, 1, 0.8235294, 0.3137255, 0.1764706, 1, 0.48235294, 0.25882354, 0.24313726, 1, 0.2901961, 0.105882354, 0.03529412, 1, 0.49411765, 0.15686275, 0.27058825, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jr3c4"]
+animations = [{
+"frames": [{
+"duration": 6.0,
+"texture": ExtResource("86_rl7yr")
+}, {
+"duration": 4.0,
+"texture": ExtResource("87_qvuxf")
+}, {
+"duration": 3.0,
+"texture": ExtResource("88_lnsfr")
+}, {
+"duration": 2.0,
+"texture": ExtResource("89_jb6n8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_18v87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_k2m0s")
+}],
+"loop": 0,
+"name": &"attack",
+"speed": 24.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="Animation" id="Animation_qvuxf"]
+resource_name = "setona_attack"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SfxrStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lnsfr"]
+_data = {
+&"setona_attack": SubResource("Animation_qvuxf")
+}
 
 [node name="Relan" type="CharacterBody2D" unique_id=1720302912 groups=["player"]]
 collision_mask = 2
@@ -1366,10 +1426,28 @@ z_index = 300
 position = Vector2(-2, 5)
 texture = ExtResource("85_w7bw4")
 
+[node name="SetonaAttack" type="Node2D" parent="." unique_id=1608263107]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SetonaAttack" unique_id=1639518223]
+visible = false
+z_index = 4000
+z_as_relative = false
+sprite_frames = SubResource("SpriteFrames_jr3c4")
+animation = &"attack"
+autoplay = "default"
+
+[node name="SfxrStreamPlayer" type="AudioStreamPlayer" parent="SetonaAttack" unique_id=788972943]
+stream = ExtResource("92_qvuxf")
+metadata/_custom_type_script = "uid://iplhaktauf"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SetonaAttack" unique_id=627494966]
+libraries/ = SubResource("AnimationLibrary_lnsfr")
+
 [connection signal="area_entered" from="hurt_box" to="." method="_on_hurt_area_area_entered"]
 [connection signal="area_entered" from="Node2D_Screw_Attack/Area2D" to="Node2D_Screw_Attack/Area2D" method="_on_area_entered_to_check_for_enemies"]
 [connection signal="area_shape_entered" from="camera_area" to="." method="_on_camera_area_area_shape_entered"]
 [connection signal="area_shape_exited" from="camera_area" to="." method="_on_camera_area_area_shape_exited"]
 [connection signal="timeout" from="Angels/Timer" to="Angels" method="_on_timer_timeout"]
+[connection signal="animation_finished" from="SetonaAttack/AnimatedSprite2D" to="." method="_on_setona_attack_animated_sprite_2d_animation_finished"]
 
 [editable path="EscapeTimeTyper"]

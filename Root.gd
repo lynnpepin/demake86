@@ -61,14 +61,16 @@ func _process(delta: float) -> void:
     Global.game_timer += delta
 
 
+func reset_shake():
+    $CameraAnchor/Camera2D.reset_shake()
+
 func _on_camera_zone_thatcher_area_entered(area: Area2D) -> void:
     also_tracking_thatcher = true
-    $CameraAnchor/Camera2D.reset_shake()
+    reset_shake()
     also_tracking_position = $Tourian/camera_zone_thatcher.position
     pass # Replace with function body.
 
-
 func _on_camera_zone_thatcher_area_exited(area: Area2D) -> void:
     also_tracking_thatcher = false
-    $CameraAnchor/Camera2D.reset_shake()
+    reset_shake()
     pass # Replace with function body.

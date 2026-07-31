@@ -92,7 +92,7 @@ visible = false
 sprite_frames = SubResource("SpriteFrames_471fi")
 animation = &"red_eyes"
 autoplay = "default"
-frame_progress = 0.8035798
+frame_progress = 0.13086766
 offset = Vector2(0, 0)
 
 [node name="AnimatedSprite2D_old" type="AnimatedSprite2D" parent="." index="5" unique_id=1314028641]

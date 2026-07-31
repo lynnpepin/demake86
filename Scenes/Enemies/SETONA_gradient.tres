@@ -249,7 +249,7 @@ output = output * alpha_fade_in;
 // todo; dithering preferred
 //output = round(output * steps) / steps;"
 nodes/fragment/17/node = SubResource("VisualShaderNodeFloatParameter_jngj8")
-nodes/fragment/17/position = Vector2(-1897.1428, 1222.8572)
+nodes/fragment/17/position = Vector2(-1805.7142, 1222.8572)
 nodes/fragment/18/node = SubResource("VisualShaderNodeFloatOp_v6yl0")
 nodes/fragment/18/position = Vector2(720, 514.2857)
 nodes/fragment/connections = PackedInt32Array(2, 0, 3, 0, 4, 0, 2, 0, 3, 0, 9, 0, 10, 0, 0, 0, 11, 0, 14, 0, 13, 0, 15, 0, 15, 0, 14, 1, 8, 0, 9, 1, 8, 0, 16, 1, 3, 0, 16, 0, 9, 0, 12, 0, 17, 0, 18, 0, 12, 0, 18, 1, 18, 0, 0, 1)

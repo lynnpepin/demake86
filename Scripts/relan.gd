@@ -569,9 +569,42 @@ func die():
     pass
 #endregion
 
+
+
 #region special
+
+func setona_attack():
+    print("SETONA ATTACK")
+    
+    strike_to_wound()
+    position = Vector2(96, 144)
+    $SetonaAttack/AnimatedSprite2D.visible = true
+    $SetonaAttack/SfxrStreamPlayer.play()
+    $SetonaAttack/AnimatedSprite2D.play("attack")
+    get_parent().reset_shake()
+    # play sound
+    # play animation
+    
+func strike_to_wound():
+    print("STRIKE TO WOUND")
+    remove_barrier()
+    hurt_timer = 0.0
+    if energy > 1:
+        print("... Strike, energy > 1, so")
+        hurt(energy - 1, 12.0)
+    elif energy == 1:
+        die()
+
 func _thatcher_dead():
     $ThatcherBits.visible = true
     $ThatcherBloodParticles.visible = true
     modulate = Color("#fde9c7")
 #endregion
+
+
+func _on_setona_attack_animated_sprite_2d_animation_finished() -> void:
+    print("Setona sprite done")
+    $SetonaAttack/AnimatedSprite2D.play("default")
+    $SetonaAttack/AnimatedSprite2D.visible = false
+    
+    pass # Replace with function body.
