@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://be6esv11x3s5t" path="res://Classes/EnemyClass.tscn" id="1_3slqs"]
 [ext_resource type="Script" uid="uid://d1ihixyrl3g2o" path="res://Scenes/Enemies/setona.gd" id="2_ytpi5"]
+[ext_resource type="Shape2D" uid="uid://b8rls2nwipaa0" path="res://setona_skull_hitbox.tres" id="3_533ep"]
+[ext_resource type="Texture2D" uid="uid://b18qrcyiyra27" path="res://art/SETONA_2/SETONA_frozen.png" id="3_ji28m"]
 [ext_resource type="Texture2D" uid="uid://c3dg2y021s5he" path="res://art/SETONA_2/SETONA_30.png" id="3_mkodl"]
 [ext_resource type="Texture2D" uid="uid://k6j72qb08gru" path="res://art/SETONA_2/SETONA_31.png" id="4_nps5y"]
 [ext_resource type="Texture2D" uid="uid://dmueii5ks6i1b" path="res://art/SETONA_2/SETONA_32.png" id="5_jo8f4"]
@@ -20,6 +22,10 @@
 [ext_resource type="AudioStream" uid="uid://che8u45omiwxf" path="res://sfx/pure_220.wav" id="18_ecuwe"]
 [ext_resource type="AudioStream" uid="uid://wggmfjnwfcuj" path="res://sfx/noise_440.wav" id="19_52uju"]
 [ext_resource type="AudioStream" uid="uid://dagso5jyl3hc1" path="res://sfx/dark_laughter.wav" id="20_2tbkp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mbn3b"]
+radius = 5.0
+height = 16.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_471fi"]
 animations = [{
@@ -78,6 +84,22 @@ gradient = SubResource("Gradient_ytpi5")
 width = 2
 height = 2
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vvnsp"]
+radius = 8.0
+
+[sub_resource type="Gradient" id="Gradient_mbn3b"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_533ep"]
+gradient = SubResource("Gradient_mbn3b")
+width = 4
+height = 4
+fill_from = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_533ep"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.033333335, 0.097849466, 0.18387097, 0.3795699, 0.46129033, 0.5795699, 0.7408602, 0.8763441, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.7411765, 1, 0.7921569, 1, 0.59607846, 0.8627451, 1, 1, 0.84313726, 0.84313726, 0.84313726, 1, 0.65882355, 0.65882355, 0.65882355, 1, 0, 0, 0, 1, 0.30980393, 0.08235294, 0.02745098, 1, 0.50980395, 0.23529412, 0.23921569, 1, 0.8784314, 0.23529412, 0.15686275, 1)
+
 [node name="Setona" unique_id=1981089262 instance=ExtResource("1_3slqs")]
 script = ExtResource("2_ytpi5")
 radius_gap = 2.0
@@ -85,8 +107,20 @@ tracking_distance = 512.0
 prime_distance = 24.0
 strike_distance = 12.0
 
+[node name="CollisionPlatforming" parent="." index="0" unique_id=1771735465]
+position = Vector2(0, -1.5)
+shape = ExtResource("3_533ep")
+
 [node name="Sprite2D_freeze_box" parent="." index="1" unique_id=840567474]
 visible = false
+texture = ExtResource("3_ji28m")
+
+[node name="CollisionShape2D" parent="StaticBody2D_Frozen" parent_id_path=PackedInt32Array(84451283) index="0" unique_id=1883882091]
+shape = ExtResource("3_533ep")
+
+[node name="CollisionShape2D" parent="AreaHitbox" parent_id_path=PackedInt32Array(114516459) index="0" unique_id=56055242]
+position = Vector2(0, -0.5)
+shape = SubResource("CapsuleShape2D_mbn3b")
 
 [node name="AnimatedSprite2D" parent="." index="4" unique_id=787643559]
 sprite_frames = SubResource("SpriteFrames_471fi")
@@ -168,3 +202,39 @@ autoplay = true
 max_distance = 32.0
 attenuation = 2.0000005
 panning_strength = 6.0
+
+[node name="MissileHitbox" type="Area2D" parent="." index="17" unique_id=46756014 groups=["enemies"]]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MissileHitbox" index="0" unique_id=162126814]
+shape = SubResource("CircleShape2D_vvnsp")
+
+[node name="KillParticles" type="CPUParticles2D" parent="." index="18" unique_id=977092662]
+z_index = 300
+emitting = false
+amount = 240
+texture = SubResource("GradientTexture2D_533ep")
+one_shot = true
+explosiveness = 0.75
+randomness = 0.75
+lifetime_randomness = 0.75
+fract_delta = false
+emission_shape = 1
+emission_sphere_radius = 4.0
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 460)
+initial_velocity_min = 36.0
+initial_velocity_max = 360.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+orbit_velocity_min = -0.25
+orbit_velocity_max = 0.25
+damping_min = 360.0
+damping_max = 720.0
+angle_max = 45.0
+scale_amount_min = 0.13
+color_ramp = SubResource("Gradient_533ep")
+
+[connection signal="area_entered" from="MissileHitbox" to="." method="_on_missile_hitbox_area_entered"]

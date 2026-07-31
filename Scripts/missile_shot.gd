@@ -6,7 +6,7 @@ var lifetime: float = 0.0;
 var velocity: Vector2
 var active = true
 
-var BigExplosion = preload("res://Scenes/BigExplosion.tscn")
+var BigExplosion = preload("res://Scenes/BigExplosion.tscn")[
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

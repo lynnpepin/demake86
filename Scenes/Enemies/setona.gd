@@ -13,6 +13,7 @@ var radius: float = 128.0
 
 var primed: bool = false
 var striked: bool = false
+var dead: bool = false
 
 func _ready() -> void:
     $sfx_55.play(randf())
@@ -62,12 +63,13 @@ func _physics_process(delta: float) -> void:
     if tracking:
         # if in of range,
         radius = global_position.distance_to(tracking.global_position)
-        if !striked:
-            if !primed:
-                if radius <= prime_distance:
-                    prime()
-            if radius <= strike_distance:
-                strike()
+        if !frozen:
+            if !striked:
+                if !primed:
+                    if radius <= prime_distance:
+                        prime()
+                if radius <= strike_distance:
+                    strike()
         
         $AnimatedSprite2D.speed_scale = 96.0 / radius
         if radius < tracking_distance:
@@ -91,6 +93,11 @@ func _physics_process(delta: float) -> void:
         "fade_in_alpha", fade_in_alpha
     )
 
+func freeze(time_to_freeze):
+    super(time_to_freeze)
+    # set timer to much higher
+    freeze_timer = 24.0
+
 func prime():
     $AnimatedSprite2D.play("red_eyes")
     $AnimatedSprite2D.modulate = Color("#ffeedd")
@@ -98,24 +105,35 @@ func prime():
     primed = true
 
 func strike():
-    $AnimatedSprite2D.modulate = Color("#ff8010")
-    striked = true
-    print("setona strike")
-    if tracking:
-        tracking.setona_attack()
-        striked = false
+    if !dead:
+        $AnimatedSprite2D.modulate = Color("#ff8010")
+        striked = true
+        print("setona strike")
+        if tracking:
+            tracking.setona_attack()
+            striked = false
 
 func die():
     super()
+    dead = true
+    
     $Sprite2D_gradient.visible = false
     $sfx_55.stop()
     $sfx_110.stop()
     $sfx_220.stop()
     $sfx_noise_440.stop()
     $sfx_laugh.stop()
+    $KillParticles.emitting = true
 
 # TODO
 # Ice, missile only way to kill
 # Invincible to screw attack
 # "Attack" capability
 # shadow disappear on snap
+
+
+func _on_missile_hitbox_area_entered(area: Area2D) -> void:
+    print("Something is here...")
+    if area.is_in_group("explosion"):
+        print("... and it's a kablam")
+        die()
