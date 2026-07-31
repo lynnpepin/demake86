@@ -55,6 +55,7 @@ wait_time = 3.6
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=4685945]
 stream = ExtResource("5_4damf")
+volume_db = 10.0
 max_distance = 128.0
 attenuation = 2.0705297
 panning_strength = 2.0

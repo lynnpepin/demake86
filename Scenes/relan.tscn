@@ -1147,7 +1147,7 @@ stream = ExtResource("29_0whd5")
 
 [node name="RelanSpawns" type="AudioStreamPlayer" parent="Sounds" unique_id=176542522]
 stream = ExtResource("31_yy1tg")
-volume_db = -10.0
+volume_db = 5.0
 
 [node name="RayCast2D_TuckChecker" type="RayCast2D" parent="." unique_id=1003190590]
 position = Vector2(0, 6)

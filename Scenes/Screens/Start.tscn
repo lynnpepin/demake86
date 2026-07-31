@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cwpdgbho4yql" path="res://art/start_buttons/startkeys_02.png" id="11_4dn0y"]
 [ext_resource type="Texture2D" uid="uid://cpo2hm1viyo8m" path="res://art/start_buttons/startkeys_03.png" id="12_cp6c3"]
 [ext_resource type="Texture2D" uid="uid://lbrdyocek4fw" path="res://art/start_buttons/startkeys_04.png" id="13_b3cmn"]
+[ext_resource type="AudioStream" uid="uid://bpcfcg8fss3ut" path="res://sfx/start_title.wav" id="15_cp6c3"]
 
 [sub_resource type="Gradient" id="Gradient_q3f0l"]
 interpolation_mode = 1
@@ -618,6 +619,9 @@ z_as_relative = false
 position = Vector2(32, 51)
 sprite_frames = SubResource("SpriteFrames_vvnsp")
 autoplay = "default"
-frame_progress = 0.4022587
+frame_progress = 0.11951163
+
+[node name="title_sfx" type="AudioStreamPlayer2D" parent="." unique_id=2094631516]
+stream = ExtResource("15_cp6c3")
 
 [connection signal="item_activated" from="Control/ItemList" to="." method="_on_item_list_item_activated"]

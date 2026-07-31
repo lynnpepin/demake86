@@ -70,7 +70,7 @@ script = ExtResource("9_plkpo")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=909977719]
 emitting = false
-amount = 24
+amount = 6
 one_shot = true
 explosiveness = 0.88
 randomness = 0.75

@@ -235,6 +235,7 @@ time = 0.25
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1194486612]
 stream = ExtResource("6_r6j2w")
+volume_db = 10.0
 max_distance = 128.0
 attenuation = 2.0000002
 

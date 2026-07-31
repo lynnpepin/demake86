@@ -49,9 +49,15 @@ func _physics_process(delta: float) -> void:
             - angle * PI / 4.0
         )
     )
+    
+    if (
+        Input.is_action_just_pressed("pad_x") 
+        or Input.is_action_just_pressed("pad_a")
+    ):
+        $AnimationPlayer.seek(20)
+        $title_sfx.play()
     if Input.is_action_pressed("pad_x") and Input.is_action_pressed("pad_a"):
         menu_start()
-    
         
         
     
