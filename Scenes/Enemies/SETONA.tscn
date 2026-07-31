@@ -105,7 +105,7 @@ script = ExtResource("2_ytpi5")
 radius_gap = 2.0
 tracking_distance = 512.0
 prime_distance = 24.0
-strike_distance = 12.0
+strike_distance = 8.0
 
 [node name="CollisionPlatforming" parent="." index="0" unique_id=1771735465]
 position = Vector2(0, -1.5)

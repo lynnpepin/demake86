@@ -582,6 +582,7 @@ func setona_attack():
     $SetonaAttack/SfxrStreamPlayer.play()
     $SetonaAttack/AnimatedSprite2D.play("attack")
     get_parent().reset_shake()
+    velocity = Vector2(0,0)
     # play sound
     # play animation
     

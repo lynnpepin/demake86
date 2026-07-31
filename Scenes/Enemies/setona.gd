@@ -1,5 +1,4 @@
 extends EnemyClass
-
 var time: float = 0.0
 var radius: float = 128.0
 @export var radius_gap: float = 2.0 # for giving more space for visibility
@@ -8,7 +7,7 @@ var radius: float = 128.0
 @export var tracking_distance: float = 512.0
 
 @export var prime_distance = 24.0
-@export var strike_distance = 12.0
+@export var strike_distance = 8.0
 
 
 var primed: bool = false
@@ -94,9 +93,10 @@ func _physics_process(delta: float) -> void:
     )
 
 func freeze(time_to_freeze):
-    super(time_to_freeze)
-    # set timer to much higher
-    freeze_timer = 24.0
+    if !dead:
+        super(time_to_freeze)
+        # set timer to much higher
+        freeze_timer = 24.0
 
 func prime():
     $AnimatedSprite2D.play("red_eyes")
@@ -114,16 +114,25 @@ func strike():
             striked = false
 
 func die():
+    print("I'm SET on a DEATH. (Setona dead)")
     super()
-    dead = true
+    if !dead:
+        $Sprite2D_gradient.visible = false
+        $sfx_55.stop()
+        $sfx_110.stop()
+        $sfx_220.stop()
+        $sfx_noise_440.stop()
+        $sfx_laugh.stop()
+        $KillParticles.emitting = true
     
-    $Sprite2D_gradient.visible = false
-    $sfx_55.stop()
-    $sfx_110.stop()
-    $sfx_220.stop()
-    $sfx_noise_440.stop()
-    $sfx_laugh.stop()
-    $KillParticles.emitting = true
+        $CollisionPlatforming.set_deferred("disabled", true)
+        $StaticBody2D_Frozen/CollisionShape2D.set_deferred("disabled", true)
+        $AreaHitbox/CollisionShape2D.set_deferred("disabled", true)
+        $AreaHitbox.set_deferred("monitoring", false)
+        $MissileHitbox.set_deferred("monitoring", false)
+        $AreaHitbox.set_deferred("monitorable", false)
+        $MissileHitbox.set_deferred("monitorable", false)
+        dead = true
 
 # TODO
 # Ice, missile only way to kill
@@ -136,4 +145,6 @@ func _on_missile_hitbox_area_entered(area: Area2D) -> void:
     print("Something is here...")
     if area.is_in_group("explosion"):
         print("... and it's a kablam")
-        die()
+        if frozen:
+            print("... and I'm an icicle fuuuck")
+            die()

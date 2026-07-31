@@ -2,6 +2,7 @@ extends Node2D
 
 
 @export var player: Node2D
+var Setona = preload("res://Scenes/Enemies/SETONA.tscn")
 
 var escape_started = false
 var escape_time    = 30.0
@@ -36,6 +37,23 @@ func start_escape():
     player._thatcher_dead()
     # todo play music
     # TODO - Relan modulate
+    
+    if $Setona:
+        $Setona.queue_free()
+    
+    # hacky hacky - and why won't it work?
+    var new_setona = Setona.instantiate()
+    new_setona.name = "Setona2"
+    add_child(new_setona)
+    #$place_to_spawn_new_setona.get_parent().add_child(new_setona)
+    #add_child(new_setona)
+    $Setona2.position = $place_to_spawn_new_setona.position
+    $Setona2.health = 3000
+    $Setona2.strike_distance = 12
+    $Setona2.visible = true
+    $Setona2.tracking = player
+    # why can't i see it? why does it not strike?
+    print("NEW SETONA: ", $Setona2.global_position, $Setona2.position)
 
 func _process(delta):
     if escape_time <= 0.5:

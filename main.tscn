@@ -2119,6 +2119,9 @@ width = 1
 offsets = PackedFloat32Array(0, 0.07522567, 0.12337011, 0.44032097, 1)
 colors = PackedColorArray(0.9647059, 0.56078434, 0.21568628, 0, 0.9647059, 0.56078434, 0.21568628, 1, 0.8784314, 0.23529412, 0.15686275, 1, 0.8784314, 0.23529412, 0.15686275, 0.5647059, 0.8784314, 0.23529412, 0.15686275, 0)
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vvnsp"]
+size = Vector2(4, 4)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4w656"]
 size = Vector2(64, 64)
 
@@ -2127,7 +2130,6 @@ script = ExtResource("1_hrvbo")
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
 position = Vector2(137, 22)
-HAS_ALL_ITEMS = true
 HAS_ENOUGH_ITEMS = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Relan" unique_id=31498320]
@@ -4161,8 +4163,14 @@ angle = 0.0
 [node name="Setona" parent="Tourian" unique_id=1981089262 node_paths=PackedStringArray("tracking") instance=ExtResource("4_sm6fg")]
 position = Vector2(80, 21)
 tracking = NodePath("../../Relan")
-strike_distance = 8.0
 health = 3000
+
+[node name="place_to_spawn_new_setona" type="Node2D" parent="Tourian" unique_id=367067202]
+position = Vector2(75, -42)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tourian/place_to_spawn_new_setona" unique_id=956451054]
+visible = false
+texture = SubResource("PlaceholderTexture2D_vvnsp")
 
 [node name="KempsLair" type="Node2D" parent="." unique_id=863085050]
 
