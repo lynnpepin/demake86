@@ -4,11 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://jjorf5tasieq" path="res://art/bgs_old/64_bg.png" id="2_2q7jf"]
 [ext_resource type="FontFile" uid="uid://50omi7qgmx2w" path="res://fonts/GravityRegular5.ttf" id="3_fm381"]
 [ext_resource type="Texture2D" uid="uid://dtbv85mx8jflh" path="res://media/blender_renders/comically_pockmarked_planet_zenith_64px.png" id="4_l4o21"]
+[ext_resource type="Script" uid="uid://ccb5q734t5i8h" path="res://Scenes/Screens/animation_player.gd" id="5_4dn0y"]
 [ext_resource type="Texture2D" uid="uid://cj3d6inmhx417" path="res://art/start_buttons/space_noise_1.png" id="5_7uudt"]
 [ext_resource type="Texture2D" uid="uid://bung8odpkvisc" path="res://art/start_buttons/spacenoise_2.png" id="6_qmbu8"]
 [ext_resource type="Texture2D" uid="uid://dydambstfn0fv" path="res://media/title_logo_64.png" id="7_q3f0l"]
 [ext_resource type="Texture2D" uid="uid://c7x2gpjx7yyey" path="res://media/8px_plus.png" id="8_sbw6n"]
 [ext_resource type="Texture2D" uid="uid://ci8uqok4i2dmb" path="res://media/start_png.png" id="9_hyaid"]
+[ext_resource type="Texture2D" uid="uid://dh6heca117fc4" path="res://art/start_buttons/startkeys_01.png" id="10_pf8nd"]
+[ext_resource type="Texture2D" uid="uid://cwpdgbho4yql" path="res://art/start_buttons/startkeys_02.png" id="11_4dn0y"]
+[ext_resource type="Texture2D" uid="uid://cpo2hm1viyo8m" path="res://art/start_buttons/startkeys_03.png" id="12_cp6c3"]
+[ext_resource type="Texture2D" uid="uid://lbrdyocek4fw" path="res://art/start_buttons/startkeys_04.png" id="13_b3cmn"]
 
 [sub_resource type="Gradient" id="Gradient_q3f0l"]
 interpolation_mode = 1
@@ -206,7 +211,7 @@ anti_aliasing = false
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kq2gj"]
 
 [sub_resource type="Animation" id="Animation_l4o21"]
-length = 0.001
+length = 6.866667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -266,6 +271,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D_keys:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0009999999),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_7uudt"]
@@ -331,6 +348,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D_keys:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 7.24),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qmbu8"]
 _data = {
@@ -349,6 +378,26 @@ colors = PackedColorArray(1, 1, 1, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_kq2gj"]
 gradient = SubResource("Gradient_dt0so")
 fill_from = Vector2(0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vvnsp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_pf8nd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4dn0y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_cp6c3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_b3cmn")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 0.75
+}]
 
 [node name="Start" type="Node2D" unique_id=921053637]
 script = ExtResource("1_etyfm")
@@ -501,6 +550,7 @@ texture = ExtResource("4_l4o21")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=177008705]
 libraries/ = SubResource("AnimationLibrary_qmbu8")
 autoplay = &"new_animation"
+script = ExtResource("5_4dn0y")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=729162781]
 position = Vector2(32, -1)
@@ -561,5 +611,13 @@ modulate = Color(0, 0, 0, 1)
 z_index = 250
 position = Vector2(35, 51)
 texture = ExtResource("9_hyaid")
+
+[node name="AnimatedSprite2D_keys" type="AnimatedSprite2D" parent="." unique_id=1218723116]
+z_index = 280
+z_as_relative = false
+position = Vector2(32, 51)
+sprite_frames = SubResource("SpriteFrames_vvnsp")
+autoplay = "default"
+frame_progress = 0.4022587
 
 [connection signal="item_activated" from="Control/ItemList" to="." method="_on_item_list_item_activated"]
