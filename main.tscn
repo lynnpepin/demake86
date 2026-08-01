@@ -80,6 +80,7 @@
 [ext_resource type="AudioStream" uid="uid://che8u45omiwxf" path="res://sfx/pure_220.wav" id="78_4obbf"]
 [ext_resource type="AudioStream" uid="uid://wggmfjnwfcuj" path="res://sfx/noise_440.wav" id="79_ovcoh"]
 [ext_resource type="AudioStream" uid="uid://dagso5jyl3hc1" path="res://sfx/dark_laughter.wav" id="80_ppx11"]
+[ext_resource type="PackedScene" uid="uid://ht7mwd3yqahe" path="res://Scenes/Bosses/Reagan.tscn" id="81_f1p13"]
 
 [sub_resource type="Gradient" id="Gradient_43svb"]
 offsets = PackedFloat32Array(0.00497512, 0.883085, 1)
@@ -2129,7 +2130,7 @@ size = Vector2(64, 64)
 script = ExtResource("1_hrvbo")
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
-position = Vector2(137, 22)
+position = Vector2(438, 421)
 HAS_ENOUGH_ITEMS = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Relan" unique_id=31498320]
@@ -2995,7 +2996,6 @@ stream = ExtResource("25_facbu")
 
 [node name="ParallaxBackground_fg" type="ParallaxBackground" parent="." unique_id=849633338]
 layer = 0
-visible = false
 offset = Vector2(384, 384)
 transform = Transform2D(1, 0, 0, 1, 384, 384)
 
@@ -4275,6 +4275,10 @@ autoplay = true
 max_distance = 256.0
 attenuation = 3.0314326
 panning_strength = 6.0
+
+[node name="Reagan" parent="." unique_id=1075091396 node_paths=PackedStringArray("player") instance=ExtResource("81_f1p13")]
+position = Vector2(352, 488)
+player = NodePath("../Relan")
 
 [connection signal="area_entered" from="Tourian/camera_zone_thatcher" to="." method="_on_camera_zone_thatcher_area_entered"]
 [connection signal="area_exited" from="Tourian/camera_zone_thatcher" to="." method="_on_camera_zone_thatcher_area_exited"]
