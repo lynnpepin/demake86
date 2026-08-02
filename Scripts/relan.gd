@@ -575,6 +575,8 @@ func die():
 
 func setona_attack():
     print("SETONA ATTACK")
+    # hacky hacky hacky
+    $"../ParallaxBackground_fg".visible = false
     
     strike_to_wound()
     position = Vector2(96, 144)
@@ -600,12 +602,11 @@ func _thatcher_dead():
     $ThatcherBits.visible = true
     $ThatcherBloodParticles.visible = true
     modulate = Color("#fde9c7")
-#endregion
 
 
 func _on_setona_attack_animated_sprite_2d_animation_finished() -> void:
     print("Setona sprite done")
     $SetonaAttack/AnimatedSprite2D.play("default")
     $SetonaAttack/AnimatedSprite2D.visible = false
-    
-    pass # Replace with function body.
+
+#endregion

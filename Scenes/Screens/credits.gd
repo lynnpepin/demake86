@@ -51,10 +51,11 @@ Hirokazu
 """,
 
 """
-ENDING ART
-LINE WORK
-CREDIT TO
+WITH SPECIAL
+THANKS TO:
 RAE WHITELEY
+ CREDIT ART
+ LINE WORK,
 """,
 
 """THANK YOU
@@ -72,11 +73,6 @@ PLAYTESTER 3
 PLAYTESTER 4
 PLAYTESTER 5
 """,
-#JAE GEARY,
-#VEEV METROID
-#(THAT IS HER
-#LEGAL NAME),
-#(REALLY!!),
 
 """AND A
 SPECIAL
@@ -142,31 +138,44 @@ DEATHS:
 )
     # After the last slide
     elif credits_ii == num_slides + 1:
+        start_ending_art()
         $Typer.start("""
 
- DEMAKE 86
+
+
+
+
+
+
+THE END
         """, 1.0, 40 * 365.25 * 24 * 60 * 60)
 
-    else:
-        $CPUParticles2D.modulate -= Color(0, 0, 0, .125)
+ #   else:
+ #       $CPUParticles2D.modulate -= Color(0, 0, 0, .125)
     credits_ii += 1
 
 
 func start_ending_art():
     $AnimationPlayer.play("ending_art")
-    if Global.game_timer <= 86.0:
-        $CreditArt01.visible = true
-    if Global.game_timer <= 186.0:
-        $CreditArt02.visible = true
-    if Global.game_timer <= 286.0:
-        $CreditArt03.visible = true
-    if Global.game_timer <= 386.0:
-        $CreditArt04.visible = true
-    else:
-        $CreditArt05.visible = true
 
 func ending_fade_into_art():
     $Line2D_Spawns_Asteroids.queue_free()
     $gunship.queue_free()
     $CPUParticles2D.emitting = false
     # make the right one visible
+    if Global.game_timer <= 86.0:
+        $EndingSprites/CreditArt01.visible = true
+    if Global.game_timer <= 186.0:
+        $EndingSprites/CreditArt02.visible = true
+    if Global.game_timer <= 286.0:
+        $EndingSprites/CreditArt03.visible = true
+    if Global.game_timer <= 386.0:
+        $EndingSprites/CreditArt04.visible = true
+    else:
+        $EndingSprites/CreditArt05.visible = true
+
+#JAE GEARY,
+#VEEV METROID
+#(THAT IS HER
+#LEGAL NAME),
+#(REALLY!!),
