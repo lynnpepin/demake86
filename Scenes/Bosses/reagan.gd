@@ -43,7 +43,7 @@ func _on_timer_after_dead_to_activate_grave_timeout() -> void:
         $Timer_after_dead_to_activate_grave.stop()
     if connected_grave:
         # hacky hacky screen shake
-        get_parent().get_parent().shake_player_camera(Vector2(0,8.6))
+        get_parent().get_parent().shake_player_camera(Vector2(0.0, 2.0 * timer_activations))
         connected_grave.activate()
 
 
