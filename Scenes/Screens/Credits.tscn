@@ -11,6 +11,11 @@
 [ext_resource type="AudioStream" uid="uid://cdq7marm28yph" path="res://sfx/lazer.wav" id="9_sbp4b"]
 [ext_resource type="Script" uid="uid://dqn3ricb3mpuc" path="res://Scenes/line_2d_spawns_asteroids.gd" id="10_wtfyg"]
 [ext_resource type="PackedScene" uid="uid://ck60iyt1ygvwn" path="res://Scenes/asteroid.tscn" id="11_k7ahj"]
+[ext_resource type="Texture2D" uid="uid://cbino0hm4cjs0" path="res://art/credits/credit_art_01.png" id="12_w1xyk"]
+[ext_resource type="Texture2D" uid="uid://bjq32cmlfitrg" path="res://art/credits/credit_art_02.png" id="13_ubv0p"]
+[ext_resource type="Texture2D" uid="uid://c2ge6th31fcsl" path="res://art/credits/credit_art_03.png" id="14_l3jum"]
+[ext_resource type="Texture2D" uid="uid://c0vpp7mfcd3bw" path="res://art/credits/credit_art_04.png" id="15_cu4ug"]
+[ext_resource type="Texture2D" uid="uid://cx15vkcg8ho6l" path="res://art/credits/credit_art_05.png" id="16_w7lpo"]
 
 [sub_resource type="Gradient" id="Gradient_sb781"]
 offsets = PackedFloat32Array(0.18355066, 0.19458374, 0.36308926, 0.3911735, 0.888666, 1)
@@ -70,6 +75,39 @@ orbit_velocity_max = 0.010000096
 gravity = Vector3(0, 0, 0)
 attractor_interaction_enabled = false
 color_ramp = SubResource("GradientTexture1D_k7ahj")
+
+[sub_resource type="Gradient" id="Gradient_k7ahj"]
+offsets = PackedFloat32Array(0.07979334, 0.28645235)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.90588236, 0.21568628, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bjsvy"]
+gradient = SubResource("Gradient_k7ahj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u0aqh"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 45.00001
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 48.0
+initial_velocity_max = 48.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = -1.6093254e-05
+orbit_velocity_min = -0.09999991
+orbit_velocity_max = 0.1000001
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = -2.2351742e-05
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = -2.2351742e-06
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = -2.2351742e-06
+attractor_interaction_enabled = false
+scale_min = 0.5
+scale_max = 2.5
+color_ramp = SubResource("GradientTexture1D_bjsvy")
 
 [sub_resource type="Gradient" id="Gradient_sbp4b"]
 offsets = PackedFloat32Array(0, 0.115384616, 0.20723307, 0.34041333, 1)
@@ -170,6 +208,89 @@ size = Vector2(64, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vrt7"]
 size = Vector2(4, 64)
 
+[sub_resource type="Gradient" id="Gradient_u0aqh"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vvnsp"]
+gradient = SubResource("Gradient_u0aqh")
+fill_from = Vector2(0, 1)
+
+[sub_resource type="Animation" id="Animation_w1xyk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D_white:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EndingSprites:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ubv0p"]
+resource_name = "ending_art"
+length = 6.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D_white:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EndingSprites:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 128)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"ending_fade_into_art"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l3jum"]
+_data = {
+&"RESET": SubResource("Animation_w1xyk"),
+&"ending_art": SubResource("Animation_ubv0p")
+}
+
 [node name="Credits" type="Node2D" unique_id=690748073]
 script = ExtResource("1_sb781")
 
@@ -216,6 +337,7 @@ position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_sb781")
 
 [node name="part_white" type="GPUParticles2D" parent="gunship" unique_id=555628385]
+visible = false
 z_index = 16
 position = Vector2(0, 4)
 amount = 360
@@ -225,7 +347,18 @@ fixed_fps = 60
 fract_delta = false
 process_material = SubResource("ParticleProcessMaterial_kdbnx")
 
+[node name="part_ship" type="GPUParticles2D" parent="gunship" unique_id=213924588]
+z_index = 16
+position = Vector2(0, 4)
+amount = 360
+texture = SubResource("GradientTexture2D_ir8xi")
+lifetime = 3.0
+fixed_fps = 60
+fract_delta = false
+process_material = SubResource("ParticleProcessMaterial_u0aqh")
+
 [node name="part_blue_l" type="GPUParticles2D" parent="gunship" unique_id=1686441803]
+visible = false
 position = Vector2(-2, 3)
 amount = 360
 texture = SubResource("GradientTexture2D_ir8xi")
@@ -235,6 +368,7 @@ fract_delta = false
 process_material = SubResource("ParticleProcessMaterial_ir8xi")
 
 [node name="part_blue_r" type="GPUParticles2D" parent="gunship" unique_id=1942313405]
+visible = false
 position = Vector2(2, 3)
 amount = 360
 texture = SubResource("GradientTexture2D_ir8xi")
@@ -244,6 +378,7 @@ fract_delta = false
 process_material = SubResource("ParticleProcessMaterial_ir8xi")
 
 [node name="part_pink_r" type="GPUParticles2D" parent="gunship" unique_id=1735231952]
+visible = false
 position = Vector2(1, 5)
 amount = 360
 texture = SubResource("GradientTexture2D_ir8xi")
@@ -253,6 +388,7 @@ fract_delta = false
 process_material = SubResource("ParticleProcessMaterial_f8j7b")
 
 [node name="part_pink_l" type="GPUParticles2D" parent="gunship" unique_id=954480412]
+visible = false
 position = Vector2(-1, 5)
 amount = 360
 texture = SubResource("GradientTexture2D_ir8xi")
@@ -342,6 +478,8 @@ stream = SubResource("AudioStreamWAV_sbp4b")
 volume_db = -10.0
 pitch_scale = 0.5
 
+[node name="GPUParticlesAttractorBox3D" type="GPUParticlesAttractorBox3D" parent="gunship" unique_id=174261485]
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=337413934]
 collision_layer = 2
 
@@ -372,6 +510,43 @@ autostart = true
 
 [node name="Asteroid" parent="." unique_id=1585819476 instance=ExtResource("11_k7ahj")]
 position = Vector2(31, -33)
+
+[node name="Sprite2D_white" type="Sprite2D" parent="." unique_id=1233461119]
+modulate = Color(1, 1, 1, 0)
+z_index = 2000
+z_as_relative = false
+position = Vector2(32, 32)
+texture = SubResource("GradientTexture2D_vvnsp")
+
+[node name="EndingSprites" type="Node2D" parent="." unique_id=969484414]
+
+[node name="CreditArt01" type="Sprite2D" parent="EndingSprites" unique_id=15988962]
+visible = false
+position = Vector2(32, -32)
+texture = ExtResource("12_w1xyk")
+
+[node name="CreditArt02" type="Sprite2D" parent="EndingSprites" unique_id=465884938]
+visible = false
+position = Vector2(32, -32)
+texture = ExtResource("13_ubv0p")
+
+[node name="CreditArt03" type="Sprite2D" parent="EndingSprites" unique_id=147426642]
+visible = false
+position = Vector2(32, -32)
+texture = ExtResource("14_l3jum")
+
+[node name="CreditArt04" type="Sprite2D" parent="EndingSprites" unique_id=358498762]
+visible = false
+position = Vector2(32, -32)
+texture = ExtResource("15_cu4ug")
+
+[node name="CreditArt05" type="Sprite2D" parent="EndingSprites" unique_id=494534387]
+visible = false
+position = Vector2(32, -32)
+texture = ExtResource("16_w7lpo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=931574345]
+libraries/ = SubResource("AnimationLibrary_l3jum")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Line2D_Spawns_Asteroids/Timer" to="Line2D_Spawns_Asteroids" method="_on_timer_timeout"]

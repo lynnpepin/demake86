@@ -8,17 +8,11 @@ extends Node2D
 var credit_slides = [
 """ A GAME BY
 
-  OPOSSUM
-  CARRION
+OPOSSUM
+CARRION
 
 IN HOMAGE TO
 METROID 1986
-""",
-
-"""NOT
-AFFILIATED
-WITH
-NINTENDO.
 """,
 
 """ MADE WITH
@@ -31,19 +25,20 @@ NINTENDO.
   ZERO AI
 """,
 
-
+"""LEGALLY
+DISTINCT
+ORIGINAL
+CHARACTERS,
+NOT
+AFFILIATED
+WITH
+NINTENDO.
+""",
 """CREATIVE TOOLS:
 GIMP, LINUX,
 PIXAKI, JFXR,
 BLENDER,
-AUDACITY,
 STRUDEL.CC
-""",
-"""
-ENDING ART
-LINE WORK
-BY
-RAE WHITELEY
 """,
 """COVERS OF
 MUSIC FROM
@@ -55,6 +50,13 @@ Hirokazu
 "Hip" Tanaka
 """,
 
+"""
+ENDING ART
+LINE WORK
+CREDIT TO
+RAE WHITELEY
+""",
+
 """THANK YOU
 TO MY
 BELOVED
@@ -64,22 +66,23 @@ MAKE THIS
 NOT SUCK:
 """,
 
-"""JAE GEARY,
-VEEV METROID
-(THAT IS HER
-LEGAL NAME),
-(REALLY!!),
+"""
+PLAYTESTER 1
 PLAYTESTER 3
 PLAYTESTER 4
 PLAYTESTER 5
 """,
-
+#JAE GEARY,
+#VEEV METROID
+#(THAT IS HER
+#LEGAL NAME),
+#(REALLY!!),
 
 """AND A
 SPECIAL
-THANKS TO...
+THANKS TO
 
-    YOU !!!
+    YOU!!
 
 FOR PLAYING
    THE ...
@@ -102,26 +105,12 @@ SET  ON  A
 ---------------
 
 """,
-"""
-    SEE
-    
+"""    SEE
     YOU
-    
     NEXT
-    
     MISSION
-""",
-
 """
-FOURTY YEARS
-
-1986-AUG-6
-
-2026-AUG-6
-""",
 ]
-
-# playtesters, used jfxr, gimp, blender; made with godot, nintendo, thank you
 
 @onready var credits_ii: int = 0
 
@@ -132,6 +121,7 @@ func _ready() -> void:
     $Timer.start(2.0)
 
 
+# After credits: Last slide
 func _on_timer_timeout() -> void:
     print("TIMER TIMEOUT")
     var num_slides = len(credit_slides)
@@ -150,6 +140,7 @@ DEATHS:
 %s
 """ %  [str(snapped(Global.game_timer, 0.1)), str(Global.deaths)]
 )
+    # After the last slide
     elif credits_ii == num_slides + 1:
         $Typer.start("""
 
@@ -159,3 +150,23 @@ DEATHS:
     else:
         $CPUParticles2D.modulate -= Color(0, 0, 0, .125)
     credits_ii += 1
+
+
+func start_ending_art():
+    $AnimationPlayer.play("ending_art")
+    if Global.game_timer <= 86.0:
+        $CreditArt01.visible = true
+    if Global.game_timer <= 186.0:
+        $CreditArt02.visible = true
+    if Global.game_timer <= 286.0:
+        $CreditArt03.visible = true
+    if Global.game_timer <= 386.0:
+        $CreditArt04.visible = true
+    else:
+        $CreditArt05.visible = true
+
+func ending_fade_into_art():
+    $Line2D_Spawns_Asteroids.queue_free()
+    $gunship.queue_free()
+    $CPUParticles2D.emitting = false
+    # make the right one visible
