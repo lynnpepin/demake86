@@ -7,6 +7,9 @@ extends Node2D
 var is_aware: bool = false
 var is_dead: bool = false
 
+func _ready() -> void:
+    $AudioStreamPlayer2D_speech.play()
+    $AudioStreamPlayer2D_speech_hpf.play()
 func aware():
     if !is_aware and !is_dead:
         is_aware = true
@@ -31,6 +34,8 @@ func dead():
         $CPUParticles2D_necksplode.one_shot = true
         # todo stop speech
         $Timer_after_dead_to_activate_grave.start(2.0)
+        $AudioStreamPlayer2D_speech.stop()
+        $AudioStreamPlayer2D_speech_hpf.stop()
         for sound2d in sounds_to_stop_on_death:
             sound2d.playing = false
             sound2d.stop()

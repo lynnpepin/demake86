@@ -105,7 +105,7 @@ script = ExtResource("2_ytpi5")
 radius_gap = 2.0
 tracking_distance = 512.0
 prime_distance = 24.0
-strike_distance = 8.0
+strike_distance = 7.0
 
 [node name="CollisionPlatforming" parent="." index="0" unique_id=1771735465]
 position = Vector2(0, -1.5)
@@ -172,8 +172,8 @@ texture = SubResource("GradientTexture2D_471fi")
 [node name="sfx_55" type="AudioStreamPlayer2D" parent="." index="12" unique_id=1964730826]
 stream = ExtResource("16_nps5y")
 autoplay = true
-max_distance = 1024.0
-attenuation = 2.0000005
+max_distance = 512.0
+attenuation = 3.4822013
 
 [node name="sfx_110" type="AudioStreamPlayer2D" parent="." index="13" unique_id=715927299]
 stream = ExtResource("17_jo8f4")

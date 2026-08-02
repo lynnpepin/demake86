@@ -49,7 +49,7 @@ func start_escape():
     #add_child(new_setona)
     $Setona2.position = $place_to_spawn_new_setona.position
     $Setona2.health = 3000
-    $Setona2.strike_distance = 12
+    $Setona2.strike_distance = 8.0
     $Setona2.visible = true
     $Setona2.tracking = player
     # why can't i see it? why does it not strike?

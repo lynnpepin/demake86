@@ -121,18 +121,19 @@ shape = SubResource("RectangleShape2D_j3t27")
 
 [node name="AudioStreamPlayer2D_speech" type="AudioStreamPlayer2D" parent="." unique_id=1855088474]
 stream = ExtResource("5_jxe2a")
-volume_db = 10.0
+volume_db = 20.0
 autoplay = true
 max_distance = 256.0
-attenuation = 1.6817932
+attenuation = 2.9281716
 panning_strength = 3.0
 
 [node name="AudioStreamPlayer2D_speech_hpf" type="AudioStreamPlayer2D" parent="." unique_id=1207419345]
 stream = ExtResource("6_yirng")
-volume_db = 10.0
+volume_db = 20.0
 autoplay = true
 max_distance = 512.0
-attenuation = 2.0705302
+attenuation = 2.2973974
+panning_strength = 3.0
 
 [connection signal="area_entered" from="Sprite2D_Reagan/Area2D_hurtbox" to="." method="_on_hurtbox_area_2d_area_entered"]
 [connection signal="area_entered" from="Area2D_Aware" to="." method="_on_area_2d_aware_area_entered"]

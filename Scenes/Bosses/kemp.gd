@@ -20,3 +20,4 @@ func _on_bell_toll_timer_timeout() -> void:
         connected_grave.activate()
     if root:
         root.shake_player_camera(Vector2(tolls,0.0))
+        $Timer.start(1.5)
