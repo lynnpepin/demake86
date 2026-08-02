@@ -3,9 +3,54 @@
 [ext_resource type="Script" uid="uid://ck4q84ta2nhgt" path="res://Scenes/Bosses/reagan.gd" id="1_el636"]
 [ext_resource type="Texture2D" uid="uid://pa15qd6iglfn" path="res://art/reagan/desk.png" id="1_lrorv"]
 [ext_resource type="Texture2D" uid="uid://b25fgl0e5nrao" path="res://art/reagan/reagan.png" id="2_vlbk8"]
+[ext_resource type="Texture2D" uid="uid://b40f76tux1cmy" path="res://art/reagan/reagan_2.png" id="4_bcmff"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vvnsp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_bcmff")
+}],
+"loop": 0,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vlbk8")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07w5m"]
+size = Vector2(8, 24)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vvnsp"]
+radius = 2.0
+height = 26.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vvnsp"]
 size = Vector2(48, 48)
+
+[sub_resource type="Gradient" id="Gradient_bcmff"]
+offsets = PackedFloat32Array(0, 0.99553573)
+colors = PackedColorArray(0.8235294, 0.3137255, 0.1764706, 1, 0.99215686, 0.9137255, 0.78039217, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bcmff"]
+gradient = SubResource("Gradient_bcmff")
+width = 2
+height = 2
+fill_from = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_jxe2a"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.094936706, 0.14195298, 0.2016275, 0.5108499, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.99607843, 0.7882353, 0.92941177, 1, 1, 0.9137255, 0.77254903, 1, 0.8784314, 0.23529412, 0.15686275, 1, 0.30980393, 0.08235294, 0.02745098, 1, 0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3t27"]
+size = Vector2(24, 12)
 
 [node name="Reagan" type="Node2D" unique_id=1075091396]
 script = ExtResource("1_el636")
@@ -15,9 +60,24 @@ z_index = 10
 position = Vector2(0, -6)
 texture = ExtResource("1_lrorv")
 
-[node name="Sprite2D_Reagan" type="Sprite2D" parent="." unique_id=744311712]
+[node name="Sprite2D_Reagan" type="AnimatedSprite2D" parent="." unique_id=416251503]
 position = Vector2(-1, -7.5)
-texture = ExtResource("2_vlbk8")
+sprite_frames = SubResource("SpriteFrames_vvnsp")
+autoplay = "default"
+
+[node name="Area2D_hurtbox" type="Area2D" parent="Sprite2D_Reagan" unique_id=1759567072]
+position = Vector2(0, -3)
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D_Reagan/Area2D_hurtbox" unique_id=1046783191]
+shape = SubResource("RectangleShape2D_07w5m")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D_Reagan" unique_id=1649651496]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D_Reagan/StaticBody2D" unique_id=1150655228]
+shape = SubResource("CapsuleShape2D_vvnsp")
 
 [node name="Area2D_Aware" type="Area2D" parent="." unique_id=173804813]
 visible = false
@@ -28,4 +88,35 @@ collision_mask = 24
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Aware" unique_id=1311296503]
 shape = SubResource("RectangleShape2D_vvnsp")
 
+[node name="CPUParticles2D_necksplode" type="CPUParticles2D" parent="." unique_id=536184274]
+position = Vector2(1, -19)
+emitting = false
+amount = 36
+texture = SubResource("GradientTexture2D_bcmff")
+lifetime = 6.0
+explosiveness = 0.88
+randomness = 0.25
+lifetime_randomness = 0.75
+fract_delta = false
+direction = Vector2(0, -1)
+spread = 12.0
+gravity = Vector2(0, 480)
+initial_velocity_min = 30.0
+initial_velocity_max = 240.0
+angle_min = -135.0
+angle_max = 45.0
+scale_amount_min = 0.5
+color_ramp = SubResource("Gradient_jxe2a")
+
+[node name="Timer_after_dead_to_activate_grave" type="Timer" parent="." unique_id=1110465216]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=936902046]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1859413842]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_j3t27")
+
+[connection signal="area_entered" from="Sprite2D_Reagan/Area2D_hurtbox" to="." method="_on_hurtbox_area_2d_area_entered"]
 [connection signal="area_entered" from="Area2D_Aware" to="." method="_on_area_2d_aware_area_entered"]
+[connection signal="timeout" from="Timer_after_dead_to_activate_grave" to="." method="_on_timer_after_dead_to_activate_grave_timeout"]
