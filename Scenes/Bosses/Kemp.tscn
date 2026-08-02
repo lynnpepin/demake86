@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://dmy7ffyqxp83"]
+
+[ext_resource type="Texture2D" uid="uid://dakaoy8fcvwjb" path="res://art/kemp/burrowhole.png" id="1_0434d"]
+[ext_resource type="Texture2D" uid="uid://bprlsix7sekaw" path="res://art/kemp/eyes.png" id="2_r1uch"]
+[ext_resource type="Texture2D" uid="uid://dt6s04iy4cfw5" path="res://art/kemp/eyes1.png" id="3_s83kl"]
+[ext_resource type="Texture2D" uid="uid://dr0826824ui5m" path="res://art/kemp/eyes2.png" id="4_hbnjd"]
+[ext_resource type="Texture2D" uid="uid://cxu34n64g0oeh" path="res://art/kemp/eyes3.png" id="5_ttq6j"]
+[ext_resource type="Texture2D" uid="uid://bbeirwuehdr0f" path="res://art/kemp/eyes4.png" id="6_sq301"]
+[ext_resource type="Texture2D" uid="uid://dn7vt2xqp4uju" path="res://art/kemp/head_carapace.png" id="7_l2083"]
+[ext_resource type="Texture2D" uid="uid://bv5qi7oxa51nk" path="res://art/kemp/body.png" id="8_bcbxw"]
+[ext_resource type="Texture2D" uid="uid://b5nwb0q8oppor" path="res://art/kemp/carapace.png" id="9_yybvo"]
+[ext_resource type="Texture2D" uid="uid://g4xj5q622ks3" path="res://art/kemp/hands.png" id="10_ufufi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5yh34"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": ExtResource("2_r1uch")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_s83kl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hbnjd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ttq6j")
+}, {
+"duration": 2.0,
+"texture": ExtResource("6_sq301")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r1uch"]
+radius = 12.0
+height = 48.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvnsp"]
+size = Vector2(4, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0434d"]
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_0434d"]
+resource_name = "default"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r1uch"]
+_data = {
+&"default": SubResource("Animation_0434d")
+}
+
+[node name="Kemp" type="Node2D" unique_id=1958328335]
+
+[node name="Burrowhole" type="Sprite2D" parent="." unique_id=2038711143]
+z_index = 400
+texture = ExtResource("1_0434d")
+
+[node name="Eyes" type="AnimatedSprite2D" parent="." unique_id=1626593839]
+z_index = 120
+position = Vector2(0, 4)
+sprite_frames = SubResource("SpriteFrames_5yh34")
+autoplay = "default"
+frame_progress = 0.98699087
+
+[node name="StaticBody2D_Body" type="StaticBody2D" parent="." unique_id=1446387004]
+position = Vector2(0, 4)
+collision_layer = 2
+
+[node name="HeadCarapace" type="Sprite2D" parent="StaticBody2D_Body" unique_id=1853993392]
+z_index = 100
+texture = ExtResource("7_l2083")
+
+[node name="Body" type="Sprite2D" parent="StaticBody2D_Body" unique_id=1877557527]
+z_index = 80
+texture = ExtResource("8_bcbxw")
+
+[node name="Carapace" type="Sprite2D" parent="StaticBody2D_Body" unique_id=888712900]
+z_index = 90
+texture = ExtResource("9_yybvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D_Body" unique_id=1658802383]
+position = Vector2(0, -7)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_r1uch")
+
+[node name="StaticBody2D_Hand" type="StaticBody2D" parent="." unique_id=1018882746]
+position = Vector2(0, 4)
+collision_layer = 6
+
+[node name="Hands" type="Sprite2D" parent="StaticBody2D_Hand" unique_id=297227787]
+z_index = 90
+texture = ExtResource("10_ufufi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D_Hand" unique_id=554067004]
+position = Vector2(-12, 5)
+rotation = 0.7853982
+shape = SubResource("RectangleShape2D_vvnsp")
+
+[node name="StaticBody2D_Hand2" type="StaticBody2D" parent="." unique_id=407167622]
+z_index = -10
+position = Vector2(40, -1)
+collision_layer = 6
+
+[node name="Hands" type="Sprite2D" parent="StaticBody2D_Hand2" unique_id=1115770749]
+z_index = 90
+texture = ExtResource("10_ufufi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D_Hand2" unique_id=1501771450]
+position = Vector2(-11, 4)
+rotation = 0.7853982
+shape = SubResource("RectangleShape2D_vvnsp")
+
+[node name="Area2D_eyes_hurtbox" type="Area2D" parent="." unique_id=303827691]
+position = Vector2(0, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_eyes_hurtbox" unique_id=451230748]
+position = Vector2(20, -6)
+shape = SubResource("CircleShape2D_0434d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=659027869]
+libraries/ = SubResource("AnimationLibrary_r1uch")
