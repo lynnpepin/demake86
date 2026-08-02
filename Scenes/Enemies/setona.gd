@@ -63,7 +63,7 @@ func _physics_process(delta: float) -> void:
         # if in of range,
         
         radius = global_position.distance_to(
-            # offset by 4px to be closer to player center of mass
+            # offset by 2px to be closer to player center of mass
             tracking.global_position + Vector2(0, 4.0)
         )
         if !frozen:
