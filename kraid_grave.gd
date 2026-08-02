@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 func _ready() -> void:
-    #activate()
+    activate()
     pass
 
 func activate():
