@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://pa15qd6iglfn" path="res://art/reagan/desk.png" id="1_lrorv"]
 [ext_resource type="Texture2D" uid="uid://b25fgl0e5nrao" path="res://art/reagan/reagan.png" id="2_vlbk8"]
 [ext_resource type="Texture2D" uid="uid://b40f76tux1cmy" path="res://art/reagan/reagan_2.png" id="4_bcmff"]
+[ext_resource type="AudioStream" uid="uid://cvv8tudy7bcdk" path="res://sfx/reagan_script/reagan_full.wav" id="5_jxe2a"]
+[ext_resource type="AudioStream" uid="uid://cvevcuydah5n0" path="res://sfx/reagan_script/reagan_hpf.wav" id="6_yirng"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vvnsp"]
 animations = [{
@@ -25,7 +27,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_07w5m"]
-size = Vector2(8, 24)
+size = Vector2(12, 26)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vvnsp"]
 radius = 2.0
@@ -116,6 +118,21 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1859413842]
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_j3t27")
+
+[node name="AudioStreamPlayer2D_speech" type="AudioStreamPlayer2D" parent="." unique_id=1855088474]
+stream = ExtResource("5_jxe2a")
+volume_db = 10.0
+autoplay = true
+max_distance = 256.0
+attenuation = 1.6817932
+panning_strength = 3.0
+
+[node name="AudioStreamPlayer2D_speech_hpf" type="AudioStreamPlayer2D" parent="." unique_id=1207419345]
+stream = ExtResource("6_yirng")
+volume_db = 10.0
+autoplay = true
+max_distance = 512.0
+attenuation = 2.0705302
 
 [connection signal="area_entered" from="Sprite2D_Reagan/Area2D_hurtbox" to="." method="_on_hurtbox_area_2d_area_entered"]
 [connection signal="area_entered" from="Area2D_Aware" to="." method="_on_area_2d_aware_area_entered"]
