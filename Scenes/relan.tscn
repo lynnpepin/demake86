@@ -90,8 +90,11 @@
 [ext_resource type="Texture2D" uid="uid://bfplvfar20m7i" path="res://art/SETONA_2/attack_3.png" id="88_lnsfr"]
 [ext_resource type="Texture2D" uid="uid://c1v8puvbqh0lu" path="res://art/SETONA_2/attack_4.png" id="89_jb6n8"]
 [ext_resource type="Texture2D" uid="uid://ddb0spbrfkjtx" path="res://art/SETONA_2/attack_5.png" id="90_18v87"]
+[ext_resource type="Texture2D" uid="uid://blpl6brffs5j6" path="res://art/SETONA_2/attack_extra_2.png" id="90_jb6n8"]
 [ext_resource type="Texture2D" uid="uid://df7pg8yvl65n1" path="res://art/SETONA_2/attack_6.png" id="91_k2m0s"]
+[ext_resource type="Texture2D" uid="uid://bksu707q0un8" path="res://art/SETONA_2/attack_extra_1.png" id="92_18v87"]
 [ext_resource type="AudioStream" uid="uid://5742ytuqoy3j" path="res://sfx/get_teleported_idiot.wav" id="92_qvuxf"]
+[ext_resource type="Texture2D" uid="uid://lirodjy3q06p" path="res://art/SETONA_2/attack_extra_3.png" id="93_18v87"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8s541"]
 radius = 3.0
@@ -447,27 +450,36 @@ colors = PackedColorArray(0.88235295, 0.84313726, 0.7176471, 1, 0.84313726, 0.53
 [sub_resource type="SpriteFrames" id="SpriteFrames_jr3c4"]
 animations = [{
 "frames": [{
-"duration": 6.0,
+"duration": 3.0,
 "texture": ExtResource("86_rl7yr")
 }, {
-"duration": 4.0,
+"duration": 2.0,
 "texture": ExtResource("87_qvuxf")
 }, {
-"duration": 3.0,
+"duration": 1.0,
 "texture": ExtResource("88_lnsfr")
 }, {
-"duration": 2.0,
+"duration": 1.0,
 "texture": ExtResource("89_jb6n8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_jb6n8")
 }, {
 "duration": 1.0,
 "texture": ExtResource("90_18v87")
 }, {
 "duration": 1.0,
+"texture": ExtResource("92_18v87")
+}, {
+"duration": 1.0,
 "texture": ExtResource("91_k2m0s")
+}, {
+"duration": 0.5,
+"texture": ExtResource("93_18v87")
 }],
 "loop": 0,
 "name": &"attack",
-"speed": 24.0
+"speed": 12.0
 }, {
 "frames": [],
 "loop": 1,
