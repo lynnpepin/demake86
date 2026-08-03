@@ -43,7 +43,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_753lo")
 }],
-"loop": false,
+"loop": 0,
 "name": &"crumble",
 "speed": 12.0
 }, {
@@ -51,7 +51,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_vofwd")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -92,7 +92,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("17_ucrpb")
 }],
-"loop": false,
+"loop": 0,
 "name": &"recharge",
 "speed": 2.0
 }]
@@ -116,7 +116,7 @@ visible = false
 shape = SubResource("RectangleShape2D_emxt0")
 
 [node name="area_check_beam" type="Area2D" parent="." unique_id=1880859857 groups=["shootable_block"]]
-collision_layer = 0
+collision_layer = 6
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area_check_beam" unique_id=1362615032 groups=["shootable_block"]]

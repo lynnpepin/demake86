@@ -49,9 +49,17 @@ func recharge() -> void:
     [$Destroy1, $Destroy2, $Destroy3][randi() % 3].play()
 
 
+func _on_area_check_bomb_area_entered(area: Area2D) -> void:
+    if area.is_in_group("bomb") or area.is_in_group("explosion"):
+        shot()
+
+# Hacky; turn this back on so bombs can get it too
 #func _on_area_check_beam_body_entered(body: Node2D) -> void:
-#    if body.is_in_group("beam"):
-#        print("beam body crumb")
-#        crumble()
-#    elif body.is_in_group("bomb"):
-#        crumble()
+#    shot()
+    #if body.is_in_group("beam"):
+    #    print("beam body crumb")
+    #    crumble()
+    #elif body.is_in_group("bomb"):
+    #    crumble()
+
+# above doesn't work. Let's try again
