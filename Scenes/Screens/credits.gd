@@ -170,15 +170,15 @@ func ending_fade_into_art():
     $CPUParticles2D.emitting = false
     # make the right one visible
     if Global.game_timer <= 86.0:
-        $EndingSprites/CreditArt01.visible = true
+        $EndingSprites/CreditArt05.visible = true
     if Global.game_timer <= 186.0:
-        $EndingSprites/CreditArt02.visible = true
+        $EndingSprites/CreditArt04.visible = true
     if Global.game_timer <= 286.0:
         $EndingSprites/CreditArt03.visible = true
     if Global.game_timer <= 386.0:
-        $EndingSprites/CreditArt04.visible = true
+        $EndingSprites/CreditArt02.visible = true
     else:
-        $EndingSprites/CreditArt05.visible = true
+        $EndingSprites/CreditArt01.visible = true
 
 #JAE GEARY,
 #VEEV METROID

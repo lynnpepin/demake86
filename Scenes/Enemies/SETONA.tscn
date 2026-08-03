@@ -172,34 +172,34 @@ texture = SubResource("GradientTexture2D_471fi")
 [node name="sfx_55" type="AudioStreamPlayer2D" parent="." index="12" unique_id=1964730826]
 stream = ExtResource("16_nps5y")
 autoplay = true
-max_distance = 512.0
+max_distance = 256.0
 attenuation = 3.4822013
 
 [node name="sfx_110" type="AudioStreamPlayer2D" parent="." index="13" unique_id=715927299]
 stream = ExtResource("17_jo8f4")
 autoplay = true
-max_distance = 512.0
+max_distance = 256.0
 attenuation = 2.0000005
 panning_strength = 2.0
 
 [node name="sfx_220" type="AudioStreamPlayer2D" parent="." index="14" unique_id=987771481]
 stream = ExtResource("18_ecuwe")
 autoplay = true
-max_distance = 256.0
-attenuation = 2.0000005
+max_distance = 128.0
+attenuation = 1.4142139
 panning_strength = 3.0
 
 [node name="sfx_noise_440" type="AudioStreamPlayer2D" parent="." index="15" unique_id=1499115719]
 stream = ExtResource("19_52uju")
 autoplay = true
-max_distance = 64.0
+max_distance = 96.0
 attenuation = 2.0000005
 panning_strength = 6.0
 
 [node name="sfx_laugh" type="AudioStreamPlayer2D" parent="." index="16" unique_id=442843952]
 stream = ExtResource("20_2tbkp")
 autoplay = true
-max_distance = 32.0
+max_distance = 48.0
 attenuation = 2.0000005
 panning_strength = 6.0
 
