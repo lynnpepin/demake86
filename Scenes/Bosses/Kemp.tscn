@@ -12,6 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://b5nwb0q8oppor" path="res://art/kemp/carapace.png" id="9_yybvo"]
 [ext_resource type="Texture2D" uid="uid://g4xj5q622ks3" path="res://art/kemp/hands.png" id="10_ufufi"]
 [ext_resource type="AudioStream" uid="uid://d1ei3p06a6tpg" path="res://sfx/rest_in_peace_kraid.wav" id="12_s83kl"]
+[ext_resource type="AudioStream" uid="uid://cxps0nnxw5xbp" path="res://sfx/kemp_1.wav" id="13_l2083"]
+[ext_resource type="AudioStream" uid="uid://dg7vtcgkh27j5" path="res://sfx/kemp_2.wav" id="14_bcbxw"]
+[ext_resource type="AudioStream" uid="uid://bb5qs0yjd0aa2" path="res://sfx/kemp_3.wav" id="15_yybvo"]
+[ext_resource type="AudioStream" uid="uid://gv52mptv81rn" path="res://sfx/kemp_4.wav" id="16_ufufi"]
+[ext_resource type="AudioStream" uid="uid://csiwa8ppivo1t" path="res://sfx/kemp_dead.wav" id="17_bcbxw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5yh34"]
 animations = [{
@@ -366,5 +371,36 @@ one_shot = true
 stream = ExtResource("12_s83kl")
 pitch_scale = 0.75
 
+[node name="Sfx" type="Node2D" parent="." unique_id=1994664391]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sfx" unique_id=1401702785]
+stream = ExtResource("13_l2083")
+max_distance = 128.0
+attenuation = 1.9318731
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Sfx" unique_id=1464468851]
+stream = ExtResource("14_bcbxw")
+max_distance = 128.0
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="Sfx" unique_id=974137222]
+stream = ExtResource("15_yybvo")
+max_distance = 128.0
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="Sfx" unique_id=1875047655]
+stream = ExtResource("16_ufufi")
+max_distance = 192.0
+attenuation = 1.6817931
+
+[node name="AudioStreamPlayer2D_Dead" type="AudioStreamPlayer2D" parent="." unique_id=908796055]
+stream = ExtResource("17_bcbxw")
+max_distance = 512.0
+attenuation = 1.5157169
+panning_strength = 2.0
+
+[node name="GarbleTimer" type="Timer" parent="." unique_id=637760390]
+wait_time = 0.1
+autostart = true
+
 [connection signal="area_entered" from="MainBody/Area2D_eyes_hurtbox" to="." method="_on_area_2d_eyes_hurtbox_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_bell_toll_timer_timeout"]
+[connection signal="timeout" from="GarbleTimer" to="." method="_on_garble_timer_timeout"]

@@ -1,7 +1,7 @@
-
 extends Node2D
 
-@export var tracking: Node2D
+@export var tracking: Node2D   # <-- super useful for linking nodes across tree
+
 @export var tracking_distance: float = 36.0
 @export var color: Color = Color("#25E2CD")
 
@@ -16,8 +16,8 @@ var Cheerio = preload("res://Scenes/Enemies/cheerio.tscn")
         return angle
     set(new_angle):
         angle = new_angle
-        if $AnimatedSprite2D:
-            $AnimatedSprite2D.rotation = angle * PI / 180
+        #if $AnimatedSprite2D:
+        #    $AnimatedSprite2D.rotation = angle * PI / 180
 
 func _ready() -> void:
     $AnimatedSprite2D.rotation = angle * PI / 180

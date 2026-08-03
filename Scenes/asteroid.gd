@@ -2,6 +2,7 @@ extends RigidBody2D
 
 var size: int = 8
 var health: float = 24.0
+var damage_taken_per_laser_per_second = 24.0
 
 func _ready() -> void:
     size = [8, 12, 16].pick_random()
@@ -17,7 +18,7 @@ func _ready() -> void:
     set_linear_velocity(Vector2(randf_range(-2.0, 2.0), 48 - size*2))
 
 func get_fucking_lasered(delta):
-    health -= delta * 16.0
+    health -= delta * damage_taken_per_laser_per_second
     if health <= 0.0:
         die()
 

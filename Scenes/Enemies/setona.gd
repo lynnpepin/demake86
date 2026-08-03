@@ -14,13 +14,19 @@ var primed: bool = false
 var striked: bool = false
 var dead: bool = false
 
+
 func _ready() -> void:
     $sfx_55.play(randf())
     $sfx_110.play(randf())
     $sfx_220.play(randf())
     $sfx_noise_440.play(randf())
     $sfx_laugh.play(randf())
+    turn_red_on_hit = false
 
+func _process(delta: float) -> void:
+    super(delta)
+    modulate = Color(1, 1, 1, 1)
+    
 
 func _old_physics_process(delta: float) -> void:
     
@@ -95,6 +101,9 @@ func _physics_process(delta: float) -> void:
     $Sprite2D_gradient.material.set_shader_parameter(
         "fade_in_alpha", fade_in_alpha
     )
+
+func hurt(damage: int, cooldown: float):
+    super(damage, cooldown)
 
 func freeze(time_to_freeze):
     if !dead:

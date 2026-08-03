@@ -8,16 +8,20 @@ var free_after = 4.0
 var ring_on = false
 var hurt_off_after = .875
 
+var hurtbox_freed: bool = false
+
 func _ready():
     $AudioStreamPlayer2D.play()
     $Particles_Cloud.emitting = true
     
-func _process(delta):
+func _physics_process(delta):
     timer += delta
     if timer > hurt_off_after:
         #$hurtbox.set_deferred("monitoring", false)
-        if $hurtbox:
-            $hurtbox.queue_free()
+        if !hurtbox_freed:
+            if $hurtbox:
+                $hurtbox.queue_free()
+                hurtbox_freed = true
         
     if timer > free_after:
         queue_free()

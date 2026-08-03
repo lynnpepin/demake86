@@ -24,6 +24,8 @@ extends CharacterBody2D
 
 @export var base_speed_scale: float = 1.0
 
+@export var turn_red_on_hit: bool = true
+
 var frozen: bool
 var hit_sounds: Array
 var death_sounds: Array
@@ -47,16 +49,17 @@ func _process(delta: float) -> void:
             queue_free()
     
     # Handle hurt modulation
-    hurt_timer = max(0, hurt_timer - delta)
-    var _hurt_timer_color_intensity =  clamp(hurt_timer, 0.5 * int(hurt_timer > 0), 1.0)
-    # Round it to steps
-    _hurt_timer_color_intensity = floor(_hurt_timer_color_intensity * 4) / 4.0
-    var _hurt_timer_color = Color(
-        1.0,
-        1 - _hurt_timer_color_intensity,# / 2.0,
-        1 - _hurt_timer_color_intensity# / 3.0
-    )
-    $AnimatedSprite2D.modulate = _hurt_timer_color
+    if turn_red_on_hit:
+        hurt_timer = max(0, hurt_timer - delta)
+        var _hurt_timer_color_intensity =  clamp(hurt_timer, 0.5 * int(hurt_timer > 0), 1.0)
+        # Round it to steps
+        _hurt_timer_color_intensity = floor(_hurt_timer_color_intensity * 4) / 4.0
+        var _hurt_timer_color = Color(
+            1.0,
+            1 - _hurt_timer_color_intensity,# / 2.0,
+            1 - _hurt_timer_color_intensity# / 3.0
+        )
+        $AnimatedSprite2D.modulate = _hurt_timer_color
     # Handle freeze timing
     if freeze_timer > 0 and health > 0:
         freeze_timer -= delta

@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @export var HAS_ALL_ITEMS: bool = false
 @export var HAS_ENOUGH_ITEMS: bool = false
+@export var OVERRIDE_AND_SPAWN_AT_START: bool = true
 
 # tiles per second: we want 4, so, speed set to 32
 # (speed, jump_speed, high_jump_speed, gravity) = 28, 128, 160, 480
@@ -95,27 +96,30 @@ func _ready():
     set_up_energy_sprites(24)
     set_up_missile_sprites(24)
     # Now, set missiles visible by adding 4
-    add_missiles(START_MISSILES)
-    add_energy(START_ENERGY)
     $ball_sprite.play()
-    if HAS_ALL_ITEMS:
-        has_high_jump = true
-        has_morph_ball = true
-        has_morph_bomb = true
-        has_long_beam = true
-        has_wave_beam = true
-        has_ice_beam = true
-        has_varia_suit = true
-        has_screw_attack = true
-        add_missiles(24)
-        add_energy(24)
-    if HAS_ENOUGH_ITEMS:
-        has_morph_ball = true
-        has_morph_bomb = true
-        has_long_beam = true
-        add_missiles(12)
-        add_energy(6)
-    
+    if !OVERRIDE_AND_SPAWN_AT_START:
+        add_missiles(START_MISSILES)
+        add_energy(START_ENERGY)
+        if HAS_ALL_ITEMS:
+            has_high_jump = true
+            has_morph_ball = true
+            has_morph_bomb = true
+            has_long_beam = true
+            has_wave_beam = true
+            has_ice_beam = true
+            has_varia_suit = true
+            has_screw_attack = true
+            add_missiles(24)
+            add_energy(24)
+        if HAS_ENOUGH_ITEMS:
+            has_morph_ball = true
+            has_morph_bomb = true
+            has_long_beam = true
+            add_missiles(12)
+            add_energy(6)
+    else:
+        add_energy(3)
+        position = Vector2(96, 160)
     if has_varia_suit:
         regain_barrier()
     
