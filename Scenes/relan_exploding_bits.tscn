@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" uid="uid://bbxcih33nsyy" path="res://Scenes/relan_exploding_bits.gd" id="1_a6cgf"]
 [ext_resource type="Script" uid="uid://cor71xmk8pats" path="res://Scenes/explode_bit.gd" id="1_n3d3g"]
-[ext_resource type="Texture2D" uid="uid://cj6fp78ogfy0h" path="res://art/relan/parts/relan_cannon.png" id="2_mmdlm"]
-[ext_resource type="Texture2D" uid="uid://17t2h4vga73t" path="res://art/relan/parts/relan_right_leg.png" id="3_a50a1"]
-[ext_resource type="Texture2D" uid="uid://c41sp8dcfppm3" path="res://art/relan/parts/relan_left_leg.png" id="4_ykvup"]
-[ext_resource type="Texture2D" uid="uid://21eivkyp7ve3" path="res://art/relan/parts/relan_torso.png" id="5_ythue"]
-[ext_resource type="Texture2D" uid="uid://ca75low01y7lf" path="res://art/relan/parts/relan_helmet.png" id="6_yj4lg"]
+[ext_resource type="Texture2D" uid="uid://cj6fp78ogfy0h" path="res://art/relan_gore/parts/relan_cannon.png" id="2_mmdlm"]
+[ext_resource type="Texture2D" uid="uid://17t2h4vga73t" path="res://art/relan_gore/parts/relan_right_leg.png" id="3_a50a1"]
+[ext_resource type="Texture2D" uid="uid://c41sp8dcfppm3" path="res://art/relan_gore/parts/relan_left_leg.png" id="4_ykvup"]
+[ext_resource type="Texture2D" uid="uid://21eivkyp7ve3" path="res://art/relan_gore/parts/relan_torso.png" id="5_ythue"]
+[ext_resource type="Texture2D" uid="uid://ca75low01y7lf" path="res://art/relan_gore/parts/relan_helmet.png" id="6_yj4lg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mmdlm"]
-friction = 0.25
+friction = 0.88
 rough = true
-bounce = 0.5
+bounce = 0.75
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmdlm"]
 size = Vector2(7, 3)

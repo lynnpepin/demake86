@@ -43,16 +43,16 @@ func _physics_process(delta: float) -> void:
             
             if offset.y > 8 or returning:
                 # Player is above 
-                if !returning:
-                    print("RETURNING")
+                #if !returning:
+                #    print("RETURNING")
                 returning = true
                 swooping = false
                 #swoop_timer = swoop_period
                 
             elif offset.y < 0 or swooping:# and swoop_timer <= 0.0:
                 # Swooping
-                if !swooping:
-                    print("SWOOPING")
+                #if !swooping:
+                #    print("SWOOPING")
                 swooping = true
                 returning = false
                 # todo - adjust this
@@ -67,7 +67,7 @@ func _physics_process(delta: float) -> void:
                 )
                 var col = move_and_slide()
             else:
-                print("SHOULDNT be possible")
+                #print("SHOULDNT be possible")
                 pass
                 #swoop_timer = clamp(swoop_timer - delta, 0.0, swoop_period)
                 

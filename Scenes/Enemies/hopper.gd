@@ -1,15 +1,19 @@
 extends EnemyClass
 
-var PERIOD_TO_NEXT_JUMP = .75
-var JUMP_VELOCITY = 128
-var GRAVITY = 480
-var HZ_JUMP_SPEED = 40
+var PERIOD_TO_NEXT_JUMP = 1.5
+var JUMP_VELOCITY = 96
+var GRAVITY = 360
+var HZ_JUMP_SPEED = 32
 
 var timer: float = 0.0
 var grounded: bool = false
 var prev_grounded: bool
 var vv = Vector2(0,0)
 
+func _ready():
+    super()
+    timer = randf_range(0, PERIOD_TO_NEXT_JUMP)
+    
 func _physics_process(delta: float) -> void:
     super(delta)
     if !frozen:

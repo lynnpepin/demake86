@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://bung8odpkvisc" path="res://art/start_buttons/spacenoise_2.png" id="6_qmbu8"]
 [ext_resource type="Texture2D" uid="uid://dydambstfn0fv" path="res://media/title_logo_64.png" id="7_q3f0l"]
 [ext_resource type="Texture2D" uid="uid://c7x2gpjx7yyey" path="res://media/8px_plus.png" id="8_sbw6n"]
-[ext_resource type="Texture2D" uid="uid://ci8uqok4i2dmb" path="res://media/start_png.png" id="9_hyaid"]
 [ext_resource type="Texture2D" uid="uid://dh6heca117fc4" path="res://art/start_buttons/startkeys_01.png" id="10_pf8nd"]
 [ext_resource type="Texture2D" uid="uid://cwpdgbho4yql" path="res://art/start_buttons/startkeys_02.png" id="11_4dn0y"]
 [ext_resource type="Texture2D" uid="uid://cpo2hm1viyo8m" path="res://art/start_buttons/startkeys_03.png" id="12_cp6c3"]
@@ -345,7 +344,7 @@ tracks/4/path = NodePath("8PxPlus:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(14.2, 16.933332, 17.833334, 18.633333),
+"times": PackedFloat32Array(18.633333, 18.966667, 19.3, 19.766666),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
@@ -380,6 +379,15 @@ colors = PackedColorArray(1, 1, 1, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_kq2gj"]
 gradient = SubResource("Gradient_dt0so")
 fill_from = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_cp6c3"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.73333335)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vvnsp"]
+gradient = SubResource("Gradient_cp6c3")
+width = 128
+height = 12
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vvnsp"]
 animations = [{
@@ -611,8 +619,13 @@ texture = ExtResource("8_sbw6n")
 [node name="8PxPlus" type="Sprite2D" parent="." unique_id=1936873830]
 modulate = Color(0, 0, 0, 1)
 z_index = 250
-position = Vector2(35, 51)
-texture = ExtResource("9_hyaid")
+position = Vector2(30, 50)
+texture = ExtResource("8_sbw6n")
+
+[node name="Sprite2D" type="Sprite2D" parent="8PxPlus" unique_id=2013059030]
+z_index = -2
+position = Vector2(0, -1)
+texture = SubResource("GradientTexture2D_vvnsp")
 
 [node name="AnimatedSprite2D_keys" type="AnimatedSprite2D" parent="." unique_id=1218723116]
 visible = false
