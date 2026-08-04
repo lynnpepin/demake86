@@ -25,6 +25,9 @@ size = Vector2(8, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wiyco"]
 size = Vector2(8.5, 8.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kiqpr"]
+size = Vector2(6, 6)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_hlxrj"]
 animations = [{
 "frames": [{
@@ -121,6 +124,12 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area_check_beam" unique_id=1362615032 groups=["shootable_block"]]
 shape = SubResource("RectangleShape2D_wiyco")
+
+[node name="area_check_relan" type="Area2D" parent="." unique_id=1150874478 groups=["shootable_block"]]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_check_relan" unique_id=562443961 groups=["shootable_block"]]
+shape = SubResource("RectangleShape2D_kiqpr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=618568052 groups=["shootable_block"]]
 sprite_frames = SubResource("SpriteFrames_hlxrj")
@@ -221,3 +230,5 @@ high_pass_filter/cutoff_sweep = -0.011882
 
 [connection signal="area_entered" from="area_check_beam" to="." method="_on_area_check_bomb_area_entered"]
 [connection signal="body_entered" from="area_check_beam" to="." method="_on_area_check_beam_body_entered"]
+[connection signal="area_entered" from="area_check_relan" to="." method="_on_area_check_bomb_area_entered"]
+[connection signal="body_entered" from="area_check_relan" to="." method="_on_area_check_beam_body_entered"]

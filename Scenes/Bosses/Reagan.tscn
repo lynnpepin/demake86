@@ -3,9 +3,13 @@
 [ext_resource type="Script" uid="uid://ck4q84ta2nhgt" path="res://Scenes/Bosses/reagan.gd" id="1_el636"]
 [ext_resource type="Texture2D" uid="uid://pa15qd6iglfn" path="res://art/reagan/desk.png" id="1_lrorv"]
 [ext_resource type="Texture2D" uid="uid://b25fgl0e5nrao" path="res://art/reagan/reagan.png" id="2_vlbk8"]
+[ext_resource type="Shader" uid="uid://bl88x6ils78gn" path="res://outline_attempt_1.tres" id="3_uv3wq"]
 [ext_resource type="Texture2D" uid="uid://b40f76tux1cmy" path="res://art/reagan/reagan_2.png" id="4_bcmff"]
 [ext_resource type="AudioStream" uid="uid://cvv8tudy7bcdk" path="res://sfx/reagan_script/reagan_full.wav" id="5_jxe2a"]
 [ext_resource type="AudioStream" uid="uid://cvevcuydah5n0" path="res://sfx/reagan_script/reagan_hpf.wav" id="6_yirng"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h4l4o"]
+shader = ExtResource("3_uv3wq")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vvnsp"]
 animations = [{
@@ -63,6 +67,7 @@ position = Vector2(0, -6)
 texture = ExtResource("1_lrorv")
 
 [node name="Sprite2D_Reagan" type="AnimatedSprite2D" parent="." unique_id=416251503]
+material = SubResource("ShaderMaterial_h4l4o")
 position = Vector2(-1, -7.5)
 sprite_frames = SubResource("SpriteFrames_vvnsp")
 autoplay = "default"

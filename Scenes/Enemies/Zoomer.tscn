@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://be6esv11x3s5t" path="res://Classes/EnemyClass.tscn" id="1_ecr7b"]
 [ext_resource type="Script" uid="uid://dg648004gykps" path="res://Scenes/Enemies/zoomer.gd" id="2_iugum"]
 [ext_resource type="Texture2D" uid="uid://6foxen5nbb80" path="res://art/zoomer/zoomer1.png" id="2_yrbxj"]
+[ext_resource type="Shader" uid="uid://1j1lkot12sa6" path="res://outliner.gdshader" id="3_iu474"]
 [ext_resource type="Texture2D" uid="uid://de6h7tprsvjmk" path="res://art/zoomer/zoomer2.png" id="4_sscl6"]
 [ext_resource type="Texture2D" uid="uid://oqgjm72kgu78" path="res://art/zoomer/zoomer3.png" id="5_ky7hi"]
 [ext_resource type="Texture2D" uid="uid://tdacrkpridnc" path="res://art/zoomer/zoomer4.png" id="6_qiegg"]
@@ -32,6 +33,10 @@ size = Vector2(8, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrbxj"]
 size = Vector2(6, 5)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ovcoh"]
+shader = ExtResource("3_iu474")
+shader_parameter/outline_color = Color(0.13725491, 0.09019608, 0.07058824, 1)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_en01a"]
 animations = [{
 "frames": [{
@@ -47,7 +52,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_qiegg")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 4.0
 }]
@@ -82,6 +87,7 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_yrbxj")
 
 [node name="AnimatedSprite2D" parent="." index="4" unique_id=787643559]
+material = SubResource("ShaderMaterial_ovcoh")
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_en01a")
 autoplay = "default"

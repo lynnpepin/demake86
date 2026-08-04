@@ -427,14 +427,16 @@ func hurt(damage: int, cooldown: float) -> void:
             Input.start_joy_vibration(
                 0, 0.125 * damage, 0.25 * damage, .125 * damage
             )
-    if energy <= 1:
-        $Sounds/LowEnergy.volume_db = -5.0
-        $Sounds/LowEnergy.pitch_scale = 1.5
-    elif energy <= 2 and not $Sounds/LowEnergy.playing:
-        $Sounds/LowEnergy.volume_db = -10.0
-        $Sounds/LowEnergy.pitch_scale = 1.0
-        $Sounds/LowEnergy.play()
+    if energy <= 2:
         $smoke_boots.emitting = true
+    if energy <= 1:
+        #$Sounds/LowEnergy.volume_db = -10.0
+        #$Sounds/LowEnergy.pitch_scale = 1.5
+        $Sounds/LowEnergy.play()
+    #elif energy <= 2 and not $Sounds/LowEnergy.playing:
+        #$Sounds/LowEnergy.volume_db = -10.0
+        #$Sounds/LowEnergy.pitch_scale = 1.0
+        #$Sounds/LowEnergy.play()
     if energy <= 0:
         die()
 
@@ -449,7 +451,7 @@ func remove_barrier():
     $Sprite2D_barrier_feature.modulate = Color(1, 1, 1, 0)
     $Sounds/ShieldHurt.play()
     $Sounds/ShieldBeep.play(0)
-    if energy <= 2 and not $Sounds/LowEnergy.playing:
+    if energy <= 1 and not $Sounds/LowEnergy.playing:
         $Sounds/LowEnergy.play()
         $smoke_boots.emitting = true
 
@@ -504,11 +506,11 @@ func add_energy(count: int) -> void:
         energy = _set_to
 
     if energy == 1:
-        $Sounds/LowEnergy.volume_db = 0.0
-        $Sounds/LowEnergy.pitch_scale = 1.5
-    elif energy == 2:
         $Sounds/LowEnergy.volume_db = -10.0
         $Sounds/LowEnergy.pitch_scale = 1.0
+    #elif energy == 2:
+        #$Sounds/LowEnergy.volume_db = -10.0
+        #$Sounds/LowEnergy.pitch_scale = 1.0
     if energy > 2:
         $Sounds/LowEnergy.stop()
         $smoke_boots.emitting = false

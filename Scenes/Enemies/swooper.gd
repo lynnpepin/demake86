@@ -62,7 +62,7 @@ func _physics_process(delta: float) -> void:
                     swoop_speed
                 )
                 velocity = Vector2(
-                    -hspeed * last_dir, # todo hspeed
+                    -hspeed * last_dir,
                     modulated_swoop_speed
                 )
                 var col = move_and_slide()

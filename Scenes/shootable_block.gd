@@ -9,14 +9,17 @@ func _ready() -> void:
     pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+
+func _physics_process(delta: float) -> void:
     if crumbling:
         if $AnimatedSprite2D.frame >= 3:
             crumbled()
     elif recharging:
         if $AnimatedSprite2D.frame >= 11:
-            recharge()   
+            if $area_check_relan.has_overlapping_bodies():
+                $AnimatedSprite2D.frame = 10
+            else:
+                recharge()   
 
 
 #func _on_area_check_bomb_area_entered(area: Area2D) -> void:

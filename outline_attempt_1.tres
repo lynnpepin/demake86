@@ -1,0 +1,5 @@
+[gd_resource type="VisualShader" format=3 uid="uid://bl88x6ils78gn"]
+
+[resource]
+mode = 1
+flags/light_only = false

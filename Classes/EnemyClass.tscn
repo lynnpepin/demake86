@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://be6esv11x3s5t"]
 
 [ext_resource type="Script" uid="uid://c4p06xddgtn10" path="res://Classes/EnemyClass.gd" id="1_44iho"]
+[ext_resource type="Shader" uid="uid://1j1lkot12sa6" path="res://outliner.gdshader" id="2_n25o1"]
 [ext_resource type="AudioStream" uid="uid://cd0bb667p5tn1" path="res://resources/freeze.wav" id="3_e20xd"]
 [ext_resource type="AudioStream" uid="uid://l6ntav3kt51h" path="res://resources/unfreeze.wav" id="3_j2gxe"]
 [ext_resource type="PackedScene" uid="uid://b0y874xsfexd1" path="res://Classes/death_explosion.tscn" id="4_x4ypb"]
@@ -25,6 +26,10 @@ size = Vector2(8, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_el2m2"]
 size = Vector2(6, 3)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ovcoh"]
+shader = ExtResource("2_n25o1")
+shader_parameter/outline_color = Color(0.13725491, 0.09019608, 0.07058824, 1)
 
 [node name="EnemyClass" type="CharacterBody2D" unique_id=1981089262]
 collision_layer = 4
@@ -55,6 +60,7 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_el2m2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=787643559]
+material = SubResource("ShaderMaterial_ovcoh")
 offset = Vector2(0, -3)
 
 [node name="HitSounds" type="Node" parent="." unique_id=2050774207]

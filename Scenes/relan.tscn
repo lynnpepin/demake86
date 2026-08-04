@@ -1216,6 +1216,7 @@ high_pass_filter/cutoff_sweep = 0.0
 
 [node name="LowEnergy" type="AudioStreamPlayer2D" parent="Sounds" unique_id=372169707]
 stream = ExtResource("29_0whd5")
+volume_db = -10.0
 
 [node name="RelanSpawns" type="AudioStreamPlayer" parent="Sounds" unique_id=176542522]
 stream = ExtResource("31_yy1tg")
