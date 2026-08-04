@@ -2132,8 +2132,10 @@ size = Vector2(128, 64)
 script = ExtResource("1_hrvbo")
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
-position = Vector2(311, 213)
-HAS_ENOUGH_ITEMS = true
+position = Vector2(-1, 0)
+OVERRIDE_AND_SPAWN_AT_START = true
+HURT_COOLDOWN_MULTIPLIER = 1.5
+START_ENERGY = 4
 
 [node name="PointLight2D" type="PointLight2D" parent="Relan" unique_id=31498320]
 visible = false

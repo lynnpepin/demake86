@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var HAS_ALL_ITEMS: bool = false
 @export var HAS_ENOUGH_ITEMS: bool = false
 @export var OVERRIDE_AND_SPAWN_AT_START: bool = true
+@export var HURT_COOLDOWN_MULTIPLIER: float = 2.0
 
 # tiles per second: we want 4, so, speed set to 32
 # (speed, jump_speed, high_jump_speed, gravity) = 28, 128, 160, 480
@@ -416,7 +417,7 @@ func hurt(damage: int, cooldown: float) -> void:
     # todo  whether damage should take off last bit of health
     $body_sprite.modulate = Color.RED
     if hurt_timer <= 0 and damage > 0:
-        hurt_timer = cooldown
+        hurt_timer = cooldown * HURT_COOLDOWN_MULTIPLIER
         if barrier_timer >= BARRIER_RECHARGE_PERIOD:
             remove_barrier()
         else:

@@ -14,7 +14,7 @@ var opened = false
 var falling = false
 var drilling = false
 var drill_timer = 0.0
-var drill_max = 1.0
+var drill_max = 1.25
 
 var dead = false
 
