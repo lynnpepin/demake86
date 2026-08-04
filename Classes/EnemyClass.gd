@@ -40,7 +40,10 @@ func _ready() -> void:
     unfreeze()
     hit_sounds = $HitSounds.get_children()
     death_sounds = $DeathSounds.get_children()
-    
+
+func _physics_process(delta: float) -> void:
+    pass
+
 func _process(delta: float) -> void:
     # If dead, delete self after a short timer
     if death_timer < 0.0:
@@ -87,8 +90,6 @@ func _process(delta: float) -> void:
         #	floor ()
         #)
 
-func _physics_process(delta: float) -> void:
-    pass
 
 func hurt(damage: int, cooldown: float) -> void:
     if hurt_timer <= 0:

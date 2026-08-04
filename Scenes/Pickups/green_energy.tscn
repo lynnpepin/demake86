@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cwb6odrmpouh4" path="res://art/green_energy/crystal-5.png" id="6_mnasg"]
 [ext_resource type="Texture2D" uid="uid://ob06mph8p5dv" path="res://art/green_energy/crystal-6.png" id="7_cgj0x"]
 [ext_resource type="Texture2D" uid="uid://bjucs11r06x6f" path="res://art/green_energy/crystal-7.png" id="8_4anvx"]
-[ext_resource type="Script" uid="uid://crxt61p6bifb3" path="res://Scenes/Pickups/sway.gd" id="9_plkpo"]
 [ext_resource type="Texture2D" uid="uid://3qc7qa2o35lt" path="res://art/green_energy/crystal-8.png" id="10_lm51y"]
 [ext_resource type="AudioStream" uid="uid://dc1iehhkif7wk" path="res://sfx/crystal_blip_55.wav" id="11_73frh"]
 [ext_resource type="Texture2D" uid="uid://cxvd6xrv3hva1" path="res://art/green_energy/crystal-9.png" id="11_jul41"]
@@ -162,7 +161,6 @@ rotation = -1.5707964
 sprite_frames = SubResource("SpriteFrames_suhn3")
 autoplay = "default"
 frame_progress = 0.39514527
-script = ExtResource("9_plkpo")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=909977719]
 emitting = false
