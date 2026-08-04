@@ -2149,9 +2149,13 @@ limit_enabled = false
 position_smoothing_speed = 512.0
 script = ExtResource("2_ntx8l")
 SHAKABLE = true
+screenshot_interval = 0.5
 
 [node name="AudioListener2D" type="AudioListener2D" parent="CameraAnchor/Camera2D" unique_id=320238732]
 current = true
+
+[node name="ScreenshotTimer" type="Timer" parent="CameraAnchor/Camera2D" unique_id=1339057759]
+autostart = true
 
 [node name="Area2D_CameraZoneEnterer" type="Area2D" parent="CameraAnchor" unique_id=337028161]
 position = Vector2(0, 3)
@@ -4328,6 +4332,8 @@ autoplay = true
 max_distance = 512.0
 attenuation = 2.0000005
 
+[connection signal="timeout" from="CameraAnchor/Camera2D/ScreenshotTimer" to="." method="_on_screenshot_timer_timeout"]
+[connection signal="timeout" from="CameraAnchor/Camera2D/ScreenshotTimer" to="CameraAnchor/Camera2D" method="_on_screenshot_timer_timeout"]
 [connection signal="area_entered" from="Tourian/camera_zone_thatcher" to="." method="_on_camera_zone_thatcher_area_entered"]
 [connection signal="area_exited" from="Tourian/camera_zone_thatcher" to="." method="_on_camera_zone_thatcher_area_exited"]
 [connection signal="finished" from="Tourian/CeilExplode" to="Tourian/CeilExplode" method="_on_finished"]

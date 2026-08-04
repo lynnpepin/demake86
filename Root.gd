@@ -6,6 +6,7 @@ var PlanetSplode = preload("res://Scenes/Screens/PlanetSplode.tscn")
 var also_tracking_position: Vector2
 var also_tracking_thatcher: bool = false
 
+
 func _ready() -> void:
     Global.game_timer = 0.0
 
@@ -73,4 +74,8 @@ func _on_camera_zone_thatcher_area_entered(area: Area2D) -> void:
 func _on_camera_zone_thatcher_area_exited(area: Area2D) -> void:
     also_tracking_thatcher = false
     reset_shake()
+    pass # Replace with function body.
+
+
+func _on_screenshot_timer_timeout() -> void:
     pass # Replace with function body.

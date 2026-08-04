@@ -20,8 +20,13 @@ var DDs: Array[float]   = [12.0, 12.0, 12.0]
 var shaking_timer = 0.0
 var shaking_timer_max = 12.0
 
+@export var screenshot_interval: float = 1.0
+var screenshot_index: int = 0
+
 func _ready():
-    pass
+    if screenshot_interval > 0:
+        if $ScreenshotTimer:
+            $ScreenshotTimer.start(screenshot_interval)
 
 func _physics_process(delta):
     if SHAKABLE:
@@ -88,3 +93,18 @@ func reset_shake():
     for ii in [0, 1, 2]:
         AAs[ii] = Vector2(0,0)
         VVs[ii] = Vector2(0,0)
+
+
+func take_screenshot(scrshit_idx = 0):
+    if screenshot_interval > 0:
+        var screenshot = get_viewport().get_texture().get_image()
+        screenshot.save_png("./screenshots/screenshot_%04d.png" % scrshit_idx)
+        print("Saving screenshot!")
+        if $ScreenshotTimer:
+            $ScreenshotTimer.start(screenshot_interval)
+        screenshot_index += 1
+    
+
+
+func _on_screenshot_timer_timeout() -> void:
+    take_screenshot(screenshot_index)
