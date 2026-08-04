@@ -16,7 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://dqd5xqvjmcgj" path="res://sfx/Tour/thatcher_hurt_4.wav" id="16_uylq2"]
 [ext_resource type="AudioStream" uid="uid://caxoe0yn7glg4" path="res://sfx/Tour/thatcher_hurt_3.wav" id="17_5ojab"]
 [ext_resource type="AudioStream" uid="uid://ch7wkt0mpslqm" path="res://sfx/Tour/thatcher_hurt_desparate.wav" id="17_gpj5r"]
-[ext_resource type="AudioStream" uid="uid://jnhwkb1nk7gw" path="res://sfx/Tour/thatcher_defeat.wav" id="20_5ojab"]
+[ext_resource type="AudioStream" uid="uid://l45uxpjlos0e" path="res://sfx/Tour/thatchers_demise.wav" id="20_n8ru2"]
 [ext_resource type="AudioStream" uid="uid://nwb1ux0rp18o" path="res://sfx/Tour/thatcher_crack_glass.wav" id="21_v30j4"]
 [ext_resource type="AudioStream" uid="uid://cjtkvcjdyv25j" path="res://sfx/Tour/thatcher_break_glass.wav" id="22_adclb"]
 [ext_resource type="PackedScene" uid="uid://bu67q6bmjtnm" path="res://Scenes/thatcher_exploding_bits.tscn" id="23_adclb"]
@@ -40,7 +40,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_rsde2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"dead",
 "speed": 5.0
 }, {
@@ -48,7 +48,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_4bdd7")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 12.0
 }, {
@@ -56,7 +56,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_6w4db")
 }],
-"loop": true,
+"loop": 1,
 "name": &"hurt_1",
 "speed": 5.0
 }, {
@@ -64,7 +64,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_iji4g")
 }],
-"loop": true,
+"loop": 1,
 "name": &"hurt_2",
 "speed": 5.0
 }, {
@@ -72,7 +72,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_t85qh")
 }],
-"loop": true,
+"loop": 1,
 "name": &"hurt_3",
 "speed": 5.0
 }]
@@ -83,7 +83,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_umhy2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"cracked",
 "speed": 5.0
 }, {
@@ -91,7 +91,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_4bdd7")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -99,7 +99,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_a1pjv")
 }],
-"loop": true,
+"loop": 1,
 "name": &"destroyed",
 "speed": 5.0
 }, {
@@ -107,7 +107,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_kk7qf")
 }],
-"loop": true,
+"loop": 1,
 "name": &"shattered",
 "speed": 5.0
 }]
@@ -309,7 +309,7 @@ stream = ExtResource("16_uylq2")
 stream = ExtResource("17_gpj5r")
 
 [node name="Kill" type="AudioStreamPlayer2D" parent="Sfx" unique_id=86795661]
-stream = ExtResource("20_5ojab")
+stream = ExtResource("20_n8ru2")
 
 [node name="Crack" type="AudioStreamPlayer2D" parent="Sfx" unique_id=1357066349]
 stream = ExtResource("21_v30j4")
