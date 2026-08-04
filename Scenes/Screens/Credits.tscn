@@ -11,11 +11,11 @@
 [ext_resource type="AudioStream" uid="uid://cdq7marm28yph" path="res://sfx/lazer.wav" id="9_sbp4b"]
 [ext_resource type="Script" uid="uid://dqn3ricb3mpuc" path="res://Scenes/line_2d_spawns_asteroids.gd" id="10_wtfyg"]
 [ext_resource type="PackedScene" uid="uid://ck60iyt1ygvwn" path="res://Scenes/asteroid.tscn" id="11_k7ahj"]
-[ext_resource type="Texture2D" uid="uid://cbino0hm4cjs0" path="res://art/credits/credit_art_01.png" id="12_w1xyk"]
-[ext_resource type="Texture2D" uid="uid://bjq32cmlfitrg" path="res://art/credits/credit_art_02.png" id="13_ubv0p"]
-[ext_resource type="Texture2D" uid="uid://c2ge6th31fcsl" path="res://art/credits/credit_art_03.png" id="14_l3jum"]
-[ext_resource type="Texture2D" uid="uid://c0vpp7mfcd3bw" path="res://art/credits/credit_art_04.png" id="15_cu4ug"]
-[ext_resource type="Texture2D" uid="uid://cx15vkcg8ho6l" path="res://art/credits/credit_art_05.png" id="16_w7lpo"]
+[ext_resource type="Texture2D" uid="uid://b8vuki5253uwj" path="res://art/credits/CREDITS_486.png" id="12_w1xyk"]
+[ext_resource type="Texture2D" uid="uid://b50k0e1fruci5" path="res://art/credits/CREDITS_386.png" id="13_ubv0p"]
+[ext_resource type="Texture2D" uid="uid://bpxwg2rhcs4ca" path="res://art/credits/CREDITS_286.png" id="14_l3jum"]
+[ext_resource type="Texture2D" uid="uid://c5d4vsla7520d" path="res://art/credits/CREDITS_186.png" id="15_cu4ug"]
+[ext_resource type="Texture2D" uid="uid://byyg7k7uuwii0" path="res://art/credits/CREDITS_086.png" id="16_w7lpo"]
 
 [sub_resource type="Gradient" id="Gradient_sb781"]
 offsets = PackedFloat32Array(0.18355066, 0.19458374, 0.36308926, 0.3911735, 0.888666, 1)
@@ -245,7 +245,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_ubv0p"]
 resource_name = "ending_art"
-length = 8.5
+length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -265,7 +265,7 @@ tracks/1/path = NodePath("EndingSprites:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(2, 8),
+"times": PackedFloat32Array(3, 9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 128)]
@@ -520,27 +520,27 @@ texture = SubResource("GradientTexture2D_vvnsp")
 
 [node name="EndingSprites" type="Node2D" parent="." unique_id=969484414]
 
-[node name="CreditArt01" type="Sprite2D" parent="EndingSprites" unique_id=15988962]
+[node name="CreditArt486" type="Sprite2D" parent="EndingSprites" unique_id=15988962]
 visible = false
 position = Vector2(32, -32)
 texture = ExtResource("12_w1xyk")
 
-[node name="CreditArt02" type="Sprite2D" parent="EndingSprites" unique_id=465884938]
+[node name="CreditArt386" type="Sprite2D" parent="EndingSprites" unique_id=465884938]
 visible = false
 position = Vector2(32, -32)
 texture = ExtResource("13_ubv0p")
 
-[node name="CreditArt03" type="Sprite2D" parent="EndingSprites" unique_id=147426642]
+[node name="CreditArt286" type="Sprite2D" parent="EndingSprites" unique_id=147426642]
 visible = false
 position = Vector2(32, -32)
 texture = ExtResource("14_l3jum")
 
-[node name="CreditArt04" type="Sprite2D" parent="EndingSprites" unique_id=358498762]
+[node name="CreditArt186" type="Sprite2D" parent="EndingSprites" unique_id=358498762]
 visible = false
 position = Vector2(32, -32)
 texture = ExtResource("15_cu4ug")
 
-[node name="CreditArt05" type="Sprite2D" parent="EndingSprites" unique_id=494534387]
+[node name="CreditArt086" type="Sprite2D" parent="EndingSprites" unique_id=494534387]
 visible = false
 position = Vector2(32, -32)
 texture = ExtResource("16_w7lpo")

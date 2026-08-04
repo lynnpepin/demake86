@@ -2,14 +2,36 @@ extends Node2D
 
 # note: 12 char max, 5 line max
 
-@export var disappear_after_time: float = 12.0
-@export var time_per_char: float = 1.0/16.0
+@export var disappear_after_time: float = 10.0
+@export var time_per_char: float = 1.0/24.0
 
 var credit_slides = [
+"""IN DEFEATING
+THE BARONESS
+YOU HAVE
+FULFILLED
+YOUR MISSION
+AND
+YOUR DESTINY.
+""",
+
+"""BUT
+
+THE SETONA
+ARE AWAKE.
+
+PRAY FOR
+A TRUE PEACE
+IN SPACE!
+""",
+
+"""CREDITS
+""",
+
 """ A GAME BY
 
-OPOSSUM
-CARRION
+  OPOSSUM
+  CARRION
 
 IN HOMAGE TO
 METROID 1986
@@ -69,16 +91,15 @@ RAE WHITELEY
 """,
 
 """THANK YOU
-TO MY
-BELOVED
+TO BELOVED
 PLAYTESTERS:
     
 RUBY
+JAE GAERY
 PLAYTESTER 0
-PLAYTESTER 1
 """,
 
-"""PLAYTESTERS 
+"""PLAYTESTER 1
 PLAYTESTER 2
 PLAYTESTER 3
 PLAYTESTER 4
@@ -95,7 +116,7 @@ THANKS TO
     YOU!!
 
 FOR PLAYING
-THE
+THE . . .
 """,
 
 """LEGALLY-
@@ -127,7 +148,9 @@ SET  ON  A
 func _ready() -> void:
     $Typer.time_per_char = time_per_char
     $Typer.disappear_after_time = disappear_after_time
-    $Typer.start("CREDITS", .25, 7)
+    $Typer.start("""MISSION
+ACCOMPLISHED
+""", .25, 7)
     $Timer.start(2.0)
 
 
@@ -148,6 +171,7 @@ SECONDS
 
 DEATHS:
 %s
+
 """ %  [str(snapped(Global.game_timer, 0.1)), str(Global.deaths)]
 )
     # After the last slide
@@ -177,15 +201,15 @@ func ending_fade_into_art():
     $CPUParticles2D.emitting = false
     # make the right one visible
     if Global.game_timer <= 86.0:
-        $EndingSprites/CreditArt05.visible = true
-    if Global.game_timer <= 186.0:
-        $EndingSprites/CreditArt04.visible = true
-    if Global.game_timer <= 286.0:
-        $EndingSprites/CreditArt03.visible = true
-    if Global.game_timer <= 386.0:
-        $EndingSprites/CreditArt02.visible = true
+        $EndingSprites/CreditArt086.visible = true
+    elif Global.game_timer <= 186.0:
+        $EndingSprites/CreditArt386.visible = true
+    elif Global.game_timer <= 286.0:
+        $EndingSprites/CreditArt286.visible = true
+    elif Global.game_timer <= 386.0:
+        $EndingSprites/CreditArt386.visible = true
     else:
-        $EndingSprites/CreditArt01.visible = true
+        $EndingSprites/CreditArt486.visible = true
 
 #JAE GEARY,
 #VEEV METROID
