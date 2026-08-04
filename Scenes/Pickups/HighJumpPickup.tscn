@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dvmfspjjw6lrx" path="res://Classes/PickupClass.tscn" id="1_tdr4b"]
 [ext_resource type="Script" uid="uid://dml7rckk1vg8b" path="res://Scenes/Pickups/high_jump_pickup.gd" id="2_u7ihm"]
 [ext_resource type="Script" uid="uid://b5vwhcikrrgl6" path="res://Scripts/MorphBallPickup_Node3D.gd" id="3_2hw6j"]
+[ext_resource type="Shader" uid="uid://1j1lkot12sa6" path="res://outliner.gdshader" id="4_eukcg"]
 [ext_resource type="Texture2D" uid="uid://c1p5tjvn3j5xd" path="res://art/bbwings-0.png" id="4_ighal"]
 [ext_resource type="Texture2D" uid="uid://ba8ieie5woboa" path="res://art/bbwings-1.png" id="5_eukcg"]
 [ext_resource type="Texture2D" uid="uid://cuiwxwhrl6hs6" path="res://art/bbwings-2.png" id="6_el417"]
@@ -38,6 +39,10 @@ shading_mode = 0
 albedo_texture = SubResource("GradientTexture2D_aapjt")
 texture_filter = 0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_el417"]
+shader = ExtResource("4_eukcg")
+shader_parameter/outline_color = Color(0.20392157, 0.20392157, 0.20392157, 1)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_di2gy"]
 animations = [{
 "frames": [{
@@ -65,7 +70,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("11_ka6r6")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 8.0
 }]
@@ -92,6 +97,7 @@ mesh = SubResource("SphereMesh_pkrex")
 surface_material_override/0 = SubResource("StandardMaterial3D_4lcw1")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=1293779693]
+material = SubResource("ShaderMaterial_el417")
 sprite_frames = SubResource("SpriteFrames_di2gy")
 autoplay = "default"
 frame_progress = 0.8707173

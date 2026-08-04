@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dma57rxdnhurj" path="res://Scenes/Pickups/varia_pickup.gd" id="2_fpn7i"]
 [ext_resource type="Material" uid="uid://dv8d5yba83yn3" path="res://Scenes/Pickups/VariaPickup.tres" id="4_l7hfb"]
 [ext_resource type="Script" uid="uid://b1r8rb4obokxl" path="res://Scenes/Pickups/node_3d.gd" id="4_vwnhu"]
+[ext_resource type="Shader" uid="uid://1j1lkot12sa6" path="res://outliner.gdshader" id="5_kgpno"]
 
 [sub_resource type="Environment" id="Environment_bimby"]
 background_mode = 1
@@ -34,6 +35,10 @@ outer_radius = 0.5
 material = ExtResource("4_l7hfb")
 radius = 0.25
 height = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_janvd"]
+shader = ExtResource("5_kgpno")
+shader_parameter/outline_color = Color(0.12941177, 0.08627451, 0.2509804, 1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dw4dy"]
 viewport_path = NodePath("SubViewport")
@@ -75,4 +80,5 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 mesh = SubResource("SphereMesh_stawq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="2" unique_id=1446446156]
+material = SubResource("ShaderMaterial_janvd")
 texture = SubResource("ViewportTexture_dw4dy")

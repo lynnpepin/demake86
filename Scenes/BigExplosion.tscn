@@ -216,6 +216,7 @@ collision_mask = 4
 shape = SubResource("CircleShape2D_0xwx4")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=731435574]
+emitting = false
 amount = 1024
 texture = SubResource("GradientTexture2D_rdgl3")
 lifetime = 2.0

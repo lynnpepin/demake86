@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cad45gseqkmvr" path="res://Scenes/Pickups/long_beam_pickup.gd" id="2_33hfu"]
 [ext_resource type="Script" uid="uid://b5vwhcikrrgl6" path="res://Scripts/MorphBallPickup_Node3D.gd" id="3_gq4o8"]
 [ext_resource type="Texture2D" uid="uid://bkoo21yqg2ori" path="res://art/bomb_pickup_sprite/beam_pick_long-0.png" id="4_3jpjh"]
+[ext_resource type="Shader" uid="uid://1j1lkot12sa6" path="res://outliner.gdshader" id="4_e70xg"]
 [ext_resource type="Texture2D" uid="uid://i0hj173mf6l4" path="res://art/bomb_pickup_sprite/beam_pick_long-1.png" id="5_e70xg"]
 [ext_resource type="Texture2D" uid="uid://dwo6srfc8qjkf" path="res://art/bomb_pickup_sprite/beam_pick_long-2.png" id="6_bbol5"]
 [ext_resource type="Texture2D" uid="uid://drq06eaq6bwoq" path="res://art/bomb_pickup_sprite/beam_pick_long-3.png" id="7_73jrh"]
@@ -35,6 +36,10 @@ shading_mode = 0
 albedo_texture = SubResource("GradientTexture2D_aapjt")
 texture_filter = 0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bbol5"]
+shader = ExtResource("4_e70xg")
+shader_parameter/outline_color = Color(0.30980393, 0.08235294, 0.02745098, 1)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_dshy1"]
 animations = [{
 "frames": [{
@@ -53,7 +58,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_brb3f")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 6.0
 }]
@@ -97,5 +102,6 @@ visible = false
 light_color = Color(0.996078, 0.792157, 0.933333, 1)
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=906005604]
+material = SubResource("ShaderMaterial_bbol5")
 sprite_frames = SubResource("SpriteFrames_dshy1")
 autoplay = "default"

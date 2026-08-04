@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dvmfspjjw6lrx" path="res://Classes/PickupClass.tscn" id="1_bemnw"]
 [ext_resource type="Script" uid="uid://dlqjigeqpu5vs" path="res://Scenes/Pickups/ice_beam_pickup.gd" id="2_nffby"]
 [ext_resource type="Script" uid="uid://b5vwhcikrrgl6" path="res://Scripts/MorphBallPickup_Node3D.gd" id="3_iiw0s"]
+[ext_resource type="Shader" uid="uid://1j1lkot12sa6" path="res://outliner.gdshader" id="4_2q13s"]
 [ext_resource type="Texture2D" uid="uid://b850mlnnpma01" path="res://art/bomb_pickup_sprite/beam_pick_ice-0.png" id="4_12amm"]
 [ext_resource type="Texture2D" uid="uid://3cn1ubfl1m65" path="res://art/bomb_pickup_sprite/beam_pick_ice-1.png" id="5_2q13s"]
 [ext_resource type="Texture2D" uid="uid://dbmd4eruk675o" path="res://art/bomb_pickup_sprite/beam_pick_ice-2.png" id="6_u53mh"]
@@ -40,6 +41,10 @@ shading_mode = 0
 albedo_texture = SubResource("GradientTexture2D_aapjt")
 texture_filter = 0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u53mh"]
+shader = ExtResource("4_2q13s")
+shader_parameter/outline_color = Color(0.20392157, 0.20392157, 0.20392157, 1)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_bt1si"]
 animations = [{
 "frames": [{
@@ -73,7 +78,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_ux7q3")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 6.0
 }]
@@ -116,5 +121,6 @@ visible = false
 light_color = Color(0.996078, 0.792157, 0.933333, 1)
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=99942127]
+material = SubResource("ShaderMaterial_u53mh")
 sprite_frames = SubResource("SpriteFrames_bt1si")
 autoplay = "default"

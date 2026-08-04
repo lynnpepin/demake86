@@ -35,7 +35,7 @@ size = Vector2(6, 5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ovcoh"]
 shader = ExtResource("3_iu474")
-shader_parameter/outline_color = Color(0.13725491, 0.09019608, 0.07058824, 1)
+shader_parameter/outline_color = Color(0.30980393, 0.08235294, 0.02745098, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_en01a"]
 animations = [{

@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://oeqnwixh6b5m" path="res://art/relan_gore/relan_ball_1.png" id="9_1nb6e"]
 [ext_resource type="Texture2D" uid="uid://b6ckyjdjddifx" path="res://art/relan_gore/relan_right.png" id="9_8n4ka"]
 [ext_resource type="Texture2D" uid="uid://bqjbrci3cvg3g" path="res://art/relan_gore/relan_run_3.png" id="10_ao4rs"]
+[ext_resource type="Shader" uid="uid://1j1lkot12sa6" path="res://outliner.gdshader" id="10_k2m0s"]
 [ext_resource type="Texture2D" uid="uid://1b2vcwepc1pc" path="res://art/relan_gore/relan_ball_2.png" id="10_vxkgn"]
 [ext_resource type="Texture2D" uid="uid://cldkfri6u7fd6" path="res://art/relan_gore/relan_ball_3.png" id="11_hdqrt"]
 [ext_resource type="Texture2D" uid="uid://b4j3y2tq4rsct" path="res://art/relan_gore/relan_run_4.png" id="11_po0yc"]
@@ -126,6 +127,10 @@ interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.18254764, 0.41624874, 0.64493483, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 0.9098039, 0.21960784, 1, 0.9647059, 0.56078434, 0.21568628, 0.5019608, 0.8784314, 0.23529412, 0.15686275, 0.2509804, 1, 1, 1, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k2m0s"]
+shader = ExtResource("10_k2m0s")
+shader_parameter/outline_color = Color(0, 0, 0, 0.1254902)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_1gacd"]
 animations = [{
 "frames": [{
@@ -177,6 +182,10 @@ animations = [{
 "name": &"run",
 "speed": 12.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_157wm"]
+shader = ExtResource("10_k2m0s")
+shader_parameter/outline_color = Color(0, 0, 0, 0.1254902)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3dp7j"]
 animations = [{
@@ -711,11 +720,13 @@ color_ramp = SubResource("Gradient_0whd5")
 
 [node name="body_sprite" type="AnimatedSprite2D" parent="." unique_id=1263854999]
 z_index = 10
+material = SubResource("ShaderMaterial_k2m0s")
 sprite_frames = SubResource("SpriteFrames_1gacd")
 
 [node name="ball_sprite" type="AnimatedSprite2D" parent="." unique_id=697340464]
 visible = false
 z_index = 10
+material = SubResource("ShaderMaterial_157wm")
 position = Vector2(0, 6)
 sprite_frames = SubResource("SpriteFrames_3dp7j")
 animation = &"s"

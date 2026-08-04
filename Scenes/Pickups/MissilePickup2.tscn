@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://upu1kcsqk88p" path="res://Scenes/Old/node_3d_missile.gd" id="2_56lp4"]
 [ext_resource type="Material" uid="uid://b7fnbkras7k2x" path="res://resources/missile_pickup_material.tres" id="3_knuo8"]
 [ext_resource type="Material" uid="uid://475c4ayib2vg" path="res://resources/material_white_unshaded.tres" id="4_4y18q"]
+[ext_resource type="Shader" uid="uid://1j1lkot12sa6" path="res://outliner.gdshader" id="5_isiy2"]
 [ext_resource type="Texture2D" uid="uid://ggdrgmeycwx3" path="res://art/angel_1_sm.png" id="5_jkcxc"]
 [ext_resource type="Texture2D" uid="uid://bddf2qqcsnque" path="res://art/angel_2_sm.png" id="6_4sveb"]
 [ext_resource type="Script" uid="uid://d3k1lm08vqis3" path="res://Scenes/angel.gd" id="7_isiy2"]
@@ -41,6 +42,10 @@ size = Vector3(1, 0.125, 0.125)
 [sub_resource type="BoxMesh" id="BoxMesh_t0r2o"]
 material = ExtResource("4_4y18q")
 size = Vector3(1, 0.125, 0.125)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kkyuo"]
+shader = ExtResource("5_isiy2")
+shader_parameter/outline_color = Color(0.20392157, 0.20392157, 0.20392157, 1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_o4707"]
 viewport_path = NodePath("SubViewport_missile")
@@ -143,6 +148,7 @@ size = 2.0
 far = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=697555533]
+material = SubResource("ShaderMaterial_kkyuo")
 texture = SubResource("ViewportTexture_o4707")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=798545916]

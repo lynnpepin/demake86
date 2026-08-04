@@ -6,17 +6,17 @@ shader_type canvas_item;
 // https://docs.godotengine.org/en/stable/tutorials/shaders/shader_reference/canvas_item_shader.html
 
 /*
-// identity
-
-void fragment () {
-    COLOR = texture(TEXTURE, UV);
-}
+// identity: fragment () { COLOR = texture(TEXTURE, UV); }
+// identity: do nothing; "COLOR" iclundes modulation
 */
 
 // todo: source_color? hint_color? hint_albedo?
 //uniform vec4 outline_color : source_color = vec4(35.0/255.0, 23.0/255.0, 18.0/255.0, 1.0);
 uniform vec4 outline_color : source_color = vec4(
-    0.13725490196078433, 0.09019607843137255, 0.07058823529411765, 
+    // famicube 32
+    //0.13725490196078433, 0.09019607843137255, 0.07058823529411765, 
+    // famicube 26
+    0.30980392156862746, 0.08235294117647059, 0.027450980392156862,
     1.0);
 
 // tldr:
@@ -27,7 +27,7 @@ uniform vec4 outline_color : source_color = vec4(
 
 void fragment () {
     // "texture" is a method
-    vec4 starting_sprite = texture(TEXTURE, UV);
+    vec4 starting_sprite = COLOR;//texture(TEXTURE, UV);
     
     // 1px width converted to texture space
     vec2 px_unit = 1.0 / vec2(textureSize(TEXTURE, 0));

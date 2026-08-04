@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dvmfspjjw6lrx" path="res://Classes/PickupClass.tscn" id="1_yu8wb"]
 [ext_resource type="Script" uid="uid://ca2i20g4emrlj" path="res://Scenes/Pickups/morph_ball_pickup_2.gd" id="2_h335q"]
 [ext_resource type="Script" uid="uid://b5vwhcikrrgl6" path="res://Scripts/MorphBallPickup_Node3D.gd" id="3_j6iop"]
+[ext_resource type="Texture2D" uid="uid://b0jdqp0g4wf4v" path="res://art/8x8circle.png" id="4_fgdt3"]
 
 [sub_resource type="Environment" id="Environment_bimby"]
 background_mode = 1
@@ -37,6 +38,9 @@ viewport_path = NodePath("SubViewport")
 script = ExtResource("2_h335q")
 pickup_name = "morphball"
 pickup_message = "TUCK BALL\\nACQUIRED"
+
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(2097026324) index="0" unique_id=126294669]
+visible = false
 
 [node name="SubViewport" type="SubViewport" parent="." index="1" unique_id=1919137759]
 transparent_bg = true
@@ -73,3 +77,8 @@ light_color = Color(0.996078, 0.792157, 0.933333, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="2" unique_id=412492138]
 texture = SubResource("ViewportTexture_jgd5b")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" index="0" unique_id=647790238]
+modulate = Color(0.6784314, 0.30588236, 0.101960786, 1)
+z_index = -10
+texture = ExtResource("4_fgdt3")
