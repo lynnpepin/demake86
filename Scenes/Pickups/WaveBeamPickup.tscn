@@ -38,7 +38,7 @@ texture_filter = 0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iu636"]
 shader = ExtResource("4_sj08j")
-shader_parameter/outline_color = Color(0.6392157, 0.15686275, 0.7019608, 1)
+shader_parameter/outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ry6lb"]
 animations = [{

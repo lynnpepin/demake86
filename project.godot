@@ -334,6 +334,7 @@ pad_rs={
 [physics]
 
 common/max_physics_steps_per_frame=12
+common/physics_interpolation=true
 
 [rendering]
 
