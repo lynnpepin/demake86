@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://csntnfmqsxv20" path="res://art/SETONA_2/SETONA_30_red.png" id="8_2tbkp"]
 [ext_resource type="Texture2D" uid="uid://bp1is6pfr4ywq" path="res://resources/GradientTexture2D_White36px.tres" id="8_cqgfd"]
 [ext_resource type="Shader" uid="uid://bqf1f87mlllnt" path="res://Scenes/Enemies/SETONA_gradient.tres" id="8_yrj2r"]
-[ext_resource type="Texture2D" uid="uid://tv16qrquicha" path="res://art/SETONA_2/SETONA_31_red.png" id="9_ji28m"]
+[ext_resource type="Texture2D" uid="uid://l3vtb1cq5cul" path="res://art/SETONA_2/SETONA_31_red.png" id="9_ji28m"]
 [ext_resource type="Script" uid="uid://nkhdraadwf8q" path="res://Scenes/Enemies/setona_gradient.gd" id="9_yrj2r"]
 [ext_resource type="Texture2D" uid="uid://b5nvta0qmg0me" path="res://art/SETONA_2/SETONA_32_red.png" id="10_533ep"]
 [ext_resource type="Texture2D" uid="uid://ba6der0u0c4i7" path="res://art/SETONA_2/SETONA_33_red.png" id="11_mbn3b"]
@@ -205,8 +205,8 @@ panning_strength = 6.0
 [node name="sfx_laugh" type="AudioStreamPlayer2D" parent="." index="16" unique_id=442843952]
 stream = ExtResource("20_2tbkp")
 autoplay = true
-max_distance = 48.0
-attenuation = 2.0000005
+max_distance = 96.0
+attenuation = 3.4822042
 panning_strength = 6.0
 
 [node name="MissileHitbox" type="Area2D" parent="." index="17" unique_id=46756014 groups=["enemies"]]
