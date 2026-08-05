@@ -26,6 +26,10 @@ colors = PackedColorArray(0, 0, 0, 0, 0.823529, 0.313726, 0.176471, 1, 0, 0, 0, 
 offsets = PackedFloat32Array(0, 0.03911735, 0.24774323, 0.34804413, 0.50852555, 0.8655968, 0.889669)
 colors = PackedColorArray(1, 0.73333335, 0.19215687, 1, 0.99607843, 0.7882353, 0.92941177, 1, 0.6355743, 0.6389356, 0.9366947, 1, 0.60784316, 0.627451, 0.9372549, 1, 0.98672706, 0.9873907, 0.99787635, 1, 1, 1, 1, 1, 1, 0.7850746, 0.34890246, 1)
 
+[sub_resource type="Gradient" id="Gradient_vkgpc"]
+offsets = PackedFloat32Array(0.1417647, 0.49147445, 0.65195584, 0.75225675, 1)
+colors = PackedColorArray(0, 0.3764706, 0.29411766, 1, 0.41568628, 0.7058824, 0.09019608, 1, 0.54901963, 0.8392157, 0.07058824, 1, 0.74509805, 0.92156863, 0.44313726, 1, 0.93333334, 1, 0.6627451, 1)
+
 [sub_resource type="Animation" id="Animation_xwnlb"]
 length = 4.9333334
 tracks/0/type = "value"
@@ -323,6 +327,63 @@ tangential_accel_max = -96.0
 angle_max = 45.0
 scale_amount_max = 2.0
 color_ramp = SubResource("Gradient_es06x")
+
+[node name="OpossumEscape1" type="CPUParticles2D" parent="Meteoroid" unique_id=1133116652]
+position = Vector2(3, -10)
+emitting = false
+amount = 120
+lifetime = 0.75
+one_shot = true
+explosiveness = 0.25
+lifetime_randomness = 0.5
+direction = Vector2(4, -2)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 48.0
+initial_velocity_max = 48.0
+tangential_accel_min = -96.0
+tangential_accel_max = -96.0
+angle_max = 45.0
+scale_amount_min = 0.5
+color_ramp = SubResource("Gradient_vkgpc")
+
+[node name="OpossumEscape2" type="CPUParticles2D" parent="Meteoroid" unique_id=809775905]
+position = Vector2(6, 9)
+emitting = false
+amount = 120
+lifetime = 0.75
+one_shot = true
+explosiveness = 0.25
+lifetime_randomness = 0.5
+direction = Vector2(2, 2)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 48.0
+initial_velocity_max = 48.0
+tangential_accel_min = -96.0
+tangential_accel_max = -96.0
+angle_max = 45.0
+scale_amount_min = 0.5
+color_ramp = SubResource("Gradient_vkgpc")
+
+[node name="OpossumEscape3" type="CPUParticles2D" parent="Meteoroid" unique_id=1002707369]
+position = Vector2(-9, -2)
+emitting = false
+amount = 120
+lifetime = 0.75
+one_shot = true
+explosiveness = 0.25
+lifetime_randomness = 0.5
+direction = Vector2(-2, 3)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 48.0
+initial_velocity_max = 48.0
+tangential_accel_min = -96.0
+tangential_accel_max = -96.0
+angle_max = 45.0
+scale_amount_min = 0.5
+color_ramp = SubResource("Gradient_vkgpc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1071849287]
 libraries/ = SubResource("AnimationLibrary_es06x")

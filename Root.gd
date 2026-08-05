@@ -7,6 +7,7 @@ var also_tracking_position: Vector2
 var also_tracking_thatcher: bool = false
 var also_tracking_reagan: bool = false
 
+var opossums_saved: int = 0
 
 func _ready() -> void:
     Global.game_timer = 0.0
@@ -32,6 +33,7 @@ func planet_splode(
     #var b = BeamShot.instantiate()
     #b.ice = owner.has_ice_beam
     planetsplode.relan_escape = relan_escape
+    planetsplode.opossums_saved = opossums_saved
     get_tree().change_scene_to_node(planetsplode)
 
 func _physics_process(delta: float) -> void:

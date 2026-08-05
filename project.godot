@@ -15,13 +15,16 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Demake86"
+config/description="DEMAKE86 by OPOSSUMCARRION, or, the \"Legally Distinct Action Adventure Platforming Game set on a METEOROID\"
+
+For more information: https://carrion.0xpossum.dev/demake86/"
 run/main_scene="uid://cwrpkxmkuihc5"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 run/max_fps=300
 run/low_processor_mode=true
 boot_splash/use_filter=false
-boot_splash/image="uid://be203kj2wgiem"
-config/icon="uid://o8b81b2l7e0u"
+boot_splash/image="uid://o8b81b2l7e0u"
+config/icon="uid://s0l5o516qrbq"
 
 [autoload]
 
