@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var player: Node2D
 @export var connected_grave: Node2D
 @export var root: Node2D
 
@@ -24,6 +25,9 @@ func _on_bell_toll_timer_timeout() -> void:
     tolls += 1
     if tolls < 6:
         $Timer.start(3.0)
+    elif tolls >= 6:
+        if player:
+            player.show_message("Kemp\ndefeated.")
     if connected_grave:
         connected_grave.activate()
     if root:
