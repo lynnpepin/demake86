@@ -23,6 +23,10 @@ var shaking_timer_max = 12.0
 @export var screenshot_interval: float = 1.0
 var screenshot_index: int = 0
 
+# quick hack; shaking is less juicy after moving to 60 physics fps
+# so i need to make it shake more
+@export var SHAKE_MORE: float = 4.0
+
 func _ready():
     if screenshot_interval > 0:
         if $ScreenshotTimer:
@@ -56,8 +60,8 @@ func _physics_process(delta):
 
 func vshake(strength: float, KK=8.0, DD=16.0):
     if SHAKABLE:
-        position.y = strength
-        AAs[0].y = strength
+        position.y = strength * SHAKE_MORE
+        AAs[0].y = strength * SHAKE_MORE
         VVs[0] = Vector2(0,0)
         KKs[0] = KK
         DDs[0] = DD
@@ -76,13 +80,13 @@ func set_shake(
 ) -> void:
     if SHAKABLE:
         # Simple set shake: Set two concurrent oscillators
-        position = strength
-        AAs[0] = strength
+        position = strength * SHAKE_MORE
+        AAs[0] = strength * SHAKE_MORE
         VVs[0] = Vector2(0,0)
         KKs[0] = KK[0]
         DDs[0] = DD[0]
         AAs[1] = Vector2(0,0)
-        VVs[1] = -strength.rotated(PI)/2.0
+        VVs[1] = -strength.rotated(PI) * SHAKE_MORE     /2.0
         KKs[1] = KK[1]
         DDs[1] = DD[1]
         

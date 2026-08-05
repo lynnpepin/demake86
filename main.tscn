@@ -83,6 +83,8 @@
 [ext_resource type="AudioStream" uid="uid://wggmfjnwfcuj" path="res://sfx/noise_440.wav" id="79_ovcoh"]
 [ext_resource type="AudioStream" uid="uid://dagso5jyl3hc1" path="res://sfx/dark_laughter.wav" id="80_ppx11"]
 [ext_resource type="PackedScene" uid="uid://ht7mwd3yqahe" path="res://Scenes/Bosses/Reagan.tscn" id="81_f1p13"]
+[ext_resource type="Script" uid="uid://x3ws8biqsutl" path="res://omen_rotator.gd" id="84_1yv1y"]
+[ext_resource type="AudioStream" uid="uid://cutjdboh6pog2" path="res://sfx/omen.wav" id="84_ppx11"]
 
 [sub_resource type="Gradient" id="Gradient_43svb"]
 offsets = PackedFloat32Array(0.00497512, 0.883085, 1)
@@ -2132,7 +2134,7 @@ size = Vector2(128, 64)
 script = ExtResource("1_hrvbo")
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
-position = Vector2(138, 21)
+position = Vector2(98, -70)
 OVERRIDE_AND_SPAWN_AT_START = true
 HURT_COOLDOWN_MULTIPLIER = 1.5
 START_ENERGY = 4
@@ -4215,7 +4217,7 @@ sounds_to_stop_on_death = [NodePath("../../AmbientSounds/sfx_55"), NodePath("../
 position = Vector2(1, 0)
 
 [node name="sfx_110" type="AudioStreamPlayer2D" parent="AmbientSounds" unique_id=1287072340]
-position = Vector2(317, 251)
+position = Vector2(288, 303)
 stream = ExtResource("77_f1p13")
 autoplay = true
 max_distance = 256.0
@@ -4223,7 +4225,7 @@ attenuation = 2.0000005
 panning_strength = 2.0
 
 [node name="sfx_220" type="AudioStreamPlayer2D" parent="AmbientSounds" unique_id=1920434780]
-position = Vector2(81, 542)
+position = Vector2(92, 536)
 stream = ExtResource("78_4obbf")
 autoplay = true
 max_distance = 256.0
@@ -4231,11 +4233,12 @@ attenuation = 2.0000005
 panning_strength = 3.0
 
 [node name="sfx_noise_440" type="AudioStreamPlayer2D" parent="AmbientSounds" unique_id=549350078]
-position = Vector2(348, -26)
+position = Vector2(341, -34)
 stream = ExtResource("79_ovcoh")
+volume_db = -10.0
 pitch_scale = 1.1
 autoplay = true
-max_distance = 64.0
+max_distance = 128.0
 attenuation = 2.0000005
 panning_strength = 6.0
 
@@ -4259,7 +4262,7 @@ attenuation = 3.4822025
 panning_strength = 6.0
 
 [node name="sfx_56" type="AudioStreamPlayer2D" parent="AmbientSounds" unique_id=1292076532]
-position = Vector2(-110, 447)
+position = Vector2(-77, 470)
 stream = ExtResource("76_birbe")
 autoplay = true
 max_distance = 256.0
@@ -4274,7 +4277,7 @@ attenuation = 2.0000005
 panning_strength = 2.0
 
 [node name="sfx_112" type="AudioStreamPlayer2D" parent="AmbientSounds" unique_id=1498654650]
-position = Vector2(314, 481)
+position = Vector2(353, 520)
 stream = ExtResource("77_f1p13")
 autoplay = true
 max_distance = 256.0
@@ -4299,11 +4302,12 @@ attenuation = 2.0000005
 panning_strength = 3.0
 
 [node name="sfx_noise_441" type="AudioStreamPlayer2D" parent="AmbientSounds" unique_id=710319074]
-position = Vector2(462, -204)
+position = Vector2(505, -18)
 stream = ExtResource("79_ovcoh")
-pitch_scale = 1.1
+volume_db = -10.0
+pitch_scale = 2.0
 autoplay = true
-max_distance = 64.0
+max_distance = 128.0
 attenuation = 2.0000005
 panning_strength = 6.0
 
@@ -4323,6 +4327,19 @@ pitch_scale = 1.1
 autoplay = true
 max_distance = 512.0
 attenuation = 2.0000005
+
+[node name="OmenRotator" type="Node2D" parent="AmbientSounds" unique_id=2040284632]
+position = Vector2(256, 256)
+script = ExtResource("84_1yv1y")
+
+[node name="Omen" type="AudioStreamPlayer2D" parent="AmbientSounds/OmenRotator" unique_id=511187835]
+position = Vector2(-256, -256)
+stream = ExtResource("84_ppx11")
+volume_db = 10.0
+autoplay = true
+max_distance = 256.0
+attenuation = 2.0000005
+panning_strength = 2.0
 
 [connection signal="timeout" from="CameraAnchor/Camera2D/ScreenshotTimer" to="." method="_on_screenshot_timer_timeout"]
 [connection signal="timeout" from="CameraAnchor/Camera2D/ScreenshotTimer" to="CameraAnchor/Camera2D" method="_on_screenshot_timer_timeout"]

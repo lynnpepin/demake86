@@ -10,6 +10,7 @@
     --aqua: #0A98AC;
     --lightgrey: #D7D7D7;
     --darkgrey: #A8A8A8;
+    text-wrap: pretty;
 
 }
 a {
@@ -18,6 +19,7 @@ a {
 }
 p {
     text-shadow: 0px 1px var(--lightgrey);
+    text-wrap: pretty;
 }
 /* these don't work */
 a:active {
@@ -77,11 +79,8 @@ body {
                 </div>
             </div>
             <div class="window-body">
-                <div
-                    class="status-field-border"
-                    style="padding: 8px; display: flex; justify-content: center; align-items: center; background-color: black;"
-                >
-                    <img src="logo.png" style="justify-self: center;">
+                <div style="padding: 8px; display: flex; justify-content: center; align-items: center;">
+                    <img src="logo.png" style="justify-self: center;" class="status-field-border">
                 </div>
 
                 <p>
@@ -89,19 +88,21 @@ body {
                 </p>
                 <p>While Demake86 is an <em>homage</em> to the genre-defining <a href="https://en.wikipedia.org/wiki/Metroid_(video_game)">the 1986/8/6 release</a>, Demake86 is a <em>legally distinct and totally original</em> game.
                 </p>
-                <p>Demake86 releases for free <strong>August 6th, 2026</strong>!</p>
+                <p>Demake86 released for free <strong>August 6th, 2026</strong> in-browser on Itch.io!</p>
+                <center><a href="https://opossumcarrion.itch.io/demake86">
+                    <button style="background-color:#ddd;">
+                        <strong style="text-shadow: 0px 0px 16px #FFBB31, 0px 0px 8px #FFBB31, 0px 0px 4px #FFE737, 0px 0px 2px #FFBB31; color:black">Play Demake86 now</strong>!
+                    </button>
+                </a></center>
                 <hr>
-                <div
-                    class="status-field-border"
-                    style="padding: 8px; display: flex; justify-content: center; align-items: center; background-color: black;"
-                >
-                    <img src="screenshot_wip_5.png" width=196px style="justify-self: center;">
+                <div style="padding: 8px; display: flex; justify-content: center; align-items: center;">
+                    <img src="screenshot_final_1.png" width=196px style="justify-self: center;" class="status-field-border">
                 </div>
-                <div
-                    class="status-field-border"
-                    style="padding: 8px; display: flex; justify-content: center; align-items: center; background-color: black;"
-                >
-                    <img src="screenshot_wip_4.png" width=196px style="justify-self: center;">
+                <div style="padding: 8px; display: flex; justify-content: center; align-items: center;">
+                    <img src="screenshot_final_2.png" width=196px style="justify-self: center;" class="status-field-border">
+                </div>
+                <div style="padding: 8px; display: flex; justify-content: center; align-items: center;">
+                    <img src="screenshot_final_4.png" width=196px style="justify-self: center;" class="status-field-border">
                 </div>
                 <hr>
                 <p><strong>THE MISSION:</strong></p>
@@ -109,11 +110,15 @@ body {
 
                 <p>Orphaned as a child, you were saved and raised by the Corvus on <strong>Planet Zenith</strong>, a natural fortress planet blanketed in meteoroids. You travel the galaxy at light-speed, cursed by relativity to live a solitary life, dedicating your life to ending intergalactic threats as they arise.</p>
 
-                <p>You've just received a <strong>emergency transmission</strong>: The intergalactic paramilitary bandit ring known as the <strong>Neolegion</strong> have unearthed the ancient parasitic life-form known as <strong>SETONA</strong>, discovered in the labyrinthine fortress-ruins of the largest Meteoroid in the orbit of Zenith.</p>
+                <p>You've just received a <strong>emergency transmission</strong>: The intergalactic paramilitary bandit ring known as the <strong>Neolegion</strong> have unearthed the ancient parasitic life-form known as <strong>SETONA</strong>, discovered in the labyrinthine fortress-ruins of the largest Meteoroid in the orbit of your homeworld.</p>
 
-                <p>The transmission suggests the Neolegion base is hosted by their ringleader, the mechanical life-vein known as the <strong>Minister Baroness</strong>. She is joined by the corpulent cave-dwelling monster <strong>Kemp</strong> and Relan's personal nemesis, the plasma-breathing dragon and genocidier <strong>Reagan</strong>.</p>
+                <p>The transmission suggests the Neolegion base is hosted by their ringleader, the mechanical life-vein known as the <strong>Minister Baroness</strong>. She is joined by the corpulent cave-dwelling monster <strong>Kemp</strong> and Relan's personal nemesis, the genocidal fire-breathing <strong>Reagan</strong>.</p>
 
-                <p>If the Neolegion were to tame the Setona, the shadow of their imperial rule would cover all of intergalactic society. You never expected your work would bring you home. Do you have what it takes to quell the evil which waits above the surface?</p>
+                <p>If the Neolegion were to tame the Setona, the shadow of their imperial rule would cover all of intergalactic society. You never expected your work would bring you home. ?</p>
+
+                <p>You never expected you'd ever return to your homeworld, let alone to find an existential threat brewing in your own backyard. <strong>Do you have what it takes to quell the evil which waits below the surface?</strong></p>
+                <hr>
+                <p><em><strong>Credits:&nbsp;</strong><strong>Created with absolutely no AI</strong>. All assets and code created from scratch&nbsp;by opossumcarrion, except for (1) a public domain skull, (2) a public domain recording of propaganda narrated by&nbsp;Ronald Reagan in 1986, (3) Androidarts' fantastic <a href="https://androidarts.com/palette/Famicube.htm#palorder">Famicube palette</a>,&nbsp;(4) ending line work&nbsp;by artist <a href="https://raewhiteley.com/">Rae Whiteley</a>.</em></p>
             </div>
         </div>
 
@@ -133,13 +138,13 @@ body {
                             <li>
                                 <a href="https://opossumcarrion.itch.io/demake86">
                                     <img src="itchio-textless-black.svg" width=32>
-                                    opossumcarrion.itch.io/demake86
+                                    <strong style="text-shadow: 0px 0px 16px #FFBB31, 0px 0px 8px #FFBB31, 0px 0px 4px #FFE737, 0px 0px 2px #FFBB31;">Play Demake86 on Itch.io!</strong>
                                 </a>
                             </li>
                             <li>
                                 <a href="https://opossumcarrion.newgrounds.com/">
                                     <img src="newgrounds.svg" width=32>
-                                    opossumcarrion.newgrounds.com
+                                    opossumcarrion.newgrounds.com - <em> coming to NewGrounds soon!</em>
                                 </a>
                             </li>
                         </ul>
@@ -180,13 +185,13 @@ body {
                             <li>
                                 <a href="https://discord.gg/tURUPGm6W2">
                                     <img src="Discord-Symbol-Blurple.svg" width=32>
-                                        ✨<strong>NEW!</strong> Discord (the Carrion Critter Club)✨
+                                        Discord server
                                 </a>
                             </li>
                             <li>
                                 <a href="https://opossumcarrion.itch.io/demake86">
                                     <img src="codeberg.svg" width=32>
-                                    <em>Codeberg git repo - after release</em>
+                                    <em>Codeberg git repo - coming soon!</em>
                                 </a>
                             </li>
                             <li>
@@ -211,33 +216,40 @@ body {
                 </div>
             </div>
             <div class="window-body">
-                <p><em>Updated 2026 Apr 30th</em></p>
+
                 <hr>
-                <p>Demake86 has been developed by Opossumcarrion (me!) since late 2024 in the <a href="https://godotengine.org/">Godot</a> engine and will be <strong>open source on release</strong>, running in your browser. Demake86 is developed using <strong>absolutely no AI</strong> at any point for any part of development, including supplemental materials (like this site!)</p>
+                <p><em>Updated 2026 Aug 4th</em></p>
+                <p><strong>EMERGENCY TRANSMISSION:</strong> Meteoroid project "Demake86" is nearing the final stages of completion.</p>
+                <p>This project has been a labor of love, and I've put real blood, sweat, and tears into this. Making videogames is an injurious soulbreaking process.</p>
+                <p>Some features and goals, like a settings menu or certain secrets, are things I will relegate to "post launch" content, if there is interest! For now, I am eager to release as-is.</p>
+                <p>The game is content complete, and playtesters have been giving me very useful feedback.</p>
+                <hr>
+                <p><em>Updated 2026 Apr 30th</em></p>
+                <p>Demake86 has been developed by Opossumcarrion (me!) since late 2024 in the <a href="https://godotengine.org/">Godot</a> engine and will be <strong>open source after release</strong>, running in your browser. Demake86 is developed using <strong>absolutely no AI</strong> at any point for any part of development, including supplemental materials (like this site!)</p>
                 <p>Demake86 is not affiliated in any way with Nintendo.</p>
                 <hr>
                 <p>PLAYER:
                 <div class="progress-indicator segmented">
-                    <span class="progress-indicator-bar" style="width: 94%;" />
+                    <span class="progress-indicator-bar" style="width: 100%;" />
                 </div></p>
                 </p>
                 <p>LEVEL DESIGN:
                 <div class="progress-indicator segmented">
-                    <span class="progress-indicator-bar" style="width: 93%;" />
+                    <span class="progress-indicator-bar" style="width: 100%;" />
                 </div></p>
                 <p>LEVEL ART:
                 <div class="progress-indicator segmented">
-                    <span class="progress-indicator-bar" style="width: 10%;" />
+                    <span class="progress-indicator-bar" style="width: 100%;" />
                 </div></p>
                 <p>VISUAL AND AUDITORY FLAIR:
                 <div class="progress-indicator segmented">
-                    <span class="progress-indicator-bar" style="width: 90%;" />
+                    <span class="progress-indicator-bar" style="width: 100%;" />
                 </div></p>
                 <p>BOSSES:
                 <div class="progress-indicator segmented">
-                    <span class="progress-indicator-bar" style="width: 60%;" />
+                    <span class="progress-indicator-bar" style="width: 100%;" />
                 </div></p>
-                <p>MUSIC:
+                <p>MUSIC: <em>I'm not a musician! I'm trying!</em>
                 <div class="progress-indicator segmented">
                     <span class="progress-indicator-bar" style="width: 20%;" />
                 </div></p>
@@ -245,17 +257,17 @@ body {
                 <div class="progress-indicator segmented">
                     <span class="progress-indicator-bar" style="width: 95%;" />
                 </div></p>
-                <p>MENUS:
+                <p>MENUS: <em>Call it post-release content!</p>
                 <div class="progress-indicator segmented">
                     <span class="progress-indicator-bar" style="width: 10%;" />
                 </div></p>
-                <p>TIE-IN MEDIA (like this site!)
+                <p>TIE-IN MEDIA (like this site!) <em>Instruction manual coming if there's demand</em>
                 <div class="progress-indicator segmented">
                     <span class="progress-indicator-bar" style="width: 80%;" />
                 </div></p>
-                <p>The last 20% that takes 80% of the time:
+                <p>The last 20% that took 80% of the time:
                 <div class="progress-indicator segmented">
-                    <span class="progress-indicator-bar" style="width: 15%;" />
+                    <span class="progress-indicator-bar" style="width: 100%;" />
                 </div></p>
                 <hr>
                 <p><em>Site made with Jdan's lovely <a href="https://jdan.github.io/98.css/">98.css</a></em></p>
