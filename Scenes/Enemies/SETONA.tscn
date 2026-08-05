@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://csntnfmqsxv20" path="res://art/SETONA_2/SETONA_30_red.png" id="8_2tbkp"]
 [ext_resource type="Texture2D" uid="uid://bp1is6pfr4ywq" path="res://resources/GradientTexture2D_White36px.tres" id="8_cqgfd"]
 [ext_resource type="Shader" uid="uid://bqf1f87mlllnt" path="res://Scenes/Enemies/SETONA_gradient.tres" id="8_yrj2r"]
-[ext_resource type="Texture2D" uid="uid://l3vtb1cq5cul" path="res://art/SETONA_2/SETONA_31_red.png" id="9_ji28m"]
+[ext_resource type="Texture2D" uid="uid://tv16qrquicha" path="res://art/SETONA_2/SETONA_31_red.png" id="9_ji28m"]
 [ext_resource type="Script" uid="uid://nkhdraadwf8q" path="res://Scenes/Enemies/setona_gradient.gd" id="9_yrj2r"]
 [ext_resource type="Texture2D" uid="uid://b5nvta0qmg0me" path="res://art/SETONA_2/SETONA_32_red.png" id="10_533ep"]
 [ext_resource type="Texture2D" uid="uid://ba6der0u0c4i7" path="res://art/SETONA_2/SETONA_33_red.png" id="11_mbn3b"]
@@ -178,10 +178,11 @@ texture = SubResource("GradientTexture2D_471fi")
 [node name="sfx_55" type="AudioStreamPlayer2D" parent="." index="12" unique_id=1964730826]
 stream = ExtResource("16_nps5y")
 autoplay = true
-max_distance = 256.0
-attenuation = 3.4822013
+max_distance = 128.0
+attenuation = 2.0000007
 
 [node name="sfx_110" type="AudioStreamPlayer2D" parent="." index="13" unique_id=715927299]
+position = Vector2(8, 8)
 stream = ExtResource("17_jo8f4")
 autoplay = true
 max_distance = 256.0
