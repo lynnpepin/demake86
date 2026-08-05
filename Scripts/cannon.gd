@@ -52,7 +52,7 @@ func _process(delta: float) -> void:
     left = Input.is_action_pressed("pad_left")  or (_ls_hz < -.5)
     down = Input.is_action_pressed("pad_down")  or (_ls_vz > .5)
     right = Input.is_action_pressed("pad_right") or (_ls_hz > .5)
-    diag = Input.is_action_pressed("pad_lb")
+    diag = Input.is_action_pressed("pad_lb") or Input.is_action_pressed("pad_lt")
     
     handle_angles()
     

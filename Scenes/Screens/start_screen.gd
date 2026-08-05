@@ -83,14 +83,14 @@ func _input(event: InputEvent) -> void:
     if event.is_action_released("pad_y"):
         $GPUParticles2D_padY.emitting =  false
         
-    if event.is_action_pressed("pad_lb"):
+    if event.is_action_pressed("pad_lb") or event.is_action_pressed("pad_lt"):
         $GPUParticles2D_pad_lb.emitting =  true
-    if event.is_action_released("pad_lb"):
+    if event.is_action_released("pad_lb") or event.is_action_released("pad_lt"):
         $GPUParticles2D_pad_lb.emitting =  false
         
-    if event.is_action_pressed("pad_rb"):
+    if event.is_action_pressed("pad_rb") or event.is_action_pressed("pad_rt"):
         $GPUParticles2D_pad_rb.emitting =  true
-    if event.is_action_released("pad_rb"):
+    if event.is_action_released("pad_rb") or event.is_action_released("pad_rt"):
         $GPUParticles2D_pad_rb.emitting =  false
         
 func handle_angles():

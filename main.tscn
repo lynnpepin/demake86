@@ -2140,6 +2140,7 @@ script = ExtResource("1_hrvbo")
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
 position = Vector2(440, 480)
 HAS_ALL_ITEMS = false
+OVERRIDE_AND_SPAWN_AT_START = true
 HURT_COOLDOWN_MULTIPLIER = 1.5
 START_ENERGY = 4
 
@@ -3219,12 +3220,16 @@ health = 24
 position = Vector2(141, 136)
 health = 4
 
-[node name="Batsard26" parent="Critters/Batsards" unique_id=1173430807 instance=ExtResource("43_d2t1y")]
-position = Vector2(284, 56)
+[node name="Batsard28" parent="Critters/Batsards" unique_id=1981089262 instance=ExtResource("43_d2t1y")]
+position = Vector2(142, 72)
 health = 4
 
-[node name="Batsard2" parent="Critters/Batsards" unique_id=1533963521 instance=ExtResource("43_d2t1y")]
-position = Vector2(292, 128)
+[node name="Batsard27" parent="Critters/Batsards" unique_id=534102793 instance=ExtResource("43_d2t1y")]
+position = Vector2(185, 72)
+health = 4
+
+[node name="Batsard26" parent="Critters/Batsards" unique_id=1173430807 instance=ExtResource("43_d2t1y")]
+position = Vector2(284, 56)
 health = 4
 
 [node name="Batsard16" parent="Critters/Batsards" unique_id=455229715 instance=ExtResource("43_d2t1y")]
@@ -3461,11 +3466,6 @@ swoop_speed = 64
 return_speed = 128
 sprite = ExtResource("31_f6a44")
 health = 6
-
-[node name="Swooper2" parent="Critters/Swoopers" unique_id=1834329187 instance=ExtResource("38_0n3wm")]
-position = Vector2(180, 92)
-swoop_speed = 48
-sprite = ExtResource("29_qnost")
 
 [node name="Swooper3" parent="Critters/Swoopers" unique_id=753871456 instance=ExtResource("38_0n3wm")]
 position = Vector2(200, 20)
@@ -4130,7 +4130,7 @@ tracking = NodePath("../../Relan")
 tracking_distance = 32.0
 angle = 0.0
 
-[node name="Setona" parent="Tourian" unique_id=1981089262 node_paths=PackedStringArray("tracking") instance=ExtResource("4_sm6fg")]
+[node name="Setona" parent="Tourian" unique_id=185568587 node_paths=PackedStringArray("tracking") instance=ExtResource("4_sm6fg")]
 position = Vector2(80, 21)
 tracking = NodePath("../../Relan")
 strike_distance = 10.0
