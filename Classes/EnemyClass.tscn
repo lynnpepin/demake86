@@ -5,6 +5,8 @@
 [ext_resource type="AudioStream" uid="uid://cd0bb667p5tn1" path="res://resources/freeze.wav" id="3_e20xd"]
 [ext_resource type="AudioStream" uid="uid://l6ntav3kt51h" path="res://resources/unfreeze.wav" id="3_j2gxe"]
 [ext_resource type="PackedScene" uid="uid://b0y874xsfexd1" path="res://Classes/death_explosion.tscn" id="4_x4ypb"]
+[ext_resource type="Gradient" uid="uid://dhrfcysgpgm2n" path="res://iceygradient.tres" id="6_h4l4o"]
+[ext_resource type="AudioStream" uid="uid://b3b3dmqdihbxw" path="res://sfx/break_ice.wav" id="7_uvfh7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_26ahl"]
 size = Vector2(6, 3)
@@ -30,6 +32,50 @@ size = Vector2(6, 3)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ovcoh"]
 shader = ExtResource("2_n25o1")
 shader_parameter/outline_color = Color(0.13725491, 0.09019608, 0.07058824, 1)
+
+[sub_resource type="Gradient" id="Gradient_rkx5e"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rdgl3"]
+gradient = SubResource("Gradient_rkx5e")
+width = 1
+height = 1
+fill_from = Vector2(0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h4l4o"]
+gradient = ExtResource("6_h4l4o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uvfh7"]
+lifetime_randomness = 0.75
+particle_flag_disable_z = true
+angle_min = -44.99999
+angle_max = 45.00001
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 60.0
+initial_velocity_max = 180.0
+angular_velocity_min = -64.000015
+angular_velocity_max = 63.99998
+orbit_velocity_min = -0.09999991
+orbit_velocity_max = 0.1000001
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = -2.2351742e-05
+gravity = Vector3(0, 120, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = -2.2351742e-06
+damping_min = 240.00002
+damping_max = 720.00006
+attractor_interaction_enabled = false
+scale_min = 0.5
+scale_max = 4.5
+color_ramp = SubResource("GradientTexture1D_h4l4o")
+turbulence_noise_strength = 20.0
+turbulence_noise_speed_random = 1.0
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.125
+turbulence_initial_displacement_min = 1.490116e-06
+turbulence_initial_displacement_max = 4.0000014
 
 [node name="EnemyClass" type="CharacterBody2D" unique_id=1981089262]
 collision_layer = 4
@@ -76,10 +122,55 @@ stream = ExtResource("3_e20xd")
 
 [node name="DeathExplosion" parent="." unique_id=1149512892 instance=ExtResource("4_x4ypb")]
 position = Vector2(0, -4)
+amount = 128
 lifetime = 1.0
 emission_shape = 1
 emission_sphere_radius = 4.0
 gravity = Vector2(0, 144)
 initial_velocity_max = 64.0
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+
+[node name="IceExplosion" parent="." unique_id=1845608687 instance=ExtResource("4_x4ypb")]
+position = Vector2(0, -4)
+amount = 120
+lifetime = 1.0
+emission_shape = 1
+emission_sphere_radius = 4.0
+gravity = Vector2(0, 144)
+initial_velocity_max = 64.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+angle_min = -45.0
+angle_max = 45.0
+scale_amount_min = 1.0
+scale_amount_max = 3.0
+color_ramp = ExtResource("6_h4l4o")
+
+[node name="IceExplosionParticles" type="GPUParticles2D" parent="." unique_id=2019183083]
+emitting = false
+amount = 120
+texture = SubResource("GradientTexture2D_rdgl3")
+lifetime = 1.5
+one_shot = true
+explosiveness = 0.88
+randomness = 0.25
+fixed_fps = 60
+fract_delta = false
+collision_base_size = 2.0
+trail_lifetime = 1.0
+process_material = SubResource("ParticleProcessMaterial_uvfh7")
+
+[node name="Area2D_to_check_explosion" type="Area2D" parent="." unique_id=51512281]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_to_check_explosion" unique_id=2116347686]
+shape = SubResource("RectangleShape2D_y7bss")
+
+[node name="BreakIce" type="AudioStreamPlayer2D" parent="." unique_id=2014450494]
+stream = ExtResource("7_uvfh7")
+panning_strength = 3.0
 
 [connection signal="area_entered" from="AreaHitbox" to="." method="_on_area_hitbox_area_entered"]
+[connection signal="area_entered" from="Area2D_to_check_explosion" to="." method="_on_area_2d_to_check_explosion_area_entered"]

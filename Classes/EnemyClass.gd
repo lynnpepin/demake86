@@ -91,6 +91,7 @@ func _process(delta: float) -> void:
         #)
 
 
+        
 func hurt(damage: int, cooldown: float) -> void:
     if hurt_timer <= 0:
         print(nickname, " was hit with, ", damage, " points of damage.")
@@ -144,3 +145,12 @@ func _on_area_hitbox_area_entered(area: Area2D) -> void:
             damage_to_deal,
             invincibility_to_deal
         )
+
+
+func _on_area_2d_to_check_explosion_area_entered(area: Area2D) -> void:
+    if frozen and death_timer == 0:
+        if area.is_in_group("missile"):
+            unfreeze()
+            die()
+            $IceExplosionParticles.emitting = true
+            $BreakIce.play()

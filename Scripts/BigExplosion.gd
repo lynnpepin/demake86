@@ -38,5 +38,10 @@ func _on_finished() -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
     if area.is_in_group("enemies") and time < collision_lifespan:
         # todo: This should take damage, cooldown, etc.
-        area.get_parent().hurt(10, .25)
+        area.get_parent().hurt(100, .25)
         print("Missile hit an enemy!")
+        # HACKY: 100+ damage required because this is used
+        # as a quick way to say "this is a missile, so
+        # frozen enemies should explode".
+        # this is because i architected missiles wrong
+        # when i first made this game

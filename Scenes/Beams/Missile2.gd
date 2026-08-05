@@ -1,3 +1,4 @@
+# Missile shot; CreateOnDie is BigExplosion.tscn
 extends BeamClass
 
 func _ready() -> void:

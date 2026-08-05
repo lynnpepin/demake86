@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c0nunoenqm1q8" path="res://Classes/BeamClass.gd" id="1_fi3c5"]
 [ext_resource type="Script" uid="uid://bc0paoyr8p4u" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="1_sktnv"]
 [ext_resource type="Script" uid="uid://nxe7ojwuwp68" path="res://Classes/beam_area_to_check.gd" id="2_hg1al"]
+[ext_resource type="Gradient" uid="uid://dhrfcysgpgm2n" path="res://iceygradient.tres" id="4_0kude"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lk8bw"]
 size = Vector2(4, 1)
@@ -52,11 +53,6 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 0.90588236, 0.21568628, 1, 0.878431, 0.
 interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.0501253, 0.09428285, 0.23069207, 0.43129387, 0.8214644)
 colors = PackedColorArray(1, 1, 1, 1, 1, 0.90588236, 0.21568628, 1, 0.9647059, 0.56078434, 0.21568628, 1, 0.878431, 0.235294, 0.156863, 1, 0, 0.516667, 1, 0.501961, 0, 0.09019608, 0.49019608, 0.2509804)
-
-[sub_resource type="Gradient" id="Gradient_hg1al"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.0501253, 0.09428285, 0.23069207, 0.43129387, 0.8214644)
-colors = PackedColorArray(1, 1, 1, 1, 0.7411765, 1, 0.7921569, 1, 0.35686275, 0.65882355, 1, 1, 0.007843138, 0.2901961, 0.7921569, 0.6901961, 0, 0.516667, 1, 0.501961, 0, 0.09019608, 0.49019608, 0.2509804)
 
 [sub_resource type="Gradient" id="Gradient_0o66p"]
 offsets = PackedFloat32Array(0, 0.0501253, 0.13540623, 0.5787362, 0.81945837, 1)
@@ -347,7 +343,7 @@ damping_max = 96.0
 angle_max = 45.0
 scale_amount_min = 0.0
 scale_amount_max = 3.0
-color_ramp = SubResource("Gradient_hg1al")
+color_ramp = ExtResource("4_0kude")
 
 [node name="Trail_Wavebeam" type="CPUParticles2D" parent="." unique_id=564315226]
 z_as_relative = false

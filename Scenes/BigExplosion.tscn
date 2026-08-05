@@ -52,8 +52,7 @@ linear_accel_max = -2.2351742e-06
 damping_min = 32.0
 damping_max = 128.0
 attractor_interaction_enabled = false
-scale_min = 0.5
-scale_max = 3.0
+scale_max = 3.5
 color_ramp = SubResource("GradientTexture1D_xp7c7")
 turbulence_noise_strength = 20.0
 turbulence_noise_speed_random = 1.0
@@ -62,7 +61,7 @@ turbulence_influence_max = 0.125
 turbulence_initial_displacement_min = 1.490116e-06
 turbulence_initial_displacement_max = 4.0000014
 
-[node name="CPUParticles2D_BigExplosion" type="CPUParticles2D" unique_id=1354750708 groups=["explosion"]]
+[node name="CPUParticles2D_BigExplosion" type="CPUParticles2D" unique_id=1354750708 groups=["explosion", "missile"]]
 z_index = 100
 emitting = false
 amount = 2
@@ -208,7 +207,7 @@ low_pass_filter/resonance = -0.0234575
 high_pass_filter/cutoff_frequency = -0.0328728
 high_pass_filter/cutoff_sweep = 0.0
 
-[node name="Area2D" type="Area2D" parent="." unique_id=487014255 groups=["beam", "explosion"]]
+[node name="Area2D" type="Area2D" parent="." unique_id=487014255 groups=["beam", "explosion", "missile"]]
 collision_layer = 8
 collision_mask = 4
 
@@ -217,7 +216,7 @@ shape = SubResource("CircleShape2D_0xwx4")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=731435574]
 emitting = false
-amount = 1024
+amount = 360
 texture = SubResource("GradientTexture2D_rdgl3")
 lifetime = 2.0
 one_shot = true
