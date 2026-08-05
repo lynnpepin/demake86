@@ -47,7 +47,7 @@ func _on_timer_after_dead_to_activate_grave_timeout() -> void:
     if timer_activations >= 9:    
         $Timer_after_dead_to_activate_grave.stop()
         if player:
-            player.show_message("Reagan\nexecuted")
+            player.show_message("Reagan\ndown.")
     if connected_grave:
         # hacky hacky screen shake
         get_parent().get_parent().shake_player_camera(Vector2(0.0, 2.0 * timer_activations))

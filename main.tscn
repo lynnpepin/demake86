@@ -80,6 +80,7 @@
 [ext_resource type="AudioStream" uid="uid://kdccofwah2fx" path="res://sfx/pure_55.wav" id="76_birbe"]
 [ext_resource type="AudioStream" uid="uid://b62lku2yhf3uv" path="res://sfx/pure_110.wav" id="77_f1p13"]
 [ext_resource type="AudioStream" uid="uid://che8u45omiwxf" path="res://sfx/pure_220.wav" id="78_4obbf"]
+[ext_resource type="Script" uid="uid://buahem0v84qps" path="res://reagans_lair.gd" id="78_5yh34"]
 [ext_resource type="AudioStream" uid="uid://wggmfjnwfcuj" path="res://sfx/noise_440.wav" id="79_ovcoh"]
 [ext_resource type="AudioStream" uid="uid://dagso5jyl3hc1" path="res://sfx/dark_laughter.wav" id="80_ppx11"]
 [ext_resource type="PackedScene" uid="uid://ht7mwd3yqahe" path="res://Scenes/Bosses/Reagan.tscn" id="81_f1p13"]
@@ -2130,11 +2131,14 @@ size = Vector2(8, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4w656"]
 size = Vector2(128, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1yv1y"]
+size = Vector2(96, 36)
+
 [node name="Root" type="Node2D" unique_id=1570894400]
 script = ExtResource("1_hrvbo")
 
 [node name="Relan" parent="." unique_id=1446583395 instance=ExtResource("8_trcrg")]
-position = Vector2(184, 420)
+position = Vector2(440, 480)
 HAS_ALL_ITEMS = false
 HURT_COOLDOWN_MULTIPLIER = 1.5
 START_ENERGY = 4
@@ -2147,6 +2151,7 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_p8m5k")
 
 [node name="CameraAnchor" type="Node2D" parent="." unique_id=1016033142]
+position = Vector2(-2, 0)
 
 [node name="Camera2D" type="Camera2D" parent="CameraAnchor" unique_id=1240961670]
 ignore_rotation = false
@@ -3990,7 +3995,6 @@ position = Vector2(64, 88)
 position = Vector2(20, 92)
 
 [node name="camera_zone_thatcher" type="Area2D" parent="Tourian" unique_id=684816434 groups=["camera_area"]]
-visible = false
 position = Vector2(32, 96)
 collision_layer = 64
 collision_mask = 64
@@ -4198,6 +4202,16 @@ connected_grave = NodePath("../../TourianRoom/KempGrave")
 root = NodePath("../..")
 
 [node name="ReagansLair" type="Node2D" parent="." unique_id=760668919]
+script = ExtResource("78_5yh34")
+
+[node name="camera_zone_reagan" type="Area2D" parent="ReagansLair" unique_id=776105102 groups=["camera_area"]]
+position = Vector2(351, 489)
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReagansLair/camera_zone_reagan" unique_id=70391250]
+position = Vector2(17, -9)
+shape = SubResource("RectangleShape2D_1yv1y")
 
 [node name="Area2D_ventilation_for_smoke" type="Area2D" parent="ReagansLair" unique_id=1780027628 groups=["ventilated_area"]]
 visible = false
@@ -4346,3 +4360,5 @@ panning_strength = 2.0
 [connection signal="area_entered" from="Tourian/camera_zone_thatcher" to="." method="_on_camera_zone_thatcher_area_entered"]
 [connection signal="area_exited" from="Tourian/camera_zone_thatcher" to="." method="_on_camera_zone_thatcher_area_exited"]
 [connection signal="finished" from="Tourian/CeilExplode" to="Tourian/CeilExplode" method="_on_finished"]
+[connection signal="area_entered" from="ReagansLair/camera_zone_reagan" to="." method="_on_camera_zone_reagan_area_entered"]
+[connection signal="area_exited" from="ReagansLair/camera_zone_reagan" to="." method="_on_camera_zone_reagan_area_exited"]

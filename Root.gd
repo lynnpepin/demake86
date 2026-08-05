@@ -5,6 +5,7 @@ var PlanetSplode = preload("res://Scenes/Screens/PlanetSplode.tscn")
 
 var also_tracking_position: Vector2
 var also_tracking_thatcher: bool = false
+var also_tracking_reagan: bool = false
 
 
 func _ready() -> void:
@@ -34,7 +35,7 @@ func planet_splode(
     get_tree().change_scene_to_node(planetsplode)
 
 func _physics_process(delta: float) -> void:
-    if also_tracking_thatcher:
+    if also_tracking_thatcher or also_tracking_reagan:
         var ratio_to_relan = .75
         var start_length = 64
         var end_length = 32
@@ -75,6 +76,15 @@ func _on_camera_zone_thatcher_area_exited(area: Area2D) -> void:
     also_tracking_thatcher = false
     reset_shake()
     pass # Replace with function body.
+
+func _on_camera_zone_reagan_area_entered(area: Area2D) -> void:
+    also_tracking_reagan = true
+    reset_shake()
+    also_tracking_position = $ReagansLair/Reagan.position - Vector2(0,4)
+
+func _on_camera_zone_reagan_area_exited(area: Area2D) -> void:
+    also_tracking_reagan = true
+    reset_shake()
 
 
 func _on_screenshot_timer_timeout() -> void:
