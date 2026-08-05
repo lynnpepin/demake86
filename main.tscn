@@ -2983,6 +2983,7 @@ visible = false
 offset = Vector2(384, 384)
 transform = Transform2D(1, 0, 0, 1, 384, 384)
 script = ExtResource("37_ovcoh")
+visible_on_start = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground_fg" unique_id=350223624]
 z_index = 1000
@@ -3122,10 +3123,6 @@ health = 8
 position = Vector2(347, 255)
 health = 8
 
-[node name="hopper18" parent="Critters/Hoppers" unique_id=1441680361 instance=ExtResource("44_0n3wm")]
-position = Vector2(368, 199)
-health = 8
-
 [node name="hopper20" parent="Critters/Hoppers" unique_id=1583808394 instance=ExtResource("44_0n3wm")]
 position = Vector2(292, 231)
 health = 8
@@ -3230,6 +3227,10 @@ health = 4
 
 [node name="Batsard26" parent="Critters/Batsards" unique_id=1173430807 instance=ExtResource("43_d2t1y")]
 position = Vector2(284, 56)
+health = 4
+
+[node name="Batsard29" parent="Critters/Batsards" unique_id=1574573284 instance=ExtResource("43_d2t1y")]
+position = Vector2(364, 232)
 health = 4
 
 [node name="Batsard16" parent="Critters/Batsards" unique_id=455229715 instance=ExtResource("43_d2t1y")]
@@ -3459,16 +3460,8 @@ return_speed = 128
 sprite = ExtResource("31_f6a44")
 health = 6
 
-[node name="Swooper21" parent="Critters/Swoopers" unique_id=104985874 instance=ExtResource("38_0n3wm")]
-position = Vector2(364, 236)
-hspeed = 16
-swoop_speed = 64
-return_speed = 128
-sprite = ExtResource("31_f6a44")
-health = 6
-
 [node name="Swooper3" parent="Critters/Swoopers" unique_id=753871456 instance=ExtResource("38_0n3wm")]
-position = Vector2(200, 20)
+position = Vector2(177, 3)
 swoop_speed = 48
 sprite = ExtResource("29_qnost")
 health = 4
@@ -3482,7 +3475,7 @@ sprite = ExtResource("29_qnost")
 position = Vector2(472, 64)
 swoop_speed = 48
 sprite = ExtResource("29_qnost")
-health = 2
+health = 1
 
 [node name="Swooper6" parent="Critters/Swoopers" unique_id=1912442110 instance=ExtResource("38_0n3wm")]
 position = Vector2(444, 12)
@@ -3498,7 +3491,7 @@ sprite = ExtResource("29_qnost")
 [node name="Rippers" type="Node2D" parent="Critters" unique_id=1853844794]
 
 [node name="Ripper2" parent="Critters/Rippers" unique_id=475420944 instance=ExtResource("17_3k0f5")]
-position = Vector2(224, 144)
+position = Vector2(224, 24)
 health = 999
 
 [node name="Ripper17" parent="Critters/Rippers" unique_id=861230443 instance=ExtResource("17_3k0f5")]
