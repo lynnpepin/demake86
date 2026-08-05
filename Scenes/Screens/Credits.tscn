@@ -11,11 +11,11 @@
 [ext_resource type="AudioStream" uid="uid://cdq7marm28yph" path="res://sfx/lazer.wav" id="9_sbp4b"]
 [ext_resource type="Script" uid="uid://dqn3ricb3mpuc" path="res://Scenes/line_2d_spawns_asteroids.gd" id="10_wtfyg"]
 [ext_resource type="PackedScene" uid="uid://ck60iyt1ygvwn" path="res://Scenes/asteroid.tscn" id="11_k7ahj"]
-[ext_resource type="Texture2D" uid="uid://b8vuki5253uwj" path="res://art/credits/CREDITS_486.png" id="12_w1xyk"]
-[ext_resource type="Texture2D" uid="uid://b50k0e1fruci5" path="res://art/credits/CREDITS_386.png" id="13_ubv0p"]
-[ext_resource type="Texture2D" uid="uid://bpxwg2rhcs4ca" path="res://art/credits/CREDITS_286.png" id="14_l3jum"]
-[ext_resource type="Texture2D" uid="uid://c5d4vsla7520d" path="res://art/credits/CREDITS_186.png" id="15_cu4ug"]
-[ext_resource type="Texture2D" uid="uid://byyg7k7uuwii0" path="res://art/credits/CREDITS_086.png" id="16_w7lpo"]
+[ext_resource type="Texture2D" uid="uid://bca5cwljhuqrs" path="res://art/credits/credits_final_486.png" id="12_w1xyk"]
+[ext_resource type="Texture2D" uid="uid://bx62yjyh5888k" path="res://art/credits/credits_final_386.png" id="13_w1xyk"]
+[ext_resource type="Texture2D" uid="uid://bfglt6ricxqj7" path="res://art/credits/credits_final_286.png" id="14_ubv0p"]
+[ext_resource type="Texture2D" uid="uid://wkjrsraw570i" path="res://art/credits/credits_final_186.png" id="15_l3jum"]
+[ext_resource type="Texture2D" uid="uid://d3vm8pcjae4dl" path="res://art/credits/credits_final_086.png" id="16_cu4ug"]
 
 [sub_resource type="Gradient" id="Gradient_sb781"]
 offsets = PackedFloat32Array(0.18355066, 0.19458374, 0.36308926, 0.3911735, 0.888666, 1)
@@ -528,22 +528,22 @@ texture = ExtResource("12_w1xyk")
 [node name="CreditArt386" type="Sprite2D" parent="EndingSprites" unique_id=465884938]
 visible = false
 position = Vector2(32, -32)
-texture = ExtResource("13_ubv0p")
+texture = ExtResource("13_w1xyk")
 
 [node name="CreditArt286" type="Sprite2D" parent="EndingSprites" unique_id=147426642]
 visible = false
 position = Vector2(32, -32)
-texture = ExtResource("14_l3jum")
+texture = ExtResource("14_ubv0p")
 
 [node name="CreditArt186" type="Sprite2D" parent="EndingSprites" unique_id=358498762]
 visible = false
 position = Vector2(32, -32)
-texture = ExtResource("15_cu4ug")
+texture = ExtResource("15_l3jum")
 
 [node name="CreditArt086" type="Sprite2D" parent="EndingSprites" unique_id=494534387]
 visible = false
 position = Vector2(32, -32)
-texture = ExtResource("16_w7lpo")
+texture = ExtResource("16_cu4ug")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=931574345]
 libraries/ = SubResource("AnimationLibrary_l3jum")

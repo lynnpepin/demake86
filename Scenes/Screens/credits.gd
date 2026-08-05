@@ -24,9 +24,9 @@ IS IN PERIL.
 """,
 """
 
-  PRAY FOR
-  A TRUE PEACE
-  IN SPACE!
+PRAY FOR
+A TRUE PEACE
+IN SPACE!
 
 """,
 
@@ -61,13 +61,13 @@ AFFILIATED
 WITH
 NINTENDO
 """,
-"""WITH TOOLS:
-GIMP, LINUX,
-PIXAKI, JFXR,
-BLENDER,
-STRUDEL.CC,
-AND MORE
-""",
+#"""WITH TOOLS:
+#GIMP, LINUX,
+#PIXAKI, JFXR,
+#BLENDER,
+#STRUDEL.CC,
+#AND MORE
+#"",
 """RESOURCES:
 BLENDKIT
  (SKULL)
@@ -105,6 +105,10 @@ JAE GAERY
 """
 Caoimhe
   Oakreef
+
+Faceless one
+Faceless two
+...
 """,
 
 """AND A
@@ -165,12 +169,11 @@ func _on_timer_timeout() -> void:
     elif credits_ii == num_slides:
         $Typer.start("""MISSION TIME:
 %s
-SECONDS
 
-DEATHS:
-%s
+DEATHS: %s
 
-""" %  [str(snapped(Global.game_timer, 0.1)), str(Global.deaths)]
+GREEN ENERGY: %s
+""" %  [str(snapped(Global.game_timer, 0.1)), str(Global.deaths), str(Global.green_energy)]
 )
     # After the last slide
     elif credits_ii == num_slides + 1:

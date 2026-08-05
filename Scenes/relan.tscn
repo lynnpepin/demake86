@@ -110,6 +110,10 @@ size = Vector2(3, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_db8h2"]
 size = Vector2(3, 5)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qq0bq"]
+shader = ExtResource("10_k2m0s")
+shader_parameter/outline_color = Color(0.30980393, 0.08235294, 0.02745098, 1)
+
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_8ncxv"]
 data = PackedByteArray("AwIBAwIBAQEBAQEBAQEBAQEBAQEBAQH+/v/+/v///////////////////////wEDAgEEAgEBAQEBAQEBAQEBAQEBAQEBAfv8/vz7/f//////////////////////AQUDAQYDAgEBAQEBAQEBAQEBAQEBAQEB+Pn9+Pj8/v////////////////////8DDwcGEAgEAgEBAQEBAQEBAQEBAQEBAQH8/f78/f7////////////////////////////+//////////////////////////v7/vn7/v//////////////////////AggEBQgEAgEBAQEBAQEBAQEBAQEBAQEB/////v///////////////////////////f/+/f/////////////////////////8/f76/f7//////////////////////wEFAgQEAgEBAQEBAQEBAQEBAQEBAQEBAfz9/vv9/v///////////////////////////////////////////////////////f7//P7///////////////////////8CCgUKCAQCAQEBAQEBAQEBAQEBAQEBAQECAgEDAgEBAQEBAQEBAQEBAQEBAQEBAQECAQIBAQEBAQEBAQEBAQEBAQEBAQEBAf////7/////////////////////////AQMBAwIBAQEBAQEBAQEBAQEBAQEBAQEB+Pn69vv+//////////////////////8BAwIDAgEBAQEBAQEBAQEBAQEBAQEBAQH8/Pz7/f///////////////////////wEFAwYDAgEBAQEBAQEBAQEBAQEBAQEBAfv7+vr9/v//////////////////////Aw4HEggEAgEBAQEBAQEBAQEBAQEBAQEB+vv5+v3+/////////////////////////P37/f////////////////////////8CAgICAQEBAQEBAQEBAQEBAQEBAQEBAQIEBAUDAQEBAQEBAQEBAQEBAQEBAQEBAf7+/f7/////////////////////////AgMDAwIBAQEBAQEBAQEBAQEBAQEBAQEB+vz4/P7///////////////////////8CBQUFAgEBAQEBAQEBAQEBAQEBAQEBAQH3+vP6/f7//////////////////////wUMDgwGAwIBAQEBAQEBAQEBAQEBAQEBAf7+/f7////////////////////////////+////////////////////////////+vv4/P7///////////////////////8DBwoGAwIBAQEBAQEBAQEBAQEBAQEBAQH///7////////////////////////////+/f7///////////////////////////z8/P7/////////////////////////AgMFAwEBAQEBAQEBAQEBAQEBAQEBAQEB/f39/v///////////////////////////////////////////////////////////v7//////////////////////////wIDBQIBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB////////AQ==")
 
@@ -566,6 +570,7 @@ script = ExtResource("2_i0hd8")
 
 [node name="Cannon" type="Node2D" parent="." unique_id=1669016483]
 z_index = 20
+material = SubResource("ShaderMaterial_qq0bq")
 script = ExtResource("2_slkt1")
 
 [node name="Sprite2D_cannon_u" type="Sprite2D" parent="Cannon" unique_id=130754022]

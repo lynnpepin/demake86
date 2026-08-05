@@ -83,29 +83,25 @@ initial_velocity_max = 72.0
 scale_amount_max = 3.0
 
 [node name="RayCast2D_see_left" type="RayCast2D" parent="." index="10" unique_id=1241106576]
-visible = false
 position = Vector2(-16, 0)
 target_position = Vector2(0, 64)
 collision_mask = 16
 collide_with_areas = true
 
 [node name="RayCast2D_see_right" type="RayCast2D" parent="." index="11" unique_id=1436258999]
-visible = false
 position = Vector2(16, 0)
 target_position = Vector2(0, 64)
 collision_mask = 16
 collide_with_areas = true
 
 [node name="RayCast2D_attack_left" type="RayCast2D" parent="." index="12" unique_id=1085028170]
-visible = false
-position = Vector2(-8, 0)
+position = Vector2(-9, 0)
 target_position = Vector2(0, 64)
 collision_mask = 16
 collide_with_areas = true
 
 [node name="RayCast2D_attack_right" type="RayCast2D" parent="." index="13" unique_id=858124282]
-visible = false
-position = Vector2(8, 0)
+position = Vector2(9, 0)
 target_position = Vector2(0, 64)
 collision_mask = 16
 collide_with_areas = true

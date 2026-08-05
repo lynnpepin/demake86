@@ -27,6 +27,7 @@ func pickup():
         _sfxs[selected_sound_i1].play()
         _sfxs[selected_sound_i2].play()
         _sfxs[selected_sound_i3].play()
+        Global.green_energy += 1
     
 func _on_area_2d_area_entered(area: Area2D) -> void:
     

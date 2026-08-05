@@ -6,8 +6,8 @@ var PlanetSplode = preload("res://Scenes/Screens/PlanetSplode.tscn")
 var also_tracking_position: Vector2
 var also_tracking_thatcher: bool = false
 var also_tracking_reagan: bool = false
-
-var opossums_saved: int = 0
+var opossums_saved: int = 0 # ugh, i forgot i had global.gd to track this.
+# todo: cleaner refactor put that into global
 
 func _ready() -> void:
     Global.game_timer = 0.0
