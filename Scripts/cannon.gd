@@ -166,7 +166,7 @@ func shoot_beam(delta: float) -> void:
     var b = BeamShot.instantiate()
     b.ice = owner.has_ice_beam
     b.wave = owner.has_wave_beam
-    b.damage = int(owner.has_ice_beam) + 3*int(owner.has_wave_beam) + int(owner.has_long_beam) + 2
+    b.damage = int(owner.has_ice_beam) + int(owner.has_wave_beam) + int(owner.has_long_beam) + 2
     var rawangle = -angle * PI / 4
     b.angle = rawangle
     b.velocity = Vector2(speed, 0).rotated(rawangle)
