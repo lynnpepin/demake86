@@ -119,7 +119,7 @@ func _ready():
             add_missiles(12)
             add_energy(6)
     else:
-        add_energy(3)
+        add_energy(4)
         position = Vector2(96, 160)
     if has_varia_suit:
         regain_barrier()
