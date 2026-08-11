@@ -52,8 +52,8 @@ func _process(delta: float) -> void:
             queue_free()
     
     # Handle hurt modulation
+    hurt_timer = max(0, hurt_timer - delta)
     if turn_red_on_hit:
-        hurt_timer = max(0, hurt_timer - delta)
         var _hurt_timer_color_intensity =  clamp(hurt_timer, 0.5 * int(hurt_timer > 0), 1.0)
         # Round it to steps
         _hurt_timer_color_intensity = floor(_hurt_timer_color_intensity * 4) / 4.0

@@ -34,9 +34,8 @@ IN SPACE!
  AUG-6-1986
 
  AUG-6-2026
-""",
 
-"""CREDITS
+CREDITS:
 """,
 
 """ A GAME BY

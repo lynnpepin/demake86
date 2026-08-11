@@ -103,7 +103,7 @@ func _physics_process(delta: float) -> void:
     )
 
 func hurt(damage: int, cooldown: float):
-    super(damage, cooldown)
+    super(damage, 0.0125)
 
 func freeze(time_to_freeze):
     if !dead:

@@ -39,7 +39,6 @@ window/size/extend_to_title=true
 window/size/sharp_corners=true
 window/stretch/mode="viewport"
 window/stretch/scale=8.0
-window/stretch/scale_mode="integer"
 window/vsync/vsync_mode=0
 window/snap/snap_2d_transforms_to_pixel=false
 

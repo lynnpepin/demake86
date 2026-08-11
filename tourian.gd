@@ -18,6 +18,7 @@ func tourian_activate_escape_layout():
 
 func start_escape():
     $EscapeEmbers.emitting = true
+    $EscapeEmbers_Shaft.emitting = true
     $StartEscape.play("StartEscape")
     # Disable sniping cheetos during escape
     for sniper in [
@@ -48,7 +49,7 @@ func start_escape():
     #$place_to_spawn_new_setona.get_parent().add_child(new_setona)
     #add_child(new_setona)
     $Setona2.position = $place_to_spawn_new_setona.position
-    $Setona2.health = 3000
+    $Setona2.health = 1986
     $Setona2.strike_distance = 8.0
     $Setona2.visible = true
     $Setona2.tracking = player
@@ -62,17 +63,21 @@ func _process(delta):
         get_parent().planet_splode(false)
     if escape_started:
         var adjdelta = delta
-        if escape_time < .1:
+        if escape_time < .01:
+            adjdelta = delta / 1000
+        elif escape_time < .1:
             adjdelta = delta / 100
-        if escape_time < .5:
-            adjdelta = delta / 10
         elif escape_time < 1:
-            adjdelta = delta / 8
+            adjdelta = delta / 10
         elif escape_time < 2:
             adjdelta = delta / 6
         elif escape_time < 3:
             adjdelta = delta / 4
+        elif escape_time < 4:
+            adjdelta = delta / 3
         elif escape_time < 6:
             adjdelta = delta / 2
+        elif escape_time < 12:
+            adjdelta = delta / 1.5
         escape_time -= adjdelta
         player.escape_time_set(min(escape_time, 19.86))
