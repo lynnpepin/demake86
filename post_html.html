@@ -1,0 +1,79 @@
+<p>Hi everyone! Promised keyboard controls change is here.</p>
+<p>The PC controls have received a lot of feedback for being perplexing.
+I am fixing it with this update! With an input-remapping menu still a
+“maybe if I get to it”, I want to apologize for anyone who has already
+grown accustomed to the shitty last-minute set of keyboard controls.</p>
+<p>How did this bad control scheme get pushed? During development, I
+played on a mixture of six different controllers (keyboard, Xbox
+controller, three different 8BitDo controllers, and PS5 controller). The
+original PC controls were ones which were familiar for me in FPS gaming:
+Ctrl, shift, Q, E, and Space making for the primary controls.</p>
+<p>In the last day of playtesting, I found players getting caught
+pressing <code>ctrl+W</code>, <code>ctrl+space</code>, etc. and finding
+out they were OS shortcuts on Windows. Oops! So, I haphazrdly threw in a
+new set of PC controls, ~twelve hours before publish.</p>
+<p>With a week of time to meditate on it, I put some thought into what a
+new control scheme should be. I want to enable three rough control
+schemes:</p>
+<ul>
+<li>“Classic arrow keys”, where the left hand is on z-x-c</li>
+<li>“WASD shooter”, a one-handed scheme, with jump for space and the
+keys surrounding WASD coming into use,</li>
+<li>“WASD classic”, with the left-hand on WASD and the right-hand on
+h-j-k-l.</li>
+</ul>
+<p>Where players can use any comfortable combination of these to play.
+:)</p>
+<p>With that said, here’s the thought process, and how I wittled down a
+new set of controls:</p>
+<hr />
+<p>First, WASD and arrow-keys are for directional movement, no questions
+about it. So, no “classic” bindings can make use of the ASD keys,
+they’ll be limited to the shift-z-x-c-v-b-n row.</p>
+<p>For the WASD bindings, I want PC shooter players to feel at home
+(with Q, E, ctrl, shift, and space playing a big role). So, we’ll keep
+<strong>shift</strong> for ball, <strong>ctrl</strong> for shoot, and
+<strong>space</strong> for jump.</p>
+<p>With these constraints, we can fill out the <strong>classic
+bindings</strong>. Taking precedent from default-bindings for Pico-8,
+default bindings from emulators like the VisualBoy Advance, and games
+like Cave Story or Undertale, we start with <strong>Z</strong> to jump
+and <strong>X</strong> to shoot. Shift for ball is already on this row,
+so that works great. The rest of the controls fill out naturally:
+<strong>C</strong> to aim, <strong>V</strong> to prime, and
+<strong>B</strong> for the combo move.</p>
+<blockquote>
+<p>What’s the combo move, you ask? It’s a secret! I don’t want players
+to have to break their fingers to pull off advanced frame-perfect
+strats. A special <strong>combo</strong> exists for the sick, dedicated
+speedrunners, to (1) enter you into the ball and (2) lay a bomb on the
+same frame.</p>
+</blockquote>
+<p>With the classic bindings filled out, <strong>WASD classic</strong>
+can be filled out. Here, I <a
+href="https://visualboyadvance.org/default-controls">reference VisualBoy
+Advance again</a>, which has the D-pad on WASD and buttons on LKIO. With
+a whole row above the right hand, I can invert the ZXC keys and put the
+lesser-used aim/prime/combo keys above. So, we’ll have
+<strong>L</strong> to jump, <strong>K</strong> to shoot,
+<strong>O</strong> to prime, and <strong>I</strong> to aim, which is
+perfectly in line with Metroid: Fusion and Metroid: Zero Mission. This
+leaves <strong>J</strong> as a natural binding for Ball and
+<strong>U</strong> for a natural binding for combo. To enable a perfect
+“mirror” of the “classic” binding (with pinky on shift for ball, ring on
+Z for jump, etc), I’ll also provide <strong>;</strong> (semicolon) for
+Ball.</p>
+<p>Returning to the mostly-one-handed <strong>WASD</strong> bindings, we
+already have ball (shift), shoot (ctrl), and jump (space). To leave the
+pinky- and middle- fingers free for aiming maneuvers, I will leave
+<strong>E</strong> to prime, and to make it symmetrical,
+<strong>Q</strong> to aim diagonally. For ergonomics, I also add
+<strong>F</strong> to aim diagonally. This leaves <strong>R</strong> to
+remain for the combo.</p>
+<p>Which… Still looks like a mess! But I trust people will</p>
+<p>So, what’s left?</p>
+<ul>
+<li>Open sourcing the repo is next,</li>
+<li>Fixing the broken Sfxr sound effects,</li>
+<li>Testing and pushing Mac builds on top of that</li>
+</ul>
