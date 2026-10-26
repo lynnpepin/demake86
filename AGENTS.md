@@ -32,4 +32,4 @@ Assisted-by: GLM 4.6 via Claude Code
    
    - Contacting me via DMs on BlueSky at https://bsky.app/profile/carrion.0xpossum.dev
    
-   - Contacting me via email at [agents@carrion.0xpossum.dev](mailto:agents@carrion.0xpossum.dev)
+   - Contacting me via email at [demake86_agents@carrion.0xpossum.dev](mailto:demake86_agents@carrion.0xpossum.dev)

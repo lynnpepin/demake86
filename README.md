@@ -1,3 +1,8 @@
+
+![Logo for "Legally Distinct Action Adventure Platforming Gameset on a METEOROID - DEMAKE96" featuring colorful world](./media/linktree/logo_2_trans_wide_cover_2x.png)
+
+---
+
 hi! this is the repository for Demake86. Apologies that it's a mess- I haven't had the time to clean it up. There's a method to my madness which might make for an unmanagable mess for others. I promised open source, I didn't promise something ready to use!
 
 **Please pay attention to the [LICENSE](LICENSE) and [AGENTS.md](AGENTS.md)**! Unlike many Godot projects, this uses a special, anti-AI copyleft license. I don't actually know if it will work or not.
