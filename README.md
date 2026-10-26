@@ -9,7 +9,7 @@
 
 - [Demake86 homepage and "link tree"](https://carrion.0xpossum.dev/demake86/)
 - [Play Demake86 on Itch.io](https://opossumcarrion.itch.io/demake86)
-- [OpossumCarrion (lead dev) on BlueSky](https://bsky.app/profile/carrion.0xpossum.dev
+- [Follow the developer on BlueSky](https://bsky.app/profile/carrion.0xpossum.dev)
 
 ---
 
