@@ -1,6 +1,6 @@
 
 <p align="center">
-  ![Logo for "Legally Distinct Action Adventure Platforming Gameset on a METEOROID - DEMAKE96" featuring colorful world](./media/linktree/logo_2_trans_wide_cover_2x.png)
+  <img alt="Logo for "Legally Distinct Action Adventure Platforming Gameset on a METEOROID - DEMAKE96" featuring colorful world" src="./media/linktree/logo_2_trans_wide_cover_2x.png" />
 </p>
 
 ---
