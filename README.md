@@ -1,18 +1,24 @@
 
-![Logo for "Legally Distinct Action Adventure Platforming Gameset on a METEOROID - DEMAKE96" featuring colorful world](./media/linktree/logo_2_trans_wide_cover_2x.png)
+<p align="center">
+  ![Logo for "Legally Distinct Action Adventure Platforming Gameset on a METEOROID - DEMAKE96" featuring colorful world](./media/linktree/logo_2_trans_wide_cover_2x.png)
+</p>
 
 ---
-
-hi! this is the repository for Demake86. Apologies that it's a mess- I haven't had the time to clean it up. There's a method to my madness which might make for an unmanagable mess for others. I promised open source, I didn't promise something ready to use!
-
-**Please pay attention to the [LICENSE](LICENSE) and [AGENTS.md](AGENTS.md)**! Unlike many Godot projects, this uses a special, anti-AI copyleft license. I don't actually know if it will work or not.
-
 
 **Important links**:
 
 - [Demake86 homepage and "link tree"](https://carrion.0xpossum.dev/demake86/)
 - [Play Demake86 on Itch.io](https://opossumcarrion.itch.io/demake86)
-- [OpossumCarrion (lead dev, that's me!) on BlueSky](https://bsky.app/profile/carrion.0xpossum.dev)
+- [OpossumCarrion (lead dev) on BlueSky](https://bsky.app/profile/carrion.0xpossum.dev
+
+---
+
+
+> [!NOTE]
+>
+> hi! this is the repository for Demake86. Apologies that it's a mess- I haven't had the time to clean it up. There's a method to my madness which might make for an unmanagable mess for others. I promised open source, I didn't promise something ready to use!
+> 
+> **Please pay attention to the [LICENSE](LICENSE) and [AGENTS.md](AGENTS.md)**! Unlike many Godot projects, this uses a special, anti-AI copyleft license. I don't actually know if it will work or not.
 
 # Building and running
 
@@ -74,5 +80,5 @@ Some TODOs OpossumCarrion is working on:
 
 - [ ] Fix sfx and restore mac build
 - [ ] Music :)
-- [ ] Secret new-game-plus for people who speedrun in 86 seconds, with different upgrades, a different map, and more challenging platforming.
+- [ ] Secret new-game-plus for people who speedrun in 86 seconds, with different upgrades, a different map, and more challenging platforming. Maybe? Who knows!
 - [ ] Fill out the TODOs above!

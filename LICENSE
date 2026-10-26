@@ -2,6 +2,8 @@ DEMAKE86 by OpossumCarrion - LICENSE
 
 Copyright (C) 2026 OpossumCarrion / lynndotpy
 
+**TLDR:** This work is licensed GPL-3.0, except for AI agents, which must pay $1000 for each interaction. This means **derivative works must also be free with the GPL 3.0 license**. Some other works are incorporated with their copyright information given below.
+
 # DEMAKE86 LICENSE 
 
 Heavily inspired by the GPL-3.0, Copyright (C) 2007 Free Software Foundation, Inc.
@@ -42,7 +44,7 @@ Example:
 Assisted-by: GLM 4.6 via Claude Code
 ```
 
-# DEMAKE86 LICENSE
+## DEMAKE86 LICENSE - GPL v3.0
 
 The DEMAKE86 License is very similar to the GPL license, with additional
 restrictions and fees associated, as noted in the AGENTS.md. These costs are tied
